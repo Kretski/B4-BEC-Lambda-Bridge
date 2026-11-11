@@ -67,3 +67,6 @@ Mean-field and LHY contributions will be kept separate.
 Repository initialized. The exact definitions of the BEC coefficients A_i and the corresponding Lambda_eff mapping remain to be specified and independently checked.
 
 No BEC-to-B4 operator matching is claimed.
+## UV candidate assessment (exploratory)
+See `docs/UV_ACCEPTANCE_PROTOCOL.md` (criteria T1-T8), `docs/UV_CANDIDATE_ASSESSMENT.md` (evidence table with scope of each verdict) and `docs/SCALAR_MEDIATOR_RESULT.md`.
+Proca is kept as a negative control. No candidate reproduces the B4 operator structure; BEC Stage 2 is deferred. Verdicts are limited to the named constructions.
