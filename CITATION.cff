@@ -1,7 +1,9 @@
+
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "B4-BEC-Lambda-Bridge"
-version: 0.1.0
+version: 0.2.0
+doi: "10.5281/zenodo.24144641"
 date-released: 2026-11-11
 license: MIT
 authors:
