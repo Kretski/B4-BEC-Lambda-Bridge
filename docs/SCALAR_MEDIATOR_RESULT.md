@@ -80,3 +80,8 @@ Not done: explicit growth-rate / energy-conservation check; amplitudes where the
 ## Stability / energy check of the heavy scalar probe (same background)
 Fluctuation amplitude 1e-3, T = 1600: total Hamiltonian drift (E - E0)/E0 = -5.2e-13 (dominated by the background energy 1549.88), fluctuation norm bounded between 1.0e-2 and 1.2e-2 (no growth).
 Principal symbol of (phi, psi, chi) = diag(Z, 1)(omega^2 - k^2), Z eigenvalues 1 and 1.517 > 0 on this background: ghost free there. Script: experiments/uv_candidates/stability_check.py (same equations as probe_on_background.py).
+
+## HeavyScalar_TwoField: population test (T2, T3, T4-proxy, T5-static, T5-Hamiltonian, T5-Krein)
+Full report: docs/HEAVY_SCALAR_POPULATION_REPORT.md. Script: experiments/uv_candidates/heavy_scalar_T2_T5_population.py. Data: results/heavy_scalar_population/.
+Summary (seed 21, 500 backgrounds per coupling set): all four of T2, T3, T4-proxy, T5-static hold on 428 / 500 / 500 backgrounds for (a,b,e) = (0.2,0.2,0.4) / (0.1,0.1,0.2) / (0.3,-0.2,0.1).
+T4-proxy is not the official T4, which remains unchecked for this model. T1 and T7 remain negative.
