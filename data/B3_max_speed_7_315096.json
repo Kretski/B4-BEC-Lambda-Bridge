@@ -1,0 +1,40 @@
+{
+  "record_name": "B3_max_speed_7_315096",
+  "source_context": "Recovered single-row JSON record from the original T1.7.3 B3 scan; exact row index 8899, mode rank1_minus.",
+  "index": 8899,
+  "mode": "rank1_minus",
+  "p": 0.05072130549385561,
+  "s": 0.32639425996872784,
+  "Lambda": 0.9645378634411128,
+  "q": -4.237158273982973,
+  "r": -1.6064767477012714,
+  "w": -3.6323792917796456,
+  "v": -0.47662815028331484,
+  "kappa": -0.12866679047568869,
+  "Xq": 0.9106254775083453,
+  "Xr": 0.8423477116649535,
+  "Xw": 0.669225999997443,
+  "Xv": 0.07414841809678635,
+  "temporal_sum": 0.7433744180942294,
+  "eft_domain": true,
+  "kinetic_positive": true,
+  "min_eig_A": 1.0,
+  "hyperbolic_at_sample": true,
+  "max_abs_imag_c": 0.0,
+  "max_abs_c": 7.315096255616975,
+  "roots_real": [
+    7.315096255616975,
+    -4.916360156290043,
+    2.7969453770704584,
+    -0.17461942910556702
+  ],
+  "companion_condition_proxy": 27.84918232608846,
+  "min_root_separation": 2.9715648061760254,
+  "near_degenerate_roots": false,
+  "eft_control": true,
+  "rank_one_check": {
+    "p_times_s": 0.01655514297131477,
+    "kappa_squared": 0.016555142971314774,
+    "absolute_difference": 3.469446951953614e-18
+  }
+}
