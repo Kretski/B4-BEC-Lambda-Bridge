@@ -45,3 +45,33 @@ Scale: |delta Psi| = 1 rad at 100 Hz corresponds to Lambda = 1.5e-8 m^2 (z = 0.1
 ## Comparison with the standard parametrisation (not verified)
 The structure matches the alpha = 4 case of parametrised dispersion tests (E^2 = p^2 c^2 + A p^alpha c^alpha), whose distance measure also involves
 Int (1+z')^(alpha-2)/H dz'. Conventions for the prefactor and sign differ between papers; this must be checked against the source before any comparison with published bounds.
+
+## Comparison with the two historical formulas of the Lambda-model (2026-11-12)
+Equivalent dimensionless forms, with [Lambda] = m^2 and f in Hz:
+    delta Psi = -4 pi^3 Lambda K_new f^3 / c^3 = -4 pi^3 Lambda K_old f^3 / c^2,   K_old = Int_0^z (1+z')^2 / H dz' [s],  K_new = c K_old [m].
+Group shift from the phase: delta t(f) = (1/2 pi) d(delta Psi)/df = -6 pi^2 Lambda K_old f^2 / c^2 = -(3 Lambda omega^2 / 2 c^2) K_old.
+The phase coefficient 4 pi^3 and the time coefficient 3/2 are mutually consistent. (delta Psi = 2 pi f delta t is not valid for a frequency-dependent group delay.)
+
+1. Matched-filter code of 2026-09-01: delta Psi = -4 pi^3 Lambda K_old f^3 / c^3 with K_old in seconds.
+   Same f^3 dependence, same integrand (1+z')^2/H, same sign. With Lambda in m^2 the expression has dimension s/m: either Lambda is in other units there,
+   or one factor of c is missing (a factor 3e8 in any numerical bound). OPEN until the code is inspected.
+2. Formula sheet of 2026-08-22: Delta t = (3 Lambda omega_obs^2 / 2 c^2) Int_0^z (1+z')/H dz'.
+   Coefficient: agrees. Sign: agrees if Delta t is defined as t_low - t_high (must be stated). Integrand: (1+z') is not what this dispersion law gives;
+   the derivation and the numerical integration give (1+z')^2:
+
+   | z | numeric delta t / (1.5 Lambda k0^2) | Int (1+z)^2/E | Int (1+z)/E |
+   |---|---|---|---|
+   | 0.1 | 0.107639 | 0.107640 | 0.102476 |
+   | 0.5 | 0.683156 | 0.683158 | 0.544266 |
+   | 1.0 | 1.678379 | 1.678386 | 1.113169 |
+   | 2.0 | 4.322516 | 4.322545 | 2.175142 |
+   (absolute values; dimensionless, c = H0 = 1, Omega_m = 0.31)
+   The k_loc^2 dependence is not an extra assumption: v_g = d omega/dk = c (1 + 2 Lambda k^2)/sqrt(1 + Lambda k^2) follows from omega = c k sqrt(1 + Lambda k^2).
+   The form (coefficient (1+n)/2, integrand (1+z)^n, here n = 2) is that of Jacob and Piran (2008) for energy-dependent propagation speeds; that paper supports the
+   cosmological integration for such a dispersion law, not the physical origin of the Lambda term. (Checked by the second reviewer, not by this analysis.)
+
+Sign convention: the negative cubic term means earlier arrival of high frequencies for Lambda > 0 provided h~(f) = A exp(i Psi) with Psi_GR containing +2 pi f t_c.
+It must not be carried over to another Fourier convention without conversion.
+
+T8 status: not confirmed. Open: units of Lambda and the power of c in the 2026-09-01 code; sign of the 2 pi f t_c term in Psi_GR; whether published numerical
+bounds on Lambda need to be recomputed.
