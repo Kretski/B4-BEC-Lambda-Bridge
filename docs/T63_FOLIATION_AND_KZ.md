@@ -74,9 +74,29 @@ The phase coefficient 4 pi^3 and the time coefficient 3/2 are mutually consisten
 Sign convention: the negative cubic term means earlier arrival of high frequencies for Lambda > 0 provided h~(f) = A exp(i Psi) with Psi_GR containing +2 pi f t_c.
 It must not be carried over to another Fourier convention without conversion.
 
+## Inspection of the 2026-09-01 matched-filter code (waveform.py, fragments supplied by the project lead, 2026-11-12)
+Code facts:
+- cosmological_K_factor: K = Int_0^z (1+z')^2/H dz' with H in 1/s, so K is in seconds (H0 = 67.4, Om = 0.315, OL = 0.685).
+- lambda_phase_correction: -(4 pi^3 Lambda K_z / C_SI^3) f^3.
+- taylorf2_leading_order: Psi_GR = +2 pi f tc - phi_c - pi/4 + ..., and the waveform is A exp(+i Psi_total).
+- Docstring derivation: Delta T(omega) = -(Lambda / 2 c^3) omega^2 K(z), then Delta Psi = 2 pi f Delta T.
+
+T8.2 (Fourier convention): confirmed in the code itself. With +2 pi f tc and exp(+i Psi), the negative cubic term means earlier arrival of high
+frequencies for Lambda > 0, as in the derivation above.
+
+T8.1 (dimensions and normalisation), assuming Lambda is defined by omega = c k sqrt(1 + Lambda k^2) with [Lambda] = m^2:
+- Correct phase with K in seconds: -(4 pi^3 Lambda K / c^2) f^3. The code divides by c^3. The code expression has dimension s/m.
+- Therefore the parameter called Lambda in the code equals c * Lambda numerically in SI:  Lambda_true [m^2] = Lambda_code / c  (c = 2.998e8).
+  The code underestimates the phase for a given Lambda by a factor c; any bound or sensitivity quoted for Lambda in m^2 from this code is too loose by that factor.
+- Because the phase is linear in Lambda, existing results do not need to be re-run: the Lambda axis (values, grids, priors, bounds) is rescaled by exactly 1/c.
+  Injection-recovery tests that use the same template for injection and recovery remain valid as pipeline tests.
+- The docstring derivation contains two errors that cancel in the numerical coefficient: the time shift lacks the factor 3 (correct: -(3 Lambda/2c^2) omega^2 K),
+  and Delta Psi = 2 pi f Delta T is used instead of Delta Psi = Int 2 pi Delta T df (which gives a factor 1/3). The coefficient 4 pi^3 is right; the power of c is not.
+- Not checked: other files using the same formula (lalsim_waveform.py, likelihood.py, the gwosc_* scripts, Paper 2), and where numerical bounds were published.
+
 ## Status
 - Cosmological propagation with T = cosmic time: derived and checked numerically (this note).
 - T6.3 (global compatibility source-detector): NOT established. No single function T joining the Kerr/ZAMO region to the cosmological foliation is constructed.
-- T8.1 (dimensions and numerical normalisation of the 2026-09-01 code; possible factor c in bounds on Lambda): open, needs the code.
-- T8.2 (Fourier convention: the actual 2 pi f t_c term in Psi_GR in the code, not only in comments): open, needs the code.
-- T8 as a whole: not confirmed.
+- T8.1: resolved for waveform.py as stated above (factor c, under the stated definition of Lambda). Other files and published numbers: open.
+- T8.2: resolved for waveform.py.
+- T8 as a whole: formula and convention consistent after the 1/c rescaling; not confirmed as an observable until the remaining files and quoted bounds are checked.
