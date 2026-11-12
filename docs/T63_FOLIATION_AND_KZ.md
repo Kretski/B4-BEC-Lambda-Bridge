@@ -74,29 +74,41 @@ The phase coefficient 4 pi^3 and the time coefficient 3/2 are mutually consisten
 Sign convention: the negative cubic term means earlier arrival of high frequencies for Lambda > 0 provided h~(f) = A exp(i Psi) with Psi_GR containing +2 pi f t_c.
 It must not be carried over to another Fourier convention without conversion.
 
-## Inspection of the 2026-09-01 matched-filter code (waveform.py, fragments supplied by the project lead, 2026-11-12)
+## Inspection of the Lambda-model matched-filter code (waveform.py and callers; search output supplied by the project lead, 2026-11-12)
 Code facts:
 - cosmological_K_factor: K = Int_0^z (1+z')^2/H dz' with H in 1/s, so K is in seconds (H0 = 67.4, Om = 0.315, OL = 0.685).
-- lambda_phase_correction: -(4 pi^3 Lambda K_z / C_SI^3) f^3.
+- lambda_phase_correction: -(4 pi^3 Lambda K_z / C_SI^3) f^3. All other files import this function (lalsim_waveform.py, likelihood.py, stage scripts);
+  stage4_coherent_h1l1_validation.py line 205 repeats the same expression.
 - taylorf2_leading_order: Psi_GR = +2 pi f tc - phi_c - pi/4 + ..., and the waveform is A exp(+i Psi_total).
-- Docstring derivation: Delta T(omega) = -(Lambda / 2 c^3) omega^2 K(z), then Delta Psi = 2 pi f Delta T.
+- convention_check.py (status "closed, September 2026"): Lam = hbar^2 c^3 A4 with the comment [m^3/s]; it prints "Lambda_min ... m^3/s = (value/c) m^2"
+  and compares the phase with the GWTC-4.0 alpha = 4 parametrisation. test_matched_filter_pipeline.py asserts the C_SI^3 form.
 
-T8.2 (Fourier convention): confirmed in the code itself. With +2 pi f tc and exp(+i Psi), the negative cubic term means earlier arrival of high
-frequencies for Lambda > 0, as in the derivation above.
+T8.2 (Fourier convention): confirmed in the code. With +2 pi f tc and exp(+i Psi), the negative cubic term means earlier arrival of high frequencies for Lambda > 0.
 
-T8.1 (dimensions and normalisation), assuming Lambda is defined by omega = c k sqrt(1 + Lambda k^2) with [Lambda] = m^2:
-- Correct phase with K in seconds: -(4 pi^3 Lambda K / c^2) f^3. The code divides by c^3. The code expression has dimension s/m.
-- Therefore the parameter called Lambda in the code equals c * Lambda numerically in SI:  Lambda_true [m^2] = Lambda_code / c  (c = 2.998e8).
-  The code underestimates the phase for a given Lambda by a factor c; any bound or sensitivity quoted for Lambda in m^2 from this code is too loose by that factor.
-- Because the phase is linear in Lambda, existing results do not need to be re-run: the Lambda axis (values, grids, priors, bounds) is rescaled by exactly 1/c.
-  Injection-recovery tests that use the same template for injection and recovery remain valid as pipeline tests.
-- The docstring derivation contains two errors that cancel in the numerical coefficient: the time shift lacks the factor 3 (correct: -(3 Lambda/2c^2) omega^2 K),
-  and Delta Psi = 2 pi f Delta T is used instead of Delta Psi = Int 2 pi Delta T df (which gives a factor 1/3). The coefficient 4 pi^3 is right; the power of c is not.
-- Not checked: other files using the same formula (lalsim_waveform.py, likelihood.py, the gwosc_* scripts, Paper 2), and where numerical bounds were published.
+T8.1 (dimensions and normalisation): NO factor-c error in the matched-filter code.
+- The code parameter is Lambda_code = hbar^2 c^3 A4 in m^3/s. With Lambda_code in m^3/s and K in seconds, -(4 pi^3 Lambda_code K / c^3) f^3 is dimensionless.
+- Relation to the Lambda of omega = c k sqrt(1 + Lambda k^2) ([Lambda] = m^2, equal to hbar^2 c^2 A4): Lambda_code = c * Lambda. Then
+  -(4 pi^3 Lambda_code K / c^3) f^3 = -(4 pi^3 Lambda K / c^2) f^3, identical to the re-derived formula of this note. The conversion Lambda[m^2] = Lambda_code/c
+  is already printed by convention_check.py.
+- CORRECTION: an earlier version of this section (commit bb83db2) described the C_SI^3 denominator as an error under the assumption [Lambda] = m^2.
+  That assumption does not hold for the code. The denominator must NOT be changed to C_SI^2; doing so would break the validated convention.
+- Grids and injected values in the scripts (for example +-0.5, +-2, +-5, +-20) are therefore in m^3/s; divide by c for m^2.
+
+Remaining inconsistencies (documentation and legacy scripts, not the matched-filter phase):
+1. waveform.py does not state the unit of Lambda in lambda_phase_correction or in the module docstring.
+2. The module docstring derives the phase from Delta T = -(Lambda/2c^3) omega^2 K and Delta Psi = 2 pi f Delta T. With the group velocity the time shift is
+   -(3 Lambda_code/2c^3) omega^2 K and the phase follows from d(Delta Psi)/df = 2 pi Delta T. The two slips cancel, so the coefficient 4 pi^3 is right, but the
+   written derivation is not valid.
+3. The legacy time-domain scripts (gwosc_chirp_dispersion_test.py line 203, gwosc_injection_recovery_test.py line 111) use Delta T = -(Lambda/2c^3) omega^2 K,
+   i.e. coefficient 1/2 where the group-velocity result consistent with the matched-filter phase is 3/2. A Lambda fitted with those scripts differs by a factor 3
+   from the matched-filter definition. phase_convention_check.py already distinguishes the particle-velocity (+4 pi^3/3) and group-velocity (-4 pi^3) phases.
+4. Not checked here: Paper 2 and where numerical bounds were published, and in which unit they were quoted.
 
 ## Status
 - Cosmological propagation with T = cosmic time: derived and checked numerically (this note).
 - T6.3 (global compatibility source-detector): NOT established. No single function T joining the Kerr/ZAMO region to the cosmological foliation is constructed.
-- T8.1: resolved for waveform.py as stated above (factor c, under the stated definition of Lambda). Other files and published numbers: open.
-- T8.2: resolved for waveform.py.
-- T8 as a whole: formula and convention consistent after the 1/c rescaling; not confirmed as an observable until the remaining files and quoted bounds are checked.
+- T8.1: resolved. The matched-filter phase is dimensionally consistent with Lambda_code in m^3/s = c * Lambda[m^2]; open only: units in published numbers and the
+  factor 3 in the legacy time-domain scripts.
+- T8.2: resolved.
+- T8 as a whole: the re-derived formula and the matched-filter implementation agree (coefficient, integrand, sign, units). Not a confirmation that the effect
+  exists; it is a consistent, falsifiable observable.
