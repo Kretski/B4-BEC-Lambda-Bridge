@@ -4,7 +4,9 @@ Status: version 2 of the proposal, awaiting review by the project lead. Version 
 Nothing here is in force until it is registered in UV_ACCEPTANCE_PROTOCOL_ADDENDUM_T3_T6.md. No candidate is evaluated against T3-fund before registration.
 Historical T3-B4 results are not changed by this protocol.
 
-Changes from version 1: decisions of the project lead on the three open questions (2026-11-13) and four required clarifications (A-D):
+Changes from version 1: decisions of the project lead on the three open questions and four required clarifications (A-D), and three further decisions
+(2026-11-13): energy tolerance calibrated on the free system with 1e-9 as target; no physical threshold on positive growth in C3; all five existing
+constructions are tested as full models (k -> infinity). In detail:
 two regimes (fundamental / EFT with declared k_max); FAIL-UNSTABLE counts as a T3-fund failure; C1 needs an analytic argument for k -> infinity (A);
 C3 no longer borrows the root tolerance (B); C2 documentation requirements (C); C4 energy and norm definitions (D).
 
@@ -56,18 +58,25 @@ P5 C2 documentation (clarification C). The verdict on C2 must record: the first-
    the reality of the principal roots (P3); the condition number of the eigenvector matrix (indicator only, threshold 1e8, representation dependent);
    and, whenever two principal roots coincide within 1e-6 relative, an analytic argument for or against a complete set of eigenvectors.
    Without that argument a degenerate case is INCONCLUSIVE.
-P6 C3 (clarification B). No separate numerical tolerance is borrowed from P3. A mode is growing if a complex root is confirmed in 50-digit arithmetic (P3)
-   on the tested range. The report gives gamma_hat_max, the band of k, and the e-folding time 1/gamma. No lower cut on gamma_hat is applied in this version;
-   a physical relevance threshold, if wanted, must be registered separately with its justification.
+P6 C3 (clarification B; decision of 2026-11-13). The criterion is gamma(k) = max_j Im omega_j(k) <= 0 within numerical uncertainty. No physical threshold
+   for an "acceptably small" positive growth rate is introduced: positive growth is a physical instability, not an error to be neglected.
+   - Growth that exceeds the numerical uncertainty and is confirmed under refinement (roots of the exact polynomial recomputed at 50 and at 100 digits,
+     and the k grid refined by a factor 4 inside the band): FAIL-UNSTABLE. Report gamma_hat_max, the band of k and the e-folding time 1/gamma.
+   - Apparent growth within the numerical uncertainty (not confirmed, or changing sign under refinement): INCONCLUSIVE.
+   - No positive growth on the tested range: C3 holds.
 P7 C4 (clarification D).
    - Initial data: Gaussian wave packet(s) in the light fields, amplitude 1e-3 of the background gradient scale, heavy field unperturbed; fully specified in the script.
    - Norm: L2 norm over the box of all fluctuation fields (light and heavy), recorded at >= 100 times over a duration >= 1000/M; the time series is plotted.
      Test criterion: max over time of norm / initial norm <= 3. This is a criterion for this test, not a definition of stability.
    - Energy: the total conserved energy of the full system (all fields). For Lagrangian models without dissipation its conservation is a requirement on
-     the integrator, not on the model. The drift is measured on the fluctuation energy E_fl = E_total - E_background, with the background part subtracted
-     analytically (the earlier check, relative to E_total, was dominated by the background and is not sensitive enough).
-     Tolerance: |E_fl(t) - E_fl(0)| <= 1e-6 E_fl(0), PROVISIONAL: to be calibrated on the free (uncoupled) system before registration, since that system is not a candidate.
-     For a model with dissipation or sources the stated balance law replaces conservation.
+     the integrator, not on the model. For a model with dissipation or sources the stated balance law replaces conservation.
+     Target: relative drift of the total energy <= 1e-9 over the run. The target is not assumed to be attainable: it is calibrated on the free system
+     (all couplings set to zero) with the same numerical method, time step and spatial grid, repeated at (2N, dt/2); the drift must decrease under refinement.
+     If the free system does not reach the target, C4 is INCONCLUSIVE for the candidates, not a FAIL of the physical model.
+     Implementation note (to be confirmed by the project lead): the calibration run uses the same background gradients and the same initial perturbation
+     as the candidate run. A free system with no perturbation has constant fields and conserves energy trivially, so it would not test the integrator.
+     Additional diagnostic, reported but not a pass criterion: drift of the fluctuation energy E_fl = E_total - E_background with the background part
+     subtracted analytically. (The total energy is dominated by the background, so the total-energy drift alone is a weak test of the fluctuations.)
    - Convergence: all of the above repeated at (N, dt) and (2N, dt/2); results agree within 1 %.
 P8 Backgrounds: the sets used for T2, plus the candidate's own stationary backgrounds; seeds fixed and recorded.
 
@@ -84,17 +93,25 @@ T2 overlaps with C2 and C3; T3-fund adds the regime declaration, the k -> infini
 ill-posed from unstable, the time-domain confirmation and the INCONCLUSIVE rules. T5 (positive energy) is sufficient but not necessary for C3.
 T3-B4 keeps its historical values. T6 is independent.
 
-## Existing candidates: what would be needed (no evaluation performed)
-| Candidate | Regime to be declared by the project lead | Available input | Missing |
-|---|---|---|---|
-| Proca | not declared | exact characteristic polynomial; principal symbol | exact background check (C0); C2 eigenvector argument; 50-digit confirmation; C4 |
-| Scalar mediator | not declared | principal symbol (1 - c^2) d1 d2, analytic | C1 asymptotic statement; C2 documentation; C4 |
-| Scalar mediator + dynamical eta | not declared | principal symbol as above; stationary eta on 17/41 backgrounds | C0 on the other 24; C1/C2; C4 |
-| HeavyScalar, one light field | not declared | principal symbol proportional to (omega^2 - k^2), analytic | C3 on a population; C4 |
-| HeavyScalar, two light fields | not declared | det K = (c^2 - 1) x quartic; Z > 0 criterion; population data; one time-domain run | regime and k_max if EFT; fluctuation-energy drift (P7); second resolution for C4 |
-Existing analytic results and data are reused where they cover the criteria; missing checks are marked as missing, not assumed.
+## Regime of the existing candidates (decision of the project lead, 2026-11-13)
+Rule: full UV constructions that contain their heavy fields explicitly are tested as full models, asymptotically to k -> infinity. Restricting the test to
+k < M would test only the EFT approximation, not the construction that claims to complete it.
+If inspection of the actual equations shows that a model is only an EFT with an explicit cutoff, its regime is changed BEFORE its test, with a justified k_max.
+The regime is never changed after the fact to rescue a candidate with bad asymptotic behaviour.
 
-## Still open in this version
-1. Calibration of the P7 energy tolerance on the free system.
-2. Whether a physical relevance threshold on gamma_hat is wanted (P6).
-3. The regime declaration for each existing candidate.
+| Candidate | Regime | Available input | Missing |
+|---|---|---|---|
+| Proca mediator | FUNDAMENTAL (k -> infinity) | exact characteristic polynomial; principal symbol | exact background check (C0); C2 eigenvector argument; high-precision confirmation; C4 |
+| Scalar mediator | FUNDAMENTAL | principal symbol (1 - c^2) d1 d2, analytic | C1 asymptotic statement; C2 documentation; C4 |
+| Scalar mediator + dynamical eta | FUNDAMENTAL | principal symbol as above; stationary eta on 17/41 backgrounds | C0 on the other 24; C1/C2; C4 |
+| HeavyScalar, one light field | FUNDAMENTAL | principal symbol proportional to (omega^2 - k^2), analytic | C3 on a population; C4 |
+| HeavyScalar, two light fields | FUNDAMENTAL | det K = (c^2 - 1) x quartic; Z > 0 criterion; population data; one time-domain run | C2 documentation; calibrated energy drift (P7); second resolution for C4 |
+
+The existing results for these five candidates are NOT PASS or FAIL under this protocol. They are historical results, reused only where they cover the
+new criteria; missing checks are marked as missing, not assumed.
+
+## Decisions closed in this version
+1. Energy tolerance: calibration on the free system; 1e-9 is the target (P7).
+2. C3: no physical threshold on positive growth (P6).
+3. Regime: all five existing constructions are FUNDAMENTAL.
+Remaining point for the final review: the implementation note in P7 (calibration with a perturbation).
