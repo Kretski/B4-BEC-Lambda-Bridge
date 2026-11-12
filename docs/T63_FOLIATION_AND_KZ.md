@@ -67,11 +67,16 @@ The phase coefficient 4 pi^3 and the time coefficient 3/2 are mutually consisten
    | 2.0 | 4.322516 | 4.322545 | 2.175142 |
    (absolute values; dimensionless, c = H0 = 1, Omega_m = 0.31)
    The k_loc^2 dependence is not an extra assumption: v_g = d omega/dk = c (1 + 2 Lambda k^2)/sqrt(1 + Lambda k^2) follows from omega = c k sqrt(1 + Lambda k^2).
-   The form (coefficient (1+n)/2, integrand (1+z)^n, here n = 2) is that of Jacob and Piran (2008) for energy-dependent propagation speeds; that paper supports the
-   cosmological integration for such a dispersion law, not the physical origin of the Lambda term. (Checked by the second reviewer, not by this analysis.)
+   This is the same cosmological dependence as the quadratic case (n = 2) of Jacob and Piran (2008): coefficient (1+n)/2, integrand (1+z)^n.
+   Only the mathematical structure of the propagation is shared; this is not a claim that the Lambda-model is an LIV model, and the physical
+   interpretation of Lambda is a separate question. (Reference checked by the second reviewer, not by this analysis.)
 
 Sign convention: the negative cubic term means earlier arrival of high frequencies for Lambda > 0 provided h~(f) = A exp(i Psi) with Psi_GR containing +2 pi f t_c.
 It must not be carried over to another Fourier convention without conversion.
 
-T8 status: not confirmed. Open: units of Lambda and the power of c in the 2026-09-01 code; sign of the 2 pi f t_c term in Psi_GR; whether published numerical
-bounds on Lambda need to be recomputed.
+## Status
+- Cosmological propagation with T = cosmic time: derived and checked numerically (this note).
+- T6.3 (global compatibility source-detector): NOT established. No single function T joining the Kerr/ZAMO region to the cosmological foliation is constructed.
+- T8.1 (dimensions and numerical normalisation of the 2026-09-01 code; possible factor c in bounds on Lambda): open, needs the code.
+- T8.2 (Fourier convention: the actual 2 pi f t_c term in Psi_GR in the code, not only in comments): open, needs the code.
+- T8 as a whole: not confirmed.
