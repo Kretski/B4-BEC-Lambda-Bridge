@@ -49,6 +49,8 @@ edits and no change of the physical criteria: (1) P7, the free calibration backg
 definition of the numerical uncertainty; (3) P2a, a separate check at k = 0. From this point the criteria and tolerances are not changed in the light of results.
 The existing results for all candidates are historical evidence, not PASS or FAIL under this protocol. Evaluation starts after this registration,
 beginning with the calibration of P7 on the free system.
+Clarification 1 (project lead, 2026-11-13, recorded before any evaluation): the three-band rule for gamma against u(k) in P6 and the explicit ZERO MODE
+class in P2a. The margin 10 on u(k) and the zero-mode rule are explicit decisions of the project lead. No physical criterion is changed.
 
 ### What T3-fund tests
 Under preferred-foliation causality T3-fund asks whether linear evolution in the preferred time T is well posed and stable, in the frame of the observer field.
@@ -96,8 +98,8 @@ P3 Root classification in double precision, r = |Im c| / max(1, |c|), c = omega/
 P2a The point k = 0. The logarithmic grid starts at k/M = 1e-3, and the classification by c = omega/k does not apply at k = 0. The zero-wavenumber
    sector is therefore checked separately, by the analytic limit k -> 0 or by solving the characteristic system det K(omega, k = 0) = 0 directly for omega
    and classifying with r = |Im omega|/max(M, |omega|) and the same bounds as P3. Exponential growth at k = 0 fails C3 like any other mode.
-   A double root omega = 0 of a massless field (solutions a + b t, a uniform shift of the background gradient) is not exponential growth; it is recorded
-   as a zero mode, not as an instability.
+   A double root omega = 0 of a massless field (solutions a + b t, a uniform change of the field or of the background gradient) is not exponential growth;
+   it is classified as ZERO MODE, not as FAIL-UNSTABLE. A solution with exponential growth at k = 0 may not be classified as a zero mode.
 P4 Growth with k (diagnostic): where confirmed complex roots exist in [1e4, 1e6], fit gamma ~ k^s; s > 0.05 indicates ill-posedness.
 P5 C2 documentation (clarification C). The verdict on C2 must record: the first-order form of the system used; the normalisation of the variables;
    the reality of the principal roots (P3); the condition number of the eigenvector matrix (indicator only, threshold 1e8, representation dependent);
@@ -108,9 +110,11 @@ P6 C3 (clarification B; decision of 2026-11-13). The criterion is gamma(k) = max
    - Numerical uncertainty u(k) is measured, not postulated: u(k) = |gamma computed at 50 digits - gamma computed at 100 digits| at the same k, and, on the
      refined k grid (factor 4 inside the band), the largest change of gamma between a coarse point and its neighbouring refined points beyond what the
      100-digit values themselves give. No threshold on gamma/M is introduced.
-   - Growth is CONFIRMED if gamma > 10 u(k) at both precisions and gamma stays positive on at least three consecutive points of the refined grid:
-     FAIL-UNSTABLE. Report gamma_hat_max, the band of k, u(k) and the e-folding time 1/gamma. (The factor 10 is a margin on the measured uncertainty.)
-   - Apparent growth with gamma <= 10 u(k), or changing sign under refinement: INCONCLUSIVE.
+   - u(k) is the estimated uncertainty of gamma(k) itself, not the relative error of the root c. The factor 10 below is a margin on u(k).
+   - gamma(k) <= u(k): no positive growth established; C3 holds at that k.
+   - u(k) < gamma(k) <= 10 u(k), or gamma changing sign under refinement: INCONCLUSIVE.
+   - gamma(k) > 10 u(k): candidate for FAIL-UNSTABLE; it becomes FAIL-UNSTABLE after the mandatory confirmation (both precisions, and gamma positive on at
+     least three consecutive points of the refined grid). Report gamma_hat_max, the band of k, u(k) and the e-folding time 1/gamma.
    - No positive growth on the tested range: C3 holds.
 P7 C4 (clarification D).
    - Initial data: Gaussian wave packet(s) in the light fields, amplitude 1e-3 of the background gradient scale, heavy field unperturbed; fully specified in the script.
