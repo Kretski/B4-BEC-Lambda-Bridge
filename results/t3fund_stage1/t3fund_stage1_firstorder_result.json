@@ -1,0 +1,86 @@
+{
+ "A1_J0eq0_seed11": {
+  "n": 400,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   3
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 0.006604462292497892,
+  "max_rel_diff_gamma_over_k_above_1e3": 9.17746807706219e-06,
+  "energy_bound_max": 0.5427720979927447,
+  "max_gamma_first_order": 7.275957614183426e-10,
+  "bound_violations": 0
+ },
+ "A2_manifest40": {
+  "n": 40,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   3
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 9.895826829316484e-10,
+  "max_rel_diff_gamma_over_k_above_1e3": 2.7260866039392984e-12,
+  "energy_bound_max": 0.8502157744618519,
+  "max_gamma_first_order": 0.22453285451798843,
+  "bound_violations": 0
+ },
+ "A3_general_seed41": {
+  "n": 100,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   3
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 4.565624767131822e-07,
+  "max_rel_diff_gamma_over_k_above_1e3": 3.5998662155226967e-10,
+  "energy_bound_max": 0.9488623608492648,
+  "max_gamma_first_order": 0.2828429574207363,
+  "bound_violations": 0
+ },
+ "B1_Zpos_seed31": {
+  "n": 200,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   2
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 1.1610556760928222e-09,
+  "max_rel_diff_gamma_over_k_above_1e3": 3.207935316894662e-08,
+  "energy_bound_max": 47.26983032500326,
+  "max_gamma_first_order": 5.607041838487588,
+  "bound_violations": 0
+ },
+ "B2_anchors": {
+  "n": 4,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   2
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 3.3756030268706964e-12,
+  "max_rel_diff_gamma_over_k_above_1e3": 3.6362344161549273e-12,
+  "energy_bound_max": 0.7562061292456466,
+  "max_gamma_first_order": 1.4551915228366852e-10,
+  "bound_violations": 0
+ },
+ "B3_control_Zneg_seed32": {
+  "n": 50,
+  "A_symmetric": true,
+  "A_real_eigs": true,
+  "max_cond_eigvec": 1.0000000000000004,
+  "zero_eigenvalue_counts": [
+   2
+  ],
+  "max_abs_diff_gamma_k_le_1e3": 5.763096666555612e-10,
+  "max_rel_diff_gamma_over_k_above_1e3": 7.07231873597891e-10,
+  "energy_bound_max": 3.932183492768241,
+  "max_gamma_first_order": 2.096496486434906,
+  "bound_violations": 0
+ }
+}
