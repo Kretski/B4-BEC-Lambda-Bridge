@@ -1,0 +1,71 @@
+{
+ "Pred1_H1": {
+  "H1_K1": {
+   "n": 296,
+   "PASS": 241,
+   "FAIL": 55,
+   "INCONCLUSIVE": 0,
+   "other": 0,
+   "match": 296,
+   "exceptions": 0
+  },
+  "H1_K3": {
+   "n": 300,
+   "PASS": 282,
+   "FAIL": 18,
+   "INCONCLUSIVE": 0,
+   "other": 0,
+   "match": 300,
+   "exceptions": 0
+  },
+  "H1_K4": {
+   "n": 300,
+   "PASS": 273,
+   "FAIL": 27,
+   "INCONCLUSIVE": 0,
+   "other": 0,
+   "match": 300,
+   "exceptions": 0
+  }
+ },
+ "Pred1_exceptions": [],
+ "Pred2": {
+  "unstable_not_complex_at_kmin": 0,
+  "H1_with_complex_in_uv_band": 0
+ },
+ "Pred3": {
+  "H3": {
+   "n": 50,
+   "fail_unstable": 50
+  },
+  "H2": {
+   "n": 4,
+   "fail_ghost": 4
+  },
+  "anchors": {
+   "ANCHOR_B2h": "PASS",
+   "ANCHOR_B2k": "PASS",
+   "ANCHOR_B2s": "PASS",
+   "ANCHOR_B2z": "PASS"
+  }
+ },
+ "Pred4": {
+  "n_checked": 240,
+  "max_root_distance": 1.5281184601930547e-12
+ },
+ "diag": {
+  "max_poly_vs_K": 6.019449184200367e-13,
+  "max_fo_dist": 3.261458990624659e-14,
+  "max_C0_residual": 5.551115123125783e-17,
+  "hidden_by_double": 0,
+  "unresolved_stuck": 0,
+  "max_u": 2.6731544e-49,
+  "min_ratio": 5.14093e+46,
+  "max_consec_ge3_all": true,
+  "outcome_counts": {
+   "FAIL-UNSTABLE": 150,
+   "PASS": 800,
+   "FAIL-GHOST": 4
+  }
+ }
+}
