@@ -1,0 +1,6 @@
+max |EL residual on background| (phi,psi,sigma,eta): 7.15102769973616e-17
+max rel diff det K (jet Hessian) vs det(linearised EL): 9.896642376963518e-15
+max abs error of closed forms (Zt=1-gB, X=1+gB, Y=gA, Y^2+ZtX=1+g^2 sig^2, N=2g(A al-B be), H_etaeta=4 sig^2, H_sigma-eta=0): 3.3306690738754696e-16
+k=0 identity (quadratic in omega^2 after Schur elimination of phi,psi): max rel err 2.596940761865634e-15
+principal part K(ck,k)/k^2 vs closed form (k=1e5): max rel diff (O(1/k) expected): 2.8460079104919137e-05
+leading c^8 coefficient of det K / k^8 vs Zt_phi Zt_psi f: max rel err 1.865174681370263e-14
