@@ -1,0 +1,80 @@
+{
+ "protocol": {
+  "N8192_dt0.05": {
+   "N": 8192,
+   "dt": 0.05,
+   "eps": 0.00028521904742010183,
+   "n_records": 201,
+   "drift_total_max": 5.637379897618402e-09,
+   "drift_total_final": -5.637379897618402e-09,
+   "drift_fl_max": 0.025570627759767515,
+   "norm0": 0.0014706577732835385,
+   "norm_ratio_max": 1.0,
+   "norm_final_ratio": 0.9999999614529839,
+   "E0": 2.451895034399853,
+   "Efl0": 5.405523832990866e-07,
+   "seconds": 229.10248565673828
+  },
+  "N16384_dt0.025": {
+   "N": 16384,
+   "dt": 0.025,
+   "eps": 0.0002852280502672695,
+   "n_records": 201,
+   "drift_total_max": 1.7617349316207518e-10,
+   "drift_total_final": -1.7617349316207518e-10,
+   "drift_fl_max": 0.0007990558059183241,
+   "norm0": 0.0014707041941214476,
+   "norm_ratio_max": 1.0,
+   "norm_final_ratio": 0.9999999987955015,
+   "E0": 2.451895034434135,
+   "Efl0": 5.40586664765641e-07,
+   "seconds": 918.813232421875
+  },
+  "refinement": {
+   "drift_total_ratio": 31.999024350571027,
+   "norm_ratio_max_rel_diff": 0.0,
+   "drift_decreases": true,
+   "target_reached_coarse": false,
+   "target_reached_fine": true
+  }
+ },
+ "extra_chi_perturbed_NOT_PROTOCOL": {
+  "N8192_dt0.05": {
+   "N": 8192,
+   "dt": 0.05,
+   "eps": 0.00028521904742010183,
+   "n_records": 201,
+   "drift_total_max": 5.6397512039152945e-09,
+   "drift_total_final": -5.6397512039152945e-09,
+   "drift_fl_max": 0.011356464561215635,
+   "norm0": 0.0018011805654011882,
+   "norm_ratio_max": 1.0,
+   "norm_final_ratio": 0.9068766854529899,
+   "E0": 2.4518957114871425,
+   "Efl0": 1.217639672645987e-06,
+   "seconds": 232.40755534172058
+  },
+  "N16384_dt0.025": {
+   "N": 16384,
+   "dt": 0.025,
+   "eps": 0.0002852280502672695,
+   "n_records": 201,
+   "drift_total_max": 1.762475228989882e-10,
+   "drift_total_final": -1.762475228989882e-10,
+   "drift_fl_max": 0.00035487773639896657,
+   "norm0": 0.0018012374190843432,
+   "norm_ratio_max": 1.0,
+   "norm_final_ratio": 0.9068785099370881,
+   "E0": 2.451895711564169,
+   "Efl0": 1.217716698587168e-06,
+   "seconds": 926.6104896068573
+  },
+  "refinement": {
+   "drift_total_ratio": 31.99903812065248,
+   "norm_ratio_max_rel_diff": 0.0,
+   "drift_decreases": true,
+   "target_reached_coarse": false,
+   "target_reached_fine": true
+  }
+ }
+}
