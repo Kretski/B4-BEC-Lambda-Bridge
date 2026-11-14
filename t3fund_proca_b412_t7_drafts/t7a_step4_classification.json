@@ -1,0 +1,652 @@
+{
+ "controls": {
+  "C1": {
+   "description": "D_t(f_t f_x f_t f_tx) in sector f4 -> c = 0",
+   "result": "PASS"
+  },
+  "C2": {
+   "description": "D_x^2(f_t^4) = 12 f_t^2 f_tx^2 + 4 f_t^3 f_txx in sector f4 -> c = 0",
+   "result": "PASS"
+  },
+  "C3": {
+   "description": "D_t(f_t f_x g_t g_tx) in sector f2g2 -> c = 0",
+   "result": "PASS"
+  },
+  "C4": {
+   "description": "every basis monomial b_k gives the unit vector e_k (all sectors)",
+   "result": "PASS"
+  },
+  "C5": {
+   "description": "f<->g compared as IBP classes: (a) dim f4 = dim g4; (b) E(sigma(R_g4) - X_f4) = 0; (c) X_f2g2 sigma-invariant, E(sigma(R_f2g2) - X_f2g2) = 0, recanonization gives the same c",
+   "parts": {
+    "a": true,
+    "b": true,
+    "c_invariance_and_class": true,
+    "c_recanonization": true
+   },
+   "result": "PASS"
+  },
+  "C6": {
+   "description": "own E_f, E_g on X_S equal sympy.calculus.euler.euler_equations (Function representation), all sectors",
+   "result": "PASS"
+  },
+  "C7_test_fields": {
+   "P_f/P_g (times exp(-(t^2+x^2)))": [
+    {
+     "P_f": "t*x**2 + t + x + 1",
+     "P_g": "t**2*x - t + 2"
+    },
+    {
+     "P_f": "3*t**2*x + t - x**2",
+     "P_g": "t**3 + x + 1"
+    }
+   ]
+  },
+  "C7a": {
+   "cases": [
+    {
+     "dtJ_nonzero": true,
+     "g_phi": 1,
+     "g_psi": 1,
+     "integral": "1342801*pi/131072",
+     "regime": "g_phi g_psi > 0"
+    },
+    {
+     "dtJ_nonzero": true,
+     "g_phi": 1,
+     "g_psi": -1,
+     "integral": "7826279*pi/524288",
+     "regime": "g_phi g_psi < 0"
+    }
+   ],
+   "description": "positivity of the full expression: int (d_t J)^2 > 0 with d_t J != 0, test pair 1, both sign regimes",
+   "result": "PASS"
+  },
+  "C7b": {
+   "cases": [
+    {
+     "equal": true,
+     "int_R": "5958329*pi/2097152",
+     "int_X": "5958329*pi/2097152",
+     "pair": 1,
+     "sector": "f4"
+    },
+    {
+     "equal": true,
+     "int_R": "-2455075*pi/2097152",
+     "int_X": "-2455075*pi/2097152",
+     "pair": 1,
+     "sector": "f2g2"
+    },
+    {
+     "equal": true,
+     "int_R": "20436637*pi/2097152",
+     "int_X": "20436637*pi/2097152",
+     "pair": 1,
+     "sector": "g4"
+    },
+    {
+     "equal": true,
+     "int_R": "3710429*pi/2097152",
+     "int_X": "3710429*pi/2097152",
+     "pair": 2,
+     "sector": "f4"
+    },
+    {
+     "equal": true,
+     "int_R": "-15975*pi/2097152",
+     "int_X": "-15975*pi/2097152",
+     "pair": 2,
+     "sector": "f2g2"
+    },
+    {
+     "equal": true,
+     "int_R": "2892225*pi/2097152",
+     "int_X": "2892225*pi/2097152",
+     "pair": 2,
+     "sector": "g4"
+    }
+   ],
+   "description": "supplementary exact-integral check int X_S = int R_S, two test pairs; necessary, not sufficient; NOT an independent implementation",
+   "result": "PASS"
+  }
+ },
+ "meta": {
+  "algorithm_version": "v0.8.1",
+  "python": "3.13.18",
+  "scope_exclusions": "no independent IBP-matrix implementation, no numerical verification, no M^-6, no B4.12 conclusions",
+  "script_sha256": "6b8b3d5c3ab5afd8bee16bfb4b0e764608dd3aa2a941cd80a02faf30b6399150",
+  "spec": "T7A_STEP4_CLASSIFICATION_ALGORITHM_PROPOSAL.md v0.8.1 (e7ab8d4); canonical rule v0.7.1; option A (v0.6)",
+  "status": "DRAFT - unregistered, not a T7a result",
+  "sympy": "1.14.0"
+ },
+ "sectors": {
+  "f2g2": {
+   "X_S": "1*[f_x f_tt g_x g_tt] + 1*[f_x f_tt g_t g_tx] + 1*[f_t f_tx g_x g_tt] + 1*[f_t f_tx g_t g_tx]",
+   "basis": [
+    {
+     "index": 0,
+     "label": "f_x f_x g_tt g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "f_x f_t g_tx g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "f_x f_tx g_t g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "label": "f_x f_tt g_x g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 4,
+     "label": "f_x f_tt g_t g_tx",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "label": "f_xx f_t g_t g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 6,
+     "label": "f_xx f_tt g_t g_t",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 7,
+     "label": "f_t f_t g_xx g_tt",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       0,
+       2
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 8,
+     "label": "f_t f_t g_tx g_tx",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       1,
+       1
+      ]
+     ]
+    },
+    {
+     "index": 9,
+     "label": "f_t f_tx g_x g_tt",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 10,
+     "label": "f_tx f_tt g_x g_t",
+     "triples": [
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 11,
+     "label": "f_tt f_tt g_x g_x",
+     "triples": [
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ]
+     ]
+    }
+   ],
+   "canonical_representative": "1*[f_x f_tx g_t g_tt] + 1*[f_x f_tt g_x g_tt] + 1*[f_xx f_t g_t g_tt] + 1*[f_t f_tx g_x g_tt]",
+   "coords": [
+    "0",
+    "0",
+    "1",
+    "1",
+    "0",
+    "1",
+    "0",
+    "0",
+    "0",
+    "1",
+    "0",
+    "0"
+   ],
+   "dim": 12,
+   "n_VS": 26,
+   "prefactor": "g_phi*g_psi/M**4",
+   "rank_checks": true,
+   "residual_zero": true
+  },
+  "f4": {
+   "X_S": "1*[f_x f_x f_tt f_tt] + 2*[f_x f_t f_tx f_tt] + 1*[f_t f_t f_tx f_tx]",
+   "basis": [
+    {
+     "index": 0,
+     "label": "f_x f_x f_tt f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "f_x f_t f_tx f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "f_xx f_t f_t f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    }
+   ],
+   "canonical_representative": "1*[f_x f_x f_tt f_tt] + 2*[f_x f_t f_tx f_tt] + 1*[f_xx f_t f_t f_tt]",
+   "coords": [
+    "1",
+    "2",
+    "1"
+   ],
+   "dim": 3,
+   "n_VS": 7,
+   "prefactor": "g_phi**2/(2*M**4)",
+   "rank_checks": true,
+   "residual_zero": true
+  },
+  "g4": {
+   "X_S": "1*[g_x g_x g_tt g_tt] + 2*[g_x g_t g_tx g_tt] + 1*[g_t g_t g_tx g_tx]",
+   "basis": [
+    {
+     "index": 0,
+     "label": "g_x g_x g_tt g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "g_x g_t g_tx g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "g_xx g_t g_t g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       2
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    }
+   ],
+   "canonical_representative": "1*[g_x g_x g_tt g_tt] + 2*[g_x g_t g_tx g_tt] + 1*[g_xx g_t g_t g_tt]",
+   "coords": [
+    "1",
+    "2",
+    "1"
+   ],
+   "dim": 3,
+   "n_VS": 7,
+   "prefactor": "g_psi**2/(2*M**4)",
+   "rank_checks": true,
+   "residual_zero": true
+  }
+ },
+ "total": "(g_phi**2/(2*M**4)) * [f_x f_x f_tt f_tt] + (g_phi**2/M**4) * [f_x f_t f_tx f_tt] + (g_phi**2/(2*M**4)) * [f_xx f_t f_t f_tt] + (g_phi*g_psi/M**4) * [f_x f_tx g_t g_tt] + (g_phi*g_psi/M**4) * [f_x f_tt g_x g_tt] + (g_phi*g_psi/M**4) * [f_xx f_t g_t g_tt] + (g_phi*g_psi/M**4) * [f_t f_tx g_x g_tt] + (g_psi**2/(2*M**4)) * [g_x g_x g_tt g_tt] + (g_psi**2/M**4) * [g_x g_t g_tx g_tt] + (g_psi**2/(2*M**4)) * [g_xx g_t g_t g_tt]",
+ "verdict": "ALL_CHECKS_PASS"
+}

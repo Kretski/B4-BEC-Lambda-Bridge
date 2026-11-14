@@ -1,0 +1,57 @@
+T7a step 4 symbolic classification - DRAFT - unregistered, not a T7a result
+algorithm v0.8.1; python 3.13.18; sympy 1.14.0
+script sha256 6b8b3d5c3ab5afd8bee16bfb4b0e764608dd3aa2a941cd80a02faf30b6399150
+
+[sector f4] prefactor g_phi**2/(2*M**4)
+  X_S = 1*[f_x f_x f_tt f_tt] + 2*[f_x f_t f_tx f_tt] + 1*[f_t f_t f_tx f_tx]
+  |V_S| = 7, dim(V_S/~) = 3, rank_checks = True, residual_zero = True
+  basis (greedy order):
+    b0: f_x f_x f_tt f_tt
+    b1: f_x f_t f_tx f_tt
+    b2: f_xx f_t f_t f_tt
+  coords c = [1, 2, 1]
+  canonical representative R_S = 1*[f_x f_x f_tt f_tt] + 2*[f_x f_t f_tx f_tt] + 1*[f_xx f_t f_t f_tt]
+
+[sector f2g2] prefactor g_phi*g_psi/M**4
+  X_S = 1*[f_x f_tt g_x g_tt] + 1*[f_x f_tt g_t g_tx] + 1*[f_t f_tx g_x g_tt] + 1*[f_t f_tx g_t g_tx]
+  |V_S| = 26, dim(V_S/~) = 12, rank_checks = True, residual_zero = True
+  basis (greedy order):
+    b0: f_x f_x g_tt g_tt
+    b1: f_x f_t g_tx g_tt
+    b2: f_x f_tx g_t g_tt
+    b3: f_x f_tt g_x g_tt
+    b4: f_x f_tt g_t g_tx
+    b5: f_xx f_t g_t g_tt
+    b6: f_xx f_tt g_t g_t
+    b7: f_t f_t g_xx g_tt
+    b8: f_t f_t g_tx g_tx
+    b9: f_t f_tx g_x g_tt
+    b10: f_tx f_tt g_x g_t
+    b11: f_tt f_tt g_x g_x
+  coords c = [0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0]
+  canonical representative R_S = 1*[f_x f_tx g_t g_tt] + 1*[f_x f_tt g_x g_tt] + 1*[f_xx f_t g_t g_tt] + 1*[f_t f_tx g_x g_tt]
+
+[sector g4] prefactor g_psi**2/(2*M**4)
+  X_S = 1*[g_x g_x g_tt g_tt] + 2*[g_x g_t g_tx g_tt] + 1*[g_t g_t g_tx g_tx]
+  |V_S| = 7, dim(V_S/~) = 3, rank_checks = True, residual_zero = True
+  basis (greedy order):
+    b0: g_x g_x g_tt g_tt
+    b1: g_x g_t g_tx g_tt
+    b2: g_xx g_t g_t g_tt
+  coords c = [1, 2, 1]
+  canonical representative R_S = 1*[g_x g_x g_tt g_tt] + 2*[g_x g_t g_tx g_tt] + 1*[g_xx g_t g_t g_tt]
+
+Delta L^(M^-4) in the off-shell basis:
+  (g_phi**2/(2*M**4)) * [f_x f_x f_tt f_tt] + (g_phi**2/M**4) * [f_x f_t f_tx f_tt] + (g_phi**2/(2*M**4)) * [f_xx f_t f_t f_tt] + (g_phi*g_psi/M**4) * [f_x f_tx g_t g_tt] + (g_phi*g_psi/M**4) * [f_x f_tt g_x g_tt] + (g_phi*g_psi/M**4) * [f_xx f_t g_t g_tt] + (g_phi*g_psi/M**4) * [f_t f_tx g_x g_tt] + (g_psi**2/(2*M**4)) * [g_x g_x g_tt g_tt] + (g_psi**2/M**4) * [g_x g_t g_tx g_tt] + (g_psi**2/(2*M**4)) * [g_xx g_t g_t g_tt]
+
+controls:
+  C1: PASS - D_t(f_t f_x f_t f_tx) in sector f4 -> c = 0
+  C2: PASS - D_x^2(f_t^4) = 12 f_t^2 f_tx^2 + 4 f_t^3 f_txx in sector f4 -> c = 0
+  C3: PASS - D_t(f_t f_x g_t g_tx) in sector f2g2 -> c = 0
+  C4: PASS - every basis monomial b_k gives the unit vector e_k (all sectors)
+  C5: PASS - f<->g compared as IBP classes: (a) dim f4 = dim g4; (b) E(sigma(R_g4) - X_f4) = 0; (c) X_f2g2 sigma-invariant, E(sigma(R_f2g2) - X_f2g2) = 0, recanonization gives the same c
+  C6: PASS - own E_f, E_g on X_S equal sympy.calculus.euler.euler_equations (Function representation), all sectors
+  C7a: PASS - positivity of the full expression: int (d_t J)^2 > 0 with d_t J != 0, test pair 1, both sign regimes
+  C7b: PASS - supplementary exact-integral check int X_S = int R_S, two test pairs; necessary, not sufficient; NOT an independent implementation
+
+ALL_CHECKS_PASS
