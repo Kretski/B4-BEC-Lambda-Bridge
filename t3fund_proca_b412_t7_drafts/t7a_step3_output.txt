@@ -1,0 +1,17 @@
+K*M^2 series in 1/M^2: -eps**2*k**2*omega**2 + eps**2*omega**4 + eps*omega**2 + 1
+cross coefficient of O2 = g_phi*g_psi/M**2  => kappa = -cross = -g_phi*g_psi/M**2
+conv_F2 -> 0
+conv_mass -> 0
+gauss_form -> 0
+A1_form -> 0
+F_in_A1 -> 0
+K_claim -> 0
+p -> 0
+s -> 0
+kappa_from_cross -> 0
+kappa_is_minus_gg_over_M2 -> 0
+kappa2_eq_ps -> 0
+ALL_ZERO
+quadratic coefficient c = M**2*(-M**2 - k**2 + omega**2)/(M**2 + k**2)
+check K = -1/c : 0
+check on-shell: stationary value factor -1/(2c) vs K/2 : 0
