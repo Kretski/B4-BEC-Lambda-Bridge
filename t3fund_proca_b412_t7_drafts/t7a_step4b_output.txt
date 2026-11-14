@@ -1,0 +1,53 @@
+T7a step 4b independent IBP-matrix implementation - DRAFT - unregistered, not a T7a result
+spec v0.9; python 3.13.18; pure Python Fraction (no SymPy, no Euler operator)
+script sha256 2995149f19144f622f2f6e956b6f5e69dd23b076fdd24036a394f190df99633d
+step4 json sha256 aaf07cc060d5508101bf66b711a1a5ba184b34bd0ddcb548a32c4f6e07f57269 (expected aaf07cc060d5508101bf66b711a1a5ba184b34bd0ddcb548a32c4f6e07f57269)
+
+[sector f4] |V_S| = 7, |O_S| = 18
+  preimages: D_t on (3,2): 15 (12 with underived); D_x on (4,1): 11 (9 with underived)
+  relations: 26, rank T = 19, dim W_S = 4, dim(V_S/~) = 3, ablation dim = 3
+  basis (greedy order, modulo W_S):
+    b0: f_x f_x f_tt f_tt
+    b1: f_x f_t f_tx f_tt
+    b2: f_xx f_t f_t f_tt
+  coords c = [1, 2, 1], residual_zero = True
+
+[sector f2g2] |V_S| = 26, |O_S| = 81
+  preimages: D_t on (3,2): 62 (52 with underived); D_x on (4,1): 44 (38 with underived)
+  relations: 106, rank T = 80, dim W_S = 14, dim(V_S/~) = 12, ablation dim = 12
+  basis (greedy order, modulo W_S):
+    b0: f_x f_x g_tt g_tt
+    b1: f_x f_t g_tx g_tt
+    b2: f_x f_tx g_t g_tt
+    b3: f_x f_tt g_x g_tt
+    b4: f_x f_tt g_t g_tx
+    b5: f_xx f_t g_t g_tt
+    b6: f_xx f_tt g_t g_t
+    b7: f_t f_t g_xx g_tt
+    b8: f_t f_t g_tx g_tx
+    b9: f_t f_tx g_x g_tt
+    b10: f_tx f_tt g_x g_t
+    b11: f_tt f_tt g_x g_x
+  coords c = [0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0], residual_zero = True
+
+[sector g4] |V_S| = 7, |O_S| = 18
+  preimages: D_t on (3,2): 15 (12 with underived); D_x on (4,1): 11 (9 with underived)
+  relations: 26, rank T = 19, dim W_S = 4, dim(V_S/~) = 3, ablation dim = 3
+  basis (greedy order, modulo W_S):
+    b0: g_x g_x g_tt g_tt
+    b1: g_x g_t g_tx g_tt
+    b2: g_xx g_t g_t g_tt
+  coords c = [1, 2, 1], residual_zero = True
+
+controls:
+  K1: PASS - D_t(f_t f_x f_t f_tx) reduces to 0 mod W_f4, c = 0
+  K2: PASS - D_x^2(f_t^4) = 12 f_t^2 f_tx^2 + 4 f_t^3 f_txx; reduces to 0 mod W_f4
+  K3: PASS - D_t(f_t f_x g_t g_tx) reduces to 0 mod W_f2g2, c = 0
+  K4: PASS - every basis monomial b_k gives the unit vector e_k (all sectors)
+  K5: PASS - every W_S basis vector has zero O_S part; raw relation counts reported per sector
+  K6a: PASS - two independent enumerations of U_S, P_t, P_x agree; preimages with underived factors present (>0)
+  K7: PASS - step 4 JSON sha256 verified; dims, bases (same monomials, same order) and exact coords identical, all sectors
+  K6b (report only): f4: ablation 3 vs full 3, f2g2: ablation 12 vs full 12, g4: ablation 3 vs full 3
+  K5 raw relations: f4: 5 wholly in V_S, 21 leave V_S, 0 zero, f2g2: 16 wholly in V_S, 90 leave V_S, 0 zero, g4: 5 wholly in V_S, 21 leave V_S, 0 zero
+
+ALL_CHECKS_PASS

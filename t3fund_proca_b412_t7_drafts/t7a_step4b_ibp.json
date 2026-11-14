@@ -1,0 +1,660 @@
+{
+ "controls": {
+  "K1": {
+   "description": "D_t(f_t f_x f_t f_tx) reduces to 0 mod W_f4, c = 0",
+   "result": "PASS"
+  },
+  "K2": {
+   "description": "D_x^2(f_t^4) = 12 f_t^2 f_tx^2 + 4 f_t^3 f_txx; reduces to 0 mod W_f4",
+   "result": "PASS"
+  },
+  "K3": {
+   "description": "D_t(f_t f_x g_t g_tx) reduces to 0 mod W_f2g2, c = 0",
+   "result": "PASS"
+  },
+  "K4": {
+   "description": "every basis monomial b_k gives the unit vector e_k (all sectors)",
+   "result": "PASS"
+  },
+  "K5": {
+   "description": "every W_S basis vector has zero O_S part; raw relation counts reported per sector",
+   "raw_relations": {
+    "f2g2": {
+     "leave_VS": 90,
+     "total": 106,
+     "wholly_in_VS": 16,
+     "zero": 0
+    },
+    "f4": {
+     "leave_VS": 21,
+     "total": 26,
+     "wholly_in_VS": 5,
+     "zero": 0
+    },
+    "g4": {
+     "leave_VS": 21,
+     "total": 26,
+     "wholly_in_VS": 5,
+     "zero": 0
+    }
+   },
+   "result": "PASS"
+  },
+  "K6a": {
+   "description": "two independent enumerations of U_S, P_t, P_x agree; preimages with underived factors present (>0)",
+   "per_sector": {
+    "f2g2": {
+     "enumerations_agree": true,
+     "n_preimages_with_underived": 90
+    },
+    "f4": {
+     "enumerations_agree": true,
+     "n_preimages_with_underived": 21
+    },
+    "g4": {
+     "enumerations_agree": true,
+     "n_preimages_with_underived": 21
+    }
+   },
+   "result": "PASS"
+  },
+  "K6b_ablation_report_only": {
+   "description": "dim(V_S/~) using only preimages without underived factors; report only",
+   "per_sector": {
+    "f2g2": {
+     "ablation_dim": 12,
+     "full_dim": 12
+    },
+    "f4": {
+     "ablation_dim": 3,
+     "full_dim": 3
+    },
+    "g4": {
+     "ablation_dim": 3,
+     "full_dim": 3
+    }
+   }
+  },
+  "K7": {
+   "description": "step 4 JSON sha256 verified; dims, bases (same monomials, same order) and exact coords identical, all sectors",
+   "per_sector": {
+    "f2g2": {
+     "basis_identical": true,
+     "coords_identical": true,
+     "dim_equal": true,
+     "dim_ibp": 12,
+     "dim_step4": 12
+    },
+    "f4": {
+     "basis_identical": true,
+     "coords_identical": true,
+     "dim_equal": true,
+     "dim_ibp": 3,
+     "dim_step4": 3
+    },
+    "g4": {
+     "basis_identical": true,
+     "coords_identical": true,
+     "dim_equal": true,
+     "dim_ibp": 3,
+     "dim_step4": 3
+    }
+   },
+   "result": "PASS",
+   "step4_json_sha256_ok": true
+  }
+ },
+ "meta": {
+  "independence": "pure Python Fraction; no SymPy, no Euler operator, no import from step 4",
+  "python": "3.13.18",
+  "scope_exclusions": "no registration, no numerical verification, no M^-6, no B4.12 conclusions",
+  "script_sha256": "2995149f19144f622f2f6e956b6f5e69dd23b076fdd24036a394f190df99633d",
+  "spec": "T7A_STEP4B_IBP_MATRIX_PROPOSAL.md v0.9 (4074199); canonical rule v0.7.1; option A (v0.6)",
+  "spec_version": "v0.9",
+  "status": "DRAFT - unregistered, not a T7a result",
+  "step4_json_sha256": "aaf07cc060d5508101bf66b711a1a5ba184b34bd0ddcb548a32c4f6e07f57269"
+ },
+ "sectors": {
+  "f2g2": {
+   "ablation_dim": 12,
+   "basis": [
+    {
+     "index": 0,
+     "label": "f_x f_x g_tt g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "f_x f_t g_tx g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "f_x f_tx g_t g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "label": "f_x f_tt g_x g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 4,
+     "label": "f_x f_tt g_t g_tx",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "label": "f_xx f_t g_t g_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 6,
+     "label": "f_xx f_tt g_t g_t",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 7,
+     "label": "f_t f_t g_xx g_tt",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       0,
+       2
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 8,
+     "label": "f_t f_t g_tx g_tx",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       1,
+       1
+      ]
+     ]
+    },
+    {
+     "index": 9,
+     "label": "f_t f_tx g_x g_tt",
+     "triples": [
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 10,
+     "label": "f_tx f_tt g_x g_t",
+     "triples": [
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 11,
+     "label": "f_tt f_tt g_x g_x",
+     "triples": [
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ]
+     ]
+    }
+   ],
+   "coords": [
+    "0",
+    "0",
+    "1",
+    "1",
+    "0",
+    "1",
+    "0",
+    "0",
+    "0",
+    "1",
+    "0",
+    "0"
+   ],
+   "dim": 12,
+   "dim_WS": 14,
+   "n_OS": 81,
+   "n_VS": 26,
+   "n_preimages_t": 62,
+   "n_preimages_t_with_underived": 52,
+   "n_preimages_x": 44,
+   "n_preimages_x_with_underived": 38,
+   "n_relations": 106,
+   "rank_T": 80,
+   "residual_zero": true
+  },
+  "f4": {
+   "ablation_dim": 3,
+   "basis": [
+    {
+     "index": 0,
+     "label": "f_x f_x f_tt f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "f_x f_t f_tx f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       1
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       1
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "f_xx f_t f_t f_tt",
+     "triples": [
+      [
+       "f",
+       0,
+       2
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       1,
+       0
+      ],
+      [
+       "f",
+       2,
+       0
+      ]
+     ]
+    }
+   ],
+   "coords": [
+    "1",
+    "2",
+    "1"
+   ],
+   "dim": 3,
+   "dim_WS": 4,
+   "n_OS": 18,
+   "n_VS": 7,
+   "n_preimages_t": 15,
+   "n_preimages_t_with_underived": 12,
+   "n_preimages_x": 11,
+   "n_preimages_x_with_underived": 9,
+   "n_relations": 26,
+   "rank_T": 19,
+   "residual_zero": true
+  },
+  "g4": {
+   "ablation_dim": 3,
+   "basis": [
+    {
+     "index": 0,
+     "label": "g_x g_x g_tt g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "label": "g_x g_t g_tx g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       1
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       1
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "label": "g_xx g_t g_t g_tt",
+     "triples": [
+      [
+       "g",
+       0,
+       2
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       1,
+       0
+      ],
+      [
+       "g",
+       2,
+       0
+      ]
+     ]
+    }
+   ],
+   "coords": [
+    "1",
+    "2",
+    "1"
+   ],
+   "dim": 3,
+   "dim_WS": 4,
+   "n_OS": 18,
+   "n_VS": 7,
+   "n_preimages_t": 15,
+   "n_preimages_t_with_underived": 12,
+   "n_preimages_x": 11,
+   "n_preimages_x_with_underived": 9,
+   "n_relations": 26,
+   "rank_T": 19,
+   "residual_zero": true
+  }
+ },
+ "verdict": "ALL_CHECKS_PASS"
+}
