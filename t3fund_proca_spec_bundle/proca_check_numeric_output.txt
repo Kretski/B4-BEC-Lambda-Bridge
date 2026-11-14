@@ -1,0 +1,3 @@
+(3) EL vs reduced system (max abs residual over 3 points): {'gauss_EL_a0': 1.4656095090861708e-16, 'A1t_identity': 2.5123497788258145e-16, 'EL_f': 2.220446049250313e-16, 'EL_g': 1.1102230246251565e-16, 'EL_A1': 2.7755575615628914e-17}
+(4) dE/dt (Richardson) = 3.9474596431116676e-14  relative to E: 1.6802496500219886e-15
+(5) max |eig(i*M_lin) - k*roots(Q)| over 48 (background,k) pairs, 50 digits: 6.5002e-48

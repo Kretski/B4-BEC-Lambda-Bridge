@@ -1,0 +1,1 @@
+backgrounds with strictly hyperbolic P_inf: 397  violations of gamma<=mu: 0  max gamma 1.8189894035458565e-11

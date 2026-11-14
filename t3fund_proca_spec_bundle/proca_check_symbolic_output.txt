@@ -1,0 +1,10 @@
+C0 residuals (symbolic): [0, 0, 0, 0]
+trial 0 L1 (linear terms on bg) = 67*Derivative(f(t, x), t)/36 + 25*Derivative(f(t, x), x)/27 - 187*Derivative(g(t, x), t)/162 - 479*Derivative(g(t, x), x)/648  residual = 0
+trial 1 L1 (linear terms on bg) = 19*Derivative(f(t, x), t)/9 + 169*Derivative(f(t, x), x)/1728 - 1049*Derivative(g(t, x), t)/216 - 25*Derivative(g(t, x), x)/9  residual = 0
+trial 2 L1 (linear terms on bg) = -25*Derivative(f(t, x), t)/18 - 23*Derivative(f(t, x), x)/72 + 5*Derivative(g(t, x), t)/24 + 3*Derivative(g(t, x), x)/2  residual = 0
+trial 3 L1 (linear terms on bg) = 23*Derivative(f(t, x), t)/4 + 241*Derivative(f(t, x), x)/48 - 107*Derivative(g(t, x), t)/8 + 23*Derivative(g(t, x), x)  residual = 0
+trial 4 L1 (linear terms on bg) = -487*Derivative(f(t, x), t)/288 - 5*Derivative(f(t, x), x)/96 - 133*Derivative(g(t, x), t)/144 + 47*Derivative(g(t, x), x)/72  residual = 0
+trial 5 L1 (linear terms on bg) = 61*Derivative(f(t, x), t)/48 - 23*Derivative(f(t, x), x)/96 + 17*Derivative(g(t, x), t)/9 - 11*Derivative(g(t, x), x)/36  residual = 0
+trial 6 L1 (linear terms on bg) = 10*Derivative(f(t, x), t)/3 - 259*Derivative(f(t, x), x)/144 + 131*Derivative(g(t, x), t)/36 + 73*Derivative(g(t, x), x)/36  residual = 0
+trial 7 L1 (linear terms on bg) = 65*Derivative(f(t, x), t)/12 - 161*Derivative(f(t, x), x)/48 + 289*Derivative(g(t, x), t)/36 + 17*Derivative(g(t, x), x)/18  residual = 0
+done
