@@ -1,0 +1,11 @@
+f2 FAIL-UNSTABLE n_complex 92 kmin True uvband True P6 {'n_refined': 365, 'n_unique_refined': 365, 'n_rows': 365, 'complete': True, 'max_u_str': '1.8507892e-45', 'max_consecutive_gt10u': 365, 'max_gamma': 705921.6702227485} E False F_max_imag 0.7180228381894765 hyper False mu False hidden 0 tiny 0 P6complete True
+f4 FAIL-UNSTABLE n_complex 92 kmin True uvband True P6 {'n_refined': 365, 'n_unique_refined': 365, 'n_rows': 365, 'complete': True, 'max_u_str': '4.8147155e-46', 'max_consecutive_gt10u': 365, 'max_gamma': 258517.42979275875} E False F_max_imag 0.21292199944238785 hyper False mu False hidden 0 tiny 0 P6complete True
+f5 FAIL-UNSTABLE n_complex 92 kmin True uvband True P6 {'n_refined': 365, 'n_unique_refined': 365, 'n_rows': 365, 'complete': True, 'max_u_str': '2.9583889e-46', 'max_consecutive_gt10u': 365, 'max_gamma': 170614.12420377982} E False F_max_imag 0.17041753313956445 hyper False mu False hidden 0 tiny 0 P6complete True
+f8 FAIL-UNSTABLE n_complex 92 kmin True uvband True P6 {'n_refined': 365, 'n_unique_refined': 365, 'n_rows': 365, 'complete': True, 'max_u_str': '1.7896566e-46', 'max_consecutive_gt10u': 365, 'max_gamma': 153915.10771374698} E False F_max_imag 0.15536623830512683 hyper False mu False hidden 0 tiny 0 P6complete True
+tried 8 non-PASS found 4
+ghost control: FAIL-GHOST
+hidden-by-double test: hidden_by_double = 92  n_complex = 92  unresolved = 0  outcome = FAIL-UNSTABLE
+P6 completeness test: complete = False  n_rows = 0  n_refined = 365  C3 = INCONCLUSIVE  outcome = INCONCLUSIVE
+classification test on a real background with double forced complex: n_real = 92  n_complex = 0  outcome = PASS
+nodata-masking test: n_nodata = 1  n_complex = 1  P6 = {'n_refined': 9, 'n_unique_refined': 9, 'n_rows': 9, 'complete': True, 'max_u_str': '1.2589254e-5', 'max_consecutive_gt10u': 0, 'max_gamma': 1.2589254117941675e-05}  C3 = INCONCLUSIVE  outcome = INCONCLUSIVE
+unit tests passed
