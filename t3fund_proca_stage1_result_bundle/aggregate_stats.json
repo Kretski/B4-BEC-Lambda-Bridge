@@ -1,0 +1,117 @@
+{
+ "identities": 10081,
+ "outcomes": {
+  "PASS": 9901,
+  "FAIL-UNSTABLE": 140,
+  "FAIL-GHOST": 40
+ },
+ "PE": {
+  "PASS": 28,
+  "FAIL-UNSTABLE": 13
+ },
+ "PE_by_mode": {
+  "rank1_minus": {
+   "PASS": 14,
+   "FAIL-UNSTABLE": 7
+  },
+  "rank1_plus": {
+   "PASS": 14,
+   "FAIL-UNSTABLE": 6
+  }
+ },
+ "PN": {
+  "PASS": 9873,
+  "FAIL-UNSTABLE": 127
+ },
+ "C0_max": 0.0,
+ "k0": [
+  10041,
+  10041,
+  2.1381104817169684e-16
+ ],
+ "C1b": [
+  10041,
+  10041,
+  4.2715399613411154e-14
+ ],
+ "hessian": [
+  1041,
+  1041,
+  2.846385280591661e-12
+ ],
+ "mu": {
+  "n": 1041,
+  "defined": 1014,
+  "violations": 0
+ },
+ "pred4": {
+  "PASS|E=True": 1014,
+  "FAIL-UNSTABLE|E=False": 27
+ },
+ "pred3": [
+  9901,
+  4.636624417742041e-11
+ ],
+ "hyper": {
+  "true": 9901,
+  "false": 140
+ },
+ "kappa_kin": {
+  "[1.0, 1.0, 1.0]": 10041
+ },
+ "pred6": [
+  115,
+  115
+ ],
+ "fail": {
+  "n": 140,
+  "first_complex": 115,
+  "nonhyper": 140,
+  "ncomplex": [
+   49,
+   92
+  ],
+  "maximag": [
+   0.009001912517184452,
+   0.4660618617271541
+  ]
+ },
+ "pass_n_real": {
+  "92": 9901
+ },
+ "pass_hyper": {
+  "true": 9901
+ },
+ "diag": {
+  "hidden_by_double": 0,
+  "real_with_tiny_imag": 0,
+  "n_nodata": 0,
+  "unresolved_stuck": 0,
+  "n_unresolved": 0
+ },
+ "PN_PASS_front": [
+  1.0373006956704847,
+  1.2950840641046952,
+  7.946593332295808,
+  7899,
+  9873
+ ],
+ "PE_PASS_front_le2": 7,
+ "C4_PN": [
+  "PN_cut0.01_rank1_minus_0",
+  "PN_cut0.01_rank1_minus_1"
+ ],
+ "C4_PE": [
+  "E3_stable_9632/rank1_minus"
+ ],
+ "PN95": {
+  "rank1_minus": [
+   41,
+   1000
+  ],
+  "rank1_plus": [
+   86,
+   1000
+  ]
+ }
+}
