@@ -1,0 +1,6 @@
+aggregator tests 9 / 9
+PN_cut0.01_rank1_minus_0 background fixed-point residual 0.0
+PN_cut0.01_rank1_minus_0 T=25: finite True ratio 1.0413613343010026 drift 1.3180980045615044e-16
+PN_cut0.01_rank1_minus_1 background fixed-point residual 0.0
+PN_cut0.01_rank1_minus_1 T=25: finite True ratio 1.0 drift 0.0
+ALL TESTS PASS
