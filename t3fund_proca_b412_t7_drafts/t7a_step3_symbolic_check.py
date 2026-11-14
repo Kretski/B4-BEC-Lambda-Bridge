@@ -1,9 +1,10 @@
-"""T7a step 3 (DRAFT, unregistered): independent SymPy check of the Proca tree-level matching.
+"""T7a step 3 (DRAFT v0.5.2, unregistered): independent SymPy check of the Proca tree-level matching.
 Arbiter = registered action and conventions (T3_FUND_PROCA_SPEC.md section 1, metric (-,+)); SymPy only checks the derivation."""
 import sympy as sp
 from sympy.calculus.euler import euler_equations
 t, x = sp.symbols('t x', real=True)
-M, gphi, gpsi, Lam = sp.symbols('M g_phi g_psi Lambda', positive=True)
+M, Lam = sp.symbols('M Lambda', positive=True)
+gphi, gpsi = sp.symbols('g_phi g_psi', real=True)   # real, sign unrestricted: both sign regimes allowed
 f, g, A0, A1 = [sp.Function(n)(t, x) for n in ('f', 'g', 'A0', 'A1')]
 ft, fx, gt, gx = f.diff(t), f.diff(x), g.diff(t), g.diff(x)
 F = A1.diff(t) - A0.diff(x)                       # F = F_01 = d_t A1 - d_x A0, lower indices, metric (-,+)
@@ -46,22 +47,32 @@ Lead = sp.expand(Jf**2/(2*M**2))
 cO1 = Lead.coeff(sp.Symbol('Ofx'), 2); cO3 = Lead.coeff(sp.Symbol('Ogx'), 2)
 cO2 = Lead.coeff(sp.Symbol('Ofx'), 1).coeff(sp.Symbol('Ogx'), 1)
 res['p'] = sp.simplify(2*cO1 - gphi**2/M**2); res['s'] = sp.simplify(2*cO3 - gpsi**2/M**2)
-res['kappa_from_cross'] = sp.simplify(-cO2 + gphi*gpsi/M**2*(-1)*(-1) - (gphi*gpsi/M**2 - gphi*gpsi/M**2))
 kappa = sp.simplify(-cO2)
 print('cross coefficient of O2 =', sp.simplify(cO2), ' => kappa = -cross =', kappa)
+res['cO2'] = sp.simplify(cO2 - gphi*gpsi/M**2)
 res['kappa_is_minus_gg_over_M2'] = sp.simplify(kappa + gphi*gpsi/M**2)
 res['kappa2_eq_ps'] = sp.simplify(kappa**2 - (gphi**2/M**2)*(gpsi**2/M**2))
-for n, v in res.items(): print(n, '->', v)
-print('ALL_ZERO' if all(sp.simplify(v) == 0 for v in res.values()) else 'NONZERO_FOUND')
+# sign regimes (spec): rank1_minus <=> g_phi g_psi > 0 <=> kappa = -sqrt(ps); rank1_plus <=> g_phi g_psi < 0 <=> kappa = +sqrt(ps)
+# checked in all four sign quadrants with a, b > 0 (no positivity assumed on g_phi, g_psi themselves)
+a_, b_ = sp.symbols('a b', positive=True)
+sqrt_ps = sp.sqrt((gphi**2/M**2)*(gpsi**2/M**2))
+for name, sub, sgn in [('regime_minus_pp', {gphi: a_, gpsi: b_}, -1), ('regime_minus_mm', {gphi: -a_, gpsi: -b_}, -1),
+                       ('regime_plus_pm', {gphi: a_, gpsi: -b_}, +1), ('regime_plus_mp', {gphi: -a_, gpsi: b_}, +1)]:
+    res[name] = sp.simplify(kappa.subs(sub) - sgn*sqrt_ps.subs(sub))
+# series coefficients: M^2 K = 1 + omega^2/M^2 + O(M^-4)  <=>  A1 = J/M^2 - d_t^2 J/M^4 + O(M^-6)  (omega^2 <-> -d_t^2)
+res['series_M0'] = sp.simplify(sp.expand(Ks).coeff(eps, 0) - 1)
+res['series_M2'] = sp.simplify(sp.expand(Ks).coeff(eps, 1) - w**2)
 
 # (5) on-shell action: quadratic form after substituting Gauss solution; stationary value with source equals 1/2 K |j|^2
 a1c, a0c = sp.symbols('a1c a0c')                   # complex conjugate amplitudes
 dtc, dxc = sp.I*w, -sp.I*k
 Fa_c = dtc*a1c - dxc*a0c
 a0c_sol = sp.solve(sp.Eq(dxc*Fa_c + M**2*a0c, 0), a0c)[0]
-Q = sp.Rational(1, 2)*(Fa_c.subs(a0c, a0c_sol)*Fa.subs(a0, a0_sol) + M**2*(a0c_sol*a0_sol - a1c*a1) )
-c = sp.simplify(sp.diff(Q, a1c, a1))*2/1            # S = (1/2) c a1c a1
-c = sp.simplify(c)
+Q = sp.Rational(1, 2)*(Fa_c.subs(a0c, a0c_sol)*Fa.subs(a0, a0_sol) + M**2*(a0c_sol*a0_sol - a1c*a1))
+c = sp.simplify(sp.diff(Q, a1c, a1)*2)             # S = (1/2) c a1c a1
 print('quadratic coefficient c =', c)
-print('check K = -1/c :', sp.simplify(K + 1/c))
-print('check on-shell: stationary value factor -1/(2c) vs K/2 :', sp.simplify(-1/(2*c) - K/2))
+res['K_eq_minus_inv_c'] = sp.simplify(K + 1/c)
+res['onshell_half_JKJ'] = sp.simplify(-1/(2*c) - K/2)
+
+for n, v in res.items(): print(n, '->', v)
+print('ALL_ZERO' if all(sp.simplify(v) == 0 for v in res.values()) else 'NONZERO_FOUND')
