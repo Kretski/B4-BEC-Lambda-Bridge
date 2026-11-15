@@ -6,7 +6,8 @@
 
 | File | What it is |
 |---|---|
-| `T7A_MANUSCRIPT_DRAFT_v0.2.md` | *Tree-Level Proca Integration and Independent IBP Classification of Higher-Derivative Operators in a Two-Scalar EFT*, draft v0.2, English, Markdown |
+| `T7A_MANUSCRIPT_DRAFT_v0.3.md` | *Tree-Level Proca Integration and Independent IBP Classification of Higher-Derivative Operators in a Two-Scalar EFT*, draft v0.3 (current), English, Markdown |
+| `T7A_MANUSCRIPT_DRAFT_v0.2.md` | previous version (commit 65e99be), kept unchanged |
 | `README.md` | this file |
 
 ## What the manuscript contains
@@ -48,5 +49,4 @@ Compare every output byte by byte with the committed file of the same name. Expe
 ## Open items before any publication
 
 1. Physical motivation of B4 in the introduction (marked `AUTHOR TO COMPLETE`).
-2. The scope of the README statement "No candidate reproduces the B4 operator structure" relative to this result (marked `AUTHOR TO CONFIRM` in §1.1).
-3. Licence, `CITATION.cff` and the untracked files must be resolved before any future Release.
+2. Licence, `CITATION.cff` and the untracked files must be resolved before any future Release.
