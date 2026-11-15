@@ -1,0 +1,10 @@
+A_g1_rho0.3: Original 0/41 (noncontrol 0/29; historical 0, 0) | Common-M PASS 0 FAIL 41 BORDERLINE 0
+B_g1_rho0.1: Original 0/41 (noncontrol 0/29; historical 0, 0) | Common-M PASS 0 FAIL 41 BORDERLINE 0
+C_gStrong_rho0.3: Original 41/41 (noncontrol 29/29; historical 41, 29) | Common-M PASS 21 FAIL 20 BORDERLINE 0
+K1_original_reproduction PASS
+K2_implication PASS
+K3_identity PASS
+K5_inputs PASS
+K4 |kappa|/sqrt(p) agrees numerically with sqrt(s) (max 2.220e-16)
+K6 {"tag": "ANCHOR_B3", "p": 0.05072130549385561, "s": 0.32639425996872784, "kappa": -0.12866679047568869, "G": 4.237158273982973, "coef_phi": 0.22521391052476222, "coef_psi": 0.5713092507291719, "c_max": 0.5713092507291719, "sqrtX_max": 0.9542669843960573, "margin_C_gStrong_rho0.3": -1.3572554081868142, "M_low_C_gStrong_rho0.3": 14.123860913276578, "M_high_C_gStrong_rho0.3": 6.204884127618456, "commonM_C_gStrong_rho0.3": "FAIL"}
+ALL_CHECKS_PASS

@@ -1,0 +1,9 @@
+B4.12 common-M check -- run context
+date: 2026-11-15 14:53 (Europe/Sofia)
+authorisation: reviewer decision of 2026-11-15, 14:53 (AUTHORIZED)
+spec: t3fund_proca_b412_t7_drafts/B4_12_COMMON_M_TEST_PROPOSAL_v0.1.2.md (commit 3cba04e)
+script: b412_common_m_check.py, sha256 5a8ad4466b4b6734aa26491be020dc72151799cd10a0c90c5b6c793317bf777e (not yet committed)
+evidence: evidence/B4_10_proca_mass_sweep_v0_5 extracted with `git archive 511f6fe` from a GitHub clone at 511f6fe7a91eb61b434c96dd447df4c71f2a14d1; SHA256SUMS.txt 83/83 OK before the run
+command: python3 -I b412_common_m_check.py <evidence>/B4_10_proca_mass_sweep_v0_5 <this folder>
+environment: Python 3.13.18, Linux, standard library only
+outputs: b412_common_m.json, b412_common_m.csv, terminal_output.txt (stdout+stderr), exit_code.txt

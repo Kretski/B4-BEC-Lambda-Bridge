@@ -1,0 +1,207 @@
+{
+ "spec": "B4_12_COMMON_M_TEST_PROPOSAL_v0.1.2.md",
+ "n": 41,
+ "thresholds": {
+  "A_g1_rho0.3": {
+   "g_max": 1.0,
+   "rho_max": 0.3,
+   "product": 0.3
+  },
+  "B_g1_rho0.1": {
+   "g_max": 1.0,
+   "rho_max": 0.1,
+   "product": 0.1
+  },
+  "C_gStrong_rho0.3": {
+   "g_max": 3.5449077018110318,
+   "rho_max": 0.3,
+   "product": 1.0634723105433095
+  }
+ },
+ "original": {
+  "A_g1_rho0.3": {
+   "denominator_all": 41,
+   "passing_all": 0,
+   "negative_controls": 12,
+   "denominator_noncontrol": 29,
+   "passing_noncontrol": 0,
+   "historical_n": 41,
+   "historical_all": 0,
+   "historical_noncontrol": 0,
+   "agreement": true
+  },
+  "B_g1_rho0.1": {
+   "denominator_all": 41,
+   "passing_all": 0,
+   "negative_controls": 12,
+   "denominator_noncontrol": 29,
+   "passing_noncontrol": 0,
+   "historical_n": 41,
+   "historical_all": 0,
+   "historical_noncontrol": 0,
+   "agreement": true
+  },
+  "C_gStrong_rho0.3": {
+   "denominator_all": 41,
+   "passing_all": 41,
+   "negative_controls": 12,
+   "denominator_noncontrol": 29,
+   "passing_noncontrol": 29,
+   "historical_n": 41,
+   "historical_all": 41,
+   "historical_noncontrol": 29,
+   "agreement": true
+  }
+ },
+ "common_m": {
+  "A_g1_rho0.3": {
+   "all": {
+    "denominator": 41,
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   },
+   "noncontrol": {
+    "denominator": 29,
+    "PASS": 0,
+    "FAIL": 29,
+    "BORDERLINE": 0
+   },
+   "borderline_tags": []
+  },
+  "B_g1_rho0.1": {
+   "all": {
+    "denominator": 41,
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   },
+   "noncontrol": {
+    "denominator": 29,
+    "PASS": 0,
+    "FAIL": 29,
+    "BORDERLINE": 0
+   },
+   "borderline_tags": []
+  },
+  "C_gStrong_rho0.3": {
+   "all": {
+    "denominator": 41,
+    "PASS": 21,
+    "FAIL": 20,
+    "BORDERLINE": 0
+   },
+   "noncontrol": {
+    "denominator": 29,
+    "PASS": 15,
+    "FAIL": 14,
+    "BORDERLINE": 0
+   },
+   "borderline_tags": []
+  }
+ },
+ "checks": {
+  "K5_inputs": {
+   "pass_": true,
+   "files": {
+    "data/B3_max_speed_7_315096.json": {
+     "expected": "99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd",
+     "actual": "99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd"
+    },
+    "data/e3_manifest.json": {
+     "expected": "1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0",
+     "actual": "1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0"
+    },
+    "results_b412/b412_summary.json": {
+     "expected": "995eac0251da75d0f98b2d51183ad88e0b694e034f27466b97095a7b7b414ff9",
+     "actual": "995eac0251da75d0f98b2d51183ad88e0b694e034f27466b97095a7b7b414ff9"
+    }
+   }
+  },
+  "K1_original_reproduction": {
+   "pass_": true,
+   "counts": {
+    "manifest_selected": 40,
+    "manifest_n_selected_field": 40,
+    "total": 41,
+    "negative_controls": 12,
+    "noncontrol": 29,
+    "anchor_in_noncontrol": true
+   },
+   "expected": {
+    "manifest_selected": 40,
+    "total": 41,
+    "negative_controls": 12,
+    "noncontrol": 29
+   },
+   "counts_ok": true,
+   "sets": {
+    "A_g1_rho0.3": {
+     "denominator_all": 41,
+     "passing_all": 0,
+     "negative_controls": 12,
+     "denominator_noncontrol": 29,
+     "passing_noncontrol": 0,
+     "historical_n": 41,
+     "historical_all": 0,
+     "historical_noncontrol": 0,
+     "agreement": true
+    },
+    "B_g1_rho0.1": {
+     "denominator_all": 41,
+     "passing_all": 0,
+     "negative_controls": 12,
+     "denominator_noncontrol": 29,
+     "passing_noncontrol": 0,
+     "historical_n": 41,
+     "historical_all": 0,
+     "historical_noncontrol": 0,
+     "agreement": true
+    },
+    "C_gStrong_rho0.3": {
+     "denominator_all": 41,
+     "passing_all": 41,
+     "negative_controls": 12,
+     "denominator_noncontrol": 29,
+     "passing_noncontrol": 29,
+     "historical_n": 41,
+     "historical_all": 41,
+     "historical_noncontrol": 29,
+     "agreement": true
+    }
+   }
+  },
+  "K2_implication": {
+   "pass_": true,
+   "violations": []
+  },
+  "K3_identity": {
+   "pass_": true,
+   "max_dev": 2.220446049250313e-16,
+   "tolerance": 1e-12,
+   "M": 7.0
+  },
+  "K4_rank1_report": {
+   "max_delta_rank1": 2.220446049250313e-16,
+   "threshold": 1e-09,
+   "statement": "|kappa|/sqrt(p) agrees numerically with sqrt(s)",
+   "above_threshold": []
+  },
+  "K6_anchor_hand_check": {
+   "tag": "ANCHOR_B3",
+   "p": 0.05072130549385561,
+   "s": 0.32639425996872784,
+   "kappa": -0.12866679047568869,
+   "G": 4.237158273982973,
+   "coef_phi": 0.22521391052476222,
+   "coef_psi": 0.5713092507291719,
+   "c_max": 0.5713092507291719,
+   "sqrtX_max": 0.9542669843960573,
+   "margin_C_gStrong_rho0.3": -1.3572554081868142,
+   "M_low_C_gStrong_rho0.3": 14.123860913276578,
+   "M_high_C_gStrong_rho0.3": 6.204884127618456,
+   "commonM_C_gStrong_rho0.3": "FAIL"
+  }
+ },
+ "verdict": "ALL_CHECKS_PASS"
+}
