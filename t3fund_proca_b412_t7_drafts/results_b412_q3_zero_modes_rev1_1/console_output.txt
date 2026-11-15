@@ -1,0 +1,25 @@
+[    0.0s] spec B4_12_Q3_ZERO_MODE_SPEC_v0.2.md (fcd7ace); revision 1.1; sympy 1.14.0
+[    0.0s] registered expressions embedded from results_b412_q3/b412_q3_results.json (run df4d8b9, sha256 8bbdd1d0...)
+[    0.4s] ZC2: PASS; sign table {'t L ann': -1, 't L cre': 1, 't R ann': -1, 't R cre': 1, 'x L ann': -1, 'x L cre': 1, 'x R ann': 1, 'x R cre': -1}
+[    0.5s] ZC1: truncated periodic delta for f and g at N_max in (1, 2, 3, 4), cross-field zero, symbolic coefficient I/L -> PASS
+[    0.7s] Z1: field-level pi-free part = registered F1 split: True; pi groups = registered F2 list: True
+[    4.6s] ZC3: field level True; mode level True; map True; route-1 self-consistency True -> PASS
+[    7.4s] Z2/ZC4: q0 absent True; [pi_f0, H] and [pi_g0, H] = ['0: H0 + H_int is a polynomial in {pi_f0, pi_g0, a, a^dag} only (q_f0 absent), and pi_f0 commutes with each generator', '0: H0 + H_int is a polynomial in {pi_f0, pi_g0, a, a^dag} only (q_g0 absent), and pi_g0 commutes with each generator'] -> PASS
+[   14.9s] Z3: N_max=1 evaluated on sectors [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)] (basis {'N_max': 1, 'N_R_max': 10, 'N_L_max': 10}); ZC5 so far True
+[   56.0s] Z3: N_max=2 evaluated on sectors [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)] (basis {'N_max': 2, 'N_R_max': 18, 'N_L_max': 18}); ZC5 so far True
+[  154.6s] Z3: N_max=3 evaluated on sectors [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)] (basis {'N_max': 3, 'N_R_max': 26, 'N_L_max': 26}); ZC5 so far True
+[  175.9s] Z3: [Q_R,H0], [Q_L,H0], [Q_R,Q_L] exactly zero at all N_max: [True, True, True, True, True, True, True, True, True]; registered F2 table: {'L_contact 4_R_0_L_0_P0': 'confirmed', 'L_contact 3_R_0_L_1_P0': 'confirmed', 'L_contact 2_R_2_L_0_P0': 'confirmed', 'L_contact 2_R_1_L_1_P0': 'confirmed', 'L_contact 2_R_0_L_2_P0': 'confirmed', 'L_contact 1_R_2_L_1_P0': 'confirmed', 'L_contact 1_R_1_L_2_P0': 'confirmed', 'L_contact 0_R_4_L_0_P0': 'confirmed', 'L_contact 0_R_3_L_1_P0': 'confirmed', 'L_contact 0_R_2_L_2_P0': 'confirmed', 'L_lambda 4_R_0_L_0_P0': 'confirmed', 'L_lambda 3_R_1_L_0_P0': 'confirmed', 'L_lambda 2_R_2_L_0_P0': 'confirmed', 'L_lambda 1_R_3_L_0_P0': 'confirmed', 'L_lambda 0_R_4_L_0_P0': 'confirmed'}
+[  175.9s] ZC5: route 1 = route 2 on every evaluated sector, NOT_COVERED entries 0 -> PASS
+[  175.9s] Z4: E0(out) - E0(in) in the same pi sector = 2*pi*(-N_L + N_Lp - N_R + N_Rp)/L; groups with equal-E0 elements: ['L_contact 0_R_2_L_0_Pf_2_Pg', 'L_contact 0_R_2_L_1_Pf_1_Pg', 'L_contact 0_R_2_L_2_Pf_0_Pg', 'L_contact 0_R_3_L_0_Pf_1_Pg', 'L_contact 0_R_3_L_1_Pf_0_Pg', 'L_contact 2_R_0_L_0_Pf_2_Pg', 'L_contact 2_R_0_L_1_Pf_1_Pg', 'L_contact 2_R_0_L_2_Pf_0_Pg', 'L_contact 3_R_0_L_0_Pf_1_Pg', 'L_contact 3_R_0_L_1_Pf_0_Pg']
+[  176.7s] Z5: L powers equal registered table True; primary sequences exact True; floor-sequence error -> 0 True
+[  176.7s] ZC6: PASS
+[  181.4s] Z6: C(N_max, L) = pi*N_max*(N_max + 1)/(2*L**2) (= sum k_n/(2L): True); explicit verification and closed forms -> PASS
+[  181.4s] ZC1_mode_algebra PASS
+[  181.4s] ZC2_derivative_fields PASS
+[  181.4s] ZC3_continuum_consistency PASS
+[  181.4s] ZC4_zero_mode_momenta PASS
+[  181.4s] ZC5_lattice_commutators_two_routes PASS
+[  181.4s] ZC6_box_to_continuum_limit PASS
+[  181.4s] ZC7_wick_remainders PASS
+[  181.4s] findings: ['Z4-equal-energy-number-changing']
+[  181.4s] ALL_CHECKS_PASS

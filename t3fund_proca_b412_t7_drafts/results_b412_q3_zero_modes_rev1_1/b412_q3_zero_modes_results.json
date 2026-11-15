@@ -1,0 +1,5049 @@
+{
+ "spec": "B4_12_Q3_ZERO_MODE_SPEC_v0.2.md",
+ "spec_commit": "fcd7ace",
+ "registered": "results_b412_q3/b412_q3_results.json (run df4d8b9, sha256 8bbdd1d0...)",
+ "revision": "1.1",
+ "sympy": "1.14.0",
+ "parameters": {
+  "N_LIST": [
+   1,
+   2,
+   3
+  ],
+  "SECTORS": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "ZC1_N_LIST": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "Z6_VERIFY_N": [
+   1,
+   2
+  ]
+ },
+ "seconds": 181.4,
+ "checks": {
+  "ZC1_mode_algebra": "PASS",
+  "ZC2_derivative_fields": "PASS",
+  "ZC3_continuum_consistency": "PASS",
+  "ZC4_zero_mode_momenta": "PASS",
+  "ZC5_lattice_commutators_two_routes": "PASS",
+  "ZC6_box_to_continuum_limit": "PASS",
+  "ZC7_wick_remainders": "PASS"
+ },
+ "mandatory": [
+  "ZC1_mode_algebra",
+  "ZC2_derivative_fields",
+  "ZC3_continuum_consistency",
+  "ZC4_zero_mode_momenta",
+  "ZC5_lattice_commutators_two_routes",
+  "ZC6_box_to_continuum_limit",
+  "ZC7_wick_remainders"
+ ],
+ "results": {
+  "ZC2": {
+   "flags": {
+    "f_R_t_zero_part": true,
+    "f_R_t_q0_absent": true,
+    "f_R_t_ann_form": true,
+    "f_R_t_cre_form": true,
+    "f_R_fourier_keys": true,
+    "f_R_x_zero_part": true,
+    "f_R_x_q0_absent": true,
+    "f_R_x_ann_form": true,
+    "f_R_x_cre_form": true,
+    "f_dx_R_equals_minus_dt_R": true,
+    "f_L_t_zero_part": true,
+    "f_L_t_q0_absent": true,
+    "f_L_t_ann_form": true,
+    "f_L_t_cre_form": true,
+    "f_L_fourier_keys": true,
+    "f_L_x_zero_part": true,
+    "f_L_x_q0_absent": true,
+    "f_L_x_ann_form": true,
+    "f_L_x_cre_form": true,
+    "f_dx_L_equals_plus_dt_L": true,
+    "g_R_t_zero_part": true,
+    "g_R_t_q0_absent": true,
+    "g_R_t_ann_form": true,
+    "g_R_t_cre_form": true,
+    "g_R_fourier_keys": true,
+    "g_R_x_zero_part": true,
+    "g_R_x_q0_absent": true,
+    "g_R_x_ann_form": true,
+    "g_R_x_cre_form": true,
+    "g_dx_R_equals_minus_dt_R": true,
+    "g_L_t_zero_part": true,
+    "g_L_t_q0_absent": true,
+    "g_L_t_ann_form": true,
+    "g_L_t_cre_form": true,
+    "g_L_fourier_keys": true,
+    "g_L_x_zero_part": true,
+    "g_L_x_q0_absent": true,
+    "g_L_x_ann_form": true,
+    "g_L_x_cre_form": true,
+    "g_dx_L_equals_plus_dt_L": true
+   },
+   "coefficients_at_x_t_0": {
+    "f R d_t ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "f R d_t cre": "I*sqrt(pi)*sqrt(nu)/L",
+    "f R d_x ann": "I*sqrt(pi)*sqrt(nu)/L",
+    "f R d_x cre": "-I*sqrt(pi)*sqrt(nu)/L",
+    "f L d_t ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "f L d_t cre": "I*sqrt(pi)*sqrt(nu)/L",
+    "f L d_x ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "f L d_x cre": "I*sqrt(pi)*sqrt(nu)/L",
+    "g R d_t ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "g R d_t cre": "I*sqrt(pi)*sqrt(nu)/L",
+    "g R d_x ann": "I*sqrt(pi)*sqrt(nu)/L",
+    "g R d_x cre": "-I*sqrt(pi)*sqrt(nu)/L",
+    "g L d_t ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "g L d_t cre": "I*sqrt(pi)*sqrt(nu)/L",
+    "g L d_x ann": "-I*sqrt(pi)*sqrt(nu)/L",
+    "g L d_x cre": "I*sqrt(pi)*sqrt(nu)/L"
+   },
+   "sign_table": {
+    "t L ann": -1,
+    "t L cre": 1,
+    "t R ann": -1,
+    "t R cre": 1,
+    "x L ann": -1,
+    "x L cre": 1,
+    "x R ann": 1,
+    "x R cre": -1
+   },
+   "convention": "coefficient = SGN * i * sqrt(pi |n|) / L; a_n carries exp(+i k_n x), a_n^dag exp(-i k_n x) at t = 0; d_t phi = pi_0/L + R_phi + L_phi, d_x phi = L_phi - R_phi"
+  },
+  "ZC1": {
+   "rows": {
+    "f N_max=1": {
+     "fourier": {
+      "-3": "0",
+      "-2": "0",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "0",
+      "3": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "f N_max=2": {
+     "fourier": {
+      "-4": "0",
+      "-3": "0",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "0",
+      "4": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "f N_max=3": {
+     "fourier": {
+      "-5": "0",
+      "-4": "0",
+      "-3": "I/L",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "I/L",
+      "4": "0",
+      "5": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "f N_max=4": {
+     "fourier": {
+      "-6": "0",
+      "-5": "0",
+      "-4": "I/L",
+      "-3": "I/L",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "I/L",
+      "4": "I/L",
+      "5": "0",
+      "6": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "f cross-field": {
+     "all_zero": true
+    },
+    "g N_max=1": {
+     "fourier": {
+      "-3": "0",
+      "-2": "0",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "0",
+      "3": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "g N_max=2": {
+     "fourier": {
+      "-4": "0",
+      "-3": "0",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "0",
+      "4": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "g N_max=3": {
+     "fourier": {
+      "-5": "0",
+      "-4": "0",
+      "-3": "I/L",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "I/L",
+      "4": "0",
+      "5": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "g N_max=4": {
+     "fourier": {
+      "-6": "0",
+      "-5": "0",
+      "-4": "I/L",
+      "-3": "I/L",
+      "-2": "I/L",
+      "-1": "I/L",
+      "0": "I/L",
+      "1": "I/L",
+      "2": "I/L",
+      "3": "I/L",
+      "4": "I/L",
+      "5": "0",
+      "6": "0"
+     },
+     "translation_invariant": true,
+     "truncated_delta": true
+    },
+    "g cross-field": {
+     "all_zero": true
+    }
+   },
+   "symbolic_label": {
+    "m_positive": "I/L",
+    "m_negative": "I/L",
+    "zero_mode": "i/L from [q0, pi0/L]"
+   },
+   "finite_N": "[phi(x), d_t phi(y)] = i (1/L) sum_{|m| <= N_max} exp(i k_m (x-y)): every Fourier coefficient with |m| <= N_max equals i/L (m = 0 from the zero mode), all others 0",
+   "distributional_limit": "each Fourier coefficient i/L is independent of N_max once N_max >= |m|; as N_max -> infinity at fixed L every coefficient equals i/L, i.e. i delta_L(x - y) in the sense of distributions"
+  },
+  "Z1": {
+   "groups": {
+    "L_contact 0_R_2_L_0_Pf_2_Pg": {
+     "field_level": [
+      "Lg**2*P0g**2*kappa**2/(2*p)"
+     ],
+     "field_level_in_pi": [
+      "Lg**2*kappa**2*pi_g0**2/(2*L**2*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg": {
+     "field_level": [
+      "-Lf*Lg*P0f*P0g*kappa"
+     ],
+     "field_level_in_pi": [
+      "-Lf*Lg*kappa*pi_f0*pi_g0/L**2"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg": {
+     "field_level": [
+      "Lf**2*P0f**2*p/2"
+     ],
+     "field_level_in_pi": [
+      "Lf**2*p*pi_f0**2/(2*L**2)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg": {
+     "field_level": [
+      "-Lf**2*Lg*P0g*kappa",
+      "Lg**3*P0g*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "-Lf**2*Lg*kappa*pi_g0/L",
+      "Lg**3*kappa**2*pi_g0/(L*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg": {
+     "field_level": [
+      "Lf**3*P0f*p",
+      "-Lf*Lg**2*P0f*kappa"
+     ],
+     "field_level_in_pi": [
+      "Lf**3*p*pi_f0/L",
+      "-Lf*Lg**2*kappa*pi_f0/L"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg": {
+     "field_level": [
+      "Lf**4*p/2",
+      "-Lf**2*Lg**2*kappa",
+      "Lg**4*kappa**2/(2*p)"
+     ],
+     "field_level_in_pi": [
+      "Lf**4*p/2",
+      "-Lf**2*Lg**2*kappa",
+      "Lg**4*kappa**2/(2*p)"
+     ],
+     "pi_dependent": false
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg": {
+     "field_level": [
+      "-Lg*P0g**2*Rg*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "-Lg*Rg*kappa**2*pi_g0**2/(L**2*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg": {
+     "field_level": [
+      "Lg*P0f*P0g*Rf*kappa",
+      "Lf*P0f*P0g*Rg*kappa"
+     ],
+     "field_level_in_pi": [
+      "Lg*Rf*kappa*pi_f0*pi_g0/L**2",
+      "Lf*Rg*kappa*pi_f0*pi_g0/L**2"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg": {
+     "field_level": [
+      "-Lf*P0f**2*Rf*p"
+     ],
+     "field_level_in_pi": [
+      "-Lf*Rf*p*pi_f0**2/L**2"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg": {
+     "field_level": [
+      "Lf**2*P0g*Rg*kappa",
+      "-Lg**2*P0g*Rg*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "Lf**2*Rg*kappa*pi_g0/L",
+      "-Lg**2*Rg*kappa**2*pi_g0/(L*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg": {
+     "field_level": [
+      "-Lf**2*P0f*Rf*p",
+      "Lg**2*P0f*Rf*kappa"
+     ],
+     "field_level_in_pi": [
+      "-Lf**2*Rf*p*pi_f0/L",
+      "Lg**2*Rf*kappa*pi_f0/L"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg": {
+     "field_level": [
+      "P0g**2*Rg**2*kappa**2/(2*p)"
+     ],
+     "field_level_in_pi": [
+      "Rg**2*kappa**2*pi_g0**2/(2*L**2*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg": {
+     "field_level": [
+      "-P0f*P0g*Rf*Rg*kappa"
+     ],
+     "field_level_in_pi": [
+      "-Rf*Rg*kappa*pi_f0*pi_g0/L**2"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg": {
+     "field_level": [
+      "P0f**2*Rf**2*p/2"
+     ],
+     "field_level_in_pi": [
+      "Rf**2*p*pi_f0**2/(2*L**2)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg": {
+     "field_level": [
+      "Lg*P0g*Rf**2*kappa",
+      "-Lg*P0g*Rg**2*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "Lg*Rf**2*kappa*pi_g0/L",
+      "-Lg*Rg**2*kappa**2*pi_g0/(L*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg": {
+     "field_level": [
+      "-Lf*P0f*Rf**2*p",
+      "Lf*P0f*Rg**2*kappa"
+     ],
+     "field_level_in_pi": [
+      "-Lf*Rf**2*p*pi_f0/L",
+      "Lf*Rg**2*kappa*pi_f0/L"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg": {
+     "field_level": [
+      "-Lf**2*Rf**2*p",
+      "Lg**2*Rf**2*kappa",
+      "Lf**2*Rg**2*kappa",
+      "-Lg**2*Rg**2*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "-Lf**2*Rf**2*p",
+      "Lg**2*Rf**2*kappa",
+      "Lf**2*Rg**2*kappa",
+      "-Lg**2*Rg**2*kappa**2/p"
+     ],
+     "pi_dependent": false
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg": {
+     "field_level": [
+      "-P0g*Rf**2*Rg*kappa",
+      "P0g*Rg**3*kappa**2/p"
+     ],
+     "field_level_in_pi": [
+      "-Rf**2*Rg*kappa*pi_g0/L",
+      "Rg**3*kappa**2*pi_g0/(L*p)"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg": {
+     "field_level": [
+      "P0f*Rf**3*p",
+      "-P0f*Rf*Rg**2*kappa"
+     ],
+     "field_level_in_pi": [
+      "Rf**3*p*pi_f0/L",
+      "-Rf*Rg**2*kappa*pi_f0/L"
+     ],
+     "pi_dependent": true
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg": {
+     "field_level": [
+      "Rf**4*p/2",
+      "-Rf**2*Rg**2*kappa",
+      "Rg**4*kappa**2/(2*p)"
+     ],
+     "field_level_in_pi": [
+      "Rf**4*p/2",
+      "-Rf**2*Rg**2*kappa",
+      "Rg**4*kappa**2/(2*p)"
+     ],
+     "pi_dependent": false
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg": {
+     "field_level": [
+      "-Lambda*Lf**4/4"
+     ],
+     "field_level_in_pi": [
+      "-Lambda*Lf**4/4"
+     ],
+     "pi_dependent": false
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg": {
+     "field_level": [
+      "Lambda*Lf**3*Rf"
+     ],
+     "field_level_in_pi": [
+      "Lambda*Lf**3*Rf"
+     ],
+     "pi_dependent": false
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg": {
+     "field_level": [
+      "-3*Lambda*Lf**2*Rf**2/2"
+     ],
+     "field_level_in_pi": [
+      "-3*Lambda*Lf**2*Rf**2/2"
+     ],
+     "pi_dependent": false
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg": {
+     "field_level": [
+      "Lambda*Lf*Rf**3"
+     ],
+     "field_level_in_pi": [
+      "Lambda*Lf*Rf**3"
+     ],
+     "pi_dependent": false
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg": {
+     "field_level": [
+      "-Lambda*Rf**4/4"
+     ],
+     "field_level_in_pi": [
+      "-Lambda*Rf**4/4"
+     ],
+     "pi_dependent": false
+    }
+   },
+   "F1_field_level": {
+    "L_contact 4_R_0_L": true,
+    "L_contact 0_R_4_L": true,
+    "L_contact 2_R_2_L": true,
+    "L_lambda 4_R_0_L": true,
+    "L_lambda 0_R_4_L": true,
+    "L_lambda 3_R_1_L": true,
+    "L_lambda 2_R_2_L": true,
+    "L_lambda 1_R_3_L": true
+   },
+   "pi_groups_vs_registered_F2": {
+    "L_contact 1_R_2_L_1_P0": true,
+    "L_contact 2_R_1_L_1_P0": true,
+    "L_contact 2_R_0_L_2_P0": true,
+    "L_contact 0_R_2_L_2_P0": true,
+    "L_contact 0_R_3_L_1_P0": true,
+    "L_contact 1_R_1_L_2_P0": true,
+    "L_contact 3_R_0_L_1_P0": true
+   },
+   "mode_level_rule": "H_int = -Int_0^L dx :L_int:; each R_phi (L_phi) factor contributes +i sqrt(pi|n|)/L a^dag_{phi,n} or -i sqrt(pi|n|)/L a_{phi,n} with n > 0 (n < 0); each P0_phi factor pi_{phi,0}/L; the integral gives L delta(sum_cre n - sum_ann n, 0)"
+  },
+  "map": {
+   "box": "[a(k_n), a^dag(k_m)] = 4*pi*Abs(n_a) delta_nm with a(k_n) = sqrt(2|k_n| L) a_n",
+   "continuum": "[a(k), a^dag(k')] = 2|k| (2 pi) delta(k - k') (registered C9)",
+   "correspondence": "(2 pi) delta(k - k') <-> L delta_nm",
+   "amplitude": "T = <out| Int dx :L: |in>_box * prod_j sqrt(2 |k_j| L) / L, the 1/L replacing (2 pi) delta(P_out - P_in)"
+  },
+  "ZC3": {
+   "field_level": {
+    "L_contact 4_R_0_L": true,
+    "L_contact 0_R_4_L": true,
+    "L_contact 2_R_2_L": true,
+    "L_lambda 4_R_0_L": true,
+    "L_lambda 0_R_4_L": true,
+    "L_lambda 3_R_1_L": true,
+    "L_lambda 2_R_2_L": true,
+    "L_lambda 1_R_3_L": true
+   },
+   "mode_level": {
+    "L_contact elastic f_R f_L -> f_R f_L": {
+     "T_box": "-64*pi**4*n1**2*n2**2*p/L**4",
+     "registered_at_lattice": "-64*pi**4*n1**2*n2**2*p/L**4",
+     "equal": true
+    },
+    "L_contact elastic f_R g_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R f_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R g_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R f_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R g_L -> f_R g_L": {
+     "T_box": "64*pi**4*kappa*n1**2*n2**2/L**4",
+     "registered_at_lattice": "64*pi**4*kappa*n1**2*n2**2/L**4",
+     "equal": true
+    },
+    "L_contact elastic g_R f_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R g_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R f_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R g_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R f_L -> g_R f_L": {
+     "T_box": "64*pi**4*kappa*n1**2*n2**2/L**4",
+     "registered_at_lattice": "64*pi**4*kappa*n1**2*n2**2/L**4",
+     "equal": true
+    },
+    "L_contact elastic g_R g_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R f_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic f_R g_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R f_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact elastic g_R g_L -> g_R g_L": {
+     "T_box": "-64*pi**4*kappa**2*n1**2*n2**2/(L**4*p)",
+     "registered_at_lattice": "-64*pi**4*kappa**2*n1**2*n2**2/(L**4*p)",
+     "equal": true
+    },
+    "L_lambda elastic f_R f_L -> f_R f_L": {
+     "T_box": "-96*pi**4*Lambda*n1**2*n2**2/L**4",
+     "registered_at_lattice": "-96*pi**4*Lambda*n1**2*n2**2/L**4",
+     "equal": true
+    },
+    "L_lambda elastic f_R g_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R f_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R g_L -> f_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R f_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R g_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R f_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R g_L -> f_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R f_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R g_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R f_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R g_L -> g_R f_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R f_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic f_R g_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R f_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda elastic g_R g_L -> g_R g_L": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact f_R -> f_R f_R f_R (distinct labels m1, m2, m3)": {
+     "T_box": "-192*pi**4*m1*m2*m3*p*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "-96*pi**3*m1*m2*m3*p*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact f_L -> f_L f_L f_L (distinct labels m1, m2, m3)": {
+     "T_box": "-192*pi**4*m1*m2*m3*p*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "-96*pi**3*m1*m2*m3*p*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact f_R -> f_R f_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact f_L -> f_L f_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact f_R -> f_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "64*pi**4*kappa*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "32*pi**3*kappa*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact f_L -> f_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "64*pi**4*kappa*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "32*pi**3*kappa*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact f_R -> g_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact f_L -> g_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact g_R -> f_R f_R f_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact g_L -> f_L f_L f_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact g_R -> f_R f_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "64*pi**4*kappa*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "32*pi**3*kappa*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact g_L -> f_L f_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "64*pi**4*kappa*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "32*pi**3*kappa*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_contact g_R -> f_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact g_L -> f_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_contact g_R -> g_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "-192*pi**4*kappa**2*m1*m2*m3*(m1 + m2 + m3)/(L**4*p)",
+     "registered_at_lattice": "-96*pi**3*kappa**2*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/(L**3*p)",
+     "equal": true
+    },
+    "L_contact g_L -> g_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "-192*pi**4*kappa**2*m1*m2*m3*(m1 + m2 + m3)/(L**4*p)",
+     "registered_at_lattice": "-96*pi**3*kappa**2*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/(L**3*p)",
+     "equal": true
+    },
+    "L_lambda f_R -> f_R f_R f_R (distinct labels m1, m2, m3)": {
+     "T_box": "96*pi**4*Lambda*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "48*pi**3*Lambda*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_lambda f_L -> f_L f_L f_L (distinct labels m1, m2, m3)": {
+     "T_box": "96*pi**4*Lambda*m1*m2*m3*(m1 + m2 + m3)/L**4",
+     "registered_at_lattice": "48*pi**3*Lambda*m1*m2*m3*(2*pi*m1/L + 2*pi*m2/L + 2*pi*m3/L)/L**3",
+     "equal": true
+    },
+    "L_lambda f_R -> f_R f_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda f_L -> f_L f_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda f_R -> f_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda f_L -> f_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda f_R -> g_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda f_L -> g_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_R -> f_R f_R f_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_L -> f_L f_L f_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_R -> f_R f_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_L -> f_L f_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_R -> f_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_L -> f_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_R -> g_R g_R g_R (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    },
+    "L_lambda g_L -> g_L g_L g_L (distinct labels m1, m2, m3)": {
+     "T_box": "0",
+     "registered_at_lattice": "0",
+     "equal": true
+    }
+   },
+   "map_derived": true,
+   "route1_direct_equals_enumerated": true,
+   "scope": "mode level uses the pi-free part only; distinct labels assumed for the splitting elements; L -> L L L compared with the registered R -> R R R by parity"
+  },
+  "Z2": {
+   "q_absent_in_derivative_fields": true,
+   "q_absent_in_H": true,
+   "commutators": {
+    "[pi_f0, H0 + H_int]": "0: H0 + H_int is a polynomial in {pi_f0, pi_g0, a, a^dag} only (q_f0 absent), and pi_f0 commutes with each generator",
+    "[pi_g0, H0 + H_int]": "0: H0 + H_int is a polynomial in {pi_f0, pi_g0, a, a^dag} only (q_g0 absent), and pi_g0 commutes with each generator"
+   },
+   "decomposition": "both commutators vanish (derived): the problem decomposes into joint (pi_f0, pi_g0) eigensectors, in which pi_phi0/L are c-numbers",
+   "H0_zero_mode_part": "pi_f0^2/(2L) + pi_g0^2/(2L) commutes with H_int for the same reason"
+  },
+  "Z3": {
+   "structure": {
+    "L_contact 0_R_2_L_0_Pf_2_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 2,
+     "sector_changes_dNR_dNL": [
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 4,
+     "sector_changes_dNR_dNL": [
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 2,
+     "sector_changes_dNR_dNL": [
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 2,
+     "sector_changes_dNR_dNL": [
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 2,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 2,
+     "sector_changes_dNR_dNL": [
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg N_max=1": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "[Q_R^osc, Q_L^osc] N_max=1": {
+     "exactly_zero": true,
+     "n_monomials": 0
+    },
+    "L_contact 0_R_2_L_0_Pf_2_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 4,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 4,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 32,
+     "sector_changes_dNR_dNL": [
+      [
+       -4,
+       -4
+      ],
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       4
+      ]
+     ]
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -4,
+       -4
+      ],
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       4
+      ]
+     ]
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 8,
+     "sector_changes_dNR_dNL": [
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg N_max=2": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "[Q_R^osc, Q_L^osc] N_max=2": {
+     "exactly_zero": true,
+     "n_monomials": 0
+    },
+    "L_contact 0_R_2_L_0_Pf_2_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 6,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 12,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 6,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 20,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 20,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 20,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 20,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 120,
+     "sector_changes_dNR_dNL": [
+      [
+       -6,
+       -6
+      ],
+      [
+       -5,
+       -5
+      ],
+      [
+       -4,
+       -4
+      ],
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       6,
+       6
+      ]
+     ]
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 28,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 30,
+     "sector_changes_dNR_dNL": [
+      [
+       -6,
+       -6
+      ],
+      [
+       -5,
+       -5
+      ],
+      [
+       -4,
+       -4
+      ],
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5,
+       5
+      ],
+      [
+       6,
+       6
+      ]
+     ]
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": false,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 28,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ]
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg N_max=3": {
+     "exactly_zero": true,
+     "structure_minus_dE_times_M": true,
+     "n_monomials": 0,
+     "sector_changes_dNR_dNL": []
+    },
+    "[Q_R^osc, Q_L^osc] N_max=3": {
+     "exactly_zero": true,
+     "n_monomials": 0
+    }
+   },
+   "cutoff_independence": {
+    "[L_contact 0_R_2_L_0_Pf_2_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 0_R_2_L_1_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 0_R_2_L_2_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 0_R_3_L_0_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 0_R_3_L_1_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 0_R_4_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 1_R_1_L_0_Pf_2_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 24,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 1_R_1_L_1_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 48,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 1_R_1_L_2_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 24,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 1_R_2_L_0_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 16,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 1_R_2_L_1_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 16,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_0_L_0_Pf_2_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_0_L_1_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_0_L_2_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_1_L_0_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 16,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_1_L_1_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 16,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 2_R_2_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 16,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 3_R_0_L_0_Pf_1_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 3_R_0_L_1_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_contact 4_R_0_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_lambda 0_R_4_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_lambda 1_R_3_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 6,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_lambda 2_R_2_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 4,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_lambda 3_R_1_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 6,
+     "image_of_sector_depends_on_N_max": true,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[L_lambda 4_R_0_L_0_Pf_0_Pg, H0]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    },
+    "[Q_R^osc, Q_L^osc]": {
+     "blocks_independent_of_N_max": true,
+     "blocks_compared": 0,
+     "image_of_sector_depends_on_N_max": false,
+     "rule": "a block (in, out) is compared between N_max and N_max' > N_max only if N_max >= N_req = max(level(in), level(out), largest level of the intermediate sectors reached at N_max'); level = max(N_R, N_L)"
+    }
+   },
+   "sectors_reached": {
+    "[L_contact 1_R_1_L_0_Pf_2_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 1_R_1_L_1_Pf_1_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 1_R_1_L_2_Pf_0_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 2_R_2_L_0_Pf_0_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      6,
+      4
+     ],
+     [
+      6,
+      5
+     ],
+     [
+      6,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      7,
+      5
+     ],
+     [
+      7,
+      6
+     ],
+     [
+      7,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      8,
+      7
+     ],
+     [
+      8,
+      8
+     ]
+    ],
+    "[L_lambda 2_R_2_L_0_Pf_0_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      6,
+      4
+     ],
+     [
+      6,
+      5
+     ],
+     [
+      6,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      7,
+      5
+     ],
+     [
+      7,
+      6
+     ],
+     [
+      7,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      8,
+      7
+     ],
+     [
+      8,
+      8
+     ]
+    ],
+    "[L_contact 0_R_2_L_0_Pf_2_Pg, H0]": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 0_R_2_L_1_Pf_1_Pg, H0]": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 0_R_2_L_2_Pf_0_Pg, H0]": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_lambda 1_R_3_L_0_Pf_0_Pg, H0]": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 0_R_4_L_0_Pf_0_Pg, H0]": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[Q_R^osc, Q_L^osc]": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_lambda 0_R_4_L_0_Pf_0_Pg, H0]": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 2_R_0_L_0_Pf_2_Pg, H0]": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 2_R_0_L_1_Pf_1_Pg, H0]": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 2_R_0_L_2_Pf_0_Pg, H0]": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_lambda 3_R_1_L_0_Pf_0_Pg, H0]": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 4_R_0_L_0_Pf_0_Pg, H0]": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_lambda 4_R_0_L_0_Pf_0_Pg, H0]": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 1_R_2_L_0_Pf_1_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 1_R_2_L_1_Pf_0_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 2_R_1_L_0_Pf_1_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 2_R_1_L_1_Pf_0_Pg, H0]": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      3
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "[L_contact 0_R_3_L_0_Pf_1_Pg, H0]": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 0_R_3_L_1_Pf_0_Pg, H0]": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 3_R_0_L_0_Pf_1_Pg, H0]": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "[L_contact 3_R_0_L_1_Pf_0_Pg, H0]": [
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ]
+   },
+   "not_covered": [],
+   "Q_definitions": "Q_R^osc = H_int restricted to the (4,0,0,0) group of L_contact (n > 0 oscillators only), Q_L^osc likewise (0,4,0,0), as in the registered F2",
+   "pi_sq_part": "[pi^2/(2L), X] = 0 for every X here (Z2); route 2 keeps it in H0 and it cancels",
+   "registered_F2_table_vs_box": {
+    "L_contact 4_R_0_L_0_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_contact 3_R_0_L_1_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_contact 2_R_2_L_0_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_contact 2_R_1_L_1_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_contact 2_R_0_L_2_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_contact 1_R_2_L_1_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_contact 1_R_1_L_2_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_contact 0_R_4_L_0_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_contact 0_R_3_L_1_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_contact 0_R_2_L_2_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_lambda 4_R_0_L_0_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    },
+    "L_lambda 3_R_1_L_0_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_lambda 2_R_2_L_0_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_lambda 1_R_3_L_0_P0": {
+     "box_commutes_with_H0": false,
+     "registered": false,
+     "status": "confirmed"
+    },
+    "L_lambda 0_R_4_L_0_P0": {
+     "box_commutes_with_H0": true,
+     "registered": true,
+     "status": "confirmed"
+    }
+   }
+  },
+  "Z4": {
+   "E0_difference_same_pi_sector": "2*pi*(-N_L + N_Lp - N_R + N_Rp)/L",
+   "cancellation_shown": true,
+   "groups": {
+    "L_contact 0_R_2_L_0_Pf_2_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(g-1) a(g-1)",
+      "in_state": "|g-1^1>",
+      "out": {
+       "|g-1^1>": "-pi*kappa**2*pi_g0**2/(L**3*p)"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f-1) a(g-1)",
+      "in_state": "|g-1^1>",
+      "out": {
+       "|f-1^1>": "pi*kappa*pi_f0*pi_g0/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f-1) a(f-1)",
+      "in_state": "|f-1^1>",
+      "out": {
+       "|f-1^1>": "-pi*p*pi_f0**2/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg": {
+     "particle_number_changes": [
+      -1,
+      1
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f-1) a+(f-1) a(g-2)",
+      "in_state": "|g-2^1>",
+      "out": {
+       "|f-1^2>": "2*I*pi**(3/2)*kappa*pi_g0/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg": {
+     "particle_number_changes": [
+      -1,
+      1
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f-1) a+(f-1) a(f-2)",
+      "in_state": "|f-2^1>",
+      "out": {
+       "|f-1^2>": "-6*I*pi**(3/2)*p*pi_f0/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg": {
+     "particle_number_changes": [
+      -2,
+      2
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg": {
+     "particle_number_changes": [
+      -2,
+      2
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg": {
+     "particle_number_changes": [
+      -2,
+      2
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg": {
+     "particle_number_changes": [
+      -3,
+      -1,
+      1,
+      3
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg": {
+     "particle_number_changes": [
+      -3,
+      -1,
+      1,
+      3
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(g+1) a(g+1)",
+      "in_state": "|g+1^1>",
+      "out": {
+       "|g+1^1>": "-pi*kappa**2*pi_g0**2/(L**3*p)"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f+1) a(g+1)",
+      "in_state": "|g+1^1>",
+      "out": {
+       "|f+1^1>": "pi*kappa*pi_f0*pi_g0/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg": {
+     "particle_number_changes": [
+      0
+     ],
+     "changes_particle_number": false,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f+1) a(f+1)",
+      "in_state": "|f+1^1>",
+      "out": {
+       "|f+1^1>": "-pi*p*pi_f0**2/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg": {
+     "particle_number_changes": [
+      -3,
+      -1,
+      1,
+      3
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg": {
+     "particle_number_changes": [
+      -3,
+      -1,
+      1,
+      3
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       -3,
+       -3
+      ],
+      [
+       -2,
+       -2
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       3
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": false,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": false,
+     "equal_E0_example": null,
+     "N_max": 3
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg": {
+     "particle_number_changes": [
+      -1,
+      1
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f+1) a+(f+1) a(g+2)",
+      "in_state": "|g+2^1>",
+      "out": {
+       "|f+1^2>": "2*I*pi**(3/2)*kappa*pi_g0/L**3"
+      }
+     },
+     "N_max": 3
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg": {
+     "particle_number_changes": [
+      -1,
+      1
+     ],
+     "changes_particle_number": true,
+     "sector_changes_dNR_dNL": [
+      [
+       0,
+       0
+      ]
+     ],
+     "conserves_N_R_and_N_L_separately": true,
+     "momentum_dNR_equals_dNL": true,
+     "nonzero_equal_E0_elements": true,
+     "equal_E0_example": {
+      "monomial": "a+(f+1) a+(f+1) a(f+2)",
+      "in_state": "|f+2^1>",
+      "out": {
+       "|f+1^2>": "-6*I*pi**(3/2)*p*pi_f0/L**3"
+      }
+     },
+     "N_max": 3
+    }
+   },
+   "scope": "classification only; no probabilities or secular coefficients (spec section 7)"
+  },
+  "Z5": {
+   "groups": {
+    "L_contact 0_R_2_L_0_Pf_2_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg": {
+     "L_power": "-2",
+     "registered": "-2",
+     "relative_to_elastic_and_splitting": "-1",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg": {
+     "L_power": "-3/2",
+     "registered": "-3/2",
+     "relative_to_elastic_and_splitting": "-1/2",
+     "vanishes_relative": true,
+     "pi_dependent": true
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg": {
+     "L_power": "-1",
+     "registered": "-1",
+     "relative_to_elastic_and_splitting": "0",
+     "vanishes_relative": false,
+     "pi_dependent": false
+    }
+   },
+   "scaling_equals_registered_table": true,
+   "scaling_assumptions": "box-normalised Fock states with O(1) occupations; fixed physical momenta (labels n = k L / (2 pi)); fixed pi_f0, pi_g0 (zero-mode vacuum limit)",
+   "primary_sequences": "commensurate L_j with k = 2 pi n_j / L_j exactly: box elastic block and R -> R R R / L -> L L L elements equal the registered continuum results at every L_j: True",
+   "secondary_floor_sequences": {
+    "L_contact elastic 0<-0": {
+     "limit": "0",
+     "L_times_error_limit": "16*pi*kL**2*kR*p*theta1 + 16*pi*kL*kR**2*p*theta2"
+    },
+    "L_contact elastic 1<-1": {
+     "limit": "0",
+     "L_times_error_limit": "-16*pi*kL**2*kR*kappa*theta1 - 16*pi*kL*kR**2*kappa*theta2"
+    },
+    "L_contact elastic 2<-2": {
+     "limit": "0",
+     "L_times_error_limit": "-16*pi*kL**2*kR*kappa*theta1 - 16*pi*kL*kR**2*kappa*theta2"
+    },
+    "L_contact elastic 3<-3": {
+     "limit": "0",
+     "L_times_error_limit": "(16*pi*kL**2*kR*kappa**2*theta1 + 16*pi*kL*kR**2*kappa**2*theta2)/p"
+    },
+    "L_lambda elastic 0<-0": {
+     "limit": "0",
+     "L_times_error_limit": "24*pi*Lambda*kL**2*kR*theta1 + 24*pi*Lambda*kL*kR**2*theta2"
+    },
+    "L_contact f_R -> fff": {
+     "limit": "0",
+     "L_times_error_limit": "24*pi*kk1**2*kk2*p*theta3 + 24*pi*kk1**2*kk3*p*theta2 + 24*pi*kk1*kk2**2*p*theta3 + 48*pi*kk1*kk2*kk3*p*theta1 + 48*pi*kk1*kk2*kk3*p*theta2 + 48*pi*kk1*kk2*kk3*p*theta3 + 24*pi*kk1*kk3**2*p*theta2 + 24*pi*kk2**2*kk3*p*theta1 + 24*pi*kk2*kk3**2*p*theta1"
+    },
+    "L_contact f_L -> fff": {
+     "limit": "0",
+     "L_times_error_limit": "24*pi*kk1**2*kk2*p*theta3 + 24*pi*kk1**2*kk3*p*theta2 + 24*pi*kk1*kk2**2*p*theta3 + 48*pi*kk1*kk2*kk3*p*theta1 + 48*pi*kk1*kk2*kk3*p*theta2 + 48*pi*kk1*kk2*kk3*p*theta3 + 24*pi*kk1*kk3**2*p*theta2 + 24*pi*kk2**2*kk3*p*theta1 + 24*pi*kk2*kk3**2*p*theta1"
+    },
+    "L_contact f_R -> fgg": {
+     "limit": "0",
+     "L_times_error_limit": "-8*pi*kappa*kk1**2*kk2*theta3 - 8*pi*kappa*kk1**2*kk3*theta2 - 8*pi*kappa*kk1*kk2**2*theta3 - 16*pi*kappa*kk1*kk2*kk3*theta1 - 16*pi*kappa*kk1*kk2*kk3*theta2 - 16*pi*kappa*kk1*kk2*kk3*theta3 - 8*pi*kappa*kk1*kk3**2*theta2 - 8*pi*kappa*kk2**2*kk3*theta1 - 8*pi*kappa*kk2*kk3**2*theta1"
+    },
+    "L_contact f_L -> fgg": {
+     "limit": "0",
+     "L_times_error_limit": "-8*pi*kappa*kk1**2*kk2*theta3 - 8*pi*kappa*kk1**2*kk3*theta2 - 8*pi*kappa*kk1*kk2**2*theta3 - 16*pi*kappa*kk1*kk2*kk3*theta1 - 16*pi*kappa*kk1*kk2*kk3*theta2 - 16*pi*kappa*kk1*kk2*kk3*theta3 - 8*pi*kappa*kk1*kk3**2*theta2 - 8*pi*kappa*kk2**2*kk3*theta1 - 8*pi*kappa*kk2*kk3**2*theta1"
+    },
+    "L_contact g_R -> ffg": {
+     "limit": "0",
+     "L_times_error_limit": "-8*pi*kappa*kk1**2*kk2*theta3 - 8*pi*kappa*kk1**2*kk3*theta2 - 8*pi*kappa*kk1*kk2**2*theta3 - 16*pi*kappa*kk1*kk2*kk3*theta1 - 16*pi*kappa*kk1*kk2*kk3*theta2 - 16*pi*kappa*kk1*kk2*kk3*theta3 - 8*pi*kappa*kk1*kk3**2*theta2 - 8*pi*kappa*kk2**2*kk3*theta1 - 8*pi*kappa*kk2*kk3**2*theta1"
+    },
+    "L_contact g_L -> ffg": {
+     "limit": "0",
+     "L_times_error_limit": "-8*pi*kappa*kk1**2*kk2*theta3 - 8*pi*kappa*kk1**2*kk3*theta2 - 8*pi*kappa*kk1*kk2**2*theta3 - 16*pi*kappa*kk1*kk2*kk3*theta1 - 16*pi*kappa*kk1*kk2*kk3*theta2 - 16*pi*kappa*kk1*kk2*kk3*theta3 - 8*pi*kappa*kk1*kk3**2*theta2 - 8*pi*kappa*kk2**2*kk3*theta1 - 8*pi*kappa*kk2*kk3**2*theta1"
+    },
+    "L_contact g_R -> ggg": {
+     "limit": "0",
+     "L_times_error_limit": "(24*pi*kappa**2*kk1**2*kk2*theta3 + 24*pi*kappa**2*kk1**2*kk3*theta2 + 24*pi*kappa**2*kk1*kk2**2*theta3 + 48*pi*kappa**2*kk1*kk2*kk3*theta1 + 48*pi*kappa**2*kk1*kk2*kk3*theta2 + 48*pi*kappa**2*kk1*kk2*kk3*theta3 + 24*pi*kappa**2*kk1*kk3**2*theta2 + 24*pi*kappa**2*kk2**2*kk3*theta1 + 24*pi*kappa**2*kk2*kk3**2*theta1)/p"
+    },
+    "L_contact g_L -> ggg": {
+     "limit": "0",
+     "L_times_error_limit": "(24*pi*kappa**2*kk1**2*kk2*theta3 + 24*pi*kappa**2*kk1**2*kk3*theta2 + 24*pi*kappa**2*kk1*kk2**2*theta3 + 48*pi*kappa**2*kk1*kk2*kk3*theta1 + 48*pi*kappa**2*kk1*kk2*kk3*theta2 + 48*pi*kappa**2*kk1*kk2*kk3*theta3 + 24*pi*kappa**2*kk1*kk3**2*theta2 + 24*pi*kappa**2*kk2**2*kk3*theta1 + 24*pi*kappa**2*kk2*kk3**2*theta1)/p"
+    },
+    "L_lambda f_R -> fff": {
+     "limit": "0",
+     "L_times_error_limit": "-12*pi*Lambda*kk1**2*kk2*theta3 - 12*pi*Lambda*kk1**2*kk3*theta2 - 12*pi*Lambda*kk1*kk2**2*theta3 - 24*pi*Lambda*kk1*kk2*kk3*theta1 - 24*pi*Lambda*kk1*kk2*kk3*theta2 - 24*pi*Lambda*kk1*kk2*kk3*theta3 - 12*pi*Lambda*kk1*kk3**2*theta2 - 12*pi*Lambda*kk2**2*kk3*theta1 - 12*pi*Lambda*kk2*kk3**2*theta1"
+    },
+    "L_lambda f_L -> fff": {
+     "limit": "0",
+     "L_times_error_limit": "-12*pi*Lambda*kk1**2*kk2*theta3 - 12*pi*Lambda*kk1**2*kk3*theta2 - 12*pi*Lambda*kk1*kk2**2*theta3 - 24*pi*Lambda*kk1*kk2*kk3*theta1 - 24*pi*Lambda*kk1*kk2*kk3*theta2 - 24*pi*Lambda*kk1*kk2*kk3*theta3 - 12*pi*Lambda*kk1*kk3**2*theta2 - 12*pi*Lambda*kk2**2*kk3*theta1 - 12*pi*Lambda*kk2*kk3**2*theta1"
+    }
+   },
+   "secondary_error_vanishes": true,
+   "not_analysed": "limit at fixed pi/L = w (background; setting of Q2)"
+  },
+  "Z6": {
+   "C_closed_form": "pi*N_max*(N_max + 1)/(2*L**2)",
+   "C_definition": "sum_{n=1}^{N_max} k_n / (2 L)",
+   "C_equal": true,
+   "contraction_per_mode_R": "pi*n/L**2",
+   "contraction_per_mode_L": "pi*n/L**2",
+   "cross_family_contractions": "zero: R and L of one field use disjoint modes (n > 0, n < 0); f and g modes commute",
+   "k_max": "2 pi N_max / L (reported alongside; no relation to a physical cutoff is chosen)",
+   "groups": {
+    "L_contact 0_R_2_L_0_Pf_2_Pg": {
+     "remainders": [
+      {
+       "term": "Lg**2*P0g**2*kappa**2/(2*p)",
+       "reduced": "P0g**2",
+       "coefficient_closed_form": "pi*N_max*kappa**2*(N_max + 1)/(4*L**2*p)",
+       "contractions": 1,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 0_R_2_L_1_Pf_1_Pg": {
+     "remainders": [],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 0_R_2_L_2_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Lf**2*P0f**2*p/2",
+       "reduced": "P0f**2",
+       "coefficient_closed_form": "pi*N_max*p*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 0_R_3_L_0_Pf_1_Pg": {
+     "remainders": [
+      {
+       "term": "-Lf**2*Lg*P0g*kappa",
+       "reduced": "Lg*P0g",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "Lg**3*P0g*kappa**2/p",
+       "reduced": "Lg*P0g",
+       "coefficient_closed_form": "3*pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 0_R_3_L_1_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Lf**3*P0f*p",
+       "reduced": "Lf*P0f",
+       "coefficient_closed_form": "3*pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "-Lf*Lg**2*P0f*kappa",
+       "reduced": "Lf*P0f",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 0_R_4_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Lf**4*p/2",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "3*pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lf**4*p/2",
+       "reduced": "1",
+       "coefficient_closed_form": "3*pi**2*N_max**2*p*(N_max + 1)**2/(8*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "-Lf**2*Lg**2*kappa",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lf**2*Lg**2*kappa",
+       "reduced": "Lg**2",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lf**2*Lg**2*kappa",
+       "reduced": "1",
+       "coefficient_closed_form": "-pi**2*N_max**2*kappa*(N_max + 1)**2/(4*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "Lg**4*kappa**2/(2*p)",
+       "reduced": "Lg**2",
+       "coefficient_closed_form": "3*pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lg**4*kappa**2/(2*p)",
+       "reduced": "1",
+       "coefficient_closed_form": "3*pi**2*N_max**2*kappa**2*(N_max + 1)**2/(8*L**4*p)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 1_R_1_L_0_Pf_2_Pg": {
+     "remainders": [],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 1_R_1_L_1_Pf_1_Pg": {
+     "remainders": [],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 1_R_1_L_2_Pf_0_Pg": {
+     "remainders": [],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 1_R_2_L_0_Pf_1_Pg": {
+     "remainders": [
+      {
+       "term": "Lf**2*P0g*Rg*kappa",
+       "reduced": "P0g*Rg",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "-Lg**2*P0g*Rg*kappa**2/p",
+       "reduced": "P0g*Rg",
+       "coefficient_closed_form": "-pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 1_R_2_L_1_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-Lf**2*P0f*Rf*p",
+       "reduced": "P0f*Rf",
+       "coefficient_closed_form": "-pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "Lg**2*P0f*Rf*kappa",
+       "reduced": "P0f*Rf",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_0_L_0_Pf_2_Pg": {
+     "remainders": [
+      {
+       "term": "P0g**2*Rg**2*kappa**2/(2*p)",
+       "reduced": "P0g**2",
+       "coefficient_closed_form": "pi*N_max*kappa**2*(N_max + 1)/(4*L**2*p)",
+       "contractions": 1,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_0_L_1_Pf_1_Pg": {
+     "remainders": [],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_0_L_2_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "P0f**2*Rf**2*p/2",
+       "reduced": "P0f**2",
+       "coefficient_closed_form": "pi*N_max*p*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_1_L_0_Pf_1_Pg": {
+     "remainders": [
+      {
+       "term": "Lg*P0g*Rf**2*kappa",
+       "reduced": "Lg*P0g",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "-Lg*P0g*Rg**2*kappa**2/p",
+       "reduced": "Lg*P0g",
+       "coefficient_closed_form": "-pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_1_L_1_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-Lf*P0f*Rf**2*p",
+       "reduced": "Lf*P0f",
+       "coefficient_closed_form": "-pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "Lf*P0f*Rg**2*kappa",
+       "reduced": "Lf*P0f",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 2_R_2_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-Lf**2*Rf**2*p",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "-pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lf**2*Rf**2*p",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "-pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lf**2*Rf**2*p",
+       "reduced": "1",
+       "coefficient_closed_form": "-pi**2*N_max**2*p*(N_max + 1)**2/(4*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "Lg**2*Rf**2*kappa",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lg**2*Rf**2*kappa",
+       "reduced": "Lg**2",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lg**2*Rf**2*kappa",
+       "reduced": "1",
+       "coefficient_closed_form": "pi**2*N_max**2*kappa*(N_max + 1)**2/(4*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "Lf**2*Rg**2*kappa",
+       "reduced": "Rg**2",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lf**2*Rg**2*kappa",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Lf**2*Rg**2*kappa",
+       "reduced": "1",
+       "coefficient_closed_form": "pi**2*N_max**2*kappa*(N_max + 1)**2/(4*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "-Lg**2*Rg**2*kappa**2/p",
+       "reduced": "Rg**2",
+       "coefficient_closed_form": "-pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lg**2*Rg**2*kappa**2/p",
+       "reduced": "Lg**2",
+       "coefficient_closed_form": "-pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lg**2*Rg**2*kappa**2/p",
+       "reduced": "1",
+       "coefficient_closed_form": "-pi**2*N_max**2*kappa**2*(N_max + 1)**2/(4*L**4*p)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 3_R_0_L_0_Pf_1_Pg": {
+     "remainders": [
+      {
+       "term": "-P0g*Rf**2*Rg*kappa",
+       "reduced": "P0g*Rg",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "P0g*Rg**3*kappa**2/p",
+       "reduced": "P0g*Rg",
+       "coefficient_closed_form": "3*pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 3_R_0_L_1_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "P0f*Rf**3*p",
+       "reduced": "P0f*Rf",
+       "coefficient_closed_form": "3*pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      },
+      {
+       "term": "-P0f*Rf*Rg**2*kappa",
+       "reduced": "P0f*Rf",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "single field: Int dx :X: = 0 (no zero Fourier component)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_contact 4_R_0_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Rf**4*p/2",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "3*pi*N_max*p*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Rf**4*p/2",
+       "reduced": "1",
+       "coefficient_closed_form": "3*pi**2*N_max**2*p*(N_max + 1)**2/(8*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "-Rf**2*Rg**2*kappa",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Rf**2*Rg**2*kappa",
+       "reduced": "Rg**2",
+       "coefficient_closed_form": "-pi*N_max*kappa*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Rf**2*Rg**2*kappa",
+       "reduced": "1",
+       "coefficient_closed_form": "-pi**2*N_max**2*kappa*(N_max + 1)**2/(4*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      },
+      {
+       "term": "Rg**4*kappa**2/(2*p)",
+       "reduced": "Rg**2",
+       "coefficient_closed_form": "3*pi*N_max*kappa**2*(N_max + 1)/(2*L**2*p)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "Rg**4*kappa**2/(2*p)",
+       "reduced": "1",
+       "coefficient_closed_form": "3*pi**2*N_max**2*kappa**2*(N_max + 1)**2/(8*L**4*p)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_lambda 0_R_4_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-Lambda*Lf**4/4",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "-3*pi*Lambda*N_max*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lambda*Lf**4/4",
+       "reduced": "1",
+       "coefficient_closed_form": "-3*pi**2*Lambda*N_max**2*(N_max + 1)**2/(16*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_lambda 1_R_3_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Lambda*Lf**3*Rf",
+       "reduced": "Lf*Rf",
+       "coefficient_closed_form": "3*pi*Lambda*N_max*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "other (operator computed at finite N_max)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "NONZERO for some remainder",
+      "N_max=2": "NONZERO for some remainder",
+      "N_max=3": "NONZERO for some remainder"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_lambda 2_R_2_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-3*Lambda*Lf**2*Rf**2/2",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "-3*pi*Lambda*N_max*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-3*Lambda*Lf**2*Rf**2/2",
+       "reduced": "Lf**2",
+       "coefficient_closed_form": "-3*pi*Lambda*N_max*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-3*Lambda*Lf**2*Rf**2/2",
+       "reduced": "1",
+       "coefficient_closed_form": "-3*pi**2*Lambda*N_max**2*(N_max + 1)**2/(8*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_lambda 3_R_1_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "Lambda*Lf*Rf**3",
+       "reduced": "Lf*Rf",
+       "coefficient_closed_form": "3*pi*Lambda*N_max*(N_max + 1)/(2*L**2)",
+       "contractions": 1,
+       "kind": "other (operator computed at finite N_max)"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "NONZERO for some remainder",
+      "N_max=2": "NONZERO for some remainder",
+      "N_max=3": "NONZERO for some remainder"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    },
+    "L_lambda 4_R_0_L_0_Pf_0_Pg": {
+     "remainders": [
+      {
+       "term": "-Lambda*Rf**4/4",
+       "reduced": "Rf**2",
+       "coefficient_closed_form": "-3*pi*Lambda*N_max*(N_max + 1)/(4*L**2)",
+       "contractions": 1,
+       "kind": "same-family bilinear: Int dx :X^2: = sum_n |k_n| a^dag a over that field and direction"
+      },
+      {
+       "term": "-Lambda*Rf**4/4",
+       "reduced": "1",
+       "coefficient_closed_form": "-3*pi**2*Lambda*N_max**2*(N_max + 1)**2/(16*L**4)",
+       "contractions": 2,
+       "kind": "c-number: Int dx = L"
+      }
+     ],
+     "explicit_verification": {
+      "N_max=1": true,
+      "N_max=2": true
+     },
+     "commutators_with_H0": {
+      "N_max=1": "all zero",
+      "N_max=2": "all zero",
+      "N_max=3": "all zero"
+     },
+     "sign_in_H_int": "H_int remainder = -(Int dx of the listed remainder)"
+    }
+   },
+   "no_limit_taken": "no N_max -> infinity limit for divergent quantities; no renormalisation"
+  },
+  "denominators_checked": [
+   [
+    "2*p",
+    "p > 0 (spec v0.3.1 1.1)"
+   ]
+  ]
+ },
+ "findings": [
+  {
+   "id": "Z4-equal-energy-number-changing",
+   "text": "some pi-dependent groups have nonzero first-order elements between free states of equal E0 that change the particle number; classification only",
+   "groups": [
+    "L_contact 0_R_3_L_0_Pf_1_Pg",
+    "L_contact 0_R_3_L_1_Pf_0_Pg",
+    "L_contact 3_R_0_L_0_Pf_1_Pg",
+    "L_contact 3_R_0_L_1_Pf_0_Pg"
+   ]
+  }
+ ],
+ "verdict": "ALL_CHECKS_PASS",
+ "scope": "ALL_CHECKS_PASS covers ZC1-ZC7 only; it is not an independent proof and does not select O1, O2 or O3. Route 2 covers only the evaluated sectors and N_max values; statements beyond them rest on route 1. The candidate status of the zero-mode groups changes only in a later reviewed report."
+}

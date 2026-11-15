@@ -1,0 +1,9 @@
+B4.12 Q3 zero-mode task -- run context
+started/finished: see started_at.txt, finished_at.txt (2026-11-15, Europe/Sofia)
+authorisation: reviewer decision of 2026-11-15, 19:56 (REVISION 1.1 - APPROVED FOR EXECUTION; one full run)
+spec: t3fund_proca_b412_t7_drafts/B4_12_Q3_ZERO_MODE_SPEC_v0.2.md (commit fcd7ace, sha256 2a198f7f1e74360c...)
+script: b412_q3_zero_modes.py revision 1.1, sha256 1e2f51ade19aecbca331727bda72ce48f36b9f4044e305c47663f3465212e509
+command: python3 -I b412_q3_zero_modes.py results_b412_q3_zero_modes_rev1_1
+environment: Python 3.13.18, SymPy 1.14.0, Linux (cloud workspace)
+inputs: none (symbolic only; registered expressions embedded in the script from run df4d8b9)
+outputs: b412_q3_zero_modes_results.json, b412_q3_zero_modes_output.txt, console_output.txt (stdout+stderr), exit_code.txt
