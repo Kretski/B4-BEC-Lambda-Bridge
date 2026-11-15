@@ -1,0 +1,1245 @@
+{
+ "spec": "B4_12_Q3_UNITARITY_SPEC_v0.3.1.md",
+ "registration": "B4_12_Q3_SPEC_REGISTRATION.md",
+ "scope_note": "B4_12_Q3_CHIRAL_SECTOR_NOTE_v0.2.md",
+ "revision": "2.1",
+ "sympy": "1.14.0",
+ "seconds": 4.6,
+ "checks": {
+  "Q3_C1_kinematics": true,
+  "Q3_C9_channel_normalisation": true,
+  "Q3_C3_phase_space": true,
+  "Q3_C4_two_routes": true,
+  "Q3_C2_free_limit": true,
+  "Q3_C5_dimension": true,
+  "Q3_C6_decoupling": true,
+  "Q3_C7_hermiticity": true,
+  "Q3_C8_perturbative_consistency": true,
+  "F1_chiral_split": true,
+  "F2_symbolic_commutator_test": true,
+  "F3_transitions": true,
+  "F3_spectator_matrix_elements": true,
+  "F4_secular_first_order": true
+ },
+ "mandatory": [
+  "Q3_C1_kinematics",
+  "Q3_C2_free_limit",
+  "Q3_C3_phase_space",
+  "Q3_C4_two_routes",
+  "Q3_C5_dimension",
+  "Q3_C6_decoupling",
+  "Q3_C7_hermiticity",
+  "Q3_C8_perturbative_consistency",
+  "Q3_C9_channel_normalisation",
+  "F1_chiral_split",
+  "F2_symbolic_commutator_test",
+  "F3_transitions",
+  "F3_spectator_matrix_elements",
+  "F4_secular_first_order"
+ ],
+ "results": {
+  "C1": {
+   "RL_final_momenta": {
+    "k3": "E_R",
+    "k4": "-E_L"
+   },
+   "RR_final_requires_zero": "2*E_L",
+   "LL_final_requires_zero": "2*E_R",
+   "s_cm": "4*E_L*E_R"
+  },
+  "C9": {
+   "exchange_term": "0",
+   "norm_identical_minus_distinct": "0",
+   "regions_equal": true,
+   "conclusion": "no extra 1/sqrt(2) for f_R f_L or g_R g_L: the exchange term vanishes on disjoint supports, and the 1/2! of the identical-boson completeness relation is cancelled by the two equivalent regions (k1>0,k2<0), (k1<0,k2>0)"
+  },
+  "fibre": {
+   "definition": "direct-integral decomposition of the state space over total (E, P); fibre over (E, P) with E > |P|; the two-particle part of the fibre is C^4 over species (channels |a_R b_L>), the fibre inner product is obtained by removing (2 pi)^2 delta^2(P_f - P_i); this C^4 is not the continuum of momentum states",
+   "jacobian_p_to_EP": "2",
+   "fibre_norm": "2*s_cm",
+   "root_conditions": [
+    "E_L < E_R + q",
+    "True"
+   ]
+  },
+  "C3": {
+   "method1_direct": "1/(8*E_L*E_R)",
+   "method1_in_s": "1/(2*s_cm)",
+   "method2_invariant_CM": "1/(2*s_cm)",
+   "product_with_fibre_norm": "1"
+  },
+  "B0_Hint_equals_minus_Lint_first_order": true,
+  "B0_scope": "first order in the couplings only; higher-order Legendre terms are not derived (note F2)",
+  "B1_one_particle": {
+   "annihilation": "-I*p_in",
+   "creation": "I*p_out"
+  },
+  "channels": [
+   "f_R f_L",
+   "f_R g_L",
+   "g_R f_L",
+   "g_R g_L"
+  ],
+  "T_contact": [
+   [
+    "-4*E_L**2*E_R**2*p",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "4*E_L**2*E_R**2*kappa",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "4*E_L**2*E_R**2*kappa",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "-4*E_L**2*E_R**2*kappa**2/p"
+   ]
+  ],
+  "T_lambda_separate": [
+   [
+    "-6*E_L**2*E_R**2*Lambda",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  ],
+  "C4_scope": "route A (full Lagrangian, plane waves) equals route B (L_RL part only, Fock matrix elements) for the four two-particle channels; this shows that only L_RL contributes to the elastic block at first order. Transitions to other states are in F3",
+  "T_contact_in_s": [
+   [
+    "-p*s_cm**2/4",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "kappa*s_cm**2/4",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "kappa*s_cm**2/4",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "-kappa**2*s_cm**2/(4*p)"
+   ]
+  ],
+  "T_lambda_in_s": [
+   [
+    "-3*Lambda*s_cm**2/8",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  ],
+  "normalisation": {
+   "c": "1",
+   "N": "1/(2*s_cm)",
+   "a": "T/(2 s_cm)",
+   "convention_independence": "lambda(a_c) = lambda(T)/(c * 2 s_cm) for any c > 0, so |lambda(a_c)| <= 1/c  <=>  |lambda(T)| <= 2 s_cm: True"
+  },
+  "a": [
+   [
+    "-p*s_cm/8",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "kappa*s_cm/8",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "kappa*s_cm/8",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "-kappa**2*s_cm/(8*p)"
+   ]
+  ],
+  "a_lambda_separate": [
+   [
+    "-3*Lambda*s_cm/16",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  ],
+  "C8_remainder": "S_el^dag S_el - 1 = a^2 (c = 1; identified, nonzero for a != 0). This is a statement about the first-order truncation, not a proof of unitarity",
+  "relation_3_1": "-i(A - A^dag) = c A^dag A + R_inel/c holds identically for S_el = 1 + i c A with R_inel defined by S_el^dag S_el = 1 - R_inel (an identity for the defined R_inel): True",
+  "order_1": "0 = 0",
+  "order_2_general": "-c*a**2 - I*A2 + I*Dagger(A2) - R2/c = 0, i.e. -i(A2 - A2^dag) = c a^2 + R_inel^(2)/c",
+  "order_2_status": "the form without R_inel^(2) is NOT claimed for L_contact: connected 2->4 enters at fourth order, but the disconnected collinear splitting of F3/F4 is first order and its contribution to R_inel^(2) is secular in the free-Fock construction (F4)",
+  "coupling_counting": {
+   "external_legs": "Eq(E_ext, -2*I + 4*V)",
+   "tree_vertices": "E_ext/2 - 1",
+   "connected_2to4_vertices": 2,
+   "connected_contribution_to_R_inel_order": 4,
+   "disconnected": "first-order spectator transitions exist (F3); not covered by this count"
+  },
+  "F1": {
+   "groups": {
+    "L_contact": {
+     "0_R_4_L": {
+      "boost_weight": -4,
+      "terms": [
+       "Lf**4*p/2",
+       "-Lf**2*Lg**2*kappa",
+       "Lg**4*kappa**2/(2*p)"
+      ]
+     },
+     "2_R_2_L": {
+      "boost_weight": 0,
+      "terms": [
+       "-Lf**2*Rf**2*p",
+       "Lg**2*Rf**2*kappa",
+       "Lf**2*Rg**2*kappa",
+       "-Lg**2*Rg**2*kappa**2/p"
+      ]
+     },
+     "4_R_0_L": {
+      "boost_weight": 4,
+      "terms": [
+       "Rf**4*p/2",
+       "-Rf**2*Rg**2*kappa",
+       "Rg**4*kappa**2/(2*p)"
+      ]
+     }
+    },
+    "L_lambda": {
+     "0_R_4_L": {
+      "boost_weight": -4,
+      "terms": [
+       "-Lambda*Lf**4/4"
+      ]
+     },
+     "1_R_3_L": {
+      "boost_weight": -2,
+      "terms": [
+       "Lambda*Lf**3*Rf"
+      ]
+     },
+     "2_R_2_L": {
+      "boost_weight": 0,
+      "terms": [
+       "-3*Lambda*Lf**2*Rf**2/2"
+      ]
+     },
+     "3_R_1_L": {
+      "boost_weight": 2,
+      "terms": [
+       "Lambda*Lf*Rf**3"
+      ]
+     },
+     "4_R_0_L": {
+      "boost_weight": 4,
+      "terms": [
+       "-Lambda*Rf**4/4"
+      ]
+     }
+    }
+   },
+   "L_RL": "-Lf**2*Rf**2*p + Lf**2*Rg**2*kappa + Lg**2*Rf**2*kappa - Lg**2*Rg**2*kappa**2/p",
+   "L_ch": "Lf**4*p/2 - Lf**2*Lg**2*kappa + Lg**4*kappa**2/(2*p) + Rf**4*p/2 - Rf**2*Rg**2*kappa + Rg**4*kappa**2/(2*p)",
+   "split_complete": true,
+   "parity_invariant": true,
+   "parity_use": "x -> -x maps R <-> L; the L-sector results follow from the R-sector ones"
+  },
+  "F2": {
+   "box": "periodic box of length L_box, modes k_n = 2 pi n / L_box; n > 0: R oscillators, n < 0: L oscillators, [a_n, a_m^dag] = delta_nm; field zero mode q0 + pi0 t / L_box, non-compact, no winding; normal ordering with respect to the oscillators",
+   "zero_mode_field_drops": "derivative couplings only: q0 never appears",
+   "zero_mode_in_d_t": "pi0/L_box",
+   "zero_mode_in_d_x": "0",
+   "zero_mode_terms_L_contact": {
+    "0_R_2_L_2_P0": [
+     "Lf**2*P0f**2*p/2",
+     "-Lf*Lg*P0f*P0g*kappa",
+     "Lg**2*P0g**2*kappa**2/(2*p)"
+    ],
+    "0_R_3_L_1_P0": [
+     "Lf**3*P0f*p",
+     "-Lf**2*Lg*P0g*kappa",
+     "-Lf*Lg**2*P0f*kappa",
+     "Lg**3*P0g*kappa**2/p"
+    ],
+    "1_R_1_L_2_P0": [
+     "-Lf*P0f**2*Rf*p",
+     "Lg*P0f*P0g*Rf*kappa",
+     "Lf*P0f*P0g*Rg*kappa",
+     "-Lg*P0g**2*Rg*kappa**2/p"
+    ],
+    "1_R_2_L_1_P0": [
+     "-Lf**2*P0f*Rf*p",
+     "Lg**2*P0f*Rf*kappa",
+     "Lf**2*P0g*Rg*kappa",
+     "-Lg**2*P0g*Rg*kappa**2/p"
+    ],
+    "2_R_0_L_2_P0": [
+     "P0f**2*Rf**2*p/2",
+     "-P0f*P0g*Rf*Rg*kappa",
+     "P0g**2*Rg**2*kappa**2/(2*p)"
+    ],
+    "2_R_1_L_1_P0": [
+     "-Lf*P0f*Rf**2*p",
+     "Lg*P0g*Rf**2*kappa",
+     "Lf*P0f*Rg**2*kappa",
+     "-Lg*P0g*Rg**2*kappa**2/p"
+    ],
+    "3_R_0_L_1_P0": [
+     "P0f*Rf**3*p",
+     "-P0g*Rf**2*Rg*kappa",
+     "-P0f*Rf*Rg**2*kappa",
+     "P0g*Rg**3*kappa**2/p"
+    ]
+   },
+   "zero_mode_terms_L_lambda": {},
+   "P0_free_part_equals_continuum": true,
+   "commutes_with_H0_by_group": {
+    "L_contact 0_R_2_L_2_P0": true,
+    "L_contact 0_R_3_L_1_P0": true,
+    "L_contact 0_R_4_L_0_P0": true,
+    "L_contact 1_R_1_L_2_P0": false,
+    "L_contact 1_R_2_L_1_P0": false,
+    "L_contact 2_R_0_L_2_P0": true,
+    "L_contact 2_R_1_L_1_P0": false,
+    "L_contact 2_R_2_L_0_P0": false,
+    "L_contact 3_R_0_L_1_P0": true,
+    "L_contact 4_R_0_L_0_P0": true,
+    "L_lambda 0_R_4_L_0_P0": true,
+    "L_lambda 1_R_3_L_0_P0": false,
+    "L_lambda 2_R_2_L_0_P0": false,
+    "L_lambda 3_R_1_L_0_P0": false,
+    "L_lambda 4_R_0_L_0_P0": true
+   },
+   "Q_definitions": "Q_R = -Int dx :L_ch^R: from the (4,0,0) group (n > 0 oscillators only); Q_L likewise from (0,4,0) (n < 0 only). The zero-mode groups (deg P0 > 0) are not assigned to Q_R or Q_L: they contain the shared zero mode and their assignment is not unique; they are listed separately",
+   "Q_R_Q_L_commutator": "zero: normal-ordered products of two disjoint sets of mutually commuting oscillators (n > 0 and n < 0); this holds for the definitions above, which exclude the zero mode",
+   "wick_single_field": {
+    "X^2": {
+     ":X^2:": "1 C^0",
+     ":X^0:": "1 C^1"
+    },
+    "X^4": {
+     ":X^4:": "1 C^0",
+     ":X^2:": "6 C^1",
+     ":X^0:": "3 C^2"
+    }
+   },
+   "wick_remainder_status": "the reordering produces c-numbers and bilinear :R^2: terms times C = <R*^2> = Sum_{n>0} k_n / (2 L_box) (UV-divergent); Int dx :R*^2: is a momentum-conserving bilinear with E = k, so it commutes with H0 (row 2_R_0_L); it rescales the R-sector Hamiltonian and is reported, not dropped",
+   "box_scaling_of_matrix_elements": {
+    "L_contact 0_R_2_L_2_P0": "L_box**(-2)",
+    "L_contact 0_R_3_L_1_P0": "L_box**(-3/2)",
+    "L_contact 0_R_4_L_0_P0": "1/L_box",
+    "L_contact 1_R_1_L_2_P0": "L_box**(-2)",
+    "L_contact 1_R_2_L_1_P0": "L_box**(-3/2)",
+    "L_contact 2_R_0_L_2_P0": "L_box**(-2)",
+    "L_contact 2_R_1_L_1_P0": "L_box**(-3/2)",
+    "L_contact 2_R_2_L_0_P0": "1/L_box",
+    "L_contact 3_R_0_L_1_P0": "L_box**(-3/2)",
+    "L_contact 4_R_0_L_0_P0": "1/L_box",
+    "L_lambda 0_R_4_L_0_P0": "1/L_box",
+    "L_lambda 1_R_3_L_0_P0": "1/L_box",
+    "L_lambda 2_R_2_L_0_P0": "1/L_box",
+    "L_lambda 3_R_1_L_0_P0": "1/L_box",
+    "L_lambda 4_R_0_L_0_P0": "1/L_box"
+   },
+   "box_scaling_assumption": "fixed pi0 eigenvalue; box-normalised Fock states; leading power only",
+   "commutator_test_scope": "SYMBOLIC MOMENTUM-SPACE COMMUTATOR TEST: applies [H0, M] = (sum E_created - sum E_annihilated) M to normal-ordered monomials under formal momentum conservation, with continuous signed momentum symbols. It does NOT construct the Fock operators in the periodic box and does NOT impose the discrete lattice k_n = 2 pi n / L_box, n != 0; it is not a full operator construction in the box"
+  },
+  "F3_balance_reduction": "E: S_R_cre + S_L_cre = S_R_ann + S_L_ann; P: S_R_cre - S_L_cre = S_R_ann - S_L_ann (P = +E for R, -E for L)  =>  {S_L_cre: S_L_ann, S_R_cre: S_R_ann}",
+  "F3_table": [
+   {
+    "operator": "L_contact",
+    "part": "0_R_4_L",
+    "annihilated": "-",
+    "created": "LLLL",
+    "final": "RLLLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: empty sum = 0 holds",
+     "L: solved e1 = -e2 - e3 - e4 <= 0 for all positive e2..e4"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "0_R_4_L",
+    "annihilated": "L",
+    "created": "LLL",
+    "final": "RLLL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: empty sum = 0 holds",
+     "L: witness e_i = E_L/3"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "0_R_4_L",
+    "annihilated": "R",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_contact",
+    "part": "0_R_4_L",
+    "annihilated": "RL",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_contact",
+    "part": "2_R_2_L",
+    "annihilated": "-",
+    "created": "RRLL",
+    "final": "RRRLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 <= 0 for all positive e2..e2",
+     "L: solved e1 = -e2 <= 0 for all positive e2..e2"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "2_R_2_L",
+    "annihilated": "L",
+    "created": "RRL",
+    "final": "RRRL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 <= 0 for all positive e2..e2",
+     "L: witness e_i = E_L"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "2_R_2_L",
+    "annihilated": "R",
+    "created": "RLL",
+    "final": "RLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: witness e_i = E_R",
+     "L: solved e1 = -e2 <= 0 for all positive e2..e2"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "2_R_2_L",
+    "annihilated": "RL",
+    "created": "RL",
+    "final": "RL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: witness e_i = E_R",
+     "L: witness e_i = E_L"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "4_R_0_L",
+    "annihilated": "-",
+    "created": "RRRR",
+    "final": "RRRRRL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 - e3 - e4 <= 0 for all positive e2..e4",
+     "L: empty sum = 0 holds"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "4_R_0_L",
+    "annihilated": "L",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_contact",
+    "part": "4_R_0_L",
+    "annihilated": "R",
+    "created": "RRR",
+    "final": "RRRL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: witness e_i = E_R/3",
+     "L: empty sum = 0 holds"
+    ]
+   },
+   {
+    "operator": "L_contact",
+    "part": "4_R_0_L",
+    "annihilated": "RL",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_lambda",
+    "part": "0_R_4_L",
+    "annihilated": "-",
+    "created": "LLLL",
+    "final": "RLLLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: empty sum = 0 holds",
+     "L: solved e1 = -e2 - e3 - e4 <= 0 for all positive e2..e4"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "0_R_4_L",
+    "annihilated": "L",
+    "created": "LLL",
+    "final": "RLLL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: empty sum = 0 holds",
+     "L: witness e_i = E_L/3"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "0_R_4_L",
+    "annihilated": "R",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_lambda",
+    "part": "0_R_4_L",
+    "annihilated": "RL",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_lambda",
+    "part": "1_R_3_L",
+    "annihilated": "-",
+    "created": "RLLL",
+    "final": "RRLLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = 0 <= 0 for all positive e2..e1",
+     "L: solved e1 = -e2 - e3 <= 0 for all positive e2..e3"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "1_R_3_L",
+    "annihilated": "L",
+    "created": "RLL",
+    "final": "RRLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = 0 <= 0 for all positive e2..e1",
+     "L: witness e_i = E_L/2"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "1_R_3_L",
+    "annihilated": "R",
+    "created": "LLL",
+    "final": "LLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: empty sum = E_R cannot hold",
+     "L: solved e1 = -e2 - e3 <= 0 for all positive e2..e3"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "1_R_3_L",
+    "annihilated": "RL",
+    "created": "LL",
+    "final": "LL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: empty sum = E_R cannot hold",
+     "L: witness e_i = E_L/2"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "2_R_2_L",
+    "annihilated": "-",
+    "created": "RRLL",
+    "final": "RRRLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 <= 0 for all positive e2..e2",
+     "L: solved e1 = -e2 <= 0 for all positive e2..e2"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "2_R_2_L",
+    "annihilated": "L",
+    "created": "RRL",
+    "final": "RRRL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 <= 0 for all positive e2..e2",
+     "L: witness e_i = E_L"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "2_R_2_L",
+    "annihilated": "R",
+    "created": "RLL",
+    "final": "RLLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: witness e_i = E_R",
+     "L: solved e1 = -e2 <= 0 for all positive e2..e2"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "2_R_2_L",
+    "annihilated": "RL",
+    "created": "RL",
+    "final": "RL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: witness e_i = E_R",
+     "L: witness e_i = E_L"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "3_R_1_L",
+    "annihilated": "-",
+    "created": "RRRL",
+    "final": "RRRRLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 - e3 <= 0 for all positive e2..e3",
+     "L: solved e1 = 0 <= 0 for all positive e2..e1"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "3_R_1_L",
+    "annihilated": "L",
+    "created": "RRR",
+    "final": "RRRR",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 - e3 <= 0 for all positive e2..e3",
+     "L: empty sum = E_L cannot hold"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "3_R_1_L",
+    "annihilated": "R",
+    "created": "RRL",
+    "final": "RRLL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: witness e_i = E_R/2",
+     "L: solved e1 = 0 <= 0 for all positive e2..e1"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "3_R_1_L",
+    "annihilated": "RL",
+    "created": "RR",
+    "final": "RR",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: witness e_i = E_R/2",
+     "L: empty sum = E_L cannot hold"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "4_R_0_L",
+    "annihilated": "-",
+    "created": "RRRR",
+    "final": "RRRRRL",
+    "verdict": "forbidden",
+    "certificate": [
+     "R: solved e1 = -e2 - e3 - e4 <= 0 for all positive e2..e4",
+     "L: empty sum = 0 holds"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "4_R_0_L",
+    "annihilated": "L",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   },
+   {
+    "operator": "L_lambda",
+    "part": "4_R_0_L",
+    "annihilated": "R",
+    "created": "RRR",
+    "final": "RRRL",
+    "verdict": "allowed",
+    "certificate": [
+     "R: witness e_i = E_R/3",
+     "L: empty sum = 0 holds"
+    ]
+   },
+   {
+    "operator": "L_lambda",
+    "part": "4_R_0_L",
+    "annihilated": "RL",
+    "verdict": "impossible",
+    "reason": "part has no field of that direction"
+   }
+  ],
+  "F3_allowed": [
+   [
+    "L_contact",
+    "0_R_4_L",
+    "L",
+    "RLLL"
+   ],
+   [
+    "L_contact",
+    "2_R_2_L",
+    "RL",
+    "RL"
+   ],
+   [
+    "L_contact",
+    "4_R_0_L",
+    "R",
+    "RRRL"
+   ],
+   [
+    "L_lambda",
+    "0_R_4_L",
+    "L",
+    "RLLL"
+   ],
+   [
+    "L_lambda",
+    "2_R_2_L",
+    "RL",
+    "RL"
+   ],
+   [
+    "L_lambda",
+    "4_R_0_L",
+    "R",
+    "RRRL"
+   ]
+  ],
+  "F3_splitting": {
+   "L_contact f_R -> f_R f_R f_R": {
+    "route_A": "-12*k1*k2*k3*p*(k1 + k2 + k3)",
+    "route_B": "-12*k1*k2*k3*p*(k1 + k2 + k3)",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_contact f_R -> f_R f_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_contact f_R -> f_R g_R g_R": {
+    "route_A": "4*k1*k2*k3*kappa*(k1 + k2 + k3)",
+    "route_B": "4*k1*k2*k3*kappa*(k1 + k2 + k3)",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_contact f_R -> g_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_contact g_R -> f_R f_R f_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_contact g_R -> f_R f_R g_R": {
+    "route_A": "4*k1*k2*k3*kappa*(k1 + k2 + k3)",
+    "route_B": "4*k1*k2*k3*kappa*(k1 + k2 + k3)",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_contact g_R -> f_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_contact g_R -> g_R g_R g_R": {
+    "route_A": "-12*k1*k2*k3*kappa**2*(k1 + k2 + k3)/p",
+    "route_B": "-12*k1*k2*k3*kappa**2*(k1 + k2 + k3)/p",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_lambda f_R -> f_R f_R f_R": {
+    "route_A": "6*Lambda*k1*k2*k3*(k1 + k2 + k3)",
+    "route_B": "6*Lambda*k1*k2*k3*(k1 + k2 + k3)",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_lambda f_R -> f_R f_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_lambda f_R -> f_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_lambda f_R -> g_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_lambda g_R -> f_R f_R f_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   },
+   "L_lambda g_R -> f_R f_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_lambda g_R -> f_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 2,
+    "completeness_factor": "1/2"
+   },
+   "L_lambda g_R -> g_R g_R g_R": {
+    "route_A": "0",
+    "route_B": "0",
+    "equal": true,
+    "final_state_norm_terms": 6,
+    "completeness_factor": "1/6"
+   }
+  },
+  "F3_normalisation": "one-particle <k|k'> = 2E (2pi) delta(k - k'); three-particle <k1 k2 k3|k1' k2' k3'> = sum over species-preserving permutations of products of one-particle factors (number of terms = product of m_s!), completeness factor 1/product of m_s!",
+  "F3_spectator": {
+   "definition": "<c_R d_R e_R b'_L| i Int d^2x :L: |a_R b_L> and the mirror, by explicit Wick enumeration over all monomials of the operator (not only the (4,0) part)",
+   "factorisation": "full = i T_{a->cde} * 4 pi T_int delta(2(k1+k2+k3-K)) * delta_{b b'} 2|q| (2pi) delta(q'-q): True",
+   "spectator_delta": "the spectator contributes 2|q| (2pi) delta(q' - q); the total (2pi)^2 delta^2(P_f - P_i) of the four-particle state reduces to delta(0) * delta(dP_R) on the collinear set, represented by T_int",
+   "four_particle_norm": "<RRR L|RRR L> = (sum over species-preserving permutations of the three R factors) x (L factor); completeness factor 1/(product of m_s! over R species)",
+   "elements": {
+    "L_contact f_R f_L -> f_R f_R f_R + f_L": {
+     "full_R_split": "192*I*pi**2*K*T_int*k1*k2*k3*p*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "-192*I*pi**2*K*T_int*l1*l2*l3*p*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact f_R f_L -> f_R g_R g_R + f_L": {
+     "full_R_split": "-64*I*pi**2*K*T_int*k1*k2*k3*kappa*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "64*I*pi**2*K*T_int*kappa*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact f_R g_L -> f_R f_R f_R + g_L": {
+     "full_R_split": "192*I*pi**2*K*T_int*k1*k2*k3*p*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "-192*I*pi**2*K*T_int*l1*l2*l3*p*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact f_R g_L -> f_R g_R g_R + g_L": {
+     "full_R_split": "-64*I*pi**2*K*T_int*k1*k2*k3*kappa*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "64*I*pi**2*K*T_int*kappa*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact g_R f_L -> f_R f_R g_R + f_L": {
+     "full_R_split": "-64*I*pi**2*K*T_int*k1*k2*k3*kappa*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "64*I*pi**2*K*T_int*kappa*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact g_R f_L -> g_R g_R g_R + f_L": {
+     "full_R_split": "192*I*pi**2*K*T_int*k1*k2*k3*kappa**2*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)/p",
+     "factorised_R": true,
+     "full_L_split": "-192*I*pi**2*K*T_int*kappa**2*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)/p",
+     "factorised_L": true
+    },
+    "L_contact g_R g_L -> f_R f_R g_R + g_L": {
+     "full_R_split": "-64*I*pi**2*K*T_int*k1*k2*k3*kappa*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "64*I*pi**2*K*T_int*kappa*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_contact g_R g_L -> g_R g_R g_R + g_L": {
+     "full_R_split": "192*I*pi**2*K*T_int*k1*k2*k3*kappa**2*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)/p",
+     "factorised_R": true,
+     "full_L_split": "-192*I*pi**2*K*T_int*kappa**2*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)/p",
+     "factorised_L": true
+    },
+    "L_lambda f_R f_L -> f_R f_R f_R + f_L": {
+     "full_R_split": "-96*I*pi**2*K*Lambda*T_int*k1*k2*k3*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "96*I*pi**2*K*Lambda*T_int*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    },
+    "L_lambda f_R g_L -> f_R f_R f_R + g_L": {
+     "full_R_split": "-96*I*pi**2*K*Lambda*T_int*k1*k2*k3*q*DiracDelta(-q + q_out)*DiracDelta(-2*K + 2*k1 + 2*k2 + 2*k3)",
+     "factorised_R": true,
+     "full_L_split": "96*I*pi**2*K*Lambda*T_int*l1*l2*l3*q*DiracDelta(-K + p_out)*DiracDelta(-2*l1 - 2*l2 - 2*l3 + 2*q)",
+     "factorised_L": true
+    }
+   }
+  },
+  "F4": {
+   "packet": "phi(k) = sqrt(8 pi / sigma) sqrt(k) exp(-k/sigma), k > 0, measure dk/(2pi 2k)",
+   "packet_norm": "1",
+   "step1_fixed_momenta": "Int_0^t exp(i (E_f - E_i) t') dt' with E_f - E_i = 0 identically on the momentum shell -> t (secular, no oscillation)",
+   "step1_contrast_off_shell": "|Int_0^t exp(i Delta t') dt'|^2 = (2 - 2*cos(Delta*t))/Delta**2 (bounded for Delta != 0)",
+   "channels": {
+    "L_contact f_R -> f_R f_R f_R": {
+     "packet_amplitude": "-12*sqrt(2)*I*sqrt(pi)*k1*k2*k3*p*t*sqrt(k1 + k2 + k3)*exp(-(k1 + k2 + k3)/sigma)/sqrt(sigma)",
+     "probability_first_order": "9*p**2*sigma**6*t**2/(256*pi**2)",
+     "coefficient_of_t2": "9*p**2*sigma**6/(256*pi**2)",
+     "operator": "L_contact",
+     "evaluated": true,
+     "finite": true,
+     "t2_form": true,
+     "nonzero": true,
+     "status": "ESTABLISHED"
+    },
+    "L_contact f_R -> f_R g_R g_R": {
+     "packet_amplitude": "4*sqrt(2)*I*sqrt(pi)*k1*k2*k3*kappa*t*sqrt(k1 + k2 + k3)*exp(-(k1 + k2 + k3)/sigma)/sqrt(sigma)",
+     "probability_first_order": "3*kappa**2*sigma**6*t**2/(256*pi**2)",
+     "coefficient_of_t2": "3*kappa**2*sigma**6/(256*pi**2)",
+     "operator": "L_contact",
+     "evaluated": true,
+     "finite": true,
+     "t2_form": true,
+     "nonzero": true,
+     "status": "ESTABLISHED"
+    },
+    "L_contact g_R -> f_R f_R g_R": {
+     "packet_amplitude": "4*sqrt(2)*I*sqrt(pi)*k1*k2*k3*kappa*t*sqrt(k1 + k2 + k3)*exp(-(k1 + k2 + k3)/sigma)/sqrt(sigma)",
+     "probability_first_order": "3*kappa**2*sigma**6*t**2/(256*pi**2)",
+     "coefficient_of_t2": "3*kappa**2*sigma**6/(256*pi**2)",
+     "operator": "L_contact",
+     "evaluated": true,
+     "finite": true,
+     "t2_form": true,
+     "nonzero": true,
+     "status": "ESTABLISHED"
+    },
+    "L_contact g_R -> g_R g_R g_R": {
+     "packet_amplitude": "-12*sqrt(2)*I*sqrt(pi)*k1*k2*k3*kappa**2*t*sqrt(k1 + k2 + k3)*exp(-(k1 + k2 + k3)/sigma)/(p*sqrt(sigma))",
+     "probability_first_order": "9*kappa**4*sigma**6*t**2/(256*pi**2*p**2)",
+     "coefficient_of_t2": "9*kappa**4*sigma**6/(256*pi**2*p**2)",
+     "operator": "L_contact",
+     "evaluated": true,
+     "finite": true,
+     "t2_form": true,
+     "nonzero": true,
+     "status": "ESTABLISHED"
+    },
+    "L_lambda f_R -> f_R f_R f_R": {
+     "packet_amplitude": "6*sqrt(2)*I*sqrt(pi)*Lambda*k1*k2*k3*t*sqrt(k1 + k2 + k3)*exp(-(k1 + k2 + k3)/sigma)/sqrt(sigma)",
+     "probability_first_order": "9*Lambda**2*sigma**6*t**2/(1024*pi**2)",
+     "coefficient_of_t2": "9*Lambda**2*sigma**6/(1024*pi**2)",
+     "operator": "L_lambda",
+     "evaluated": true,
+     "finite": true,
+     "t2_form": true,
+     "nonzero": true,
+     "status": "ESTABLISHED"
+    }
+   },
+   "scope": "first order in the couplings, for this packet only. Not established: behaviour under the exact interacting evolution, higher orders, other packets, or the non-existence of any asymptotic construction",
+   "spectator_relation": {
+    "L_packet": "psi_L(q) = sqrt(8 pi / sigma_L) sqrt(-q) exp(q/sigma_L), q < 0",
+    "L_packet_norm": "1",
+    "overlap_equals_psi_L": true,
+    "sum_over_final_L": "1",
+    "statement": "for the normalised product packet psi_R x psi_L, the first-order probability of R L -> R R R L, summed over the final L momentum, equals P(R -> R R R) x (sum over final L = 1); the L -> L L L channel with an R spectator has different final states and adds separately. This is derived for the product packet at first order; it is not assumed for other initial states",
+    "secular_link": "the plane-wave T_int of F3 corresponds to the factor t of step 1 for the packet"
+   },
+   "status_rule": "a channel is ESTABLISHED only if its probability has no unevaluated Integral, no Piecewise, no infinity, the form coefficient * t^2 and a nonzero coefficient; otherwise NOT_ESTABLISHED and the check fails"
+  },
+  "criterion_steps": {
+   "i": "contraction: |<v, S_el v>| <= 1 for unit v (exact, no normality needed)",
+   "ii": "S_el = 1 + i c A: |Re<v,A v>| <= 1/|c|, i.e. ||H(A)||_op <= 1/|c| (exact); projection endpoints ['-1/c', '1/c']",
+   "iii": "H(A) = a + O(g^2) => leading-order estimate |lambda_i(a)| <~ 1 for c = 1 (not an exact inequality)",
+   "presupposes": "a well-defined elastic block S_el; blocked for L_contact in the free-Fock setting (F4)"
+  },
+  "outcome_full_L_contact": "NO_UNIQUE_CRITERION (present free-Fock setting; F3/F4)",
+  "Lambda_unit_full_L_contact": "NOT COMPUTED (condition 5)",
+  "L_RL_conditional": {
+   "label": "CONDITIONAL: elastic block of L_RL only. Valid only if a prescription of type O1 or O2 is later shown to leave the first-order RL amplitude unchanged. Not a result for the full contact operator and not a result for the full theory",
+   "a_is_diagonal": true,
+   "rank_a": 4,
+   "eigenvalues_a": [
+    "-p*s_cm/8",
+    "kappa*s_cm/8",
+    "kappa*s_cm/8",
+    "-kappa**2*s_cm/(8*p)"
+   ],
+   "eigenvalues_T": [
+    "-p*s_cm**2/4",
+    "kappa*s_cm**2/4",
+    "kappa*s_cm**2/4",
+    "-kappa**2*s_cm**2/(4*p)"
+   ],
+   "thresholds": [
+    {
+     "eig": "-p*s_cm**2/4",
+     "alpha": "-p/4",
+     "s_cross": "8/p",
+     "sqrt_s_cross": "2*sqrt(2)/sqrt(p)"
+    },
+    {
+     "eig": "kappa*s_cm**2/4",
+     "alpha": "kappa/4",
+     "s_cross": "8/Abs(kappa)",
+     "sqrt_s_cross": "2*sqrt(2)/sqrt(Abs(kappa))"
+    },
+    {
+     "eig": "kappa*s_cm**2/4",
+     "alpha": "kappa/4",
+     "s_cross": "8/Abs(kappa)",
+     "sqrt_s_cross": "2*sqrt(2)/sqrt(Abs(kappa))"
+    },
+    {
+     "eig": "-kappa**2*s_cm**2/(4*p)",
+     "alpha": "-kappa**2/(4*p)",
+     "s_cross": "8*p/kappa**2",
+     "sqrt_s_cross": "2*sqrt(2)*sqrt(p)/Abs(kappa)"
+    }
+   ],
+   "Lambda_RL_conditional": "sqrt(Min(8/p, 8*p/kappa**2, 8/Abs(kappa)))",
+   "qualifier": "leading-order estimate up to O(g^2); not an exact bound, not an exact violation of unitarity, not the scale of new physics; kappa-dependent thresholds for kappa != 0 only",
+   "diagnostic_times_sqrt_p": "sqrt(p)*sqrt(Min(8/p, 8*p/kappa**2, 8/Abs(kappa)))"
+  },
+  "D_a_lambda_subsection": {
+   "T_lambda": [
+    [
+     "-3*Lambda*s_cm**2/8",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   ],
+   "a_lambda": [
+    [
+     "-3*Lambda*s_cm/16",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   ],
+   "chiral_parts": {
+    "0_R_4_L": {
+     "boost_weight": -4,
+     "terms": [
+      "-Lambda*Lf**4/4"
+     ]
+    },
+    "1_R_3_L": {
+     "boost_weight": -2,
+     "terms": [
+      "Lambda*Lf**3*Rf"
+     ]
+    },
+    "2_R_2_L": {
+     "boost_weight": 0,
+     "terms": [
+      "-3*Lambda*Lf**2*Rf**2/2"
+     ]
+    },
+    "3_R_1_L": {
+     "boost_weight": 2,
+     "terms": [
+      "Lambda*Lf*Rf**3"
+     ]
+    },
+    "4_R_0_L": {
+     "boost_weight": 4,
+     "terms": [
+      "-Lambda*Rf**4/4"
+     ]
+    }
+   },
+   "note": "reported separately; the Lambda term also has chiral parts, so no threshold is computed for it"
+  },
+  "denominators_checked": [
+   [
+    "2*c_generic*s_cm",
+    "c_generic > 0, s_cm > 0"
+   ],
+   [
+    "2*p",
+    "p > 0 (spec 1.1)"
+   ],
+   [
+    "2*s_cm",
+    "s_cm > 0"
+   ],
+   [
+    "Abs(kappa)/4",
+    "alpha != 0 (kappa != 0 for kappa-dependent entries)"
+   ],
+   [
+    "kappa**2/(4*p)",
+    "alpha != 0 (kappa != 0 for kappa-dependent entries)"
+   ],
+   [
+    "p/4",
+    "alpha != 0 (kappa != 0 for kappa-dependent entries)"
+   ]
+  ]
+ },
+ "findings": [
+  {
+   "id": "CHIRAL_COLLINEAR_SPLITTING",
+   "statement": "first-order transitions R L -> R R R L and R L -> R L L L exist through the chiral part L_ch (F3); in first-order perturbation theory around free Fock states they give a secular term (F4) in channels ['L_contact f_R -> f_R f_R f_R', 'L_contact f_R -> f_R g_R g_R', 'L_contact g_R -> f_R f_R g_R', 'L_contact g_R -> g_R g_R g_R']",
+   "consequence": "the standard perturbative construction around free massless Fock states cannot be completed for L_contact; within Q3 the full-operator outcome is NO_UNIQUE_CRITERION for the present setting. This is not a statement that no unitary theory or scattering description exists",
+   "status": "DERIVED AT FIRST ORDER; no option O1/O2/O3 selected (note v0.2, condition 4)"
+  }
+ ],
+ "verdict": "ALL_CHECKS_PASS",
+ "scope": "ALL_CHECKS_PASS covers the listed checks only; it is not an independent proof, it does not select O1/O2/O3, and the L_RL result is conditional"
+}

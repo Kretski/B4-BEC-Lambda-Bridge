@@ -1,0 +1,10 @@
+B4.12 Q3 unitarity derivation -- run context
+started/finished: see started_at.txt, finished_at.txt (2026-11-15, Europe/Sofia)
+authorisation: reviewer decision of 2026-11-15, 18:55 (REVISION 2.1 - APPROVED FOR EXECUTION; one full run)
+spec: t3fund_proca_b412_t7_drafts/B4_12_Q3_UNITARITY_SPEC_v0.3.1.md (commit 2a411d0, sha256 0c02465d...)
+conditions: B4_12_Q3_SPEC_REGISTRATION.md (commit 5169551); scope: B4_12_Q3_CHIRAL_SECTOR_NOTE_v0.2.md (commit ee1e0c7)
+script: b412_q3_unitarity.py revision 2.1, sha256 8dd9d47566a52ab79465c8861d2927162c2bd261031a141d40a729931936ed7e
+command: python3 -I b412_q3_unitarity.py <this folder>
+environment: Python 3.13.18, SymPy 1.14.0, Linux
+inputs: none (symbolic only; no data file, no registered parameter point, no background)
+outputs: b412_q3_results.json, b412_q3_output.txt, console_output.txt (stdout+stderr), exit_code.txt

@@ -1,0 +1,49 @@
+[    0.0s] spec B4_12_Q3_UNITARITY_SPEC_v0.3.1.md; conditions B4_12_Q3_SPEC_REGISTRATION.md; scope B4_12_Q3_CHIRAL_SECTOR_NOTE_v0.2.md; revision 2.1; sympy 1.14.0
+[    0.0s] C1: RL final momenta {k3: E_R, k4: -E_L}; RR needs 2*E_L = 0, LL needs 2*E_R = 0; s_cm = 4*E_L*E_R -> PASS
+[    0.2s] C9: exchange term = 0; regions equal = True -> PASS
+[    0.3s] C3: Phi_2 direct = 1/(8*E_L*E_R) = 1/(2*s_cm); invariant (CM) = 1/(2*s_cm); fibre norm = 2*s_cm -> PASS
+[    0.4s] B0: H_int = -L_int(pi) + O(eps^2): True
+[    0.4s] B1: <0|d_t f_R|p> = -I*p_in * phase;  <p|d_t f_R|0> = I*p_out * phase
+[    0.7s] C4: T(A) = T(B) for L_contact and for the Lambda term; B0 = True -> PASS
+[    0.7s] T_contact = Matrix([[-4*E_L**2*E_R**2*p, 0, 0, 0], [0, 4*E_L**2*E_R**2*kappa, 0, 0], [0, 0, 4*E_L**2*E_R**2*kappa, 0], [0, 0, 0, -4*E_L**2*E_R**2*kappa**2/p]])
+[    0.7s] T_lambda (separate) = Matrix([[-6*E_L**2*E_R**2*Lambda, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+[    0.7s] T depends on s_cm only: True
+[    0.8s] Q3_C2_free_limit: PASS
+[    0.8s] Q3_C5_dimension: PASS
+[    0.8s] Q3_C6_decoupling: PASS
+[    0.8s] Q3_C7_hermiticity: PASS
+[    0.8s] Q3_C8_perturbative_consistency: PASS
+[    1.0s] 3.1 exact projected relation: True
+[    1.0s] 3.2 order 1: 0 = 0; order 2 (general): -c*a**2 - I*A2 + I*Dagger(A2) - R2/c = 0
+[    1.0s] counting: connected 2->4 needs V = 2, R_inel at order 4; disconnected splitting: see F3
+[    1.0s] F1: L_RL = -Lf**2*Rf**2*p + Lf**2*Rg**2*kappa + Lg**2*Rf**2*kappa - Lg**2*Rg**2*kappa**2/p
+[    1.0s] F1: L_ch = Lf**4*p/2 - Lf**2*Lg**2*kappa + Lg**4*kappa**2/(2*p) + Rf**4*p/2 - Rf**2*Rg**2*kappa + Rg**4*kappa**2/(2*p)
+[    1.0s] F1: split complete True; parity invariant True -> PASS
+[    1.4s] F2: zero mode d_t = pi0/L_box, d_x = 0; P0-free part = continuum True; [Q_R,H0] = 0 True; L_RL does not commute True
+[    1.4s] F2: zero-mode groups (L_contact): {'0_R_2_L_2_P0': ['Lf**2*P0f**2*p/2', '-Lf*Lg*P0f*P0g*kappa', 'Lg**2*P0g**2*kappa**2/(2*p)'], '0_R_3_L_1_P0': ['Lf**3*P0f*p', '-Lf**2*Lg*P0g*kappa', '-Lf*Lg**2*P0f*kappa', 'Lg**3*P0g*kappa**2/p'], '1_R_1_L_2_P0': ['-Lf*P0f**2*Rf*p', 'Lg*P0f*P0g*Rf*kappa', 'Lf*P0f*P0g*Rg*kappa', '-Lg*P0g**2*Rg*kappa**2/p'], '1_R_2_L_1_P0': ['-Lf**2*P0f*Rf*p', 'Lg**2*P0f*Rf*kappa', 'Lf**2*P0g*Rg*kappa', '-Lg**2*P0g*Rg*kappa**2/p'], '2_R_0_L_2_P0': ['P0f**2*Rf**2*p/2', '-P0f*P0g*Rf*Rg*kappa', 'P0g**2*Rg**2*kappa**2/(2*p)'], '2_R_1_L_1_P0': ['-Lf*P0f*Rf**2*p', 'Lg*P0g*Rf**2*kappa', 'Lf*P0f*Rg**2*kappa', '-Lg*P0g*Rg**2*kappa**2/p'], '3_R_0_L_1_P0': ['P0f*Rf**3*p', '-P0g*Rf**2*Rg*kappa', '-P0f*Rf*Rg**2*kappa', 'P0g*Rg**3*kappa**2/p']}
+[    1.5s] F3: allowed first-order transitions: [('L_contact', '0_R_4_L', 'L', 'RLLL'), ('L_contact', '2_R_2_L', 'RL', 'RL'), ('L_contact', '4_R_0_L', 'R', 'RRRL'), ('L_lambda', '0_R_4_L', 'L', 'RLLL'), ('L_lambda', '2_R_2_L', 'RL', 'RL'), ('L_lambda', '4_R_0_L', 'R', 'RRRL')]
+[    2.2s] F3: splitting amplitudes route A = route B: True; table matches note v0.2 for L_contact: True
+[    3.0s] F3 (2.1): spectator matrix elements factorise as derived: True
+[    3.7s] F4 L_contact f_R -> f_R f_R f_R: P = 9*p**2*sigma**6*t**2/(256*pi**2) [ESTABLISHED]
+[    3.9s] F4 L_contact f_R -> f_R g_R g_R: P = 3*kappa**2*sigma**6*t**2/(256*pi**2) [ESTABLISHED]
+[    4.0s] F4 L_contact g_R -> f_R f_R g_R: P = 3*kappa**2*sigma**6*t**2/(256*pi**2) [ESTABLISHED]
+[    4.2s] F4 L_contact g_R -> g_R g_R g_R: P = 9*kappa**4*sigma**6*t**2/(256*pi**2*p**2) [ESTABLISHED]
+[    4.4s] F4 L_lambda f_R -> f_R f_R f_R: P = 9*Lambda**2*sigma**6*t**2/(1024*pi**2) [ESTABLISHED]
+[    4.5s] F4: packet norm = 1; fixed-momenta time integral = t; nonzero secular channels (L_contact): ['L_contact f_R -> f_R f_R f_R', 'L_contact f_R -> f_R g_R g_R', 'L_contact g_R -> f_R f_R g_R', 'L_contact g_R -> g_R g_R g_R']
+[    4.6s] L_RL conditional: a diagonal True; eigenvalues of T [-p*s_cm**2/4, kappa*s_cm**2/4, kappa*s_cm**2/4, -kappa**2*s_cm**2/(4*p)]; Lambda_RL (conditional) = sqrt(Min(8/p, 8*p/kappa**2, 8/Abs(kappa)))
+[    4.6s] Q3_C1_kinematics PASS
+[    4.6s] Q3_C2_free_limit PASS
+[    4.6s] Q3_C3_phase_space PASS
+[    4.6s] Q3_C4_two_routes PASS
+[    4.6s] Q3_C5_dimension PASS
+[    4.6s] Q3_C6_decoupling PASS
+[    4.6s] Q3_C7_hermiticity PASS
+[    4.6s] Q3_C8_perturbative_consistency PASS
+[    4.6s] Q3_C9_channel_normalisation PASS
+[    4.6s] F1_chiral_split PASS
+[    4.6s] F2_symbolic_commutator_test PASS
+[    4.6s] F3_transitions PASS
+[    4.6s] F3_spectator_matrix_elements PASS
+[    4.6s] F4_secular_first_order PASS
+[    4.6s] findings: ['CHIRAL_COLLINEAR_SPLITTING']
+[    4.6s] ALL_CHECKS_PASS
