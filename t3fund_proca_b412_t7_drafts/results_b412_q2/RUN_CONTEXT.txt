@@ -1,0 +1,9 @@
+B4.12 Q2 derivation -- run context
+started/finished: see started_at.txt, finished_at.txt (2026-11-15, Europe/Sofia)
+authorisation: reviewer decision of 2026-11-15, 17:22 (REVISION 7 - APPROVED FOR EXECUTION; one full run)
+spec: t3fund_proca_b412_t7_drafts/B4_12_Q2_DERIVATION_SPEC_v0.2.md (commit 641121c, sha256 0c4b3f70...)
+script: b412_q2_derivation.py revision 7, sha256 68b47e477e776b2cb10803e467f6fda2a9b59006fe95a72ac223c5ac473346cf
+command: python3 -I b412_q2_derivation.py <this folder>
+environment: Python 3.13.18, SymPy 1.14.0, Linux
+inputs: none (symbolic only; no data file, no registered background)
+outputs: b412_q2_results.json, b412_q2_output.txt, console_output.txt (stdout+stderr), exit_code.txt

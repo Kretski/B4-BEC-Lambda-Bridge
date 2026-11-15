@@ -1,0 +1,22 @@
+D1 background A: {A0bar: 0, A1bar: (g_phi*q*w + g_psi*r*v)/M**2} ; light EOM zero: True
+Q2-C1 kernel equals T7a K: True
+Q2-C2 H-Q2 identity (remainder zero): True
+Q2-C3 rank-one match: True ; general B4 differs only via (s - kappa^2/p): True
+Q2-C4 decoupled: True ; light f: [-k*sqrt(3*Lambda*q**2 + 1), k*sqrt(3*Lambda*q**2 + 1)] ; light g: [-k, k] ; Proca: [-sqrt(M**2 + k**2), sqrt(M**2 + k**2)]
+D2(b) Schur identity: True ; deg_omega Pfull = 6 ; Pfull(+pole)=0: False ; Pfull(-pole)=0: False ; reduced numerator divisible by pole: False
+D2(b) heavy branch by continuation (simple for generic parameters): True
+Q2-C5 two routes agree: u^1 True, u^2 True
+D3(iii) light relation depends on the background only through X-invariant combinations: True
+D1_light_background_EOM_zero ZERO/PASS
+D1_homogeneous_fluctuation_system ZERO/PASS
+Q2_C1_kernel ZERO/PASS
+Q2_C2_HQ2 ZERO/PASS
+Q2_C3_rank_one_match ZERO/PASS
+Q2_C3_general_B4_differs_by_(s-kappa^2/p) ZERO/PASS
+Q2_C4_decoupling ZERO/PASS
+Q2_C5_order_u1 ZERO/PASS
+Q2_C5_order_u2 ZERO/PASS
+Q2_C6_M2K_minus_1 ZERO/PASS
+D2b_schur_identity ZERO/PASS
+D2b_heavy_continuation_defined_generic ZERO/PASS
+ALL_CHECKS_PASS
