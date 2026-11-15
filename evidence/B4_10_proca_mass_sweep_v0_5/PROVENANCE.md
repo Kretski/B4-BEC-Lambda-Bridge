@@ -30,4 +30,4 @@ The files were extracted byte for byte and nothing else was changed. The archive
 ## Scope
 
 - Historical material. The results, criteria and conclusions in these files are those of the original B4.10–B4.12 work. They are not re-evaluated here, and they are not registered results under the project's later protocols.
-- The B4.12 set test in `b410/uv.py` (`√X_max ≤ g_max·ρ_max`) is a necessary condition for the existence of a common Proca mass M. A separate, stricter common-M test is specified in `t3fund_proca_b412_t7_drafts/B4_12_COMMON_M_TEST_PROPOSAL_v0.1.1.md`. Its results are reported outside this folder and do not modify it.
+- The B4.12 set test in `b410/uv.py` (`√X_max ≤ g_max·ρ_max`) is a necessary condition for the existence of a common Proca mass M. A separate, stricter common-M test is specified in `t3fund_proca_b412_t7_drafts/B4_12_COMMON_M_TEST_PROPOSAL_v0.1.2.md`. Its results are reported outside this folder and do not modify it.
