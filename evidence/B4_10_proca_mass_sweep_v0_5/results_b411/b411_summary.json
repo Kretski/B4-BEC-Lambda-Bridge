@@ -1,0 +1,16 @@
+{
+ "n": 41,
+ "principal_real": 28,
+ "principal_complex": [
+  "rank1_minus_boundary_4487"
+ ],
+ "negative_controls_principal_complex": 12,
+ "front_velocity_min": 1.3686202128669935,
+ "front_velocity_max": 8.260611506838686,
+ "front_velocity_median": 2.4038978614852056,
+ "n_subluminal": 0,
+ "front_over_local_min": 1.0001424286064855,
+ "front_over_local_max": 2.1051161230946533,
+ "td_max_rel_dev_right": 0.0007670176105649002,
+ "td_max_rel_dev_left": 0.000735286457157488
+}

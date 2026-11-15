@@ -1,0 +1,113 @@
+{
+  "prescription": "fixed p,s,kappa,Lambda,(w,q,v,r); g_phi=M sqrt(p), g_psi=-M kappa/sqrt(p)",
+  "b49_manifest_all_ok": true,
+  "domain_invariants": {
+    "Xq_p_q2": 0.9106254775083451,
+    "Xr_s_r2": 0.8423477116649534,
+    "Xw_p_w2": 0.6692259999974429,
+    "Xv_s_v2": 0.07414841809678635,
+    "Xw_plus_Xv": 0.7433744180942292,
+    "kinetic_matrix_A_eigenvalues": [
+      1.0,
+      2.7529731891732983
+    ],
+    "rank_one_residual_ps_minus_kappa2": -3.469446951953614e-18,
+    "contact_coefficient_Abar_g_phi": 0.8791690242041383,
+    "contact_coefficient_Abar_g_psi": 2.230223680731027,
+    "max_abs_c": 7.315096255616975,
+    "note": "protocol definition of eft_domain not recovered; invariants only"
+  },
+  "contact_coefficients_M_independent": [
+    0.8791690242041383,
+    2.230223680731027
+  ],
+  "local_limit_max_abs_diff_vs_B3": 5.329070518200751e-15,
+  "local_limit_max_abs_diff_vs_independent_T17": 3.552713678800501e-15,
+  "coupling_reconstruction_max_rel_err": 3.401478398338035e-16,
+  "scaling_collapse_max_abs_dc": 1.9895196601282805e-13,
+  "leading_shift": {
+    "c_B3": [
+      -4.916360156290043,
+      -0.17461942910556702,
+      2.7969453770704584,
+      7.315096255616975
+    ],
+    "A_i_in_c_i=c_B3+A_i*x^2": [
+      17.822198292003808,
+      0.0010526229644470724,
+      -7.762527553727346,
+      -11.486320942034292
+    ]
+  },
+  "dressed_proca_frequency_k_to_0_over_M": 1.6592086032724451,
+  "verification_max_abs_diff_qz": 6.217248937900877e-15,
+  "verification_max_abs_diff_mpmath": 5.329070518200751e-15,
+  "verification_max_residual": 2.0047230648280415e-15,
+  "verification_min_simple_root_ratio": 182413861512698.28,
+  "verification_max_root_condition": 10205.362815726532,
+  "b49_dropped_root_cases": [
+    {
+      "M": 7.0,
+      "x": 50.0,
+      "k": 350.0,
+      "b49_n_roots": 4,
+      "b49_leading_ratio": 1.12454226976748e-17,
+      "universal_vs_mpmath_rel_err": 6.540540319085157e-13
+    },
+    {
+      "M": 40.0,
+      "x": 2.0,
+      "k": 80.0,
+      "b49_n_roots": 5,
+      "b49_leading_ratio": 6.311139774573928e-14,
+      "universal_vs_mpmath_rel_err": 1.1807738875158454e-15
+    },
+    {
+      "M": 40.0,
+      "x": 50.0,
+      "k": 2000.0,
+      "b49_n_roots": 3,
+      "b49_leading_ratio": 3.2300115599578673e-22,
+      "universal_vs_mpmath_rel_err": 6.540540319085157e-13
+    },
+    {
+      "M": 1000.0,
+      "x": 0.14,
+      "k": 140.0,
+      "b49_n_roots": 4,
+      "b49_leading_ratio": 5.279779241619529e-17,
+      "universal_vs_mpmath_rel_err": 6.515409355030273e-16
+    },
+    {
+      "M": 1000.0,
+      "x": 0.5,
+      "k": 500.0,
+      "b49_n_roots": 4,
+      "b49_leading_ratio": 2.647083880105453e-19,
+      "universal_vs_mpmath_rel_err": 3.130616631403358e-16
+    },
+    {
+      "M": 1000.0,
+      "x": 2.0,
+      "k": 2000.0,
+      "b49_n_roots": 3,
+      "b49_leading_ratio": 2.5850428516654813e-22,
+      "universal_vs_mpmath_rel_err": 1.1807738875158452e-15
+    }
+  ],
+  "b49_dropped_root_case_count": 12,
+  "universal_vs_mpmath_max_rel_err_over_map": 6.540674718351962e-13,
+  "exact_discriminant": {
+    "discriminant_degree_in_eps": 9,
+    "discriminant_real_roots": [
+      0.0
+    ],
+    "discriminant_real_roots_in_(0,1]": [],
+    "discriminant_sign_at_eps_small": 1,
+    "discriminant_sign_at_eps_1": 1,
+    "n_real_roots_of_Q_at_eps_small": 6,
+    "eps_small": 0.0001,
+    "conclusion_all_six_real_and_simple_for_all_x": true
+  },
+  "exploratory_note": "exp1b_* files are exploratory outputs; no tested claims rest on them"
+}

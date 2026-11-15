@@ -1,0 +1,187 @@
+{
+  "scans": {
+    "B3_illustrative": {
+      "n_k": 240,
+      "n_modes": 6,
+      "complex_points": 0,
+      "max_abs_imag_omega": 0.0,
+      "max_relative_imag": 0.0,
+      "all_real_within_tolerance": true,
+      "minimum_pairwise_frequency_gap": 5.1183804684034034e-05,
+      "minimum_positive_frequency_gap": 5.1183804684034034e-05,
+      "k_at_minimum_positive_gap_over_M": 0.001,
+      "local_characteristic_roots": [
+        [
+          -1.0000000000000016,
+          0.0
+        ],
+        [
+          -0.8607076142802237,
+          0.0
+        ],
+        [
+          1.0000000000000047,
+          0.0
+        ],
+        [
+          1.0511838047564117,
+          0.0
+        ]
+      ],
+      "k_min_over_M": 0.001,
+      "k_max_over_M": 10.0,
+      "candidate_avoided_crossing": {
+        "k_over_M": 3.085,
+        "omega_lower": 3.226781140942798,
+        "omega_upper": 3.2634421865677217,
+        "gap_omega": 0.03666104562492345
+      },
+      "eigenvector_tracking_across_avoided_crossing": {
+        "n_k": 181,
+        "n_modes": 6,
+        "complex_points": 0,
+        "max_abs_imag_omega": 0.0,
+        "all_real_within_tolerance": true,
+        "max_null_residual": 3.9339147501212624e-13,
+        "minimum_mean_eigenvector_overlap": 0.9999960568988637,
+        "minimum_mean_eigenvector_overlap_k_over_M": 2.725,
+        "scalar_fraction_range": [
+          0.003190262073244061,
+          1.0000000000000004
+        ],
+        "upper_pair_scalar_fraction_start": [
+          0.37996308727346645,
+          0.012415472149631658
+        ],
+        "upper_pair_scalar_fraction_end": [
+          0.003190262073244061,
+          0.20392292702375348
+        ]
+      }
+    },
+    "B1_boundary": {
+      "n_k": 240,
+      "n_modes": 6,
+      "complex_points": 0,
+      "max_abs_imag_omega": 1.255126992848588e-07,
+      "max_relative_imag": 1.255126992848588e-07,
+      "all_real_within_tolerance": true,
+      "minimum_pairwise_frequency_gap": 0.0,
+      "minimum_positive_frequency_gap": 0.0,
+      "k_at_minimum_positive_gap_over_M": 0.0010801219787096212,
+      "local_characteristic_roots": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          -1.0210588586215826e-24,
+          -1.490116119384767e-08
+        ],
+        [
+          -1.0210588586215826e-24,
+          1.490116119384767e-08
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "k_min_over_M": 0.001,
+      "k_max_over_M": 10.0
+    },
+    "complex_frequency_stress_outside_B1_domain": {
+      "n_k": 100,
+      "n_modes": 6,
+      "complex_points": 200,
+      "max_abs_imag_omega": 1.612807898347419,
+      "max_relative_imag": 1.2422416197487656,
+      "all_real_within_tolerance": false,
+      "minimum_pairwise_frequency_gap": 0.0013872885718813478,
+      "minimum_positive_frequency_gap": 0.3107032790056783,
+      "k_at_minimum_positive_gap_over_M": 0.5021607031056003,
+      "local_characteristic_roots": [
+        [
+          -0.5465764401706981,
+          0.0
+        ],
+        [
+          1.3757965396968546,
+          -0.7428669361126565
+        ],
+        [
+          1.3757965396968546,
+          0.7428669361126565
+        ],
+        [
+          2.54742533911581,
+          0.0
+        ]
+      ],
+      "k_min_over_M": 0.001,
+      "k_max_over_M": 2.0
+    }
+  },
+  "fixed_background_mass_sweep": [
+    {
+      "M_A": 0.5,
+      "local_superluminal_c": 1.2152504370215311,
+      "uncoupled_crossing_k": 0.7240800267770333,
+      "minimum_gap_omega": 0.08034184244009979,
+      "k_at_minimum_gap": 0.7194722447884523,
+      "k_over_M_at_minimum_gap": 1.4389444895769046,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 4.411633372784397e-14
+    },
+    {
+      "M_A": 0.75,
+      "local_superluminal_c": 1.0924532602312005,
+      "uncoupled_crossing_k": 1.7051879902502105,
+      "minimum_gap_omega": 0.050187913675924234,
+      "k_at_minimum_gap": 1.7051879902502107,
+      "k_over_M_at_minimum_gap": 2.273583987000281,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 1.8192586151865112e-13
+    },
+    {
+      "M_A": 1.0,
+      "local_superluminal_c": 1.0511838047564117,
+      "uncoupled_crossing_k": 3.086252306594901,
+      "minimum_gap_omega": 0.03666119376055166,
+      "k_at_minimum_gap": 3.086252306594901,
+      "k_over_M_at_minimum_gap": 3.086252306594901,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 4.722438447685361e-13
+    },
+    {
+      "M_A": 1.5,
+      "local_superluminal_c": 1.0224634999302407,
+      "uncoupled_crossing_k": 7.037399430725852,
+      "minimum_gap_omega": 0.023960682272520017,
+      "k_at_minimum_gap": 7.037399430725852,
+      "k_over_M_at_minimum_gap": 4.691599620483902,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 2.8386779735284855e-12
+    },
+    {
+      "M_A": 2.0,
+      "local_superluminal_c": 1.012577133373449,
+      "uncoupled_crossing_k": 12.57079938074637,
+      "minimum_gap_omega": 0.017842853209939946,
+      "k_at_minimum_gap": 12.570799380746372,
+      "k_over_M_at_minimum_gap": 6.285399690373186,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 1.0445806650983771e-11
+    },
+    {
+      "M_A": 3.0,
+      "local_superluminal_c": 1.0055709013284115,
+      "uncoupled_crossing_k": 28.38177230935656,
+      "minimum_gap_omega": 0.011834156160865916,
+      "k_at_minimum_gap": 28.381772309356563,
+      "k_over_M_at_minimum_gap": 9.46059076978552,
+      "all_real_within_tolerance": true,
+      "max_null_residual": 5.0613933708271663e-11
+    }
+  ]
+}

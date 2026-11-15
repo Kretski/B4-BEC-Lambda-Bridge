@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "b410-proca-mass-sweep"
+version = "0.5.0"
+description = "B4.10: Proca mediator mass sweep at fixed EFT coefficients (B3 background), built on the unchanged B4.9 package"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "mpmath>=1.3", "sympy>=1.12"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["b410*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
