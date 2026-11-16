@@ -1,0 +1,139 @@
+{
+ "file": "ext1_predictions.json",
+ "status": "PREDICTION COMPUTED — AWAITING REVIEW AND REGISTRATION. NO COMPARISON MADE. gamma_exp was not read. Evidence level 3 at most; not evidence for B4.",
+ "model": "Symmetric two-component mean-field BEC, equal masses (23Na), equal densities, V1=V2=0, Omega_R=0, no LHY, hydrodynamic (k->0) limit; c^2 = (g +- g12) n_i / m.",
+ "observable": "gamma_pred = c_s / c_d (spin / density sound-speed ratio)",
+ "inputs": {
+  "source_entry_ids": [
+   "a",
+   "a_updn",
+   "knoop_a",
+   "knoop_a_updn",
+   "n0_a3",
+   "n_eff_factor"
+  ],
+  "a_bohr": 54.54,
+  "sigma_a_bohr": 0.2,
+  "a_updn_bohr": 50.78,
+  "sigma_a_updn_bohr": 0.4,
+  "uncertainties_treated_as_1sigma": true,
+  "primary_rho": 0.0,
+  "sensitivity_rhos": [
+   -0.9,
+   -0.5,
+   0.5,
+   0.9
+  ],
+  "constants_CODATA2018": {
+   "hbar": 1.054571817e-34,
+   "a0": 5.29177210903e-11,
+   "u": 1.6605390666e-27,
+   "m_Na_u": 22.98976928
+  },
+  "n0_a3": 1.4e-06,
+  "n_eff_factor": 0.6666666666666666,
+  "reference_density_note": "n_i = (1/2) n_eff_factor n0 with n0 = n0_a3 / a^3 (no uncertainty published); illustrative only, ratio is density-independent (E3)."
+ },
+ "central": {
+  "gamma_pred_module": 0.18894634585069497,
+  "gamma_pred_closed_form": 0.1889463458506949,
+  "c_d_mm_s_reference_density": 3.220937997970384,
+  "c_s_mm_s_reference_density": 0.6085844649281572,
+  "c_absolute_not_a_prediction": true
+ },
+ "analytic_linear": {
+  "+0.0": {
+   "rho": 0.0,
+   "sigma_gamma": 0.011481798123990968
+  },
+  "-0.9": {
+   "rho": -0.9,
+   "sigma_gamma": 0.014920595764957275
+  },
+  "-0.5": {
+   "rho": -0.5,
+   "sigma_gamma": 0.013500813319313746
+  },
+  "+0.5": {
+   "rho": 0.5,
+   "sigma_gamma": 0.009021719128702999
+  },
+  "+0.9": {
+   "rho": 0.9,
+   "sigma_gamma": 0.006406184382212557
+  }
+ },
+ "monte_carlo": {
+  "seed": 20261116,
+  "generator": "numpy.random.default_rng / multivariate_normal, same seed per rho",
+  "per_rho": {
+   "+0.0": {
+    "rho": 0.0,
+    "n_samples": 10000,
+    "n_failed": 0,
+    "mean": 0.18853623705162495,
+    "std": 0.011544713332771269,
+    "median": 0.18869694712974105,
+    "p16": 0.17694622898116477,
+    "p84": 0.19995248417432562
+   },
+   "-0.9": {
+    "rho": -0.9,
+    "n_samples": 10000,
+    "n_failed": 0,
+    "mean": 0.18828219238440017,
+    "std": 0.015083814379069672,
+    "median": 0.18866975257850985,
+    "p16": 0.17348959182442628,
+    "p84": 0.2032380290132746
+   },
+   "-0.5": {
+    "rho": -0.5,
+    "n_samples": 10000,
+    "n_failed": 0,
+    "mean": 0.18839388307888844,
+    "std": 0.013616803366101736,
+    "median": 0.1887219551003657,
+    "p16": 0.1749741558038209,
+    "p84": 0.20183988367124162
+   },
+   "+0.5": {
+    "rho": 0.5,
+    "n_samples": 10000,
+    "n_failed": 0,
+    "mean": 0.18868876237815985,
+    "std": 0.009045397217265898,
+    "median": 0.18876967627315705,
+    "p16": 0.17957943013316358,
+    "p84": 0.19762182597140407
+   },
+   "+0.9": {
+    "rho": 0.9,
+    "n_samples": 10000,
+    "n_failed": 0,
+    "mean": 0.18891742937357367,
+    "std": 0.006419588259937651,
+    "median": 0.18905601876519246,
+    "p16": 0.18256042442248563,
+    "p84": 0.19534113475344017
+   }
+  }
+ },
+ "internal_checks": {
+  "E1_module_vs_sqrt_formula": true,
+  "E2_ratio_vs_closed_form": true,
+  "E3_g_conversion_and_density_independence": true
+ },
+ "provenance": {
+  "script_sha256": "4e3b6f11189945bd94276c097c90d295d447167e916b5ec3594b2a08c7006b9e",
+  "data_file_sha256": "e7752cf0e949c5abe613298eafd5b8bac78f2787d6f8cdcc8e00f47d117b19ad",
+  "module_sha256": "228086f4a1a3ab292c1798910dffcc4ba69cec9e17c88dd7046369f52b878865",
+  "repo_head_at_run": "a9b950d1d83d7a27dc434dc9471164af48293b32",
+  "python": "3.13.18",
+  "numpy": "2.5.3"
+ },
+ "open_items": [
+  "Journal versions of Kim et al. (PRA 101, 061601(R)) and Knoop et al. (PRA 83, 042704) not yet checked; required before comparison.",
+  "Comparison test NOT authorized."
+ ]
+}
