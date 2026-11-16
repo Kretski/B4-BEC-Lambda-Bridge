@@ -1,0 +1,322 @@
+--- uv_dynamic_eta_check_rev1_0.py	2026-11-16 17:36:49.989262157 +0200
++++ uv_dynamic_eta_check.py	2026-11-16 17:39:54.375708832 +0200
+@@ -1,4 +1,8 @@
+-"""uv_dynamic_eta_check.py -- script A of the dynamic-eta UV candidate (revision 1.0, FOR STATIC REVIEW; NOT RUN).
++"""uv_dynamic_eta_check.py -- script A of the dynamic-eta UV candidate (revision 1.1, FOR STATIC REVIEW; NOT RUN).
++
++Revision 1.1 (review of 2026-11-16): P2a on the full determinant (multiplicities kept); T6 needs the full-system
++confirmation; C1 analytic only with a block-diagonal principal symbol; fixed input hashes; singular F_eta_eta handled
++locally; DC5 union matching; exact root multiplicities (square-free decomposition), unresolved roots INCONCLUSIVE.
+ 
+ Implements docs/UV_DYNAMIC_ETA_SCRIPT_SPEC_v0.3.2.md (commit aece78a, sha256 8bbd57f8...) for the candidate
+ docs/UV_DYNAMIC_ETA_SPEC_v0.4.1.md (commit 5fdd4f6, sha256 1379e599...) and the comparison document
+@@ -87,12 +91,14 @@
+ import numpy as np
+ import sympy as sp
+ 
+-REVISION = "1.0"
++REVISION = "1.1"
+ SPEC = "docs/UV_DYNAMIC_ETA_SCRIPT_SPEC_v0.3.2.md"
+ SPEC_COMMIT = "aece78a"
+ CANDIDATE_SPEC = "docs/UV_DYNAMIC_ETA_SPEC_v0.4.1.md (5fdd4f6)"
+ DATA_B3 = "data/B3_max_speed_7_315096.json"
+ DATA_MAN = "data/e3_manifest.json"
++EXPECTED_SHA256 = {DATA_B3: "99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd",
++                   DATA_MAN: "1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0"}   # repo fa19637
+ 
+ F_VALUES = (sp.Rational(1, 10), sp.Integer(1), sp.Integer(10))
+ M_VAL = sp.Integer(1)
+@@ -307,9 +313,23 @@
+     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+ 
+ 
+-def load_backgrounds():
+-    b3 = json.load(open(DATA_B3, encoding='utf-8'))
+-    man = json.load(open(DATA_MAN, encoding='utf-8'))['selected']
++def verify_inputs(paths=None):
++    """ABORT unless both registered input files have their fixed SHA-256."""
++    paths = paths or {DATA_B3: DATA_B3, DATA_MAN: DATA_MAN}
++    for key, path in paths.items():
++        if not Path(path).is_file():
++            raise SystemExit("ABORT: input file missing: %s" % path)
++        h = sha_file(path)
++        if h != EXPECTED_SHA256[key]:
++            raise SystemExit("ABORT: sha256 mismatch for %s: %s (expected %s)" % (path, h, EXPECTED_SHA256[key]))
++    return True
++
++
++def load_backgrounds(paths=None):
++    paths = paths or {DATA_B3: DATA_B3, DATA_MAN: DATA_MAN}
++    verify_inputs(paths)
++    b3 = json.load(open(paths[DATA_B3], encoding='utf-8'))
++    man = json.load(open(paths[DATA_MAN], encoding='utf-8'))['selected']
+     rows = [('B3_anchor', b3)] + [('manifest_%02d_index_%s' % (i, d.get('index')), d) for i, d in enumerate(man)]
+     if len(rows) != 41:
+         raise SystemExit("ABORT: expected 41 backgrounds, found %d" % len(rows))
+@@ -349,31 +369,38 @@
+     return dict(a=a, b=b, V=V, P=num, stripped_z_power=nz)
+ 
+ 
++def roots_with_multiplicity(P):
++    """distinct real roots z > 0 of P with exact multiplicities (square-free decomposition), at ROOT_DPS digits."""
++    out = []
++    for fac, mult in P.sqf_list()[1]:
++        for rt in sp.Poly(fac, zz).real_roots():          # fac is square-free: every root listed once
++            val = sp.N(rt, ROOT_DPS)
++            if val > 0:
++                out.append((val, int(mult)))
++    return sorted(out, key=lambda t_: t_[0])
++
++
+ def enumerate_roots(rec):
+     bf = background_functions(rec)
+     P = bf['P']
+-    sturm = int(P.count_roots(0, None))
++    sturm = int(P.count_roots(0, None))                    # distinct real roots in [0, inf) (z = 0 stripped)
+     sqf = sp.degree(sp.gcd(P, P.diff(zz)), zz) == 0
+-    located = []
+-    for rt in P.real_roots():
+-        val = sp.N(rt, ROOT_DPS)
+-        if val > 0:
+-            located.append(val)
++    located = roots_with_multiplicity(P)
+     roots = []
+     with mp.workdps(ROOT_DPS):
+-        zs = [mp.mpf(str(z_)) for z_ in located]
+-        sep_flag = False
++        zs = [mp.mpf(str(z_)) for z_, _ in located]
++        close = [False]*len(zs)
+         for i in range(len(zs)):
+             for j in range(i + 1, len(zs)):
+                 if abs(zs[i] - zs[j]) <= mp.mpf(SEP_FLAG)*max(abs(zs[i]), abs(zs[j])):
+-                    sep_flag = True
+-        dP = P.diff(zz)
+-        for z_ in located:
+-            simple = sp.N(dP.eval(z_), 30) != 0
+-            roots.append(dict(z=mp.nstr(mp.mpf(str(z_)), ROOT_DPS - 5), eta_bar=mp.nstr(mp.log(mp.mpf(str(z_))), ROOT_DPS - 5),
+-                              simple=bool(simple)))
++                    close[i] = close[j] = True
++        for (z_, mult), zm, cl in zip(located, zs, close):
++            roots.append(dict(z=mp.nstr(zm, ROOT_DPS - 5), eta_bar=mp.nstr(mp.log(zm), ROOT_DPS - 5),
++                              multiplicity=mult, simple=bool(mult == 1), close_to_other_root=bool(cl),
++                              resolved=bool(mult == 1 and not cl)))
+     return dict(P_degree=int(P.degree()), stripped_z_power=int(bf['stripped_z_power']), sturm_count=sturm,
+-                n_located=len(roots), squarefree=bool(sqf), separation_flag=bool(sep_flag), roots=roots,
++                n_located=len(roots), squarefree=bool(sqf), separation_flag=bool(any(r_['close_to_other_root'] for r_ in roots)),
++                multiplicity_method="exact square-free decomposition of P (sympy sqf_list)", roots=roots,
+                 a=str(bf['a']), b=str(bf['b'])), bf
+ 
+ 
+@@ -658,6 +685,13 @@
+ # ======================================================================================================================
+ # principal symbol, C1, C2 (S3.2, S3.3)
+ # ======================================================================================================================
++def c1_from_c2(c2):
++    """C1 [ANALYTIC] only from a C2 PASS (which itself requires the block-diagonal principal symbol)."""
++    if c2['status'] == 'PASS':
++        return 'PASS [ANALYTIC]'
++    return 'FAIL' if c2['status'] == 'FAIL' else 'INCONCLUSIVE'
++
++
+ def principal_symbolic(Ku):
+     """degree-2 part of each entry of K_u; off-diagonal degree-2 parts must vanish (derived, not assumed)."""
+     def deg2(e):
+@@ -672,8 +706,11 @@
+     return offdiag_zero, blocks, diag_str
+ 
+ 
+-def c2_numeric(blocks, vals):
+-    """principal roots c of A c^2 + B c + C per field (u frame) and the first-order principal matrix."""
++def c2_numeric(blocks, vals, offdiag_zero):
++    """principal roots c of A c^2 + B c + C per field (u frame) and the first-order principal matrix.
++    The per-block analysis and the direct-sum argument are valid only if the principal symbol is block-diagonal."""
++    if not offdiag_zero:
++        return dict(status='INCONCLUSIVE', reason='principal symbol not block-diagonal: per-block analysis not valid')
+     out = []
+     Mfull = np.zeros((12, 12))
+     complete = True
+@@ -812,6 +849,49 @@
+ # ======================================================================================================================
+ # S6, S7: eta mass, eliminations, comparison with B4
+ # ======================================================================================================================
++def dedupe(xs, tol):
++    out = []
++    for x_ in xs:
++        if not any(abs(x_ - y_) <= tol for y_ in out):
++            out.append(x_)
++    return out
++
++
++def dc5_match(found, jprime, jzero, tol):
++    """DC5: the distinct found roots must equal the union of the J' = 0 and J = 0 classes (no double counting)."""
++    F_ = dedupe(found, tol)
++    U_ = dedupe(list(jprime) + list(jzero), tol)
++    every_theory_found = all(any(abs(f_ - u_) <= tol for f_ in F_) for u_ in U_)
++    every_found_explained = all(any(abs(f_ - u_) <= tol for u_ in U_) for f_ in F_)
++    jp_ok = all(any(abs(f_ - u_) <= tol for f_ in F_) for u_ in jprime)
++    return dict(n_found_distinct=len(F_), n_union_distinct=len(U_), Jprime_reproduced=bool(jp_ok),
++                all_union_found=bool(every_theory_found), no_extra_roots=bool(every_found_explained),
++                pass_=bool(every_theory_found and every_found_explained and len(F_) == len(U_)))
++
++
++def t6_class(ok, outc, ecls, k0cls, conf):
++    """T6 per (background, root, f).  STATED-DYNAMICAL needs the full-system confirmation conf is True."""
++    if not ok:
++        return 'INCONCLUSIVE'
++    if outc in ('FAIL-ILLPOSED', 'FAIL-UNSTABLE'):
++        return 'FAIL'
++    if ecls in ('LIGHT', 'HEAVY') and k0cls == 'ZERO MODE' and outc.startswith('PASS') and conf is True:
++        return 'STATED-DYNAMICAL'
++    return 'INCONCLUSIVE'
++
++
++def t7_class(ok, ecls, s7n, s73):
++    """T7 per (background, root, f).  TACHYONIC: the elimination procedure is not admissible at a maximum of V_eff;
++    this is not a proof that no UV origin exists."""
++    if not ok or ecls == 'BOUNDARY' or s7n.get('singular') or s7n.get('error'):
++        return 'INCONCLUSIVE'
++    if ecls in ('LIGHT', 'TACHYONIC'):
++        return 'NOT-REPRODUCED'
++    if s7n['eta_exchange_zero'] and s73['operator_identity_with_B4_rank_one'] and s73['characteristic_polynomial_identical']:
++        return 'REPRODUCED-RANK-ONE'
++    return 'NOT-REPRODUCED'
++
++
+ def veff_derivs(rec, eta_str):
+     """V(eta) = J^2/(2M^2) - Lam/4 N^4 and its first two eta-derivatives, 60 digits."""
+     with mp.workdps(60):
+@@ -918,6 +998,9 @@
+             return Jv**2/(2*Mv**2) - La/4*n1**4
+         e0 = mp.mpf(0)
+         Fee = mp.diff(lambda e: Ffun(e, Xb), e0, 2)
++        if abs(Fee) <= mp.mpf(BOUNDARY):
++            return dict(singular=True, F_eta_eta=mp.nstr(Fee, 15),
++                        reason='F_eta_eta = 0 within 1e-40: eta exchange undefined; T7 INCONCLUSIVE for this root and f')
+         HX = mp.matrix(4, 4)
+         bx = mp.matrix(4, 1)
+         for i in range(4):
+@@ -996,7 +1079,9 @@
+                           aether="implemented, NOT run; c14 = c123 = f"),
+                C4="NOT EVALUATED (script B)")
+     checks = {}
++    verify_inputs()                                     # ABORT before any computation if an input file changed
+     note("spec %s (%s); revision %s; sympy %s; mpmath %s" % (SPEC, SPEC_COMMIT, REVISION, sp.__version__, mp.__version__))
++    note("inputs verified against fixed SHA-256: %s" % EXPECTED_SHA256)
+ 
+     # ---------------- S0 ----------------
+     s0 = s0_checks()
+@@ -1044,7 +1129,8 @@
+     res['P1'] = dict(n_factors=len(fl[1]), factor_degrees=[[int(sp.Poly(a_, om, k).total_degree()), int(m_)] for a_, m_ in fl[1]],
+                      constant=str(fl[0]), seconds=round(time.time() - t1, 1),
+                      note="factorisation over Q(background symbols); a factor that exists only for special numeric values is not divided out")
+-    det_used = sp.expand(sp.Mul(*[a_ for a_, m_ in fl[1] if sp.Poly(a_, om, k).total_degree() > 0]))   # squarefree product
++    det_used = sp.expand(sp.Mul(*[a_ for a_, m_ in fl[1] if sp.Poly(a_, om, k).total_degree() > 0]))   # square-free product:
++    # used ONLY for distinct roots (P3, P4, P6, low-k roots); P2a and X1 use the full determinant DP_full
+     if len(fl[1]) > 1:
+         note("P1: det K_u factorises: %s" % res['P1']['factor_degrees'])
+     note("P1: %s" % res['P1'])
+@@ -1080,17 +1166,14 @@
+         a_, b_ = bf['a'], bf['b']
+         z0 = [sp.N(z_, 60) for z_ in bf0['P'].real_roots() if sp.N(z_, 60) > 0]
+         with mp.workdps(60):
+-            etas0 = sorted(set(mp.nstr(mp.log(mp.mpf(str(z_))), 50) for z_ in z0), key=float)
++            etas0 = [mp.log(mp.mpf(str(z_))) for z_ in z0]
+             jprime = [] if abs(b_) >= abs(a_) else [mp.atanh(-mpq(b_)/mpq(a_))/2]
+             jzero = [] if abs(a_) >= abs(b_) else [mp.atanh(-mpq(a_)/mpq(b_))/2]
+-            found_jp = all(any(abs(mp.mpf(e_) - x_) <= mp.mpf(DC5_TOL) for e_ in etas0) for x_ in jprime)
+-            found_jz = all(any(abs(mp.mpf(e_) - x_) <= mp.mpf(DC5_TOL) for e_ in etas0) for x_ in jzero)
+-            extra = len(etas0) - len(jprime) - len(jzero)
+-        dc5_bg = bool(found_jp and extra == 0 and found_jz)
++            m5 = dc5_match(etas0, jprime, jzero, mp.mpf(DC5_TOL))
++        dc5_bg = m5['pass_']
+         dc5_ok = dc5_ok and dc5_bg
+-        row['DC5'] = dict(n_roots_Lambda0=len(etas0), Jprime_roots=[mp.nstr(x_, 40) for x_ in jprime], J_zero_roots=[mp.nstr(x_, 40) for x_ in jzero],
+-                          Jprime_reproduced=bool(found_jp), no_extra_roots=bool(extra == 0), pass_=dc5_bg,
+-                          historical_U1_U4_has_stationary=bool(len(jprime) == 1))
++        row['DC5'] = dict(m5, n_roots_Lambda0=len(etas0), Jprime_roots=[mp.nstr(x_, 40) for x_ in jprime],
++                          J_zero_roots=[mp.nstr(x_, 40) for x_ in jzero], historical_U1_U4_has_stationary=bool(len(jprime) == 1))
+         # DC4 part 1
+         dc4_bg = en['sturm_count'] == en['n_located']
+         row['per_root'] = []
+@@ -1099,8 +1182,10 @@
+             row['T6'] = 'INCONCLUSIVE (item 4: no stationary frame)'
+         for ri, rt in enumerate(en['roots']):
+             eta_str = rt['eta_bar']
+-            rr = dict(root_index=ri, eta_bar=mp.nstr(mp.mpf(eta_str), 30), simple=rt['simple'],
+-                      edge_flag=bool(abs(mp.mpf(eta_str)) > ETA_EDGE))
++            resolved = rt['resolved']
++            rr = dict(root_index=ri, eta_bar=mp.nstr(mp.mpf(eta_str), 30), multiplicity=rt['multiplicity'],
++                      resolved=resolved, edge_flag=bool(abs(mp.mpf(eta_str)) > ETA_EDGE),
++                      note=(None if resolved else 'multiple or unresolved root: every class INCONCLUSIVE'))
+             # C0 residual (S1.3) from the action
+             with mp.workdps(50):
+                 vals = numeric_bg(rec, eta_str, F_VALUES[1], 'lab')
+@@ -1145,11 +1230,11 @@
+                 pf['X1_frame_consistency_max_rel'] = max(x1)
+                 # C2, C1
+                 with mp.workdps(50):
+-                    c2 = c2_numeric(pblocks, numeric_bg(rec, eta_str, fv, 'u'))
++                    c2 = c2_numeric(pblocks, numeric_bg(rec, eta_str, fv, 'u'), off0)
+                 pf['C2'] = c2
+-                c1 = 'PASS [ANALYTIC]' if c2['status'] == 'PASS' else ('FAIL' if c2['status'] == 'FAIL' else 'INCONCLUSIVE')
++                c1 = c1_from_c2(c2)
+                 # P2a, P3, P4, P6
+-                k0 = p2a(DP, rec, eta_str, fv)
++                k0 = p2a(DP_full, rec, eta_str, fv)      # full determinant: multiplicity of omega = 0 kept
+                 pf['P2a'] = k0
+                 G = classify_grid(DP, rec, eta_str, fv)
+                 cnts = {}
+@@ -1171,7 +1256,7 @@
+                 elif k0['cls'] == 'INCONCLUSIVE' and c3 == 'PASS':
+                     c3 = 'INCONCLUSIVE'
+                 pf['C3'] = c3
+-                if not c0_ok:
++                if not (c0_ok and resolved):
+                     outc = 'INCONCLUSIVE'
+                 elif c1 == 'FAIL' or c2['status'] == 'FAIL':
+                     outc = 'FAIL-ILLPOSED'
+@@ -1197,35 +1282,23 @@
+                     elif pf['eta_class'] == 'HEAVY':
+                         conf = all(x_ >= 1e-2 for x_ in om2)
+                 pf['S6_3_full_system_confirms_class'] = conf
+-                # T6 per (root, f)
+-                if not c0_ok:
+-                    t6 = 'INCONCLUSIVE'
+-                elif outc in ('FAIL-ILLPOSED', 'FAIL-UNSTABLE'):
+-                    t6 = 'FAIL'
+-                elif pf['eta_class'] in ('LIGHT', 'HEAVY') and k0['cls'] == 'ZERO MODE' and outc.startswith('PASS'):
+-                    t6 = 'STATED-DYNAMICAL'
+-                else:
+-                    t6 = 'INCONCLUSIVE'
++                t6 = t6_class(c0_ok and resolved, outc, pf['eta_class'], k0['cls'], conf)
+                 pf['T6_class'] = t6
+                 # S7.2, S7.4
+-                s7n = s7_numeric(rec, eta_str, DP, fv)
++                try:
++                    s7n = s7_numeric(rec, eta_str, DP, fv)
++                except (ZeroDivisionError, mp.libmp.NoConvergence, ValueError) as exc_:
++                    s7n = dict(error='%s: %s' % (type(exc_).__name__, exc_), reason='S7 numeric step failed locally; T7 INCONCLUSIVE')
+                 pf['S7_numeric'] = s7n
+-                f2 = {'LIGHT': 'F2(ii) light: not eliminable', 'TACHYONIC': "F2(ii') maximum of V_eff: elimination invalid",
++                f2 = {'LIGHT': 'F2(ii) light: not eliminable', 'TACHYONIC': "F2(ii') maximum of V_eff: elimination procedure not admissible in this regime (not a proof that no UV origin exists)",
+                       'HEAVY': 'heavy: eliminable at tree level', 'BOUNDARY': 'BOUNDARY: not classified'}[pf['eta_class']]
+                 pf['F2'] = f2
+-                if not c0_ok or pf['eta_class'] == 'BOUNDARY':
+-                    t7 = 'INCONCLUSIVE'
+-                elif pf['eta_class'] in ('LIGHT', 'TACHYONIC'):
+-                    t7 = 'NOT-REPRODUCED'
+-                elif s7n['eta_exchange_zero'] and res['S7_3']['operator_identity_with_B4_rank_one'] and res['S7_3']['characteristic_polynomial_identical']:
+-                    t7 = 'REPRODUCED-RANK-ONE'
+-                else:
+-                    t7 = 'NOT-REPRODUCED'
++                t7 = t7_class(c0_ok and resolved, pf['eta_class'], s7n, res['S7_3'])
+                 pf['T7_class'] = t7
+                 rr['per_f'][tag] = pf
+-                note("%s root %d f=%s: eta %s, m2 %s %s, C0 %s, C1 %s, C2 %s, C3 %s -> %s; T6 %s; T7 %s; DC1 %s"
++                note("%s root %d f=%s: eta %s, m2 %s %s, C0 %s, C1 %s, C2 %s, C3 %s -> %s; T6 %s; T7 %s; DC1 %s; X2 maxdiff %s"
+                      % (name, ri, tag, rr['eta_bar'][:12], pf['m2_eta_eff'][:12], pf['eta_class'], c0_ok, c1, c2['status'],
+-                        c3, outc, t6, t7, v_))
++                        c3, outc, t6, t7, v_, s7n.get('X2_full_vs_eliminated_maxdiff', 'n/a (' + str(s7n.get('reason')) + ')')))
+             rr['F2_iii_f_to_0'] = dict(implicit_function_condition_Veff2_nonzero=bool(V2_ != 0), regular=bool(V2_ != 0),
+                                        effective_operator=("W(dphi, dpsi) = stationary value over eta of J_tot^2/(2M^2) - Lam/4 (n.dphi)^4:"
+                                                            " homogeneous of degree 4 in the gradients, coefficients are functions of the"
