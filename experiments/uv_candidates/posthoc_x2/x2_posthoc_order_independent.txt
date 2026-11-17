@@ -1,0 +1,20 @@
+POST-HOC (not part of the run): X2 recomputed order-independently from the saved roots (15 significant digits as stored)
+manifest_02_index_1487 root 1 f=1/10: stored X2 0.730409; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_02_index_1487 root 1 f=1: stored X2 0.730409; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_02_index_1487 root 1 f=10: stored X2 0.730409; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_30_index_825 root 0 f=1/10: stored X2 1.03273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_30_index_825 root 0 f=1: stored X2 1.03273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_30_index_825 root 0 f=10: stored X2 1.03273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_33_index_3437 root 0 f=1/10: stored X2 2.916; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_33_index_3437 root 0 f=1: stored X2 2.916; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_33_index_3437 root 0 f=10: stored X2 2.916; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_35_index_6694 root 1 f=1/10: stored X2 2.96273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_35_index_6694 root 1 f=1: stored X2 2.96273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_35_index_6694 root 1 f=10: stored X2 2.96273; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_37_index_4648 root 0 f=1/10: stored X2 4.2723; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_37_index_4648 root 0 f=1: stored X2 4.2723; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_37_index_4648 root 0 f=10: stored X2 4.2723; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_38_index_5924 root 0 f=1/10: stored X2 0.850918; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_38_index_5924 root 0 f=1: stored X2 0.850918; order-independent 0.00e+00; complex conjugate pair present: True
+manifest_38_index_5924 root 0 f=10: stored X2 0.850918; order-independent 0.00e+00; complex conjugate pair present: True
+worst order-independent difference over all 117 (root, f): 0

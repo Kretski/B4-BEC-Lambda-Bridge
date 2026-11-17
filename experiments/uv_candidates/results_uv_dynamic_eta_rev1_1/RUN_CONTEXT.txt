@@ -1,0 +1,16 @@
+RUN_CONTEXT — Script A (dynamic eta) rev 1.1, single authorised run
+authorisation        : explicit, user message 2026-11-16 20:31 (Europe/Sofia), one run, clean GitHub LF copy
+repository           : github.com/Kretski/B4-BEC-Lambda-Bridge, branch master
+commit executed      : 20efdce23bc9a1f5d72ee3e468db38dd0aa3a40b (HEAD == origin/master, working tree clean before start)
+script               : experiments/uv_candidates/uv_dynamic_eta_check.py  sha256 fa46712ba0136f63e207ea95f6f21e3de8fa9cccce2514cdc48aedc271bb874e
+input B3             : data/B3_max_speed_7_315096.json  sha256 99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd (verified before start and by the script)
+input manifest       : data/e3_manifest.json  sha256 1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0 (verified before start and by the script)
+command (cwd = repo) : python3 -I experiments/uv_candidates/uv_dynamic_eta_check.py /home/claude/work/run_scriptA/results_uv_dynamic_eta_rev1_1
+started (UTC)        : 2026-11-16T18:31:42Z
+finished (UTC)       : 2026-11-16T18:45:45Z
+exit code            : 0
+retries              : none
+code changes         : none; no parameter, threshold, grid, seed or rule changed
+environment          : Python 3.13.18, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3; Linux x86_64; 2 CPUs; Anthropic cloud workspace (Linux)
+outputs              : uv_dynamic_eta_results.json, uv_dynamic_eta_output.txt (script log), console_output.txt (stdout+stderr)
+scope                : evidence level 1 (DC0-DC6 level 2); C4 not evaluated; not evidence for B4; T7a, T7b, script B, B4.12 untouched
