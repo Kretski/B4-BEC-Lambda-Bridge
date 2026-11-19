@@ -1,0 +1,10 @@
+--- proca_timelike_stage2_9c26bce4.py	2026-11-19 01:57:32.697401244 +0200
++++ proca_timelike_stage2_ff359c11.py	2026-11-19 02:01:54.563031726 +0200
+@@ -21,6 +21,7 @@
+   'undetermined (R-UNDEFINED)' | 'undetermined (no real branches)'.
+   H3 on branch i iff gamma_u q [gamma_u q - c_i g_phi (w - c_i q)] <= 0.
+ Usage (from the repository root): python3 -I proca_timelike_stage2.py <outdir>
++Synthetic-only smoke test (does not load registered backgrounds): python3 smoke_stage2_fix.py ./proca_timelike_stage2.py
+ """
+ import hashlib
+ import json

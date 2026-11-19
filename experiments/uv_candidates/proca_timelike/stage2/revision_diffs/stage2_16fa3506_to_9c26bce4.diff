@@ -1,0 +1,129 @@
+--- stage2_prev_16fa3506.py	2026-11-19 01:26:41.564459573 +0200
++++ stage2/proca_timelike_stage2.py	2026-11-19 01:27:09.586674131 +0200
+@@ -13,7 +13,12 @@
+   N_i = |uhat(c_i)|^2 / |tr Khat(c_i)|, uhat = (2 gamma_u q - c g_phi (w - c q), -c g_psi (v - c r)).
+   Crossing iff N_i + c_i^2 > 1; then k_der,i/M = (N_i + c_i^2 - 1)^(-1/2). Pole on the branch: k/M = (c_i^2 - 1)^(-1/2) for |c_i| > 1.
+   V2 on a background iff max over real branches of (N_i + c_i^2) < 2 (branches without crossing satisfy it automatically).
+-  R-UNDEFINED iff tr Khat and F_eff share a real root: decided EXACTLY (rationalised inputs, resultant and gcd).
++  R-UNDEFINED iff tr Khat and F_eff share a real root: decided EXACTLY (rationalised inputs, g = gcd(F_eff, tr Khat);
++  per distinct real root of F_eff a rational isolating interval; R-UNDEFINED iff g has a root in it, decided by an
++  exact Sturm count on the open interval or exact evaluation at a degenerate interval; no tolerance matching).
++  V2 / H3 are reported as None (undetermined) when a background has no real branch (no vacuous all([])).
++  k_der status per background and sign: 'defined' | 'no crossing on all real branches' |
++  'undetermined (R-UNDEFINED)' | 'undetermined (no real branches)'.
+   H3 on branch i iff gamma_u q [gamma_u q - c_i g_phi (w - c_i q)] <= 0.
+ Usage (from the repository root): python3 -I proca_timelike_stage2.py <outdir>
+ """
+@@ -128,17 +133,56 @@
+     return mp.mpf(int(xr.p))/mp.mpf(int(xr.q))
+ 
+ 
++def exact_branches(F, common):
++    """Distinct real roots of F_eff with multiplicity, rational isolating interval, and EXACT R-UNDEFINED flag.
++    R-UNDEFINED <=> the root is a root of g = gcd(F_eff, tr Khat). Since g | F_eff, inside an isolating interval of
++    F_eff g can only vanish at that root; this is decided with exact rational arithmetic (Sturm count on the open
++    interval, exact evaluation for a degenerate interval [r, r]). No tolerance is used."""
++    Fs = sp.Poly(sp.quo(F, sp.gcd(F, F.diff(c))), c)        # square-free part, same distinct roots
++    ivs = sorted(F.intervals(), key=lambda t_: (t_[0][0], t_[0][1]))
++    gdeg = sp.degree(common, c)
++
++    def open_count(P, a, b):                                 # number of distinct roots of P in the open interval (a, b)
++        n_ = P.count_roots(a, b)
++        return n_ - (1 if P.eval(a) == 0 else 0) - (1 if P.eval(b) == 0 else 0)
++
++    out_ = []
++    for (a, b), mult in ivs:
++        a, b = sp.Rational(a), sp.Rational(b)
++        if a == b:
++            if F.eval(a) != 0:
++                raise SystemExit("ABORT: degenerate isolating interval is not a root")
++            und_ = bool(gdeg > 0 and common.eval(a) == 0)
++            with mp.workdps(DPS + 20):
++                z_ = mpq(a)
++        else:
++            if open_count(Fs, a, b) != 1:
++                raise SystemExit("ABORT: isolating interval does not contain exactly one root in its interior")
++            und_ = bool(gdeg > 0 and open_count(common, a, b) == 1)
++            lo, hi = F.refine_root(a, b, eps=sp.Rational(1, 10**(DPS + 15)))
++            lo, hi = sp.Rational(lo), sp.Rational(hi)
++            with mp.workdps(DPS + 20):
++                z_ = (mpq(lo) + mpq(hi))/2
++        out_.append((z_, int(mult), (a, b), und_))
++    if len(out_) != Fs.count_roots():
++        raise SystemExit("ABORT: number of isolating intervals differs from the number of distinct real roots")
++    if gdeg > 0 and sum(1 for *_, u_ in out_ if u_) != sp.Poly(common, c).count_roots():
++        raise SystemExit("ABORT: R-UNDEFINED count differs from the number of distinct real roots of gcd(F_eff, tr Khat)")
++    return out_
++
++
+ def evaluate(tag, rec):
+     F, tr = lead_kernel_polys(rec)
+     res = sp.resultant(F.as_expr(), tr.as_expr(), c)
+     common = sp.gcd(F, tr)
+     sqf = sp.degree(sp.gcd(F, F.diff(c)), c) == 0
+-    nreal = int(F.count_roots())
+-    with mp.workdps(DPS + 20):
+-        roots = [mp.mpf(str(sp.N(z_, DPS + 20))) for z_ in F.real_roots()]
+-        und = [mp.mpf(str(sp.N(z_, DPS + 20))) for z_ in sp.Poly(common, c).real_roots()] if sp.degree(common, c) > 0 else []
++    common = sp.Poly(common, c)
++    branch_list = exact_branches(F, common)
++    nreal = sum(m_ for _, m_, _, _ in branch_list)          # with multiplicity
++    roots = [z_ for z_, _, _, _ in branch_list]
+     p, kap, L, w, q, v, r = (rec[k_] for k_ in ('p', 'kappa', 'Lambda', 'w', 'q', 'v', 'r'))
+-    out = dict(tag=tag, cls=rec['cls'], mode=rec['mode'], n_real_branches=nreal, F_squarefree=bool(sqf),
++    out = dict(tag=tag, cls=rec['cls'], mode=rec['mode'], n_real_branches=nreal, n_distinct_real_branches=len(branch_list),
++               F_squarefree=bool(sqf), gcd_F_tr_degree=int(sp.degree(common, c)),
+                resultant_F_tr_is_zero=bool(res == 0), s_minus_kappa2_over_p=str(sp.N(rec['s'] - kap**2/p, 20)))
+     # ---- D4 (sign independent) ----
+     pf, kf, Lf = float(p), float(kap), float(L)
+@@ -165,11 +209,15 @@
+         for sg in SIGNS:
+             gu = sg*mp.sqrt(LL/2)
+             branches = []
+-            for ci in roots:
++            for ci, mult, (ia, ib), rundef in branch_list:
+                 ci = +ci
+-                rundef = any(abs(ci - u_) < mp.mpf(10)**(-(DPS - 5)) for u_ in und)   # identification of the exact common root
+                 trv = mp.polyval(trc, ci)
+-                b = dict(c=mp.nstr(ci, 20), tr_Khat=mp.nstr(trv, 20), R_UNDEFINED=bool(rundef))
++                b = dict(c=mp.nstr(ci, 20), multiplicity=int(mult), isolating_interval=[str(ia), str(ib)],
++                         tr_Khat=mp.nstr(trv, 20), R_UNDEFINED=bool(rundef))
++                if rundef:
++                    b['R_UNDEFINED_reason'] = ("common real root of F_eff and tr Khat: gcd(F_eff, tr Khat) has a root in the "
++                                               "rational isolating interval of this root of F_eff (exact Sturm count / exact "
++                                               "evaluation, no tolerance)")
+                 ux = 2*gu*Q - ci*gphi*(W - ci*Q)
+                 ug = -ci*gpsi*(V - ci*R)
+                 h3 = gu*Q*(gu*Q - ci*gphi*(W - ci*Q))
+@@ -199,13 +247,28 @@
+             und_any = any(b_['R_UNDEFINED'] for b_ in branches)
+             crossing = [b_ for b_ in branches if b_.get('crossing')]
+             kd = min((mp.mpf(b_['k_der_over_M']) for b_ in crossing), default=None)
+-            v2 = None if und_any else all(mp.mpf(b_['V2_branch_margin_2_minus_N_plus_c2']) > 0 for b_ in branches)
++            # V2: None (undetermined) if there is no real branch (no vacuous all([])) or any branch is R-UNDEFINED
++            if not branches or und_any:
++                v2 = None
++            else:
++                v2 = all(mp.mpf(b_['V2_branch_margin_2_minus_N_plus_c2']) > 0 for b_ in branches)
++            if not branches:
++                kstat = 'undetermined (no real branches)'
++            elif und_any:
++                kstat = 'undetermined (R-UNDEFINED)'
++            elif crossing:
++                kstat = 'defined'
++            else:
++                kstat = 'no crossing on all real branches'
+             out['D3'][str(sg)] = dict(
+                 branches=branches,
+                 n_crossing=len(crossing), n_no_crossing=sum(1 for b_ in branches if b_.get('crossing') is False),
+                 n_R_UNDEFINED=sum(1 for b_ in branches if b_['R_UNDEFINED']),
+-                k_der_over_M=(mp.nstr(kd, 20) if kd is not None else ('undetermined (R-UNDEFINED)' if und_any else 'no crossing on any real branch')),
+-                V2_holds=v2, H3_all_branches=all(b_['H3_holds'] for b_ in branches))
++                k_der_status=kstat,
++                k_der_over_M=(mp.nstr(kd, 20) if kstat == 'defined' else None),
++                k_der_over_M_min_over_defined_branches_only=(mp.nstr(kd, 20) if (kstat != 'defined' and kd is not None) else None),
++                V2_holds=v2,
++                H3_all_branches=(all(b_['H3_holds'] for b_ in branches) if branches else None))
+     return out
+ 
+ 

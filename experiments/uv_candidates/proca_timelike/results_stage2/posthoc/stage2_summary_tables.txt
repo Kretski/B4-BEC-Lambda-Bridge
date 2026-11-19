@@ -1,0 +1,13 @@
+max delta_rank1: 2.964285872e-16
+D4 A_g1_rho0.3 T7a: min |margin| = 0.2568 (scale A_g1_rho0.3)
+D4 A_g1_rho0.3 ext: min |margin| = 0.2568 (scale A_g1_rho0.3)
+D4 B_g1_rho0.1 T7a: min |margin| = 0.4568 (scale B_g1_rho0.1)
+D4 B_g1_rho0.1 ext: min |margin| = 0.4568 (scale B_g1_rho0.1)
+D4 C_gStrong_rho0.3 T7a: min |margin| = 0.011 (scale C_gStrong_rho0.3)
+D4 C_gStrong_rho0.3 ext: min |margin| = 0.011 (scale C_gStrong_rho0.3)
+set C T7a -> extended class changes: ['rank1_minus_stable_7761', 'rank1_plus_stable_522']
+c_Lambda dominates on 9 backgrounds
+sp smallest separations from 0: S-1 0.0280342, V2 margin 0.0618795, H3 0.000404909
+sp k_der/M range 0.0962897063098 0.871099829224 min max(N+c2) 2.31784442235
+sm smallest separations from 0: S-1 0.0154529, V2 margin 0.0230082, H3 0.000569147
+sm k_der/M range 0.102240936143 1.14814344281 min max(N+c2) 1.75859102519

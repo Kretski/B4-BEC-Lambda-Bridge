@@ -1,0 +1,15 @@
+OK   G1 Gauss constraint M^2 A0 + J_u + F_x = 0 holds identically for every state (A0 defined by it) 
+OK   G3 reduced F equation (F_t = J_n - M^2 A1) equals the A1 Euler-Lagrange equation 
+OK   G2 reduced f and g equations equal the Euler-Lagrange equations (A0 from Gauss, A1_t = F + A0_x) 
+OK   S1 det(Mlin + i omega I) = -det K(omega,k)/M^2 exactly: the reduced spectrum is the full Lagrangian spectrum -1/M**2
+OK   W1 with the registered scaling every entry of the scaled matrix is O(k): P_inf = lim Ms/k exists (no Douglis-Nirenberg weights beyond the registered scaling) 
+OK   W2 the remainder Ms - k P_inf tends to the zero matrix as k -> infinity (every limit is exactly 0) Matrix([[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])
+OK   W3 B(k) = Ms - k P_inf has no singularity for k >= 0 (denominators are powers of M and khat) and B -> 0: sup_k |B(k)| finite 
+OK   W4 Ms(-k) = conj(Ms(k)) for real k (real system, even real khat): the bound for k >= 0 covers all k 
+OK   P1 det(lambda I - P_inf) at lambda = -i c equals a non-zero constant times Q_new(c;1): eigenvalues of P_inf are -i c_j, c_j the roots of Q_new(c;1) 1
+OK   D2c (computed) L4 with J^0 = 0 (gamma_u = 0) equals (d_t J_n)^2/2 (times 1/M^4): the T7a step-1 term 
+OK   D3a (computed) K_LA and K_AA do not depend on the background Proca values; only K_LL does, so the background term cancels in K_rem 
+OK   D5b (computed) Q_new(c; eps = 0) = F_eff(c) 
+OK   D5e (computed) no constraint-violating directions: G1 and S1 hold, and the 6 reduced variables (a, b, cc, d, A1, F) are free Cauchy data 
+P_inf = Matrix([[2*I*g_phi*(-g_phi*q*w - g_psi*r*v)/M**2, I*(M**2 + 2*g_phi*gamma_u*q**2 + 6*gamma_u**2*q**2)/M**2, 0, 0, -I*g_phi*w/M, -q*(g_phi + 2*gamma_u)/M], [I, 0, 0, 0, 0, 0], [0, 2*I*g_psi*gamma_u*q*r/M**2, 2*I*g_psi*(-g_phi*q*w - g_psi*r*v)/M**2, I, -I*g_psi*v/M, -g_psi*r/M], [0, 0, I, 0, 0, 0], [0, -2*I*gamma_u*q/M, 0, 0, 0, 1], [g_phi*q/M, g_phi*w/M, g_psi*r/M, g_psi*v/M, -1, 0]])
+TOTAL 13 checks, 0 failed; 1.7 s

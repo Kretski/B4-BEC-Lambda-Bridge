@@ -1,0 +1,82 @@
+2026-11-19T00:12:52Z
+{
+ "summary_D4": {
+  "A_g1_rho0.3": {
+   "T7a": {
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   },
+   "extended": {
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   }
+  },
+  "B_g1_rho0.1": {
+   "T7a": {
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   },
+   "extended": {
+    "PASS": 0,
+    "FAIL": 41,
+    "BORDERLINE": 0
+   }
+  },
+  "C_gStrong_rho0.3": {
+   "T7a": {
+    "PASS": 21,
+    "FAIL": 20,
+    "BORDERLINE": 0
+   },
+   "extended": {
+    "PASS": 19,
+    "FAIL": 22,
+    "BORDERLINE": 0
+   }
+  }
+ },
+ "summary_D3": {
+  "1": {
+   "V2_true": 0,
+   "V2_false": 41,
+   "V2_undetermined": 0,
+   "backgrounds_with_R_UNDEFINED": 0,
+   "backgrounds_without_any_crossing": 0,
+   "H3_all_branches_true": 0,
+   "H3_all_branches_false": 41,
+   "H3_all_branches_undetermined": 0,
+   "k_der_status": {
+    "defined": 41,
+    "no crossing on all real branches": 0,
+    "undetermined (R-UNDEFINED)": 0,
+    "undetermined (sign not certified)": 0,
+    "undetermined (no real branches)": 0
+   },
+   "branches_not_certified": 0
+  },
+  "-1": {
+   "V2_true": 2,
+   "V2_false": 39,
+   "V2_undetermined": 0,
+   "backgrounds_with_R_UNDEFINED": 0,
+   "backgrounds_without_any_crossing": 0,
+   "H3_all_branches_true": 6,
+   "H3_all_branches_false": 35,
+   "H3_all_branches_undetermined": 0,
+   "k_der_status": {
+    "defined": 41,
+    "no crossing on all real branches": 0,
+    "undetermined (R-UNDEFINED)": 0,
+    "undetermined (sign not certified)": 0,
+    "undetermined (no real branches)": 0
+   },
+   "branches_not_certified": 0
+  }
+ },
+ "control": "PASS"
+}
+rc=0
+2026-11-19T00:12:56Z

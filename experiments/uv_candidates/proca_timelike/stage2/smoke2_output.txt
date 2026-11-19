@@ -1,0 +1,19 @@
+OK   E1 exact R-UNDEFINED at -sqrt3, 1, sqrt3; not at -2
+OK   E2 exact rank-one input: delta_rank1 = 0, no ABORT
+OK   E3 float-level deviation 1e-16 (as in registered K4, max 2.2e-16): no ABORT
+OK   E4 deviation 1e-6 > 1e-9: ABORT
+OK   E4b s < 0 with kappa = 0: ABORT
+OK   E4c s = 0 with kappa != 0: ABORT
+OK   E4d s < 0 with kappa != 0: ABORT
+OK   E4e s = 0 and kappa = 0: no ABORT, delta_rank1 = 0
+OK   E5 ivsign: [-1e-40, 1e-40] -> None, [0,0] -> 0, [1e-40, 1] -> +1
+OK   E6 pole: c = 1 exactly -> no pole; |c| = sqrt2 -> pole; c = -1/2 -> no pole
+OK   E7 q = 0: h3 is exactly 0 -> H3 certified True on every branch, both signs
+OK   E8[1] certified decisions = previous decisions on all branches; refined enclosure width <= 1e-65; k_der inside enclosure (status defined, V2 False)
+OK   E9[1] control direct vs formula rel = 2.19e-50 < 1e-40
+OK   E8[-1] certified decisions = previous decisions on all branches; refined enclosure width <= 1e-65; k_der inside enclosure (status defined, V2 True)
+OK   E9[-1] control direct vs formula rel = 3.7e-50 < 1e-40
+OK   E10 forced uncertified crossing: k_der_status 'undetermined (sign not certified)', V2 None, no k_der value
+OK   E11 no real branches: V2 None, H3 None, status 'undetermined (no real branches)'
+OK   E12 delta_rank1 and D4 margins present in output
+TOTAL 18 checks, 0 failed

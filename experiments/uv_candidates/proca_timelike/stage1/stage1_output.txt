@@ -1,0 +1,35 @@
+OK   C0a mass term: -1/2 M^2 A_mu A^mu = 1/2 M^2 (A0^2 - A1^2) with eta = diag(-1,1) 
+OK   C0b background solves all four Euler-Lagrange equations (A0 = -J_u/M^2, A1 = J_n/M^2, F = 0) 
+OK   C0c Gauss constraint has the form M^2 A0 + J_u + F_x = 0 (sign of the J_u source) 
+OK   R1 gamma_u = 0, bare Lambda: det K = -M^8 x^4 (1+x^2) Q(c;eps) exactly as registered (T3_FUND_PROCA_SPEC) 
+OK   D0a A-block at zero momentum is diag(M^2, -M^2) (pure mass terms) 
+OK   D0b L_eff^(M^-2) = (J_n^2 - J_u^2)/(2 M^2): no J_n J_u cross term 
+OK   D0c coefficient of f_x^4 is -gamma_u^2/(2M^2), i.e. Lambda_eff = 2 gamma_u^2/M^2 > 0 for gamma_u != 0 
+OK   D1a p, s, kappa unchanged (T7a): p = g_phi^2/M^2, s = g_psi^2/M^2, kappa = -g_phi g_psi/M^2 
+OK   D1b no operator outside the B4 set at O(M^-2) 
+OK   D1c K_lead (free + local exchange + background term) equals the B4 kernel with Lambda = Lambda_eff, exactly 
+OK   D1d delta f_x^2 consistency: gamma_u part of K_lead[f,f] = -3 Lambda_eff q^2 k^2, assembled as background term (A0_bar delta^2 J_u: -2 gamma_u^2 q^2 k^2/M^2) + delta A0 exchange (-4 gamma_u^2 q^2 k^2/M^2) background -2*gamma_u**2*k**2*q**2/M**2; exchange -4*gamma_u**2*k**2*q**2/M**2
+OK   D1e det K_lead(ck,k) = k^4 F_eff(c) (leading dispersion = B4 with Lambda_eff) 
+OK   D2a leading exchange symbol diag(-1, +1)/M^2 for (J^0, J^1) 
+OK   D2b O(M^-4) exchange = [(d_t J_n)^2 + (d_x J_u)^2 + 2 d_t J_u d_x J_n]/(2 M^4) (symbol identity) 
+OK   D2c with gamma_u = 0 it reduces to the T7a term (d_t J)^2/(2 M^4) (J_u = 0 removes the second and third terms; the first is the T7a step-1 result)
+OK   D2d (t,x)-gradings: T7a term (4,2) only; (d_x J_u)^2 (0,6); mixed (2,4) [IBP preserves the grading] {'T7a (d_t J_n)^2': {(4, 2)}, 'new (d_x J_u)^2': {(0, 6)}, 'new 2 d_t J_u d_x J_n': {(2, 4)}}
+OK   D2e new (d_x J_u)^2 is not a total derivative (Euler operator non-zero) 
+OK   D2e new 2 d_t J_u d_x J_n is not a total derivative (Euler operator non-zero) 
+OK   D3a background term sits in K_LL, common to K_exact and K_lead: it contributes only to the leading part (structural: the A-sector Schur complement is the only difference)
+OK   D3b K_rem = u u^T / (M^2 (M^2 + k^2 - omega^2)), rank one, u = (2 gamma_u k^2 q - g_phi omega (k w - omega q), g_psi omega (omega r - k v)) 
+OK   D3c Delta - eta/M^2 = (k_mu k_nu - eta k^2)/(M^2 (k^2 + M^2)) and (k k - eta k^2) = k^2 e e^T, e = (1, -c) (rank one) 
+OK   D3d on a branch omega = c k: K_rem = k^2 * x/(1 + (1 - c^2) x) * uhat uhat^T / M^2, x = k^2/M^2 
+OK   D3e K_lead(ck,k) = k^2 Khat(c); on a branch det Khat = 0, so ||Khat||_2 = |tr Khat|; Khat = 0 iff tr = det = 0 (R-UNDEFINED test) 
+OK   D3f R = N x / |1 + (1 - c^2) x| = 1 gives x* = 1/(N + c^2 - 1); k_der/M = (N + c^2 - 1)^(-1/2) when N + c^2 > 1 
+OK   D3g |c| > 1: singular point x_s = 1/(c^2 - 1) > x* whenever N > 0 (crossing precedes the pole) 
+OK   H3a |uhat|^2(with) - |uhat|^2(without) = 4 gamma_u q [gamma_u q - c g_phi (w - c q)] (sign of gamma_u matters) 
+OK   D4a with |gamma_u| = M sqrt(Lambda/2) and rho_q = |q|/M: |gamma_u| rho_q = sqrt(Lambda/2) |q| (analogue of g_j rho_j = sqrt(X_j)) 
+OK   D4b G' = G: J_u = gamma_u f_x^2 contains only the gradient q, already in G = max(|q|,|w|,|r|,|v|) 
+OK   D5a det K = -M^8 x^4 (1+x^2) [F_eff - eps (c^2 d1 d2 + 4 gamma_u q B(c)/M^4)], eps = x^2/(1+x^2): the registered form plus one term -M**2*c**4*g_phi*q + M**2*c**3*g_phi*w + M**2*c**2*g_phi*q - M**2*c**2*gamma_u*q - M**2*c*g_phi*w + M**2*gamma_u*q + 2*c**3*g_phi**2*g_psi*q**2*w + 2*c**3*g_phi*g_psi**2*q*r*v - 2*c**2*g_phi**2*g_psi*q*w**2 - 2*c**2*g_phi*g_psi**2*r*v*w - c**2*g_psi**2*gamma_u*q*r**2 + 2*c*g_phi*g_psi*gamma_u*q**2*w + 4*c*g_psi**2*gamma_u*q*r*v - g_psi**2*gamma_u*q*v**2
+OK   D5b the extra term is O(eps): the leading-order dispersion (eps -> 0) is exactly F_eff 
+OK   D5c B(c) contains terms odd in gamma_u: the sign of gamma_u enters the principal symbol 
+OK   D5d principal speeds are the roots of Q_new(c;1) = F_eff - c^2 d1 d2 - 4 gamma_u q B(c)/M^4 (degree 6 in c) 
+OK   D5e A0 is eliminated exactly through the Gauss row of the 4x4 system: no constraint-violating directions arise in this formulation 
+B(c) = -M**2*c**4*g_phi*q + M**2*c**3*g_phi*w + M**2*c**2*g_phi*q - M**2*c**2*gamma_u*q - M**2*c*g_phi*w + M**2*gamma_u*q + 2*c**3*g_phi**2*g_psi*q**2*w + 2*c**3*g_phi*g_psi**2*q*r*v - 2*c**2*g_phi**2*g_psi*q*w**2 - 2*c**2*g_phi*g_psi**2*r*v*w - c**2*g_psi**2*gamma_u*q*r**2 + 2*c*g_phi*g_psi*gamma_u*q**2*w + 4*c*g_psi**2*gamma_u*q*r*v - g_psi**2*gamma_u*q*v**2
+TOTAL 33 checks, 0 failed; 2.5 s

@@ -1,0 +1,321 @@
+--- proca_timelike_stage2_ff359c11.py	2026-11-19 02:01:54.563031726 +0200
++++ proca_timelike_stage2_bd6eb9fc.py	2026-11-19 02:07:08.512262551 +0200
+@@ -20,8 +20,17 @@
+   k_der status per background and sign: 'defined' | 'no crossing on all real branches' |
+   'undetermined (R-UNDEFINED)' | 'undetermined (no real branches)'.
+   H3 on branch i iff gamma_u q [gamma_u q - c_i g_phi (w - c_i q)] <= 0.
++  CERTIFIED DECISIONS: every sign decision of D3 (tr Khat(c_i) != 0, crossing S - 1 > 0, V2 margin 2 - S > 0, H3 sign,
++  pole |c_i| > 1) is taken from a rigorous enclosure: the root c_i is enclosed in an exact rational interval (refined
++  from its isolating interval) and all quantities are evaluated in outward-rounded interval arithmetic (mpmath.iv) with
++  the inputs enclosed from their exact rationals. A sign counts only if the enclosure excludes 0 (or is exactly 0).
++  Precision is raised adaptively over LEVELS; if a sign is still not separated from 0, the decision is None
++  ('not certified') and propagates as undetermined. No decision is taken from an approximate value.
++  RANK-ONE INPUT CHECK: delta_rank1 = |kappa^2/(p s) - 1| is computed exactly; ABORT if it exceeds RANK1_ABORT_REL
++  (= 1e-9, the registered K4 threshold of the common-M test). The kernel always uses s_eff = kappa^2/p (unchanged).
+ Usage (from the repository root): python3 -I proca_timelike_stage2.py <outdir>
+-Synthetic-only smoke test (does not load registered backgrounds): python3 smoke_stage2_fix.py ./proca_timelike_stage2.py
++Synthetic-only smoke test (does not load registered backgrounds):
++  python3 -I smoke_stage2_fix2.py ./proca_timelike_stage2.py <previous version ff359c11 for the agreement check>
+ """
+ import hashlib
+ import json
+@@ -43,6 +52,8 @@
+ BORDER_REL_TOL = 1e-12          # registered common-M rule, unchanged
+ DPS = 50
+ SIGNS = (+1, -1)
++LEVELS = ((DPS + 20, DPS + 15), (2*DPS + 20, 2*DPS + 15), (4*DPS + 20, 4*DPS + 15))   # (iv digits, root width 10^-n)
++RANK1_ABORT_REL = sp.Rational(1, 10**9)   # registered K4 threshold (common-M test); exact comparison
+ 
+ c = sp.symbols('c')
+ 
+@@ -85,6 +96,19 @@
+     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ 
+ 
++def rank1_check(tag, rec):
++    """Exact rank-one input check: delta_rank1 = |kappa^2/(p s) - 1|; ABORT above RANK1_ABORT_REL."""
++    if rec['s'] > 0:
++        d1 = abs(rec['kappa']**2/(rec['p']*rec['s']) - 1)
++    else:
++        d1 = sp.Integer(0) if rec['kappa'] == 0 else sp.oo
++    rec['delta_rank1'] = d1
++    if d1 > RANK1_ABORT_REL:
++        raise SystemExit("ABORT: rank-one input condition violated for %s: |kappa^2/(p s) - 1| = %s > 1e-9"
++                         % (tag, sp.N(d1, 10)))
++    return d1
++
++
+ def load():
+     for pth, h in EXPECTED_SHA256.items():
+         if sha(pth) != h:
+@@ -102,6 +126,7 @@
+         rec['mode'] = d.get('mode')
+         if rec['p'] <= 0:
+             raise SystemExit("ABORT: p <= 0 for %s" % tag)
++        rank1_check(tag, rec)
+         out.append((tag, rec))
+     return out
+ 
+@@ -172,6 +197,109 @@
+     return out_
+ 
+ 
++def sqf_part(F):
++    return sp.Poly(sp.quo(F, sp.gcd(F, F.diff(c))), c)
++
++
++def enclose_root(Fs, a, b, nexp):
++    """Exact rational interval [lo, hi] containing the root isolated by (a, b), width <= 10^-nexp."""
++    if a == b:
++        return a, b
++    lo, hi = Fs.refine_root(a, b, eps=sp.Rational(1, 10**nexp))
++    lo, hi = sp.Rational(lo), sp.Rational(hi)
++    if not (a <= lo <= hi <= b) or Fs.count_roots(lo, hi) != 1:
++        raise SystemExit("ABORT: refined interval does not enclose exactly one root")
++    return lo, hi
++
++
++def ivq(xr):
++    """Outward-rounded interval enclosure of an exact rational (current mp.iv precision)."""
++    xr = sp.Rational(xr)
++    return mp.iv.mpf(int(xr.p))/mp.iv.mpf(int(xr.q))
++
++
++def ivsign(X):
++    """+1 / -1 if the enclosure excludes 0, 0 if it is exactly [0, 0], None if 0 is not separated."""
++    if X.a > 0:
++        return 1
++    if X.b < 0:
++        return -1
++    if X.a == 0 and X.b == 0:
++        return 0
++    return None
++
++
++def ivstr(X, n=25):
++    return [mp.nstr(mp.mpf(X.a), n), mp.nstr(mp.mpf(X.b), n)]       # display only; decisions use X itself
++
++
++def pole_decision(Fs, lo, hi):
++    """|c| > 1 for the root in [lo, hi] (exact rational logic). None if not separated from +-1 and not exactly +-1."""
++    if lo > 1 or hi < -1:
++        return True
++    if lo > -1 and hi < 1:
++        return False
++    for e_ in (1, -1):
++        if lo <= e_ <= hi and Fs.eval(e_) == 0:
++            return False                                       # c = +-1 exactly: no pole (strict inequality)
++    return None
++
++
++def certified_branch(Fs, a, b, rundef, inp, trc, sg):
++    """All D3 decisions on one branch for one sign, with adaptive precision. Returns a dict."""
++    res = None
++    for lvl, (ivdps, nexp) in enumerate(LEVELS):
++        lo, hi = enclose_root(Fs, a, b, nexp)
++        old = mp.iv.dps
++        mp.iv.dps = ivdps
++        try:
++            C = mp.iv.mpf([ivq(lo).a, ivq(hi).b])
++            P, KAP, LL, W, Q, V, R = (ivq(z_) for z_ in inp)
++            gphi = mp.iv.sqrt(P)
++            gpsi = -KAP/gphi
++            gu = sg*mp.iv.sqrt(LL/2)
++            h3 = gu*Q*(gu*Q - C*gphi*(W - C*Q))
++            r = dict(level=lvl, iv_digits=ivdps, root_enclosure=[str(lo), str(hi)], root_enclosure_width=str(sp.N(hi - lo, 5)))
++            sh = ivsign(h3)
++            r['H3_holds'] = None if sh is None else (sh <= 0)
++            r['H3_enclosure'] = ivstr(h3)
++            r['pole'] = pole_decision(Fs, lo, hi)
++            done = r['H3_holds'] is not None and r['pole'] is not None
++            if not rundef:
++                trv = mp.iv.mpf(0)
++                for co in trc:
++                    trv = trv*C + ivq(co)
++                st = ivsign(trv)
++                r['tr_Khat_enclosure'] = ivstr(trv)
++                r['tr_Khat_nonzero_certified'] = st not in (None, 0)
++                if r['tr_Khat_nonzero_certified']:
++                    ux = 2*gu*Q - C*gphi*(W - C*Q)
++                    ug = -C*gpsi*(V - C*R)
++                    N = (ux**2 + ug**2)/abs(trv)
++                    S = N + C**2
++                    s1, s2 = ivsign(S - 1), ivsign(2 - S)
++                    r['N_enclosure'], r['N_plus_c2_enclosure'] = ivstr(N), ivstr(S)
++                    r['crossing'] = None if s1 is None else (s1 > 0)
++                    r['V2_branch'] = None if s2 is None else (s2 > 0)
++                    r['V2_branch_margin_enclosure'] = ivstr(2 - S)
++                    if r['crossing']:
++                        KD = 1/mp.iv.sqrt(S - 1)
++                        r['k_der_over_M_enclosure'] = ivstr(KD)
++                        r['_kd'] = (mp.mpf(KD.a), mp.mpf(KD.b))
++                    done = done and r['crossing'] is not None and r['V2_branch'] is not None
++                else:
++                    r['crossing'] = None
++                    r['V2_branch'] = None
++                    done = False
++        finally:
++            mp.iv.dps = old
++        res = r
++        if done:
++            break
++    res['certified'] = bool(done)
++    return res
++
++
+ def evaluate(tag, rec):
+     F, tr = lead_kernel_polys(rec)
+     res = sp.resultant(F.as_expr(), tr.as_expr(), c)
+@@ -180,11 +308,11 @@
+     common = sp.Poly(common, c)
+     branch_list = exact_branches(F, common)
+     nreal = sum(m_ for _, m_, _, _ in branch_list)          # with multiplicity
+-    roots = [z_ for z_, _, _, _ in branch_list]
+     p, kap, L, w, q, v, r = (rec[k_] for k_ in ('p', 'kappa', 'Lambda', 'w', 'q', 'v', 'r'))
+     out = dict(tag=tag, cls=rec['cls'], mode=rec['mode'], n_real_branches=nreal, n_distinct_real_branches=len(branch_list),
+                F_squarefree=bool(sqf), gcd_F_tr_degree=int(sp.degree(common, c)),
+-               resultant_F_tr_is_zero=bool(res == 0), s_minus_kappa2_over_p=str(sp.N(rec['s'] - kap**2/p, 20)))
++               resultant_F_tr_is_zero=bool(res == 0), s_minus_kappa2_over_p=str(sp.N(rec['s'] - kap**2/p, 20)),
++               delta_rank1=str(sp.N(rec['delta_rank1'], 20)))
+     # ---- D4 (sign independent) ----
+     pf, kf, Lf = float(p), float(kap), float(L)
+     G = max(abs(float(q)), abs(float(w)), abs(float(r)), abs(float(v)))
+@@ -199,77 +327,78 @@
+         m0, m1 = scale - cmax*G, scale - cmax2*G
+         d4[sname] = dict(T7a_margin=m0, T7a_class=cls_of(m0), extended_margin=m1, extended_class=cls_of(m1))
+     out['D4'] = dict(G=G, c_max=cmax, c_Lambda=cL, c_max_extended=cmax2, c_Lambda_dominates=bool(cL > cmax), sets=d4)
+-    # ---- D3 per sign ----
++    # ---- D3 per sign (all decisions certified by interval enclosures; see docstring) ----
+     out['D3'] = {}
++    Fs = sqf_part(F)
++    inp = (p, kap, L, w, q, v, r)
++    trc = list(tr.all_coeffs())
+     with mp.workdps(DPS):
+-        P, KAP, LL, W, Q, V, R = (mpq(z_) for z_ in (p, kap, L, w, q, v, r))
+-        gphi = mp.sqrt(P)
+-        gpsi = -KAP/gphi
+-        Fc = [mpq(co) for co in F.all_coeffs()]
+-        trc = [mpq(co) for co in tr.all_coeffs()]
++        Pm, KAPm, LLm, Wm, Qm, Vm, Rm = (mpq(z_) for z_ in inp)
++        trm = [mpq(co) for co in trc]
+         for sg in SIGNS:
+-            gu = sg*mp.sqrt(LL/2)
+             branches = []
+             for ci, mult, (ia, ib), rundef in branch_list:
+                 ci = +ci
+-                trv = mp.polyval(trc, ci)
++                cb = certified_branch(Fs, ia, ib, rundef, inp, trc, sg)
+                 b = dict(c=mp.nstr(ci, 20), multiplicity=int(mult), isolating_interval=[str(ia), str(ib)],
+-                         tr_Khat=mp.nstr(trv, 20), R_UNDEFINED=bool(rundef))
++                         R_UNDEFINED=bool(rundef))
+                 if rundef:
+                     b['R_UNDEFINED_reason'] = ("common real root of F_eff and tr Khat: gcd(F_eff, tr Khat) has a root in the "
+                                                "rational isolating interval of this root of F_eff (exact Sturm count / exact "
+                                                "evaluation, no tolerance)")
+-                ux = 2*gu*Q - ci*gphi*(W - ci*Q)
+-                ug = -ci*gpsi*(V - ci*R)
+-                h3 = gu*Q*(gu*Q - ci*gphi*(W - ci*Q))
+-                b['H3_holds'] = bool(h3 <= 0)
+-                b['H3_value'] = mp.nstr(h3, 15)
+-                if abs(ci) > 1:
++                kd = cb.pop('_kd', None)
++                b.update(cb)
++                if b['pole']:
+                     b['pole_k_over_M'] = mp.nstr(1/mp.sqrt(ci**2 - 1), 20)
+-                if not rundef:
+-                    N = (ux**2 + ug**2)/abs(trv)
+-                    # control: direct ratio of spectral norms from the exact kernels at x = X_CONTROL vs the formula
++                if not rundef and b.get('tr_Khat_nonzero_certified'):
++                    # control (not a criterion): direct ratio of spectral norms from the exact kernels at x = X_CONTROL
++                    gphi = mp.sqrt(Pm)
++                    gpsi = -KAPm/gphi
++                    gu = sg*mp.sqrt(LLm/2)
++                    trv = mp.polyval(trm, ci)
++                    N = ((2*gu*Qm - ci*gphi*(Wm - ci*Qm))**2 + (ci*gpsi*(Vm - ci*Rm))**2)/abs(trv)
+                     kk = mp.sqrt(X_CONTROL)
+-                    argsv = [W, Q, V, R, gphi, gpsi, gu, ci*kk, kk]
++                    argsv = [Wm, Qm, Vm, Rm, gphi, gpsi, gu, ci*kk, kk]
+                     Kx, Kl = mp.matrix(KEX(*argsv)), mp.matrix(KLD(*argsv))
+                     direct = spec_norm(Kx - Kl)/spec_norm(Kl)
+                     formula = N*X_CONTROL/abs(1 + (1 - ci**2)*X_CONTROL)
+                     b['control_R_direct_vs_formula_rel'] = mp.nstr(abs(direct - formula)/max(abs(formula), mp.mpf(10)**-40), 5)
+-                    S = N + ci**2
+-                    b['N'] = mp.nstr(N, 20)
+-                    b['N_plus_c2'] = mp.nstr(S, 20)
+-                    if S > 1:
+-                        b['crossing'] = True
+-                        b['k_der_over_M'] = mp.nstr(1/mp.sqrt(S - 1), 20)
+-                    else:
+-                        b['crossing'] = False
+-                    b['V2_branch_margin_2_minus_N_plus_c2'] = mp.nstr(2 - S, 20)
++                if kd is not None:
++                    b['_kd'] = kd
+                 branches.append(b)
+             und_any = any(b_['R_UNDEFINED'] for b_ in branches)
+-            crossing = [b_ for b_ in branches if b_.get('crossing')]
+-            kd = min((mp.mpf(b_['k_der_over_M']) for b_ in crossing), default=None)
+-            # V2: None (undetermined) if there is no real branch (no vacuous all([])) or any branch is R-UNDEFINED
+-            if not branches or und_any:
++            defined = [b_ for b_ in branches if not b_['R_UNDEFINED']]
++            unc_any = any(b_['crossing'] is None or b_['V2_branch'] is None for b_ in defined)
++            crossing = [b_ for b_ in defined if b_['crossing'] is True]
++            kds = [b_.pop('_kd') for b_ in branches if '_kd' in b_]
++            kd_enc = [mp.nstr(min(x_[0] for x_ in kds), 20), mp.nstr(min(x_[1] for x_ in kds), 20)] if kds else None
++            # V2: None if no real branch (no vacuous all([])), any R-UNDEFINED branch, or any uncertified sign
++            if not branches or und_any or unc_any:
+                 v2 = None
+             else:
+-                v2 = all(mp.mpf(b_['V2_branch_margin_2_minus_N_plus_c2']) > 0 for b_ in branches)
++                v2 = all(b_['V2_branch'] for b_ in branches)
+             if not branches:
+                 kstat = 'undetermined (no real branches)'
+             elif und_any:
+                 kstat = 'undetermined (R-UNDEFINED)'
++            elif unc_any:
++                kstat = 'undetermined (sign not certified)'
+             elif crossing:
+                 kstat = 'defined'
+             else:
+                 kstat = 'no crossing on all real branches'
++            h3s = [b_['H3_holds'] for b_ in branches]
++            h3all = None if not branches else (False if False in h3s else (None if None in h3s else True))
+             out['D3'][str(sg)] = dict(
+                 branches=branches,
+-                n_crossing=len(crossing), n_no_crossing=sum(1 for b_ in branches if b_.get('crossing') is False),
++                n_crossing=len(crossing), n_no_crossing=sum(1 for b_ in defined if b_['crossing'] is False),
+                 n_R_UNDEFINED=sum(1 for b_ in branches if b_['R_UNDEFINED']),
++                n_not_certified=sum(1 for b_ in branches if not b_['certified']),
+                 k_der_status=kstat,
+-                k_der_over_M=(mp.nstr(kd, 20) if kstat == 'defined' else None),
+-                k_der_over_M_min_over_defined_branches_only=(mp.nstr(kd, 20) if (kstat != 'defined' and kd is not None) else None),
++                k_der_over_M_enclosure=(kd_enc if kstat == 'defined' else None),
++                k_der_over_M_min_over_defined_branches_only_enclosure=(kd_enc if (kstat != 'defined' and kd_enc) else None),
+                 V2_holds=v2,
+-                H3_all_branches=(all(b_['H3_holds'] for b_ in branches) if branches else None))
++                H3_all_branches=h3all)
+     return out
+ 
+ 
+@@ -308,7 +437,13 @@
+             V2_undetermined=sum(1 for r_ in rows if r_['D3'][key]['V2_holds'] is None),
+             backgrounds_with_R_UNDEFINED=sum(1 for r_ in rows if r_['D3'][key]['n_R_UNDEFINED'] > 0),
+             backgrounds_without_any_crossing=sum(1 for r_ in rows if r_['D3'][key]['n_crossing'] == 0),
+-            H3_all_branches_true=sum(1 for r_ in rows if r_['D3'][key]['H3_all_branches']))
++            H3_all_branches_true=sum(1 for r_ in rows if r_['D3'][key]['H3_all_branches'] is True),
++            H3_all_branches_false=sum(1 for r_ in rows if r_['D3'][key]['H3_all_branches'] is False),
++            H3_all_branches_undetermined=sum(1 for r_ in rows if r_['D3'][key]['H3_all_branches'] is None),
++            k_der_status={st_: sum(1 for r_ in rows if r_['D3'][key]['k_der_status'] == st_) for st_ in
++                          ('defined', 'no crossing on all real branches', 'undetermined (R-UNDEFINED)',
++                           'undetermined (sign not certified)', 'undetermined (no real branches)')},
++            branches_not_certified=sum(r_['D3'][key]['n_not_certified'] for r_ in rows))
+     result = dict(
+         spec="docs/PROCA_TIMELIKE_CURRENT_ANALYTIC_SPEC_v0.5.md (87fc31b)", stage="2 (arithmetic only)",
+         not_included="roots of Q_new(c;1), V3, NOT-VIABLE (d): not authorised",
+@@ -316,6 +451,7 @@
+         environment=dict(python=platform.python_version(), sympy=sp.__version__, mpmath=mp.__version__),
+         conventions="M = 1; g_phi = +sqrt(p); g_psi = -kappa/sqrt(p); gamma_u = sigma sqrt(Lambda/2), sigma = +1, -1",
+         control_c_max_vs_registered_common_M=("PASS" if not ctrl else ctrl),
++        max_delta_rank1=str(sp.N(max(rec_['delta_rank1'] for _, rec_ in cases), 10)),
+         control_R_direct_vs_formula_max_rel=mp.nstr(worst, 5),
+         summary_D4=summ, summary_D3=d3s,
+         class_note=("Class after Stage 2 cannot be VIABLE-FOR-NUMERICS without V3 (not evaluated). If V2 fails on any "

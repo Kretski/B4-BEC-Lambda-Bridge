@@ -1,0 +1,9 @@
+Stage 2 (arithmetic only), single authorised run (review of 2026-11-19 02:12 EET)
+Repository: github.com/Kretski/B4-BEC-Lambda-Bridge, fresh clone, master = origin/master = 87fc31bab15e2f3962defbb16b38529bf3022e88, clean tree, LF
+Script: proca_timelike_stage2.py sha256 585143fa50d390b27e40b6aa1d8a2114a32e2b881600d6ee21d0cc22e27a5ff6 (outside the clone; run from the clone root)
+Inputs: data/B3_max_speed_7_315096.json 99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd
+        data/e3_manifest.json           1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0
+Control (read only): t3fund_proca_b412_t7_drafts/results_b412_common_m/b412_common_m.csv 252da342db48de9cad1e6b0520de46fcd0904193bc2d7a20834266649056591b
+Command: python3 -I proca_timelike_stage2.py <outdir>   (one run, rc = 0, 3.6 s)
+Environment: Python 3.13.18, SymPy 1.14.0, mpmath 1.3.0, Linux
+Not run: roots of Q_new(c;1), V3, Stage 3
