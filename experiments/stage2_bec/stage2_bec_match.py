@@ -3,7 +3,7 @@
 
 Implements docs/STAGE2_PREREGISTRATION.md (v2; blob 39f66ce2, sha256 8cf6dd9a...) together with
 STAGE2_PREREGISTRATION_PROCEDURAL_ANNEX_v0.7.md (sha256 71e1edc1...). Section labels in comments (A1..K, v2) refer to
-those two documents. Script version v0.4.1:
+those two documents. Script version v0.4.2:
   v0.2: R2 removed the zero-momentum sensitivity; B5 outcome field; R10 finiteness; R4/C4 separate
         rejection counters; SciPy pinned for B2a.
   v0.3: R4 exception classification by message, all exceptions caught inside b4_spectrum;
@@ -12,6 +12,9 @@ those two documents. Script version v0.4.1:
         ABORT in check_final and is no longer merged with an ordinary inadmissible final point.
   v0.4.1: metadata only -- docstring version; start records without an admissible start carry
         final_status "no_admissible_start" (uniform report schema). No change in logic.
+  v0.4.2: load_module registers the module in sys.modules before exec_module (needed by
+        @dataclass in lambda_eff.py and bec_dispersion.py under Python 3.13; found by the first
+        authorised test run on 2410aef: 15 passed, 13 setup errors). No other change.
 
 STATUS: written for static review only. Execution is NOT authorised (annex §G, steps 6-7).
 
@@ -156,10 +159,20 @@ def verify_scipy():
 
 
 def load_module(name, path):
-    """Load a module from the exact verified file (not from sys.path)."""
+    """Load a module from the exact verified file (not from sys.path).
+
+    The module is registered in sys.modules under `name` before it is executed: @dataclass resolves
+    the defining module through sys.modules (v0.4.2). If execution fails, the entry is removed."""
+    if name in sys.modules:
+        raise Abort(f"module name already in use: {name}")
     spec = importlib.util.spec_from_file_location(name, path)
     mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    sys.modules[name] = mod
+    try:
+        spec.loader.exec_module(mod)
+    except BaseException:
+        sys.modules.pop(name, None)
+        raise
     return mod
 
 

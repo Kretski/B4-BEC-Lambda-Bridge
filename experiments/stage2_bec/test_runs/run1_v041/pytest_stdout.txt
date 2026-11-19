@@ -1,0 +1,1138 @@
+..E.EEEEE....EE.....EE..EE.E                                             [100%]
+==================================== ERRORS ====================================
+___________________ ERROR at setup of test_T03_family_units ____________________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+_______________ ERROR at setup of test_T05_energy_matrix_entries _______________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+________________ ERROR at setup of test_T06_grid_minimum_at_k0 _________________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+____________ ERROR at setup of test_T07_one_component_landau_limit _____________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+___________ ERROR at setup of test_T08_classify_static_miscible_is_A ___________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+___________ ERROR at setup of test_T09_classify_returns_valid_class ____________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+______ ERROR at setup of test_T14_wrapper_counts_every_call_and_penalises ______
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+____________ ERROR at setup of test_T15_jacobian_calls_are_counted _____________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+__________ ERROR at setup of test_T20b_real_residual_nonfinite_aborts __________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+_______________ ERROR at setup of test_T21_b4_rejection_reasons ________________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+__________ ERROR at setup of test_T24_positive_control_bookkeeping[A] __________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+__________ ERROR at setup of test_T24_positive_control_bookkeeping[B] __________
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+_____ ERROR at setup of test_T26_positive_control_generated_not_recovered ______
+
+S = <module 'stage2_bec_match' from '/home/claude/verify_2410/experiments/stage2_bec/stage2_bec_match.py'>
+
+    @pytest.fixture(scope="module")
+    def mods(S):
+        S.verify_inputs(REPO)
+>       lam = S.load_module("t_lambda_eff", os.path.join(REPO, "theory/lambda_eff.py"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+experiments/stage2_bec/test_stage2_bec_match.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+experiments/stage2_bec/stage2_bec_match.py:162: in load_module
+    spec.loader.exec_module(mod)
+<frozen importlib._bootstrap_external>:1027: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+theory/lambda_eff.py:20: in <module>
+    @dataclass(frozen=True)
+     ^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dataclasses.py:1344: in wrap
+    return _process_class(cls, init, repr, eq, order, unsafe_hash,
+/usr/local/lib/python3.13/dataclasses.py:997: in _process_class
+    and _is_type(type, cls, dataclasses, dataclasses.KW_ONLY,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+annotation = 'float', cls = <class 't_lambda_eff.Params'>
+a_module = <module 'dataclasses' from '/usr/local/lib/python3.13/dataclasses.py'>
+a_type = <dataclasses._KW_ONLY_TYPE object at 0x7f97372830e0>
+is_type_predicate = <function _is_kw_only at 0x7f97371e4f40>
+
+    def _is_type(annotation, cls, a_module, a_type, is_type_predicate):
+        # Given a type annotation string, does it refer to a_type in
+        # a_module?  For example, when checking that annotation denotes a
+        # ClassVar, then a_module is typing, and a_type is
+        # typing.ClassVar.
+    
+        # It's possible to look up a_module given a_type, but it involves
+        # looking in sys.modules (again!), and seems like a waste since
+        # the caller already knows a_module.
+    
+        # - annotation is a string type annotation
+        # - cls is the class that this annotation was found in
+        # - a_module is the module we want to match
+        # - a_type is the type in that module we want to match
+        # - is_type_predicate is a function called with (obj, a_module)
+        #   that determines if obj is of the desired type.
+    
+        # Since this test does not do a local namespace lookup (and
+        # instead only a module (global) lookup), there are some things it
+        # gets wrong.
+    
+        # With string annotations, cv0 will be detected as a ClassVar:
+        #   CV = ClassVar
+        #   @dataclass
+        #   class C0:
+        #     cv0: CV
+    
+        # But in this example cv1 will not be detected as a ClassVar:
+        #   @dataclass
+        #   class C1:
+        #     CV = ClassVar
+        #     cv1: CV
+    
+        # In C1, the code in this function (_is_type) will look up "CV" in
+        # the module and not find it, so it will not consider cv1 as a
+        # ClassVar.  This is a fairly obscure corner case, and the best
+        # way to fix it would be to eval() the string "CV" with the
+        # correct global and local namespaces.  However that would involve
+        # a eval() penalty for every single field of every dataclass
+        # that's defined.  It was judged not worth it.
+    
+        match = _MODULE_IDENTIFIER_RE.match(annotation)
+        if match:
+            ns = None
+            module_name = match.group(1)
+            if not module_name:
+                # No module name, assume the class's module did
+                # "from dataclasses import InitVar".
+>               ns = sys.modules.get(cls.__module__).__dict__
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute '__dict__'. Did you mean: '__dir__'?
+
+/usr/local/lib/python3.13/dataclasses.py:757: AttributeError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T01_hash_mismatch_aborts
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T02_hashes_of_clean_clone_pass
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T04_scipy_pin_aborts_on_mismatch
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T10_x_and_bhat
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T11_eps_bounded_by_2
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T12_criteria_identity_pass_and_fail
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T13_B2a_cost_bound
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T16_c1c_rules
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T17_perturbation_rules
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T18_sign_tuple
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T19_verdict_R7
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T20_check_final_R10
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T22_start_outcome
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T23_apply_j4
+PASSED experiments/stage2_bec/test_stage2_bec_match.py::test_T25_registered_constants
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T03_family_units
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T05_energy_matrix_entries
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T06_grid_minimum_at_k0
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T07_one_component_landau_limit
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T08_classify_static_miscible_is_A
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T09_classify_returns_valid_class
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T14_wrapper_counts_every_call_and_penalises
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T15_jacobian_calls_are_counted
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T20b_real_residual_nonfinite_aborts
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T21_b4_rejection_reasons
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T24_positive_control_bookkeeping[A]
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T24_positive_control_bookkeeping[B]
+ERROR experiments/stage2_bec/test_stage2_bec_match.py::test_T26_positive_control_generated_not_recovered
+15 passed, 13 errors in 1.07s

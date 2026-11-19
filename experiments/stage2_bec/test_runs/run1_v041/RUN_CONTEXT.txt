@@ -1,0 +1,6 @@
+repo_commit: 2410aef365091f638f61186d2a6b508881fcdbc9
+command: B4_REPO=<clone> python3 -I -m pytest -q -p no:cacheprovider -rA experiments/stage2_bec/test_stage2_bec_match.py
+python 3.13.18, scipy 1.18.1, numpy 2.5.3, pytest 9.1.1
+start_utc: 2026-11-19T23:42:34Z
+end_utc: 2026-11-19T23:42:38Z
+rc=1

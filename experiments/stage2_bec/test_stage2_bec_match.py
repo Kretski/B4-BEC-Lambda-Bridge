@@ -1,4 +1,4 @@
-"""Tests for stage2_bec_match.py (script v0.4.1), for static review.
+"""Tests for stage2_bec_match.py (script v0.4.2), for static review.
 
 They use synthetic inputs only. None of them evaluates a registered target, runs a search on a
 target, or samples the family at Stage 2 scale.
@@ -10,6 +10,7 @@ Not executed: running them needs a separate authorisation. When authorised:
 import importlib.util
 import math
 import os
+import sys
 from types import SimpleNamespace
 
 import numpy as np
@@ -21,9 +22,15 @@ pytestmark = pytest.mark.skipif(not REPO, reason="set B4_REPO to a clean clone")
 
 
 def _load(name, path):
+    # registered in sys.modules before execution, as in the script's load_module (v0.4.2)
     spec = importlib.util.spec_from_file_location(name, path)
     mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    sys.modules[name] = mod
+    try:
+        spec.loader.exec_module(mod)
+    except BaseException:
+        sys.modules.pop(name, None)
+        raise
     return mod
 
 
@@ -394,3 +401,23 @@ def test_T26_positive_control_generated_not_recovered(S, mods, monkeypatch):
         if it["generated"]:
             assert it["recovered"] is False and it["reason"] == "no admissible fit"
             assert "y_star" in it                                                     # stored, J1
+
+
+# ------------------------------------------------------------------ v0.4.2: module loading
+def test_T27_load_module_registers_and_cleans_up(S, tmp_path):
+    # a registered module with @dataclass loads, is registered, and its dataclass works
+    name = "t27_bec_dispersion"
+    mod = S.load_module(name, os.path.join(REPO, "theory/bec_dispersion.py"))
+    assert sys.modules[name] is mod
+    P = mod.BECParams(m1=1.0, m2=1.0, n1=1.0, n2=1.0, g11=1.0, g22=1.0, g12=0.5, V1=0.0, V2=0.0, hbar=1.0)
+    assert P.g12 == 0.5
+    # the same name cannot be loaded twice
+    with pytest.raises(S.Abort):
+        S.load_module(name, os.path.join(REPO, "theory/bec_dispersion.py"))
+    sys.modules.pop(name, None)
+    # a module that fails during execution is removed from sys.modules
+    bad = tmp_path / "bad_module.py"
+    bad.write_text("raise RuntimeError('boom')\n")
+    with pytest.raises(RuntimeError):
+        S.load_module("t27_bad", str(bad))
+    assert "t27_bad" not in sys.modules
