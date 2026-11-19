@@ -1,0 +1,17 @@
+PASS  A1.0  first-order term averages to zero for a k != 0 mode  [0]
+PASS  A1.0' uniform stationarity in n1 gives mu1 = g11 n1 + g12 n_j + m1 V1^2/2
+PASS  A1.0' uniform stationarity in n2 gives mu2 = g22 n2 + g12 n_j + m2 V2^2/2
+PASS  A1.1  second-order period average equals the annex E2 form (cos and sin parts decouple)
+PASS  A1.2  matrix M of the form (Hessian) as stated
+PASS  A1.3  M is symmetric
+PASS  A1.4  D M D equals the annex normalised matrix E~(k) in a_i, b_i, f, V_i
+PASS  A1.5  D is invertible (all diagonal entries finite and nonzero for positive g_ii, m_i, n_i)
+PASS  A1.6  a_i = g_ii n_i / m_i > 0 and b_i = hbar^2/(4 m_i^2) > 0 for g_ii, n_i, m_i, hbar > 0
+PASS  A3.1  E~(k) - E~(0) = diag(b1 k^2/a1, 0, b2 k^2/a2, 0)
+PASS  A3.2  that difference is positive semidefinite (diagonal, entries >= 0)
+PASS  A3.3  E~(k2) - E~(k1) = diag(b_i (k2^2 - k1^2)/a_i) on the n-entries, zero elsewhere
+PASS  A3.4  one component at k = 0: det = 1 - V^2/a, trace = 2
+PASS  A3.5  one component: positive definite  <=>  V^2 < a (Landau at k -> 0)
+PASS  A3.6  the component-1 block of E~(0) at f = 0 equals the one-component matrix
+
+SUMMARY: 15/15 PASS

@@ -1,0 +1,5 @@
+python Python 3.13.18
+sympy 1.14.0
+command: python3 -I stage2_annex_A1_A3_symbolic_check.py
+rc: 0
+Thu Nov 19 11:33:26 UTC 2026
