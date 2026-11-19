@@ -1,0 +1,10 @@
+OK   S1 identity (A) with the registered Qcoeffs: rel 5.5418e-16 <= 1e-9
+OK   S1 Q0: SIX-SIMPLE-REAL/SIX-SIMPLE-REAL, Q_new: COMPLEX-ROOT/COMPLEX-ROOT -> CURRENT-INDUCED
+OK   S1 homotopy: 6 real at t = 0, 4 at t = 1, observed transition(s) ['0.942766171897739'] inside (0, 1); registered flag consistent
+OK   S2 hyperbolic with the current -> NOT-INDUCED: hyperbolic with the current; no observed transition (0)
+OK   S3 complex already without the exchange term -> NOT ESTABLISHED (Q0 COMPLEX-ROOT)
+OK   S4 identity check sensitive: stored s off by 1e-6 -> (A) fails (rel 2.2324e-6) and attribution not CURRENT-INDUCED
+OK   S5 (A) fails, Q_new SIX -> NOT ESTABLISHED (identity (A) with the registered Q(c;1) failed)
+OK   S6 registered flag inconsistent -> NOT ESTABLISHED (class of Q0 inconsistent with the registered T3-fund strictly_hyperbolic flag)
+OK   S7 bisection without convergence: 0 localised, 1 listed separately [['0.9425', '0.945']]; endpoint classes unchanged (CURRENT-INDUCED)
+TOTAL 9 checks, 0 failed

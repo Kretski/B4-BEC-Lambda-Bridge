@@ -1,0 +1,19 @@
+--- smoke/smoke_qnew_9400004b.py	2026-11-19 04:51:54.541203581 +0200
++++ smoke/smoke_qnew.py	2026-11-19 04:51:54.581579502 +0200
+@@ -70,5 +70,16 @@
+ reg, rt, _ = qn.registered_rule(cf, p, L2)
+ chk("T12 primary %s, diagnostic pure relative %s: disagreement flagged" % (reg['class_primary_spec_relative'], reg['diag_class_pure_relative']),
+     reg['class_primary_spec_relative'] == 'REPEATED-REAL-INCONCLUSIVE' and reg['diag_class_pure_relative'] == 'SIX-SIMPLE-REAL' and reg['diag_pure_relative_agrees'] is False)
++# T13 exact zero root (constant term exactly 0): pure-relative diagnostic NOT-DEFINED, primary class unaffected;
++# also a constant term that is zero only through a rational square (p = 4: 2 - a = 0) is recognised exactly
++cf = coeffs_of(c*(c - 1)*(c + 2)*(c - a)*(c + b)*(c - 3), p, L2)
++reg, rt, _ = qn.registered_rule(cf, p, L2)
++p4 = R(4)
++cf4 = coeffs_of((c - 2 + a)*(c - 1)*(c + 2)*(c - 5)*(c + b)*(c - 3), p4, L2)     # root c = 2 - a = 0 exactly for p = 4
++reg4, rt4, _ = qn.registered_rule(cf4, p4, L2)
++chk("T13 exact zero root: pure relative %s / %s (both NOT-DEFINED), primary %s / %s; components of the p = 4 constant term not all zero: %s"
++    % (reg['diag_class_pure_relative'], reg4['diag_class_pure_relative'], reg['class_primary_spec_relative'], reg4['class_primary_spec_relative'], any(x != 0 for x in cf4[-1])),
++    reg['diag_class_pure_relative'] == 'NOT-DEFINED (root exactly 0)' and reg4['diag_class_pure_relative'] == 'NOT-DEFINED (root exactly 0)'
++    and reg['class_primary_spec_relative'] == 'SIX-SIMPLE-REAL' and reg4['class_primary_spec_relative'] == 'SIX-SIMPLE-REAL' and any(x != 0 for x in cf4[-1]))
+ print("TOTAL %d checks, %d failed" % (len(ok), ok.count(False)))
+ sys.exit(0 if all(ok) else 1)

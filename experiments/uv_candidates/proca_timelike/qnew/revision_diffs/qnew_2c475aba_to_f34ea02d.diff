@@ -1,0 +1,153 @@
+--- proca_timelike_qnew_roots_2c475aba.py	2026-11-19 04:35:16.896980862 +0200
++++ proca_timelike_qnew_roots.py	2026-11-19 04:35:16.939381558 +0200
+@@ -9,11 +9,15 @@
+   Conventions (as Stage 2): M = 1; g_phi = +sqrt(p), g_psi = -kappa/sqrt(p); gamma_u = sigma sqrt(Lambda/2).
+   The coefficients of Q_new lie in Q(a, b), a = sqrt(p), b = sqrt(Lambda/2); they are computed exactly.
+ 
+-(1) REGISTERED RULE (T3_FUND_PROCA_SPEC 3(iv), as implemented in the registered t3fund_proca_stage1.py):
+-    six roots by mpmath.polyroots at 50 digits (maxsteps 500, extraprec 300); max|Im| <= 1e-9 and minimal pairwise
+-    distance > 1e-9  ->  SIX-SIMPLE-REAL; max|Im| > 1e-9 -> COMPLEX-ROOT; otherwise REPEATED-REAL-INCONCLUSIVE.
+-    The registered code uses absolute 1e-9; the specification text says "relative". Both readings are evaluated;
+-    their classes are reported and any disagreement is flagged. The class used is the registered-code (absolute) one.
++(1) REGISTERED RULE (T3_FUND_PROCA_SPEC 3(iv): "six simple real roots of Q(c;1), tolerance 1e-9 relative"):
++    six roots by mpmath.polyroots at 50 digits (maxsteps 500, extraprec 300).
++    PRIMARY class (specification text, reviewer decision 2026-11-19): relative tolerance 1e-9, with "relative" read as
++    in every other relative 1e-9 test of the registered T3-fund code (C1 consistency, k = 0 check:
++    |x - y| / max(1, |y|)):  max_j |Im c_j| / max(1, |c_j|) <= 1e-9 and min_{i<j} |c_i - c_j| / max(1, |c_i|, |c_j|)
++    > 1e-9 -> SIX-SIMPLE-REAL; first condition violated -> COMPLEX-ROOT; otherwise REPEATED-REAL-INCONCLUSIVE.
++    DIAGNOSTICS (reported, never used for the class): (a) absolute 1e-9, as in the registered t3fund_proca_stage1.py
++    line for this rule; (b) pure relative (no floor): |Im c_j| / |c_j| and |c_i - c_j| / max(|c_i|, |c_j|).
++    Every background where a diagnostic class differs from the primary class is listed.
+ (2) CERTIFIED CROSS-CHECK (decides nothing beyond the registered rule; reported separately):
+     every real root of Q_new is a root of the exact rational norm polynomial N(c) = prod over (+-a, +-b) of Q_new
+     (degree 24). For each rational isolating interval of the square-free part of N, interval arithmetic (outward
+@@ -113,6 +117,8 @@
+     Q = sp.Poly(sp.expand(ns['Qnew1'].subs(subs)), ns['c'])
+     if Q.degree() != 6:
+         raise SystemExit("ABORT: Q_new is not of degree 6")
++    if sp.simplify(Q.LC() + 1) != 0:
++        raise SystemExit("ABORT: Q_new leading coefficient is not exactly -1")
+     return [reduce_ab(co, p, L2) for co in Q.all_coeffs()], p, L2
+ 
+ 
+@@ -146,24 +152,33 @@
+             return mp.mpf(int(x_.p))/mp.mpf(int(x_.q))
+         co = [num(r4[0]) + num(r4[1])*a + num(r4[2])*b + num(r4[3])*a*b for r4 in coeffs]
+         rt = mp.polyroots(co, maxsteps=500, extraprec=300)
+-        maxim = max(abs(mp.im(z)) for z in rt)
+-        sep = min(abs(rt[i] - rt[j]) for i in range(6) for j in range(i))
+-        maxim_rel = max(abs(mp.im(z))/max(1, abs(z)) for z in rt)
+-        sep_rel = min(abs(rt[i] - rt[j])/max(1, abs(rt[i]), abs(rt[j])) for i in range(6) for j in range(i))
++        pairs = [(i, j) for i in range(6) for j in range(i)]
++        im_abs = max(abs(mp.im(z)) for z in rt)
++        sep_abs = min(abs(rt[i] - rt[j]) for i, j in pairs)
++        im_rel = max(abs(mp.im(z))/max(1, abs(z)) for z in rt)
++        sep_rel = min(abs(rt[i] - rt[j])/max(1, abs(rt[i]), abs(rt[j])) for i, j in pairs)
++        zero_root = any(z == 0 for z in rt)
++        im_pure = None if zero_root else max(abs(mp.im(z))/abs(z) for z in rt)
++        sep_pure = None if zero_root else min(abs(rt[i] - rt[j])/max(abs(rt[i]), abs(rt[j])) for i, j in pairs)
++
+         def cls(mi, se):
++            if mi is None:
++                return 'NOT-DEFINED (root exactly 0)'
+             return 'COMPLEX-ROOT' if mi > TOL else ('SIX-SIMPLE-REAL' if se > TOL else 'REPEATED-REAL-INCONCLUSIVE')
+-        c_abs, c_rel = cls(maxim, sep), cls(maxim_rel, sep_rel)
++        c_pri, c_abs, c_pure = cls(im_rel, sep_rel), cls(im_abs, sep_abs), cls(im_pure, sep_pure)
+         roots = sorted(rt, key=lambda z: (float(mp.re(z)), float(mp.im(z))))
+-        nd = []
+-        for i, z in enumerate(roots):
+-            nd.append(min(abs(z - roots[j]) for j in range(6) if j != i))
++        nd = [min(abs(z - roots[j])/max(1, abs(z), abs(roots[j])) for j in range(6) if j != i) for i, z in enumerate(roots)]
+         return dict(roots=[[mp.nstr(mp.re(z), 20), mp.nstr(mp.im(z), 5)] for z in roots],
+-                    nearest_other_root_distance=[mp.nstr(x_, 6) for x_ in nd],
+-                    n_real=sum(1 for z in rt if abs(mp.im(z)) <= TOL), n_complex=sum(1 for z in rt if abs(mp.im(z)) > TOL),
+-                    max_abs_imag=mp.nstr(maxim, 6), min_root_distance=mp.nstr(sep, 6),
+-                    max_rel_imag=mp.nstr(maxim_rel, 6), min_rel_root_distance=mp.nstr(sep_rel, 6),
+-                    class_registered_code_absolute=c_abs, class_spec_text_relative=c_rel,
+-                    absolute_and_relative_agree=bool(c_abs == c_rel)), rt, co
++                    nearest_other_root_rel_distance=[mp.nstr(x_, 6) for x_ in nd],
++                    n_real=sum(1 for z in rt if abs(mp.im(z))/max(1, abs(z)) <= TOL),
++                    n_complex=sum(1 for z in rt if abs(mp.im(z))/max(1, abs(z)) > TOL),
++                    max_rel_imag=mp.nstr(im_rel, 6), min_rel_root_distance=mp.nstr(sep_rel, 6),
++                    max_abs_imag=mp.nstr(im_abs, 6), min_abs_root_distance=mp.nstr(sep_abs, 6),
++                    max_pure_rel_imag=(mp.nstr(im_pure, 6) if im_pure is not None else None),
++                    min_pure_rel_root_distance=(mp.nstr(sep_pure, 6) if sep_pure is not None else None),
++                    class_primary_spec_relative=c_pri,
++                    diag_class_registered_code_absolute=c_abs, diag_class_pure_relative=c_pure,
++                    diag_absolute_agrees=bool(c_abs == c_pri), diag_pure_relative_agrees=bool(c_pure == c_pri)), rt, co
+ 
+ 
+ # ---------------- certified cross-check ----------------
+@@ -281,13 +296,19 @@
+         Pm = mp.matrix(f(*[vals[s_] for s_ in syms]))
+         ev = mp.eig(Pm, left=False, right=False)
+         cs = [1j*z for z in ev]                     # eigenvalue -i c  ->  c = i * eigenvalue
+-        dev = mp.mpf(0)
+-        used = set()
+-        for z in rt:
+-            j = min((jj for jj in range(6) if jj not in used), key=lambda jj: abs(cs[jj] - z))
+-            used.add(j)
+-            dev = max(dev, abs(cs[j] - z)/max(1, abs(z)))
+-        return dev
++        return match_dev(cs, list(rt))
++
++
++def match_dev(cs, rt):
++    """Optimal (minimax) matching of eigenvalue-derived speeds to roots over all permutations (6! = 720):
++    min over permutations of max_j |cs[perm j] - rt[j]| / max(1, |rt[j]|)."""
++    import itertools
++    best = None
++    for perm in itertools.permutations(range(len(rt))):
++        d_ = max(abs(cs[perm[j]] - rt[j])/max(1, abs(rt[j])) for j in range(len(rt)))
++        if best is None or d_ < best:
++            best = d_
++    return best
+ 
+ 
+ def main(outdir):
+@@ -308,8 +329,8 @@
+             dev = control_pinf(ns, rec, sg, rt)
+             worst = max(worst, dev)
+             reg.update(cert)
+-            reg['registered_and_certified_agree'] = (None if cert['class_certified'] == 'UNDETERMINED'
+-                                                     else bool(cert['class_certified'] == reg['class_registered_code_absolute']))
++            reg['primary_and_certified_agree'] = (None if cert['class_certified'] == 'UNDETERMINED'
++                                                  else bool(cert['class_certified'] == reg['class_primary_spec_relative']))
+             reg['control_eig_Pinf_vs_roots_max_rel'] = mp.nstr(dev, 5)
+             reg['control_ok'] = bool(dev <= TOL)
+             row[str(sg)] = reg
+@@ -318,14 +339,18 @@
+     for sg in SIGNS:
+         k_ = str(sg)
+         summ[k_] = dict(
+-            registered_code_absolute={x_: sum(1 for r_ in rows if r_[k_]['class_registered_code_absolute'] == x_)
+-                                      for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'REPEATED-REAL-INCONCLUSIVE')},
+-            spec_text_relative={x_: sum(1 for r_ in rows if r_[k_]['class_spec_text_relative'] == x_)
+-                                for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'REPEATED-REAL-INCONCLUSIVE')},
++            primary_spec_relative={x_: sum(1 for r_ in rows if r_[k_]['class_primary_spec_relative'] == x_)
++                                   for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'REPEATED-REAL-INCONCLUSIVE')},
++            diag_registered_code_absolute={x_: sum(1 for r_ in rows if r_[k_]['diag_class_registered_code_absolute'] == x_)
++                                           for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'REPEATED-REAL-INCONCLUSIVE')},
++            diag_pure_relative={x_: sum(1 for r_ in rows if r_[k_]['diag_class_pure_relative'] == x_)
++                                for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'REPEATED-REAL-INCONCLUSIVE',
++                                           'NOT-DEFINED (root exactly 0)')},
+             certified={x_: sum(1 for r_ in rows if r_[k_]['class_certified'] == x_)
+                        for x_ in ('SIX-SIMPLE-REAL', 'COMPLEX-ROOT', 'UNDETERMINED')},
+-            absolute_relative_disagreements=[r_['tag'] for r_ in rows if not r_[k_]['absolute_and_relative_agree']],
+-            registered_certified_disagreements=[r_['tag'] for r_ in rows if r_[k_]['registered_and_certified_agree'] is False],
++            diag_absolute_disagreements=[r_['tag'] for r_ in rows if not r_[k_]['diag_absolute_agrees']],
++            diag_pure_relative_disagreements=[r_['tag'] for r_ in rows if not r_[k_]['diag_pure_relative_agrees']],
++            primary_certified_disagreements=[r_['tag'] for r_ in rows if r_[k_]['primary_and_certified_agree'] is False],
+             control_failures=[r_['tag'] for r_ in rows if not r_[k_]['control_ok']])
+     result = dict(
+         spec="docs/PROCA_TIMELIKE_CURRENT_ANALYTIC_SPEC_v0.5.md (87fc31b)", base="53e2227",
+@@ -334,7 +359,8 @@
+         inputs={k_: sha(k_) for k_ in EXPECTED_SHA256}, script_sha256=sha(__file__),
+         environment=dict(python=platform.python_version(), sympy=sp.__version__, mpmath=mp.__version__),
+         conventions="M = 1; g_phi = +sqrt(p); g_psi = -kappa/sqrt(p); gamma_u = sigma sqrt(Lambda/2), sigma = +1, -1",
+-        rule="registered: max|Im| <= 1e-9 and min root distance > 1e-9 (absolute, as in the registered code), 50 digits",
++        rule=("primary: relative 1e-9 (|x - y| / max(1, |y|), as in the registered T3-fund relative tests), 50 digits; "
++              "diagnostics: absolute 1e-9 (registered code line for this rule) and pure relative"),
+         control_eig_Pinf_vs_roots_max_rel=mp.nstr(worst, 5), summary=summ,
+         class_note=("SIX-SIMPLE-REAL makes the D5 addendum v0.3 section 6 argument applicable for that background and sign; "
+                     "COMPLEX-ROOT meets NOT-VIABLE (d) for that background and sign. Model class not changed here."),

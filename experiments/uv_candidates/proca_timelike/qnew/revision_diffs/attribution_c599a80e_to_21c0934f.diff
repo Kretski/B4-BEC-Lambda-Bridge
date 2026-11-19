@@ -1,0 +1,55 @@
+--- proca_timelike_qnew_current_attribution_c599a80e.py	2026-11-19 05:32:14.189062643 +0200
++++ proca_timelike_qnew_current_attribution.py	2026-11-19 05:32:31.112780806 +0200
+@@ -18,7 +18,8 @@
+      each change of the count between neighbouring grid points is located by bisection in t to 1e-15 and reported
+      with the roots involved. These are the OBSERVED transitions along the discretely tracked homotopy: two changes
+      between neighbouring grid points can be missed, and polyroots may lose accuracy next to a multiple root (grid
+-     points where it does not converge are listed). Completeness would need a separate analysis of the discriminant
++     points where it does not converge are listed; a change of the count whose bisection hits a non-converging point
++     is listed separately with its last bisection interval and is not reported as localised). Completeness would need a separate analysis of the discriminant
+      in t. Diagnostic only; the endpoint classes (B) are certified.
+  (D) diagnostic only: Q_new at gamma_u -> 0 literally (Lambda_eff -> 0 as well), primary and certified class.
+ Attribution per background and sign (reviewer rule, 2026-11-19 05:16):
+@@ -140,21 +141,31 @@
+         counts = [n_real(co_t(t_))[0] for t_ in grid]
+         nonconv = [mp.nstr(grid[i], 6) for i in range(NT) if counts[i] is None]
+         trans = []
++        trans_nc = []
+         for i in range(NT - 1):
+             if counts[i] is None or counts[i + 1] is None:
+                 continue
+             if counts[i] != counts[i + 1]:
+                 lo, hi = grid[i], grid[i + 1]
+                 nlo = counts[i]
++                converged = True
+                 while hi - lo > mp.mpf('1e-15'):
+                     mid = (lo + hi)/2
+                     nm_ = n_real(co_t(mid))[0]
+                     if nm_ is None:
++                        converged = False
+                         break
+                     if nm_ == nlo:
+                         lo = mid
+                     else:
+                         hi = mid
++                if not converged:
++                    # the change of the count between the grid points stays recorded, but it is NOT a localised transition
++                    trans_nc.append(dict(grid_interval=[mp.nstr(grid[i], 15), mp.nstr(grid[i + 1], 15)],
++                                         n_real_at_grid_points=[counts[i], counts[i + 1]],
++                                         last_bisection_interval=[mp.nstr(lo, 17), mp.nstr(hi, 17)],
++                                         reason='polyroots did not converge during the bisection'))
++                    continue
+                 _, rt = n_real(co_t(hi))
+                 _, rtl = n_real(co_t(lo))
+                 reals_lo = sorted(mp.re(z) for z in (rtl or []) if abs(mp.im(z))/max(1, abs(z)) <= TOL)
+@@ -163,7 +174,9 @@
+                                   complex_roots_after=[[mp.nstr(mp.re(z), 12), mp.nstr(mp.im(z), 5)] for z in cplx_hi],
+                                   real_roots_before=[mp.nstr(x_, 12) for x_ in reals_lo]))
+         out['C_homotopy'] = dict(n_grid=NT, n_real_at_t0=counts[0], n_real_at_t1=counts[-1],
+-                                 observed_transitions_discrete_tracking=trans, grid_points_without_convergence=nonconv,
++                                 observed_transitions_discrete_tracking=trans,
++                                 transition_bisection_without_convergence=trans_nc,
++                                 grid_points_without_convergence=nonconv,
+                                  note=("observed transitions along the discretely tracked homotopy; not a proof that all "
+                                        "transitions were found (that needs the discriminant in t); diagnostic only"))
+         # (D) literal gamma_u -> 0 (Lambda_eff -> 0 too), diagnostic only

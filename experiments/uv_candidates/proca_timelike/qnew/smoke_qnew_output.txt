@@ -1,0 +1,15 @@
+OK   T1 six simple real: primary SIX-SIMPLE-REAL, certified SIX-SIMPLE-REAL (n=6)
+OK   T2 complex pair: primary COMPLEX-ROOT, certified COMPLEX-ROOT (n_real=4, n_nonreal=2)
+OK   T3 repeated real root: primary REPEATED-REAL-INCONCLUSIVE, certified UNDETERMINED
+OK   T4 repeated rational root: certified UNDETERMINED (not counted as simple), simple count 4
+OK   T5 near-double (1e-12): primary REPEATED-REAL-INCONCLUSIVE, certified SIX-SIMPLE-REAL (n=6) -> disagreement reported, primary (relative) rule governs
+OK   T6 primary (relative) REPEATED-REAL-INCONCLUSIVE vs diagnostic absolute SIX-SIMPLE-REAL: primary REPEATED, disagreement flagged
+OK   T7[+1] synthetic background: primary SIX-SIMPLE-REAL, certified SIX-SIMPLE-REAL, eig(P_inf) vs roots rel 5.83e-50
+OK   T7[-1] synthetic background: primary SIX-SIMPLE-REAL, certified SIX-SIMPLE-REAL, eig(P_inf) vs roots rel 8.29e-50
+OK   T8 leading coefficient of Q_new(c;1) is exactly -1
+OK   T9 exact_zero: Q(1) = 0 for (c-1)(...), Q(2) != 0
+OK   T10 leading coefficient != -1 -> ABORT (checked on every input)
+OK   T11 control matching is optimal over 720 permutations (got 1.0, greedy would give 2)
+OK   T12 primary REPEATED-REAL-INCONCLUSIVE, diagnostic pure relative SIX-SIMPLE-REAL: disagreement flagged
+OK   T13 exact zero root: pure relative NOT-DEFINED (root exactly 0) / NOT-DEFINED (root exactly 0) (both NOT-DEFINED), primary SIX-SIMPLE-REAL / SIX-SIMPLE-REAL; components of the p = 4 constant term not all zero: True
+TOTAL 14 checks, 0 failed

@@ -1,0 +1,114 @@
+--- proca_timelike_qnew_current_attribution_de4aa952.py	2026-11-19 05:17:17.461670291 +0200
++++ proca_timelike_qnew_current_attribution.py	2026-11-19 05:17:17.531430851 +0200
+@@ -15,11 +15,19 @@
+  (B) class of Q0 (t = 0) and of Q_new (t = 1): primary rule (relative 1e-9, 50 digits) and the certified cross-check,
+      both from the reviewed Q_new script (91ea9152), plus the registered T3-fund strictly_hyperbolic flag for the case.
+  (C) homotopy Q_t = Q0 - t 4 gamma_u q B(c), t in [0, 1]: number of real roots (primary rule) on 401 equally spaced t;
+-     every change of the count is located by bisection in t to 1e-15 and reported with the colliding pair.
+-     Diagnostic of where the pair leaves the real axis; the endpoints (B) carry the certified classes.
++     each change of the count between neighbouring grid points is located by bisection in t to 1e-15 and reported
++     with the roots involved. These are the OBSERVED transitions along the discretely tracked homotopy: two changes
++     between neighbouring grid points can be missed, and polyroots may lose accuracy next to a multiple root (grid
++     points where it does not converge are listed). Completeness would need a separate analysis of the discriminant
++     in t. Diagnostic only; the endpoint classes (B) are certified.
+  (D) diagnostic only: Q_new at gamma_u -> 0 literally (Lambda_eff -> 0 as well), primary and certified class.
+-Attribution reported per background and sign: CURRENT-INDUCED iff (A) holds, Q0 is SIX-SIMPLE-REAL by both the
+-primary rule and the certified check, and Q_new is COMPLEX-ROOT by both. No model class is assigned here.
++Attribution per background and sign (reviewer rule, 2026-11-19 05:16):
++  (A) fails                                                                      -> NOT ESTABLISHED
++  (A) holds, registered flag consistent with the class of Q0 (both strictly hyperbolic), Q0 SIX/SIX (primary and
++      certified), Q_new COMPLEX/COMPLEX                                          -> CURRENT-INDUCED
++  (A) holds, Q_new SIX/SIX                                                       -> NOT-INDUCED: hyperbolic with the current
++  every other combination (including a Q0 class inconsistent with the registered T3-fund flag) -> NOT ESTABLISHED,
++  with the reason recorded. No model class is assigned here.
+ Usage (from the repository root): python3 -I proca_timelike_qnew_current_attribution.py <qnew script> <outdir>
+ """
+ import hashlib
+@@ -81,7 +89,11 @@
+ 
+ 
+ def n_real(co):
+-    rt = mp.polyroots(co, maxsteps=500, extraprec=300)
++    """Number of real roots by the primary rule; (None, None) if polyroots does not converge."""
++    try:
++        rt = mp.polyroots(co, maxsteps=500, extraprec=300)
++    except mp.libmp.NoConvergence:
++        return None, None
+     return sum(1 for z in rt if abs(mp.im(z))/max(1, abs(z)) <= TOL), rt
+ 
+ 
+@@ -126,25 +138,34 @@
+             return [x_ - t_*y_ for x_, y_ in zip(q0n, bn)]
+         grid = [mp.mpf(i)/(NT - 1) for i in range(NT)]
+         counts = [n_real(co_t(t_))[0] for t_ in grid]
++        nonconv = [mp.nstr(grid[i], 6) for i in range(NT) if counts[i] is None]
+         trans = []
+         for i in range(NT - 1):
++            if counts[i] is None or counts[i + 1] is None:
++                continue
+             if counts[i] != counts[i + 1]:
+                 lo, hi = grid[i], grid[i + 1]
+                 nlo = counts[i]
+                 while hi - lo > mp.mpf('1e-15'):
+                     mid = (lo + hi)/2
+-                    if n_real(co_t(mid))[0] == nlo:
++                    nm_ = n_real(co_t(mid))[0]
++                    if nm_ is None:
++                        break
++                    if nm_ == nlo:
+                         lo = mid
+                     else:
+                         hi = mid
+                 _, rt = n_real(co_t(hi))
+                 _, rtl = n_real(co_t(lo))
+-                reals_lo = sorted(mp.re(z) for z in rtl if abs(mp.im(z))/max(1, abs(z)) <= TOL)
+-                cplx_hi = [z for z in rt if abs(mp.im(z))/max(1, abs(z)) > TOL]
++                reals_lo = sorted(mp.re(z) for z in (rtl or []) if abs(mp.im(z))/max(1, abs(z)) <= TOL)
++                cplx_hi = [z for z in (rt or []) if abs(mp.im(z))/max(1, abs(z)) > TOL]
+                 trans.append(dict(t_star=mp.nstr((lo + hi)/2, 15), n_real_before=counts[i], n_real_after=counts[i + 1],
+                                   complex_roots_after=[[mp.nstr(mp.re(z), 12), mp.nstr(mp.im(z), 5)] for z in cplx_hi],
+                                   real_roots_before=[mp.nstr(x_, 12) for x_ in reals_lo]))
+-        out['C_homotopy'] = dict(n_grid=NT, n_real_at_t0=counts[0], n_real_at_t1=counts[-1], transitions=trans)
++        out['C_homotopy'] = dict(n_grid=NT, n_real_at_t0=counts[0], n_real_at_t1=counts[-1],
++                                 observed_transitions_discrete_tracking=trans, grid_points_without_convergence=nonconv,
++                                 note=("observed transitions along the discretely tracked homotopy; not a proof that all "
++                                       "transitions were found (that needs the discriminant in t); diagnostic only"))
+         # (D) literal gamma_u -> 0 (Lambda_eff -> 0 too), diagnostic only
+     cfD, _, _ = coeffs_of(qn, ns, ns['Qnew1'], rec, sg, gu_override=0)
+     with mp.workdps(DPS):
+@@ -152,13 +173,28 @@
+     ce = qn.certified(cfD, p, L2, c)
+     out['D_diag_literal_gamma_u_zero'] = dict(class_primary=rr['class_primary_spec_relative'], class_certified=ce['class_certified'])
+     b0, b1 = out['B_t0_Q0_no_exchange_term'], out['B_t1_Q_new']
+-    induced = (out['A_identity_ok'] and b0['class_primary'] == b0['class_certified'] == 'SIX-SIMPLE-REAL'
+-               and b1['class_primary'] == b1['class_certified'] == 'COMPLEX-ROOT')
+-    out['attribution'] = ('CURRENT-INDUCED' if induced else
+-                          ('NOT-INDUCED: hyperbolic with the current' if b1['class_primary'] == 'SIX-SIMPLE-REAL' else
+-                           'NOT ESTABLISHED'))
+-    out['t0_class_agrees_with_registered_t3fund'] = bool((b0['class_primary'] == 'SIX-SIMPLE-REAL')
+-                                                         == bool(registered_strictly_hyperbolic))
++    agree_reg = bool((b0['class_primary'] == 'SIX-SIMPLE-REAL') == bool(registered_strictly_hyperbolic))
++    out['t0_class_agrees_with_registered_t3fund'] = agree_reg
++    q0_six = b0['class_primary'] == b0['class_certified'] == 'SIX-SIMPLE-REAL'
++    q1_six = b1['class_primary'] == b1['class_certified'] == 'SIX-SIMPLE-REAL'
++    q1_cx = b1['class_primary'] == b1['class_certified'] == 'COMPLEX-ROOT'
++    if not out['A_identity_ok']:
++        att, why = 'NOT ESTABLISHED', 'identity (A) with the registered Q(c;1) failed'
++    elif q0_six and q1_cx and agree_reg and registered_strictly_hyperbolic:
++        att, why = 'CURRENT-INDUCED', ''
++    elif q1_six:
++        att, why = 'NOT-INDUCED: hyperbolic with the current', ''
++    else:
++        reasons = []
++        if not agree_reg:
++            reasons.append('class of Q0 inconsistent with the registered T3-fund strictly_hyperbolic flag')
++        if not q0_six:
++            reasons.append('Q0 not SIX-SIMPLE-REAL by both the primary rule and the certified check')
++        if not q1_cx:
++            reasons.append('Q_new not COMPLEX-ROOT (or not SIX-SIMPLE-REAL) by both the primary rule and the certified check')
++        att, why = 'NOT ESTABLISHED', '; '.join(reasons) or 'other combination'
++    out['attribution'] = att
++    out['attribution_reason'] = why
+     return out
+ 
+ 

@@ -1,0 +1,22 @@
+Narrow attribution check for NOT-VIABLE (d), single authorised run (review of 2026-11-19 05:34 EET)
+Scope: 4 registered backgrounds (rank1_minus_stable_5713, rank1_minus_boundary_2020, rank1_plus_boundary_329,
+       rank1_plus_boundary_3437) x sigma = +1, -1 = 8 cases; checks A-D only
+Repository: github.com/Kretski/B4-BEC-Lambda-Bridge, fresh clone, master = origin/master = 53e2227a9c182b6eb3310e38ae6e5cae7e109f46, clean tree, LF
+Scripts (outside the clone; run from the clone root):
+  proca_timelike_qnew_current_attribution.py 21c0934f676ce8e2de0a94bf47d8201ddcc5c518eb549824477a69d711c7a0b4
+  proca_timelike_qnew_roots.py               91ea9152b1aef0277369044d9e5d04bbd68b5f6d29d83eaec3db01b68b795a30
+Inputs (verified before the start and by the scripts):
+  data/B3_max_speed_7_315096.json 99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd
+  data/e3_manifest.json           1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0
+  t3fund_proca_stage1_impl_bundle/t3fund_proca_stage1.py 7be1486a4fde2fe5ae8480816d5d46ba76f54e3e3b98d77bca708a70142482ff
+  t3fund_proca_stage1_impl_bundle/smeta_ref.py           6f915e9b93c29e8e863b8e26a5967e687a2ef643a26b67c28805d9bbeb9cd7a3
+  t3fund_proca_stage1_result_bundle/proca_stage1_result.json 27c9af3267fee535f368543dc64c0d65e05edc3c8f3a20546176958952726614
+  experiments/uv_candidates/proca_timelike/stage2/proca_timelike_stage2.py           585143fa50d390b27e40b6aa1d8a2114a32e2b881600d6ee21d0cc22e27a5ff6
+  experiments/uv_candidates/proca_timelike/stage1/proca_timelike_d5_addendum_check.py 2064fa845bde0c4e9494f2806ff30812642d41fe549d1fd98f0fc4903e5fe1ca
+  experiments/uv_candidates/proca_timelike/stage1/proca_timelike_stage1_check.py      b59393d2a6510e4b910d0ea58f7a286921603697ff5de5f4e4992f531133c29f
+Command: python3 -I proca_timelike_qnew_current_attribution.py proca_timelike_qnew_roots.py <outdir>
+  (one run, rc = 0, 57.7 s; start 2026-11-19T03:35:03Z, end 03:36:01Z)
+Environment: Python 3.13.18, SymPy 1.14.0, mpmath 1.3.0, Linux
+Side effect in the clone: importing modules created the git-ignored folders stage2/__pycache__/ and
+  t3fund_proca_stage1_impl_bundle/__pycache__/ (no tracked file changed).
+Not computed: population runs, V3 PASS/FAIL, condition number of V_inf, Stage 3. No model class assigned.

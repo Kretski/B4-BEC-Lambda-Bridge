@@ -1,0 +1,21 @@
+2026-11-19T03:35:03Z
+cmd: python3 -I /home/claude/run_attr_script/proca_timelike_qnew_current_attribution.py /home/claude/run_attr_script/proca_timelike_qnew_roots.py /home/claude/run_attr_out (cwd = clone root)
+{
+ "summary": {
+  "1": {
+   "rank1_minus_stable_5713": "CURRENT-INDUCED",
+   "rank1_minus_boundary_2020": "NOT-INDUCED: hyperbolic with the current",
+   "rank1_plus_boundary_329": "CURRENT-INDUCED",
+   "rank1_plus_boundary_3437": "CURRENT-INDUCED"
+  },
+  "-1": {
+   "rank1_minus_stable_5713": "NOT-INDUCED: hyperbolic with the current",
+   "rank1_minus_boundary_2020": "CURRENT-INDUCED",
+   "rank1_plus_boundary_329": "CURRENT-INDUCED",
+   "rank1_plus_boundary_3437": "NOT-INDUCED: hyperbolic with the current"
+  }
+ },
+ "all_identity_ok": true
+}
+rc=0
+2026-11-19T03:36:01Z

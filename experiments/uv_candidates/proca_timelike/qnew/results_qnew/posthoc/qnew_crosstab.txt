@@ -1,0 +1,10 @@
+sigma 1: (registered strictly hyperbolic at gamma_u = 0, Q_new class) -> {(True, 'SIX-SIMPLE-REAL'): 25, (True, 'COMPLEX-ROOT'): 3, (False, 'COMPLEX-ROOT'): 13}
+sigma -1: (registered strictly hyperbolic at gamma_u = 0, Q_new class) -> {(True, 'SIX-SIMPLE-REAL'): 26, (False, 'COMPLEX-ROOT'): 13, (True, 'COMPLEX-ROOT'): 2}
+COMPLEX only with the current (registered strictly hyperbolic at gamma_u = 0):
+  rank1_minus_stable_5713  sigma=+1: COMPLEX-ROOT  sigma=-1: SIX-SIMPLE-REAL
+  rank1_minus_boundary_2020  sigma=+1: SIX-SIMPLE-REAL  sigma=-1: COMPLEX-ROOT
+  rank1_plus_boundary_329  sigma=+1: COMPLEX-ROOT  sigma=-1: COMPLEX-ROOT
+  rank1_plus_boundary_3437  sigma=+1: COMPLEX-ROOT  sigma=-1: SIX-SIMPLE-REAL
+SIX-SIMPLE-REAL only with the current (registered not strictly hyperbolic at gamma_u = 0):
+registered outcomes of the 13 not strictly hyperbolic: Counter({'FAIL-UNSTABLE': 13})
+classes (cls) of the 13: Counter({'negative_control': 12, 'boundary': 1})

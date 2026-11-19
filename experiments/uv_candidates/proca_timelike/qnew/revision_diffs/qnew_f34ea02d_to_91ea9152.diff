@@ -1,0 +1,13 @@
+--- proca_timelike_qnew_roots_f34ea02d.py	2026-11-19 04:51:54.539873045 +0200
++++ proca_timelike_qnew_roots.py	2026-11-19 04:51:54.581290974 +0200
+@@ -157,7 +157,9 @@
+         sep_abs = min(abs(rt[i] - rt[j]) for i, j in pairs)
+         im_rel = max(abs(mp.im(z))/max(1, abs(z)) for z in rt)
+         sep_rel = min(abs(rt[i] - rt[j])/max(1, abs(rt[i]), abs(rt[j])) for i, j in pairs)
+-        zero_root = any(z == 0 for z in rt)
++        # exact: c = 0 is a root iff the constant term of Q_new is exactly 0 in Q(a, b) (minimal-polynomial test;
++        # the four rational components alone do not decide it when p or Lambda/2 is a rational square)
++        zero_root = exact_zero(coeffs, sp.Integer(0), p, L2)
+         im_pure = None if zero_root else max(abs(mp.im(z))/abs(z) for z in rt)
+         sep_pure = None if zero_root else min(abs(rt[i] - rt[j])/max(abs(rt[i]), abs(rt[j])) for i, j in pairs)
+ 

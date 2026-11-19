@@ -1,0 +1,15 @@
+Q_new(c;1) root arithmetic (V3 input only), single authorised run (review of 2026-11-19 04:59 EET)
+Repository: github.com/Kretski/B4-BEC-Lambda-Bridge, fresh clone, master = origin/master = 53e2227a9c182b6eb3310e38ae6e5cae7e109f46, clean tree, LF
+Script: proca_timelike_qnew_roots.py sha256 91ea9152b1aef0277369044d9e5d04bbd68b5f6d29d83eaec3db01b68b795a30 (outside the clone; run from the clone root)
+Inputs (all verified before the start and again by the script):
+  data/B3_max_speed_7_315096.json 99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd
+  data/e3_manifest.json           1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0
+  experiments/uv_candidates/proca_timelike/stage2/proca_timelike_stage2.py           585143fa50d390b27e40b6aa1d8a2114a32e2b881600d6ee21d0cc22e27a5ff6
+  experiments/uv_candidates/proca_timelike/stage1/proca_timelike_d5_addendum_check.py 2064fa845bde0c4e9494f2806ff30812642d41fe549d1fd98f0fc4903e5fe1ca
+  experiments/uv_candidates/proca_timelike/stage1/proca_timelike_stage1_check.py      b59393d2a6510e4b910d0ea58f7a286921603697ff5de5f4e4992f531133c29f
+Command: python3 -I proca_timelike_qnew_roots.py <outdir>   (one run, rc = 0, 269.5 s; start 2026-11-19T02:59:20Z, end 03:03:50Z)
+Environment: Python 3.13.18, SymPy 1.14.0, mpmath 1.3.0, Linux
+Side effect in the clone: importing the Stage 2 module created the git-ignored folder stage2/__pycache__/ (no tracked file changed).
+Post-hoc (read only): posthoc/qnew_crosstab_registered_t3fund.py against the registered
+  t3fund_proca_stage1_result_bundle/proca_stage1_result.json 27c9af3267fee535f368543dc64c0d65e05edc3c8f3a20546176958952726614 (commit 34953d0)
+Not computed: V3 PASS/FAIL, condition number of V_inf, Stage 3

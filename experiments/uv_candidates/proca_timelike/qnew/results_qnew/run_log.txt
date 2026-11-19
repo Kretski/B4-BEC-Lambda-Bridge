@@ -1,0 +1,63 @@
+2026-11-19T02:59:20Z
+cmd: python3 -I /home/claude/run_qnew_script/proca_timelike_qnew_roots.py /home/claude/run_qnew_out (cwd = clone root)
+{
+ "summary": {
+  "1": {
+   "primary_spec_relative": {
+    "SIX-SIMPLE-REAL": 25,
+    "COMPLEX-ROOT": 16,
+    "REPEATED-REAL-INCONCLUSIVE": 0
+   },
+   "diag_registered_code_absolute": {
+    "SIX-SIMPLE-REAL": 25,
+    "COMPLEX-ROOT": 16,
+    "REPEATED-REAL-INCONCLUSIVE": 0
+   },
+   "diag_pure_relative": {
+    "SIX-SIMPLE-REAL": 25,
+    "COMPLEX-ROOT": 16,
+    "REPEATED-REAL-INCONCLUSIVE": 0,
+    "NOT-DEFINED (root exactly 0)": 0
+   },
+   "certified": {
+    "SIX-SIMPLE-REAL": 25,
+    "COMPLEX-ROOT": 16,
+    "UNDETERMINED": 0
+   },
+   "diag_absolute_disagreements": [],
+   "diag_pure_relative_disagreements": [],
+   "primary_certified_disagreements": [],
+   "control_failures": []
+  },
+  "-1": {
+   "primary_spec_relative": {
+    "SIX-SIMPLE-REAL": 26,
+    "COMPLEX-ROOT": 15,
+    "REPEATED-REAL-INCONCLUSIVE": 0
+   },
+   "diag_registered_code_absolute": {
+    "SIX-SIMPLE-REAL": 26,
+    "COMPLEX-ROOT": 15,
+    "REPEATED-REAL-INCONCLUSIVE": 0
+   },
+   "diag_pure_relative": {
+    "SIX-SIMPLE-REAL": 26,
+    "COMPLEX-ROOT": 15,
+    "REPEATED-REAL-INCONCLUSIVE": 0,
+    "NOT-DEFINED (root exactly 0)": 0
+   },
+   "certified": {
+    "SIX-SIMPLE-REAL": 26,
+    "COMPLEX-ROOT": 15,
+    "UNDETERMINED": 0
+   },
+   "diag_absolute_disagreements": [],
+   "diag_pure_relative_disagreements": [],
+   "primary_certified_disagreements": [],
+   "control_failures": []
+  }
+ },
+ "control_max_rel": "7.5372e-49"
+}
+rc=0
+2026-11-19T03:03:50Z
