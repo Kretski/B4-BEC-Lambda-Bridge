@@ -1,0 +1,62 @@
+
+=== Fig.2(b) point: Omega=4.8 E_R, delta=1.0 E_R ===
+local minima on grid: 1;  kappa0 = -0.558996
+eps''=1.049877  eps'''=-1.100962  eps''''=-0.765348
+small-amplitude T/T0 = 1/w0 = 1.38021
+LL shift dw/A^2: quartic -0.03301, cubic -0.08299, total -0.11601  -> period grows with A (2nd order)
+start side +1  init offset 0.05  A=0.0496 k_r  T/T0=1.38075
+start side +1  init offset 0.10  A=0.0983 k_r  T/T0=1.38235
+start side +1  init offset 0.20  A=0.1934 k_r  T/T0=1.38849
+start side +1  init offset 0.30  A=0.2856 k_r  T/T0=1.39825
+start side +1  init offset 0.40  A=0.3751 k_r  T/T0=1.41125
+start side +1  init offset 0.50  A=0.4620 k_r  T/T0=1.42697
+start side +1  init offset 0.60  A=0.5466 k_r  T/T0=1.44475
+start side +1  init offset 0.70  A=0.6292 k_r  T/T0=1.46369
+start side +1  init offset 0.80  A=0.7100 k_r  T/T0=1.48262
+start side +1  init offset 0.90  A=0.7895 k_r  T/T0=1.50022
+start side -1  init offset 0.05  A=0.0504 k_r  T/T0=1.38077
+start side -1  init offset 0.10  A=0.1018 k_r  T/T0=1.38250
+start side -1  init offset 0.20  A=0.2076 k_r  T/T0=1.38974
+start side -1  init offset 0.30  A=0.3178 k_r  T/T0=1.40254
+start side -1  init offset 0.40  A=0.4334 k_r  T/T0=1.42148
+start side -1  init offset 0.50  A=0.5551 k_r  T/T0=1.44663
+start side -1  init offset 0.60  A=0.6835 k_r  T/T0=1.47644
+start side -1  init offset 0.70  A=0.8184 k_r  T/T0=1.50608
+start side -1  init offset 0.80  A=0.9576 k_r  T/T0=1.52740
+start side -1  init offset 0.90  A=1.0974 k_r  T/T0=1.53380
+
+=== same Omega, delta=0 (no cubic): Omega=4.8 E_R, delta=0.0 E_R ===
+local minima on grid: 1;  kappa0 = 0.000000
+eps''=0.333333  eps'''=0.000000  eps''''=3.472222
+small-amplitude T/T0 = 1/w0 = 2.44949
+LL shift dw/A^2: quartic +0.26579, cubic -0.00000, total +0.26579  -> period shrinks with A (2nd order)
+start side +1  init offset 0.10  A=0.1000 k_r  T/T0=2.43377
+start side +1  init offset 0.30  A=0.3000 k_r  T/T0=2.32249
+start side +1  init offset 0.60  A=0.6000 k_r  T/T0=2.06833
+start side +1  init offset 0.90  A=0.9000 k_r  T/T0=1.83629
+start side -1  init offset 0.10  A=0.1000 k_r  T/T0=2.43377
+start side -1  init offset 0.30  A=0.3000 k_r  T/T0=2.32249
+start side -1  init offset 0.60  A=0.6000 k_r  T/T0=2.06833
+start side -1  init offset 0.90  A=0.9000 k_r  T/T0=1.83629
+
+=== transition point, delta=0: Omega=4.0 E_R, delta=0.0 E_R ===
+local minima on grid: 0;  kappa0 = 0.000114
+eps''=0.000000  eps'''=0.000682  eps''''=5.999999
+small-amplitude T/T0 = 1/w0 = 7185.31469
+LL shift dw/A^2: quartic +1347.24637, cubic -4490.82143, total -3143.57506  -> period grows with A (2nd order)
+start side +1  init offset 0.10  A=0.1001 k_r  T/T0=16.72299
+start side +1  init offset 0.30  A=0.3001 k_r  T/T0=5.70736
+start side +1  init offset 0.60  A=0.6001 k_r  T/T0=3.05582
+start side +1  init offset 0.90  A=0.9001 k_r  T/T0=2.23465
+start side -1  init offset 0.10  A=0.0999 k_r  T/T0=16.76082
+start side -1  init offset 0.30  A=0.2999 k_r  T/T0=5.71147
+start side -1  init offset 0.60  A=0.5999 k_r  T/T0=3.05678
+start side -1  init offset 0.90  A=0.8999 k_r  T/T0=2.23504
+
+=== shape test vs Fig.2(b) (read-off: ~38 ms at A~0.3, ~42 ms at A~0.9) ===
+side +1: T(0.9)/T(0.3) = 1.0713  (figure ~1.10);  T(0.3)/T0 = 1.4003, T(0.9)/T0 = 1.5002
+    with T0=19.5 ms: T(0.3)=27.3 ms, T(0.9)=29.3 ms
+    with T0=22.2 ms: T(0.3)=31.1 ms, T(0.9)=33.3 ms
+side -1: T(0.9)/T(0.3) = 1.0843  (figure ~1.10);  T(0.3)/T0 = 1.4005, T(0.9)/T0 = 1.5186
+    with T0=19.5 ms: T(0.3)=27.3 ms, T(0.9)=29.6 ms
+    with T0=22.2 ms: T(0.3)=31.1 ms, T(0.9)=33.7 ms

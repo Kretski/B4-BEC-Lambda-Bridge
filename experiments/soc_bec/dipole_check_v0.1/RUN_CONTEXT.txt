@@ -1,0 +1,23 @@
+RUN CONTEXT - SOC dipole period vs amplitude cross-check (SOC_BEC_QUARTIC_NOTE_v0.3 section 10)
+
+Authorisation: user, 2026-11-20 (one small numerical check of Zhang et al., arXiv:1201.6018, Eq. 2, Fig. 2b).
+Machine: local cloud workspace (Linux 6.18), NOT a fresh clean clone of the repository.
+Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1, SymPy 1.14.0.
+Command: python3 -I dipole_T_vs_amplitude.py > stdout.txt 2> stderr.txt
+
+Attempt 1 (aborted, no result):
+  script sha256 a3e66ac5c5a7919694858e325acfc041bfd58f8fa1e1575cd78847f580ecc740
+  started 2026-11-20 07:52 +02:00; stopped by hand after about 10 minutes; stdout and stderr empty.
+  Cause: integration span 40*pi/w0 is infinite at Omega = 4 E_R, delta = 0 (w0 = 0); memory grew to about 3.4 GB.
+  Files: attempt1_aborted/
+
+Attempt 2 (result):
+  script sha256 a5eb205e87af1df190ee871e5b205e2b5991aa972bcf54ee3dffd6d4ab9cbf3c
+  change from attempt 1: integration in finite chunks until 4 upward crossings; guard for w0 = 0; flush on print.
+  The physics model and all parameters are unchanged.
+  finished 2026-11-20 08:03 +02:00; exit code 0
+  stdout sha256 3584bd7fc7709897d469c04c8e18396dc906be8d894ff912da9b4b0ec46fec8a
+  stderr empty  (e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+
+Model limits: two-level lower band only; the perturbative m_F = +1 correction of the original paper is not included;
+trap period T0 at Omega = 4.8 E_R not known (results given as T/T0); figure values were read off by eye.
