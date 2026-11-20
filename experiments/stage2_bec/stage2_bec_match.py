@@ -3,7 +3,7 @@
 
 Implements docs/STAGE2_PREREGISTRATION.md (v2; blob 39f66ce2, sha256 8cf6dd9a...) together with
 STAGE2_PREREGISTRATION_PROCEDURAL_ANNEX_v0.7.md (sha256 71e1edc1...). Section labels in comments (A1..K, v2) refer to
-those two documents. Script version v0.4.2:
+those two documents. Script version v0.4.3:
   v0.2: R2 removed the zero-momentum sensitivity; B5 outcome field; R10 finiteness; R4/C4 separate
         rejection counters; SciPy pinned for B2a.
   v0.3: R4 exception classification by message, all exceptions caught inside b4_spectrum;
@@ -15,6 +15,11 @@ those two documents. Script version v0.4.2:
   v0.4.2: load_module registers the module in sys.modules before exec_module (needed by
         @dataclass in lambda_eff.py and bec_dispersion.py under Python 3.13; found by the first
         authorised test run on 2410aef: 15 passed, 13 setup errors). No other change.
+  v0.4.3: the SciPy trf.py pin compares the sha256 of the file with line endings normalised to LF
+        (CRLF -> LF); the raw sha256 and the line-ending kind are recorded. Reason: on Windows the
+        installed trf.py of scipy 1.18.1 (conda and pip wheel alike) has CRLF line endings and raw
+        sha256 a174a6e7..., which is exactly the CRLF form of the pinned LF file 0c7c29d5...
+        (same source text). No other change.
 
 STATUS: written for static review only. Execution is NOT authorised (annex §G, steps 6-7).
 
@@ -60,7 +65,7 @@ EXPECTED_N_TARGETS = 29                 # v2 / annex E
 # B2a rests on the step-acceptance rule of scipy's trf ("if actual_reduction > 0: x = x_new"), read in
 # this exact implementation. Version and file hash are pinned; ABORT otherwise (static review, item 5).
 EXPECTED_SCIPY_VERSION = "1.18.1"
-EXPECTED_TRF_SHA256 = "0c7c29d5d3fd6915720e9547f051d47e14ca5a821e7872686aa8cf1d1c4e4893"
+EXPECTED_TRF_SHA256 = "0c7c29d5d3fd6915720e9547f051d47e14ca5a821e7872686aa8cf1d1c4e4893"   # of the LF-normalised file (v0.4.3)
 
 SEED = 20261111                         # v2
 N_STARTS = 80                           # v2
@@ -152,10 +157,27 @@ def verify_scipy():
     import scipy.optimize._lsq.trf as trf
     if scipy.__version__ != EXPECTED_SCIPY_VERSION:
         raise Abort(f"scipy {scipy.__version__} != pinned {EXPECTED_SCIPY_VERSION} (B2a)")
-    got = sha256_file(trf.__file__)
-    if got != EXPECTED_TRF_SHA256:
-        raise Abort(f"scipy trf.py sha256 {got} != pinned {EXPECTED_TRF_SHA256} (B2a)")
-    return {"scipy": scipy.__version__, "trf_py": trf.__file__, "trf_sha256": got}
+    raw, normalised, kind = sha256_lf_normalised(trf.__file__)
+    if normalised != EXPECTED_TRF_SHA256:
+        raise Abort(f"scipy trf.py sha256 (LF-normalised) {normalised} != pinned {EXPECTED_TRF_SHA256} (B2a); "
+                    f"raw sha256 {raw}, line endings {kind}")
+    return {"scipy": scipy.__version__, "trf_py": trf.__file__, "trf_sha256_lf_normalised": normalised,
+            "trf_sha256_raw": raw, "trf_line_endings": kind}
+
+
+def sha256_lf_normalised(path):
+    """(raw sha256, sha256 after CRLF -> LF, line-ending kind) of a text file (v0.4.3).
+
+    Only CRLF pairs are rewritten; a lone CR is left as it is, so different text cannot collapse
+    onto the same normalised bytes except through the CRLF/LF distinction."""
+    with open(path, "rb") as fh:
+        data = fh.read()
+    n_crlf = data.count(b"\r\n")
+    n_lf = data.count(b"\n")
+    kind = "LF" if n_crlf == 0 else ("CRLF" if n_crlf == n_lf else "mixed")
+    raw = hashlib.sha256(data).hexdigest()
+    normalised = hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest()
+    return raw, normalised, kind
 
 
 def load_module(name, path):

@@ -1,0 +1,7 @@
+test run 3: candidate v0.4.3 (script 3f5d5ea1..., tests 13099c65...), not yet registered
+repo clone: 0eeecaa2c6754899a7ea8077a70c825dbaaca442 (fresh, LF, clean)
+command: cd <candidate dir>; B4_REPO=<clone> python3 -I -m pytest -q -p no:cacheprovider -rA test_stage2_bec_match.py
+python 3.13.18, scipy 1.18.1 (trf.py LF, 0c7c29d5...), numpy 2.5.3, pytest 9.1.1
+start_utc: 2026-11-20T00:22:44Z
+end_utc: 2026-11-20T00:22:46Z
+rc=0

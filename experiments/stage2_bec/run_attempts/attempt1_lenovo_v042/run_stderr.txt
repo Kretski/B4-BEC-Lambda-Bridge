@@ -1,0 +1,8 @@
+python : ABORT: scipy trf.py sha256 a174a6e79b67067823804666c9e97413dd0d432c7ac7cd148c0c9ee5cfa9732b != pinned 0c7c29d5d3fd6915720e9
+547f051d47e14ca5a821e7872686aa8cf1d1c4e4893 (B2a)
+At line:1 char:1
++ python -I repo\experiments\stage2_bec\stage2_bec_match.py --repo D:\r ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ABORT: scipy tr...d1c4e4893 (B2a):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

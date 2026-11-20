@@ -1,0 +1,35 @@
+...............................                                          [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_stage2_bec_match.py::test_T01_hash_mismatch_aborts
+PASSED test_stage2_bec_match.py::test_T02_hashes_of_clean_clone_pass
+PASSED test_stage2_bec_match.py::test_T03_family_units
+PASSED test_stage2_bec_match.py::test_T04_scipy_pin_aborts_on_mismatch
+PASSED test_stage2_bec_match.py::test_T05_energy_matrix_entries
+PASSED test_stage2_bec_match.py::test_T06_grid_minimum_at_k0
+PASSED test_stage2_bec_match.py::test_T07_one_component_landau_limit
+PASSED test_stage2_bec_match.py::test_T08_classify_static_miscible_is_A
+PASSED test_stage2_bec_match.py::test_T09_classify_returns_valid_class
+PASSED test_stage2_bec_match.py::test_T10_x_and_bhat
+PASSED test_stage2_bec_match.py::test_T11_eps_bounded_by_2
+PASSED test_stage2_bec_match.py::test_T12_criteria_identity_pass_and_fail
+PASSED test_stage2_bec_match.py::test_T13_B2a_cost_bound
+PASSED test_stage2_bec_match.py::test_T14_wrapper_counts_every_call_and_penalises
+PASSED test_stage2_bec_match.py::test_T15_jacobian_calls_are_counted
+PASSED test_stage2_bec_match.py::test_T16_c1c_rules
+PASSED test_stage2_bec_match.py::test_T17_perturbation_rules
+PASSED test_stage2_bec_match.py::test_T18_sign_tuple
+PASSED test_stage2_bec_match.py::test_T19_verdict_R7
+PASSED test_stage2_bec_match.py::test_T20_check_final_R10
+PASSED test_stage2_bec_match.py::test_T20b_real_residual_nonfinite_aborts
+PASSED test_stage2_bec_match.py::test_T21_b4_rejection_reasons
+PASSED test_stage2_bec_match.py::test_T22_start_outcome
+PASSED test_stage2_bec_match.py::test_T23_apply_j4
+PASSED test_stage2_bec_match.py::test_T24_positive_control_bookkeeping[A]
+PASSED test_stage2_bec_match.py::test_T24_positive_control_bookkeeping[B]
+PASSED test_stage2_bec_match.py::test_T25_registered_constants
+PASSED test_stage2_bec_match.py::test_T26_positive_control_generated_not_recovered
+PASSED test_stage2_bec_match.py::test_T27_load_module_registers_and_cleans_up
+PASSED test_stage2_bec_match.py::test_T28_lf_normalised_hash
+PASSED test_stage2_bec_match.py::test_T29_installed_trf_matches_pin
+31 passed in 1.33s

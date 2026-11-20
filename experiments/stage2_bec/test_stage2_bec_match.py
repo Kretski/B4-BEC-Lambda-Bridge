@@ -1,4 +1,4 @@
-"""Tests for stage2_bec_match.py (script v0.4.2), for static review.
+"""Tests for stage2_bec_match.py (script v0.4.3), for static review.
 
 They use synthetic inputs only. None of them evaluates a registered target, runs a search on a
 target, or samples the family at Stage 2 scale.
@@ -421,3 +421,32 @@ def test_T27_load_module_registers_and_cleans_up(S, tmp_path):
     with pytest.raises(RuntimeError):
         S.load_module("t27_bad", str(bad))
     assert "t27_bad" not in sys.modules
+
+
+# ------------------------------------------------------------------ v0.4.3: line-ending normalised pin
+def test_T28_lf_normalised_hash(S, tmp_path):
+    import hashlib
+    lf = b"def f(x):\n    if x > 0:\n        return 1\n    return 0\n"
+    crlf = lf.replace(b"\n", b"\r\n")
+    p_lf, p_crlf = tmp_path / "a.py", tmp_path / "b.py"
+    p_lf.write_bytes(lf)
+    p_crlf.write_bytes(crlf)
+    raw_lf, norm_lf, kind_lf = S.sha256_lf_normalised(str(p_lf))
+    raw_crlf, norm_crlf, kind_crlf = S.sha256_lf_normalised(str(p_crlf))
+    assert kind_lf == "LF" and kind_crlf == "CRLF"
+    assert raw_lf != raw_crlf and norm_lf == norm_crlf == hashlib.sha256(lf).hexdigest()
+    # different text is not normalised onto the same hash
+    p_other = tmp_path / "c.py"
+    p_other.write_bytes(lf.replace(b"> 0", b">= 0"))
+    assert S.sha256_lf_normalised(str(p_other))[1] != norm_lf
+    # a lone CR is not removed
+    p_cr = tmp_path / "d.py"
+    p_cr.write_bytes(lf.replace(b"return 1", b"return\r1"))
+    assert S.sha256_lf_normalised(str(p_cr))[1] != norm_lf
+
+
+def test_T29_installed_trf_matches_pin(S):
+    # the installed scipy must give the pinned LF-normalised hash (whatever its line endings)
+    pin = S.verify_scipy()
+    assert pin["trf_sha256_lf_normalised"] == S.EXPECTED_TRF_SHA256
+    assert pin["trf_line_endings"] in ("LF", "CRLF")
