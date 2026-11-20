@@ -1,0 +1,15 @@
+PASS  A1  m/m* = 1 - 4E_R/Omega  [(-4*E_R + Omega)/Omega]
+PASS  A2  c4 = 4 E_R^2 / (m^2 Omega^3) > 0  [4*E_R**2/(Omega**3*m**2)]
+PASS  A3  no odd powers in E~(q) (delta = 0)
+PASS  A4  pure spatial quartic C = 1/(8 g m*^2) - n c4
+PASS  A5  no w^2 q^2 term (p = 0) in P = Y^2/(2g)
+PASS  A6  cubic term w q^2 / (2 g m*) present
+PASS  A7  8 g n m*^2 c4 = (gamma/2) / (x (x-1)^2)  [gamma/(2*x*(x - 1)**2)]
+PASS  B1  c_+(0) = c (unperturbed sound speed)
+PASS  B2  O(eps) shift = eps/(2 m*) (odd in the background; integrates to zero across a pulse)  [(-4*E_R + Omega)/(2*Omega*m)]
+PASS  B3  O(eps^2) coefficient of 1/c_+ = (1/c)(5/(8 m* mu) - 6 c4 m*)
+PASS  B4  c4 = 0 (parabolic band): coefficient = 5/(8 m* mu c) > 0 (time delay, healthy sign, cf. K3a)
+PASS  B5  advance condition: (48/5) g n c4 m*^2 = (3 gamma / 5) / (x (x-1)^2)  [3*gamma/(5*x*(x - 1)**2)]
+PASS  B6  advance threshold weaker than contact threshold: 3/5 > 1/2
+
+SUMMARY: 13/13 PASS

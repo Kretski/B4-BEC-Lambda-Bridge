@@ -1,0 +1,5 @@
+python Python 3.13.18
+sympy 1.14.0
+command: python3 -I soc_quartic_and_amplitude_check.py
+rc=0
+Fri Nov 20 04:59:53 UTC 2026
