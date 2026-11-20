@@ -1,0 +1,11 @@
+python: 3.13.18 | packaged by Anaconda, Inc. | (main, Oct 27 2026, 00:53:21) [MSC v.1942 64 bit (AMD64)]
+platform: Windows-11-10.0.26300-SP0
+numpy: 2.5.5
+scipy: 1.18.1
+script_sha256: 3f5d5ea16c6233a9ab471b804c57d777539624bd2145a7e7e96adca0ac35f1a1
+inputs_sha256: {"data/e3_manifest.json": "1bae892a08c3de1f928e4057ee0ad801294a90462478aaedf5b9c724e23d87e0", "data/B3_max_speed_7_315096.json": "99a6b04bc34821ddd5c5d58a78b3474d369aa9fc0ee264163096398b0028ccbd", "theory/lambda_eff.py": "e07299762f3e6b89187f8dc8270b430c951e15816ea129983f040dd2f80c951f", "theory/bec_dispersion.py": "228086f4a1a3ab292c1798910dffcc4ba69cec9e17c88dd7046369f52b878865"}
+scipy_pin: {"scipy": "1.18.1", "trf_py": "C:\\Users\\Lenovo\\miniconda3\\envs\\stage2\\Lib\\site-packages\\scipy\\optimize\\_lsq\\trf.py", "trf_sha256_lf_normalised": "0c7c29d5d3fd6915720e9547f051d47e14ca5a821e7872686aa8cf1d1c4e4893", "trf_sha256_raw": "a174a6e79b67067823804666c9e97413dd0d432c7ac7cd148c0c9ee5cfa9732b", "trf_line_endings": "CRLF"}
+start_utc: 2026-11-20T00:28:18Z
+targets_sha256: fa01175a732c091f2c6e93d2355143372a3f4b2fe16e1431cbd6e12590f0b2e5
+positive_control_sha256: e6db2798a12c11c2a42b17421724416dbe5ee3bb4523bc0a1ecf6fcef46ca4dc
+end_utc: 2026-11-20T01:37:18Z

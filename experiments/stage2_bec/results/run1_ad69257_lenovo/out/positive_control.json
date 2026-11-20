@@ -1,0 +1,3220 @@
+{
+ "A": {
+  "region": "A",
+  "n_target_fixed": 29,
+  "n_generated": 29,
+  "n_not_generated": 0,
+  "n_recovered": 29,
+  "n_generated_not_recovered": 0,
+  "recovery_rate": 1.0,
+  "threshold": ">= 27 of 29",
+  "passed": true,
+  "scope": "sensitivity demonstrated on attainable synthetic targets from the family interior; not a guarantee of equal sensitivity for every real B4 target (J4, J6)",
+  "items": [
+   {
+    "i": 0,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.8365553415159424,
+     0.7934617893585981,
+     0.5034792115839721,
+     -1.992388001431923
+    ],
+    "x_target": [
+     0.0,
+     0.4721698567636454,
+     0.6748878255812354,
+     1.0
+    ],
+    "bhat_target": [
+     -0.01292101161141657,
+     -1.0,
+     0.9678878985148688,
+     0.04503311309654809
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 34,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.3877787807814457e-15,
+     "max_dx_inner": 2.220446049250313e-16
+    },
+    "best_cost": 2.75766492697127e-29,
+    "best_y": [
+     0.8365553415159437,
+     0.793461789358598,
+     0.5034792115839727,
+     -1.9923880014318742
+    ],
+    "dist_y_to_y_star": 4.887125586756549e-14
+   },
+   {
+    "i": 1,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.8422184316878183,
+     0.5255646263181623,
+     -1.599010653982095,
+     -0.6951314374300042
+    ],
+    "x_target": [
+     0.0,
+     0.15889966162035285,
+     0.3948542852919655,
+     1.0
+    ],
+    "bhat_target": [
+     -0.3090581381130759,
+     -0.7523758100866188,
+     1.0,
+     0.06143394819969393
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 73,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.002828804748569e-15,
+     "max_dx_inner": 2.220446049250313e-15
+    },
+    "best_cost": 2.4208836773201526e-27,
+    "best_y": [
+     0.8422184316878225,
+     0.5255646263181584,
+     -1.5990106539821116,
+     -0.6951314374300056
+    ],
+    "dist_y_to_y_star": 1.7672435111145723e-14
+   },
+   {
+    "i": 2,
+    "generated": true,
+    "n_draws": 11,
+    "y_star": [
+     1.3068740354692072,
+     0.14354486660155177,
+     0.5968429735385241,
+     -0.6657740717514313
+    ],
+    "x_target": [
+     0.0,
+     0.4563342138869068,
+     0.6758445164554113,
+     1.0
+    ],
+    "bhat_target": [
+     -0.04754964008551127,
+     -1.0,
+     0.9997602332689152,
+     0.04778940681659789
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 21,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.248201624865942e-14,
+     "max_dx_inner": 2.55351295663786e-15
+    },
+    "best_cost": 6.361620290300039e-27,
+    "best_y": [
+     -1.306874035469167,
+     0.1435448666018546,
+     -0.13256322701789228,
+     0.6657740717514452
+    ],
+    "dist_y_to_y_star": 3.0227029033979136
+   },
+   {
+    "i": 3,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.8082327274421144,
+     0.013647021175532762,
+     0.27457886617022176,
+     -1.6386735389997562
+    ],
+    "x_target": [
+     0.0,
+     0.45477407270167997,
+     0.5794670109191475,
+     1.0
+    ],
+    "bhat_target": [
+     -0.0028656141319581005,
+     -1.0,
+     0.9999998980654622,
+     0.0028657160664959424
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 17,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 5.551115123125783e-16,
+     "max_dx_inner": 1.1102230246251565e-15
+    },
+    "best_cost": 2.5422429358399805e-28,
+    "best_y": [
+     -1.8082327274422967,
+     0.013647021161283867,
+     -0.034241339338426546,
+     1.6386735389996252
+    ],
+    "dist_y_to_y_star": 4.89031657210183
+   },
+   {
+    "i": 4,
+    "generated": true,
+    "n_draws": 10,
+    "y_star": [
+     0.13318822201483949,
+     0.24281934830497326,
+     -0.8246517102660844,
+     -0.7732471297063577
+    ],
+    "x_target": [
+     0.0,
+     0.2372681881141122,
+     0.6583614744316911,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9213515667264892,
+     -0.2225016050826854,
+     1.0,
+     0.1438531718091713
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 6,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.229963445352681e-15,
+     "max_dx_inner": 4.440892098500626e-16
+    },
+    "best_cost": 5.084270989590855e-28,
+    "best_y": [
+     0.13318822201484054,
+     0.24281934830497626,
+     -0.8246517102660857,
+     -0.7732471297063562
+    ],
+    "dist_y_to_y_star": 3.735780875400438e-15
+   },
+   {
+    "i": 5,
+    "generated": true,
+    "n_draws": 5,
+    "y_star": [
+     0.10347960820477642,
+     0.6483723866946566,
+     -0.3161998153438601,
+     -1.2824119874075932
+    ],
+    "x_target": [
+     0.0,
+     0.2721816100461511,
+     0.6905884959480519,
+     1.0
+    ],
+    "bhat_target": [
+     -0.46949662286276644,
+     -0.6812437535914713,
+     1.0,
+     0.15074037645423843
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 5,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.2918454750696455e-12,
+     "max_dx_inner": 1.149080830487037e-13
+    },
+    "best_cost": 4.8497250068958175e-23,
+    "best_y": [
+     0.10347960820516877,
+     0.6483723866943915,
+     -0.31619981534469255,
+     -1.2824119873938464
+    ],
+    "dist_y_to_y_star": 1.3780101466391573e-11
+   },
+   {
+    "i": 6,
+    "generated": true,
+    "n_draws": 7,
+    "y_star": [
+     0.4654250119090415,
+     0.3704131878941155,
+     -1.1501987762118322,
+     -0.9298107993295206
+    ],
+    "x_target": [
+     0.0,
+     0.17141598149648032,
+     0.5089692101787004,
+     1.0
+    ],
+    "bhat_target": [
+     -0.7118779618159011,
+     -0.3534217037587459,
+     1.0,
+     0.06529966557464416
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 25,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.898923285225507e-15,
+     "max_dx_inner": 2.220446049250313e-16
+    },
+    "best_cost": 2.067469617041047e-28,
+    "best_y": [
+     0.46542501190904234,
+     0.3704131878941146,
+     -1.1501987762118335,
+     -0.9298107993295199
+    ],
+    "dist_y_to_y_star": 1.923763753981895e-15
+   },
+   {
+    "i": 7,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.7737541416947078,
+     0.8626863968481756,
+     0.07102491279567236,
+     -0.782671708004631
+    ],
+    "x_target": [
+     0.0,
+     0.4720657114531212,
+     0.5368640226641987,
+     1.0
+    ],
+    "bhat_target": [
+     -0.011458415918050302,
+     -1.0,
+     0.9999503987148042,
+     0.011508017203245045
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 27,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.677613769070831e-15,
+     "max_dx_inner": 1.2212453270876722e-15
+    },
+    "best_cost": 4.232395362640033e-28,
+    "best_y": [
+     1.7737541416930827,
+     0.8626863968487171,
+     0.0710249127955574,
+     -0.7826717080047888
+    ],
+    "dist_y_to_y_star": 1.72405758949272e-12
+   },
+   {
+    "i": 8,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     -0.20194913496412292,
+     0.2563550985661222,
+     -0.4210294159692829,
+     -1.0960639434169739
+    ],
+    "x_target": [
+     0.0,
+     0.2962051423453738,
+     0.8606154941675089,
+     1.0
+    ],
+    "bhat_target": [
+     -1.0,
+     -0.17753417485518075,
+     0.9644178400249791,
+     0.21311633483019934
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 6,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.4087693707376373e-14,
+     "max_dx_inner": 1.2323475573339238e-14
+    },
+    "best_cost": 5.247594791522324e-26,
+    "best_y": [
+     -0.2019491349641268,
+     0.2563550985660657,
+     -0.4210294159693011,
+     -1.096063943416796
+    ],
+    "dist_y_to_y_star": 1.8754575326370824e-13
+   },
+   {
+    "i": 9,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.6722101138349643,
+     0.2356463444971561,
+     0.4609890146398721,
+     0.7970833747626362
+    ],
+    "x_target": [
+     0.0,
+     0.46273995585238215,
+     0.6042857672098518,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8804706640172555,
+     -0.9994951569839918,
+     1.0,
+     0.8799658210012481
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 3,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.9595048997949137e-13,
+     "max_dx_inner": 8.382183835919932e-15
+    },
+    "best_cost": 5.034784352097649e-25,
+    "best_y": [
+     0.10192642045988379,
+     0.1953536794420352,
+     1.5497646512817334,
+     0.050310876641068036
+    ],
+    "dist_y_to_y_star": 2.051954172839283
+   },
+   {
+    "i": 10,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.6684770135061391,
+     0.15385477024718813,
+     -0.2787984513924755,
+     -0.8556412148213104
+    ],
+    "x_target": [
+     0.0,
+     0.4095444951064931,
+     0.8617359657678851,
+     1.0
+    ],
+    "bhat_target": [
+     -1.0,
+     -0.31741028087852075,
+     0.3490797112034177,
+     0.9683305696751026
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 7,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.245871903482914e-14,
+     "max_dx_inner": 3.9968028886505635e-15
+    },
+    "best_cost": 2.5587235279888828e-26,
+    "best_y": [
+     0.6684770135061298,
+     0.15385477024724667,
+     0.6019062651645991,
+     0.8556412148213336
+    ],
+    "dist_y_to_y_star": 2.3434108521797516
+   },
+   {
+    "i": 11,
+    "generated": true,
+    "n_draws": 6,
+    "y_star": [
+     1.7452316422461553,
+     0.31971357900382036,
+     1.0251098395690148,
+     1.551764614445816
+    ],
+    "x_target": [
+     0.0,
+     0.505062121124384,
+     0.6317135367432049,
+     1.0
+    ],
+    "bhat_target": [
+     -1.0,
+     -0.23590419369995103,
+     0.23808320898596813,
+     0.9978209847139794
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 29,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.441490352173717e-12,
+     "max_dx_inner": 1.822986206434507e-13
+    },
+    "best_cost": 4.824092417408376e-22,
+    "best_y": [
+     1.7452316422165317,
+     0.3197135790998122,
+     1.0251098395367693,
+     1.5517646144649204
+    ],
+    "dist_y_to_y_star": 1.072228847977731e-10
+   },
+   {
+    "i": 12,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.20855470968297007,
+     0.17761528679918542,
+     1.2546921438807708,
+     0.06335326001063324
+    ],
+    "x_target": [
+     0.0,
+     0.4372157505915802,
+     0.7142303456007869,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8638818451513816,
+     -1.0,
+     0.9211316693471079,
+     0.94275017580427
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 6,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 6.100190077028743e-14,
+     "max_dx_inner": 3.3306690738754696e-15
+    },
+    "best_cost": 5.198301806045355e-26,
+    "best_y": [
+     0.20855470968297585,
+     0.17761528679928096,
+     1.254692143880755,
+     0.06335326001064023
+    ],
+    "dist_y_to_y_star": 9.725054652871759e-14
+   },
+   {
+    "i": 13,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.7083266219937627,
+     0.5302718096259079,
+     -1.1534843147846514,
+     0.672180538511018
+    ],
+    "x_target": [
+     0.0,
+     0.17262522274113004,
+     0.464502267104349,
+     1.0
+    ],
+    "bhat_target": [
+     -0.5975444322942499,
+     -1.0,
+     0.6892393487767391,
+     0.9083050835175112
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 16,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.7396581734969195e-14,
+     "max_dx_inner": 8.1601392309949e-15
+    },
+    "best_cost": 2.1195604516874575e-26,
+    "best_y": [
+     -0.7083266219937849,
+     0.5302718096259356,
+     0.5103268073407089,
+     -0.6721805385110396
+    ],
+    "dist_y_to_y_star": 2.565634535396731
+   },
+   {
+    "i": 14,
+    "generated": true,
+    "n_draws": 4,
+    "y_star": [
+     -0.6960090853990737,
+     0.10264686302871051,
+     -0.21667229518081665,
+     -1.8417789411420498
+    ],
+    "x_target": [
+     0.0,
+     0.3849816602465054,
+     0.8296110564681768,
+     1.0
+    ],
+    "bhat_target": [
+     -1.0,
+     -0.03760139425590145,
+     0.047095451621922226,
+     0.9905059426339806
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 0,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.898859096158503e-14,
+     "max_dx_inner": 9.658940314238862e-15
+    },
+    "best_cost": 3.8948225670457934e-26,
+    "best_y": [
+     0.6960090853990908,
+     0.10264686302875425,
+     0.4828452089654047,
+     1.841778941142137
+    ],
+    "dist_y_to_y_star": 3.9994547126548623
+   },
+   {
+    "i": 15,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.5200047205251499,
+     0.06692393782483323,
+     -1.062025019717745,
+     1.1958835236121392
+    ],
+    "x_target": [
+     0.0,
+     0.06663467372572925,
+     0.515529653935784,
+     1.0
+    ],
+    "bhat_target": [
+     -0.13900727804663765,
+     -0.979732734515568,
+     0.11874001256221214,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 19,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.0802144045304862e-13,
+     "max_dx_inner": 1.0685896612017132e-15
+    },
+    "best_cost": 1.3412059209920488e-25,
+    "best_y": [
+     0.5200047205251475,
+     0.06692393782479807,
+     -1.0620250197177512,
+     1.1958835236121614
+    ],
+    "dist_y_to_y_star": 4.21227690508693e-14
+   },
+   {
+    "i": 16,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.11687599734320697,
+     0.2572043953124779,
+     0.8115440860595982,
+     1.9126175540662342
+    ],
+    "x_target": [
+     0.0,
+     0.3354786312829812,
+     0.7556430472892981,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9600125962805192,
+     -0.07506517532238584,
+     1.0,
+     0.035077771602904234
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 7,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.081182448598895e-11,
+     "max_dx_inner": 3.718914065586887e-12
+    },
+    "best_cost": 6.48690854356427e-21,
+    "best_y": [
+     -0.1168759973374211,
+     0.2572043953027652,
+     -0.7093721248031236,
+     -1.9126175539349246
+    ],
+    "dist_y_to_y_star": 4.123135911774778
+   },
+   {
+    "i": 17,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.4951824445911268,
+     0.3420242248664765,
+     1.3522388381134451,
+     0.3320061538562271
+    ],
+    "x_target": [
+     0.0,
+     0.5362886899981445,
+     0.7027882505740224,
+     1.0
+    ],
+    "bhat_target": [
+     -0.35581329635292724,
+     -0.9983928392619736,
+     1.0,
+     0.35420613561490205
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 13,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.4353105872159757e-14,
+     "max_dx_inner": 4.218847493575595e-15
+    },
+    "best_cost": 8.20699592083438e-27,
+    "best_y": [
+     0.41591313802234575,
+     0.6832112003491266,
+     1.1994132656629863,
+     0.1298642008096987
+    ],
+    "dist_y_to_y_star": 1.1599344003506111
+   },
+   {
+    "i": 18,
+    "generated": true,
+    "n_draws": 7,
+    "y_star": [
+     1.7597954442263721,
+     0.2048777832960134,
+     -1.0579129636044389,
+     -1.4580218944563264
+    ],
+    "x_target": [
+     0.0,
+     0.3659411175331492,
+     0.49484008452292794,
+     1.0
+    ],
+    "bhat_target": [
+     -0.004666758952726672,
+     -0.9998819862041736,
+     1.0,
+     0.004548745156897977
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 27,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.508410146262463e-14,
+     "max_dx_inner": 1.3877787807814457e-15
+    },
+    "best_cost": 5.741529809912468e-27,
+    "best_y": [
+     1.7597954442265347,
+     0.20487778329518194,
+     -1.057912963604635,
+     -1.4580218944562722
+    ],
+    "dist_y_to_y_star": 8.712620956562002e-13
+   },
+   {
+    "i": 19,
+    "generated": true,
+    "n_draws": 4,
+    "y_star": [
+     0.4080627789846254,
+     0.27234303219584116,
+     -1.6752635104077713,
+     -0.2317107529612188
+    ],
+    "x_target": [
+     0.0,
+     0.2690580001484873,
+     0.4585531417306306,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8624732395054365,
+     -0.46426961639403497,
+     1.0,
+     0.32674285589946866
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 38,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.158529536215648e-14,
+     "max_dx_inner": 6.106226635438361e-16
+    },
+    "best_cost": 1.7807712287586874e-27,
+    "best_y": [
+     0.4080627789846263,
+     0.27234303219584394,
+     -1.6752635104077707,
+     -0.2317107529612172
+    ],
+    "dist_y_to_y_star": 3.382196549238738e-15
+   },
+   {
+    "i": 20,
+    "generated": true,
+    "n_draws": 5,
+    "y_star": [
+     1.0068349240162586,
+     0.3400802061190816,
+     0.36738767534200356,
+     -0.9237946813956066
+    ],
+    "x_target": [
+     0.0,
+     0.41021359795907575,
+     0.7011257148689557,
+     1.0
+    ],
+    "bhat_target": [
+     -0.03727896924846146,
+     -1.0,
+     0.9962636995909164,
+     0.04101526965754484
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 12,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.469446951953614e-15,
+     "max_dx_inner": 7.771561172376096e-16
+    },
+    "best_cost": 3.5329258899839454e-28,
+    "best_y": [
+     1.0068349240162666,
+     0.3400802061190517,
+     0.3673876753420066,
+     -0.9237946813955965
+    ],
+    "dist_y_to_y_star": 3.2668159218656615e-14
+   },
+   {
+    "i": 21,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.7410060265554295,
+     0.08924595763057712,
+     -1.7362534425693124,
+     -1.7106295959638542
+    ],
+    "x_target": [
+     0.0,
+     0.08137407034210979,
+     0.39381175228121307,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9564145264003204,
+     -0.05190434629936369,
+     1.0,
+     0.00831887269967483
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 39,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 6.529233145756088e-13,
+     "max_dx_inner": 1.4162282457874653e-13
+    },
+    "best_cost": 7.886676558166206e-24,
+    "best_y": [
+     0.7410060265555246,
+     0.08924595763043942,
+     -1.7362534425688347,
+     -1.7106295959632491
+    ],
+    "dist_y_to_y_star": 7.888239912976129e-13
+   },
+   {
+    "i": 22,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -0.286069425259047,
+     0.617029885145963,
+     -0.2457288325775977,
+     0.6132119985506863
+    ],
+    "x_target": [
+     0.0,
+     0.3381804072301508,
+     0.7576682769845903,
+     1.0
+    ],
+    "bhat_target": [
+     -0.1753894278129958,
+     -1.0,
+     0.8263361159063813,
+     0.3490533119066139
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 7,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.6902692559598473e-15,
+     "max_dx_inner": 4.440892098500626e-16
+    },
+    "best_cost": 1.1405177307192703e-28,
+    "best_y": [
+     0.2860694252590492,
+     0.6170298851459624,
+     0.3415787382880893,
+     -0.6132119985506809
+    ],
+    "dist_y_to_y_star": 1.4752589154905715
+   },
+   {
+    "i": 23,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.8851854828338444,
+     0.7368476868360465,
+     -0.5283921628730566,
+     -1.86670669372247
+    ],
+    "x_target": [
+     0.0,
+     0.31284133832887906,
+     0.5325698868763856,
+     1.0
+    ],
+    "bhat_target": [
+     -0.0404082457777777,
+     -0.9716612898350292,
+     1.0,
+     0.0120695356128078
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 25,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.216449660063518e-15,
+     "max_dx_inner": 4.440892098500626e-16
+    },
+    "best_cost": 5.789299876252731e-28,
+    "best_y": [
+     0.8851854828338405,
+     0.7368476868360495,
+     -0.5283921628730543,
+     -1.8667066937224732
+    ],
+    "dist_y_to_y_star": 6.333138767612062e-15
+   },
+   {
+    "i": 24,
+    "generated": true,
+    "n_draws": 6,
+    "y_star": [
+     -0.21958633999182897,
+     0.7738461580696326,
+     -0.6096801175856177,
+     -0.6337876241355214
+    ],
+    "x_target": [
+     0.0,
+     0.45876930246276365,
+     0.6533675255250091,
+     1.0
+    ],
+    "bhat_target": [
+     -0.45203773522560065,
+     -0.7322905683695706,
+     1.0,
+     0.18432830359517094
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 35,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.449063946402257e-13,
+     "max_dx_inner": 5.329070518200751e-15
+    },
+    "best_cost": 2.556413922683245e-25,
+    "best_y": [
+     -0.2195863399917423,
+     0.7738461580694781,
+     -0.6096801175859701,
+     -0.6337876241352377
+    ],
+    "dist_y_to_y_star": 4.858356196800857e-13
+   },
+   {
+    "i": 25,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     1.9100154044539388,
+     0.40705105969701283,
+     1.4680202294660498,
+     -1.424791897471338
+    ],
+    "x_target": [
+     0.0,
+     0.5305640952301125,
+     0.6313668917420747,
+     1.0
+    ],
+    "bhat_target": [
+     -0.003909392039223511,
+     -1.0,
+     0.9996959816139499,
+     0.004213410425273034
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 31,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.5500435096859064e-15,
+     "max_dx_inner": 3.3306690738754696e-16
+    },
+    "best_cost": 1.2584136274347928e-28,
+    "best_y": [
+     1.9100154044540172,
+     0.40705105969683614,
+     1.4680202294661795,
+     -1.42479189747131
+    ],
+    "dist_y_to_y_star": 2.3443947021927063e-13
+   },
+   {
+    "i": 26,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.2598428757522231,
+     0.1314144188583089,
+     -1.128455311934748,
+     -1.156978407525632
+    ],
+    "x_target": [
+     0.0,
+     0.2288818690090978,
+     0.5729899521219096,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9752079861519309,
+     -0.07655964646924973,
+     1.0,
+     0.05176763262118334
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 22,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 8.157044607076155e-15,
+     "max_dx_inner": 1.3322676295501878e-15
+    },
+    "best_cost": 1.3950853787680603e-27,
+    "best_y": [
+     -0.2598428757522258,
+     0.13141441885830615,
+     0.8366868191770841,
+     1.1569784075256322
+    ],
+    "dist_y_to_y_star": 3.0799761391461598
+   },
+   {
+    "i": 27,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     0.6754891371974359,
+     0.19233927890611288,
+     -1.4242956183464788,
+     -1.7065395708613575
+    ],
+    "x_target": [
+     0.0,
+     0.08209320730273185,
+     0.4374248303809849,
+     1.0
+    ],
+    "bhat_target": [
+     -0.7692378744826673,
+     -0.24009493736846707,
+     1.0,
+     0.009332811851134644
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 20,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.809558141692037e-13,
+     "max_dx_inner": 1.6653345369377348e-16
+    },
+    "best_cost": 6.521946247770953e-25,
+    "best_y": [
+     0.6754891371974363,
+     0.19233927890610883,
+     -1.4242956183464806,
+     -1.7065395708620459
+    ],
+    "dist_y_to_y_star": 6.883526386281201e-13
+   },
+   {
+    "i": 28,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -1.021618184159291,
+     0.25256108410897504,
+     0.4577413372954311,
+     -1.3157644553647905
+    ],
+    "x_target": [
+     0.0,
+     0.13430369341668297,
+     0.4239568517240229,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9286662115738552,
+     -0.2561343536486044,
+     0.1848005652224603,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 32,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.857735121591618e-14,
+     "max_dx_inner": 5.384581669432009e-15
+    },
+    "best_cost": 2.2927415537014706e-26,
+    "best_y": [
+     1.0216181841592873,
+     0.25256108410894795,
+     -1.4839840261682686,
+     1.315764455364764
+    ],
+    "dist_y_to_y_star": 3.8561712425595682
+   }
+  ]
+ },
+ "B": {
+  "region": "B",
+  "n_target_fixed": 29,
+  "n_generated": 29,
+  "n_not_generated": 0,
+  "n_recovered": 29,
+  "n_generated_not_recovered": 0,
+  "recovery_rate": 1.0,
+  "threshold": ">= 27 of 29",
+  "passed": true,
+  "scope": "sensitivity demonstrated on attainable synthetic targets from the family interior; not a guarantee of equal sensitivity for every real B4 target (J4, J6)",
+  "items": [
+   {
+    "i": 0,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -1.947884970291466,
+     0.4258997771438762,
+     -1.4201153870874226,
+     -1.538849430818392
+    ],
+    "x_target": [
+     0.0,
+     0.7920446676712487,
+     0.9082736984460679,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9707278264087053,
+     1.0,
+     -0.283330351291699,
+     0.254058177700403
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 62,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.7472482013431973e-12,
+     "max_dx_inner": 5.303535388634373e-13
+    },
+    "best_cost": 1.0402201996468535e-22,
+    "best_y": [
+     -1.9478849702824592,
+     0.4258997771308766,
+     -1.4201153870863723,
+     -1.5388494308147234
+    ],
+    "dist_y_to_y_star": 1.6268799804759873e-11
+   },
+   {
+    "i": 1,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -0.9242596164906596,
+     0.9517375300507896,
+     -3.322074966999252,
+     1.3371776443314562
+    ],
+    "x_target": [
+     0.0,
+     0.4299554579430987,
+     0.8458129669727592,
+     1.0
+    ],
+    "bhat_target": [
+     -0.01657258015470243,
+     0.017929512221111724,
+     -1.0,
+     0.9986430679335887
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 33,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.5102810375396984e-14,
+     "max_dx_inner": 1.3433698597964394e-14
+    },
+    "best_cost": 6.27259148036806e-26,
+    "best_y": [
+     -0.9242596164908579,
+     0.9517375300525238,
+     -3.322074966999343,
+     1.3371776443314811
+    ],
+    "dist_y_to_y_star": 1.7480170549497238e-12
+   },
+   {
+    "i": 2,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.3964044291080211,
+     0.7972520670241597,
+     3.0339101625953884,
+     1.2290430591908903
+    ],
+    "x_target": [
+     0.0,
+     0.28258923678757664,
+     0.5645425346615115,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9871803902792605,
+     1.0,
+     -0.051183453684368364,
+     0.03836384396362955
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 35,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 5.1486592766991635e-14,
+     "max_dx_inner": 1.4432899320127035e-14
+    },
+    "best_cost": 6.350969446029158e-26,
+    "best_y": [
+     -0.39640442910796303,
+     0.7972520670239647,
+     3.0339101625953377,
+     1.2290430591908839
+    ],
+    "dist_y_to_y_star": 2.0982563119539793e-13
+   },
+   {
+    "i": 3,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.7422647069277089,
+     0.33459273198743694,
+     3.849408383200882,
+     1.0930652207030782
+    ],
+    "x_target": [
+     0.0,
+     0.6738195979745334,
+     0.6965239488064081,
+     1.0
+    ],
+    "bhat_target": [
+     -0.46672799752725624,
+     1.0,
+     -0.6218020944648154,
+     0.08853009199209311
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 79,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.9998338961507384e-11,
+     "max_dx_inner": 3.7973624245069004e-11
+    },
+    "best_cost": 5.927199398713008e-19,
+    "best_y": [
+     -0.7422647072269837,
+     0.33459273340234846,
+     -1.6378028951659052,
+     -1.0930652208415934
+    ],
+    "dist_y_to_y_star": 6.090359718635217
+   },
+   {
+    "i": 4,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.29277402029869304,
+     0.6679942495259539,
+     -3.4109201139019243,
+     -0.8441526818769614
+    ],
+    "x_target": [
+     0.0,
+     0.39443075911320113,
+     0.7153930080670994,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9917436949577396,
+     1.0,
+     -0.20637315792685793,
+     0.19811685288459555
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 29,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.5284529578151818e-14,
+     "max_dx_inner": 1.3988810110276972e-14
+    },
+    "best_cost": 5.553274588210934e-26,
+    "best_y": [
+     -0.2927740202986369,
+     0.6679942495258643,
+     -3.4109201139020504,
+     -0.8441526818769414
+    ],
+    "dist_y_to_y_star": 1.6577958050827073e-13
+   },
+   {
+    "i": 5,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     0.2222208695453558,
+     0.2373670301401413,
+     -3.5422245583795293,
+     -1.95085486266928
+    ],
+    "x_target": [
+     0.0,
+     0.34470242190541206,
+     0.5557063464459018,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9955989236405318,
+     1.0,
+     -0.013192700260177341,
+     0.008791623900706784
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 34,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 8.396061623727746e-15,
+     "max_dx_inner": 4.440892098500626e-16
+    },
+    "best_cost": 6.6726561938357605e-28,
+    "best_y": [
+     -0.2222208695453548,
+     0.23736703014014326,
+     2.742620102606914,
+     1.9508548626693003
+    ],
+    "dist_y_to_y_star": 7.410812347710435
+   },
+   {
+    "i": 6,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     1.8477835851894007,
+     0.9217234636879724,
+     2.7080590719184565,
+     -1.1058532909436014
+    ],
+    "x_target": [
+     0.0,
+     0.6418100834143865,
+     0.6688062740340796,
+     1.0
+    ],
+    "bhat_target": [
+     -0.0022656711272850886,
+     -1.0,
+     0.998708379611836,
+     0.0035572915154449374
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 77,
+     "n_not_converged": 3,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 77,
+      "not_converged_in_region": 3,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 69,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.73752981289266e-14,
+     "max_dx_inner": 3.3306690738754696e-16
+    },
+    "best_cost": 3.3846684723863783e-26,
+    "best_y": [
+     -1.8477835851880122,
+     0.9217234636880434,
+     -0.32267575950030314,
+     1.105853290944137
+    ],
+    "dist_y_to_y_star": 5.266328544015438
+   },
+   {
+    "i": 7,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.8750368799084844,
+     0.15000412344677272,
+     -2.488268997686032,
+     -1.9087704019316445
+    ],
+    "x_target": [
+     0.0,
+     0.12805035932554165,
+     0.32042827829698384,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9341178178330214,
+     -0.07035471588605245,
+     1.0,
+     0.0044725337190720865
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 78,
+     "n_not_converged": 2,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 78,
+      "not_converged_in_region": 2,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 44,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.8561653135383208e-13,
+     "max_dx_inner": 8.881784197001252e-16
+    },
+    "best_cost": 2.761258424117575e-25,
+    "best_y": [
+     0.875036879908484,
+     0.15000412344674857,
+     -2.4882689976860437,
+     -1.9087704019316472
+    ],
+    "dist_y_to_y_star": 2.69018402031966e-14
+   },
+   {
+    "i": 8,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     0.4858890125540922,
+     0.3046227699751215,
+     -1.955351275153089,
+     -0.6680493536386529
+    ],
+    "x_target": [
+     0.0,
+     0.27902052596181004,
+     0.41189039843692715,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8027245291392889,
+     -0.3005437421909504,
+     1.0,
+     0.10326827133023801
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 62,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.64385138202046e-14,
+     "max_dx_inner": 7.216449660063518e-16
+    },
+    "best_cost": 2.4631490336668953e-27,
+    "best_y": [
+     0.48588901255409356,
+     0.30462276997511817,
+     -1.9553512751530908,
+     -0.6680493536386559
+    ],
+    "dist_y_to_y_star": 5.0009355010672645e-15
+   },
+   {
+    "i": 9,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -1.596067644100188,
+     0.18583253317888998,
+     -2.5081836583576687,
+     -0.10682904144646876
+    ],
+    "x_target": [
+     0.0,
+     0.5453374017988872,
+     0.9128996237211123,
+     1.0
+    ],
+    "bhat_target": [
+     -0.20423469514437215,
+     0.2042864212929709,
+     -1.0,
+     0.9999482738513992
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 49,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.2879851156784337e-10,
+     "max_dx_inner": 2.360334150353083e-13
+    },
+    "best_cost": 1.385451186964679e-19,
+    "best_y": [
+     -1.5960676453774238,
+     0.18583257598666394,
+     -2.5081836585629387,
+     -0.10682904141652948
+    ],
+    "dist_y_to_y_star": 4.2827326269705476e-08
+   },
+   {
+    "i": 10,
+    "generated": true,
+    "n_draws": 6,
+    "y_star": [
+     0.405820633870408,
+     0.5302015614967525,
+     -3.924104361999259,
+     -0.3205175176067496
+    ],
+    "x_target": [
+     0.0,
+     0.3175217676491203,
+     0.5030977516762395,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9645865046755431,
+     1.0,
+     -0.32932044186429194,
+     0.2939069465398313
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 42,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.826373868005358e-14,
+     "max_dx_inner": 7.16093850883226e-15
+    },
+    "best_cost": 2.814211768322411e-26,
+    "best_y": [
+     -0.4058206338704382,
+     0.5302015614969503,
+     2.4594060216613,
+     0.32051751760673675
+    ],
+    "dist_y_to_y_star": 6.466752839112788
+   },
+   {
+    "i": 11,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -0.9503677516891149,
+     0.5776103771997372,
+     -3.6483629986257897,
+     -0.2825283464548143
+    ],
+    "x_target": [
+     0.0,
+     0.40169754209870706,
+     0.8638779404717617,
+     1.0
+    ],
+    "bhat_target": [
+     -0.6487459242122331,
+     0.6493874404208013,
+     -1.0,
+     0.999358483791431
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 32,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 5.24172795053005e-12,
+     "max_dx_inner": 1.1579626146840383e-13
+    },
+    "best_cost": 4.861453349786269e-22,
+    "best_y": [
+     -0.950367751776441,
+     0.5776103796400311,
+     -3.6483629986949575,
+     -0.2825283464571736
+    ],
+    "dist_y_to_y_star": 2.4428365131411305e-09
+   },
+   {
+    "i": 12,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -1.676255138975629,
+     0.4152559720406958,
+     3.4300809769233096,
+     0.3081509658027919
+    ],
+    "x_target": [
+     0.0,
+     0.0639517247080667,
+     0.5628875253920379,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9999801998360379,
+     1.0,
+     -0.07197923312527373,
+     0.07195943296129591
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 33,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.469946780919609e-11,
+     "max_dx_inner": 1.6237011735142914e-15
+    },
+    "best_cost": 2.322352413333091e-21,
+    "best_y": [
+     -1.676255138824208,
+     0.41525596736174986,
+     3.4300809769032474,
+     0.3081509658069922
+    ],
+    "dist_y_to_y_star": 4.681440345931997e-09
+   },
+   {
+    "i": 13,
+    "generated": true,
+    "n_draws": 4,
+    "y_star": [
+     1.3091677560821444,
+     0.723429892047644,
+     -2.0632884514733494,
+     1.3732053922333822
+    ],
+    "x_target": [
+     0.0,
+     0.23371645244057399,
+     0.3558973047990322,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8441860437352202,
+     -0.7172651129427448,
+     0.5614511566779679,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 62,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.305879767009742e-14,
+     "max_dx_inner": 1.6514567491299204e-14
+    },
+    "best_cost": 1.2569248146504124e-25,
+    "best_y": [
+     -1.3091677560821153,
+     0.7234298920477218,
+     0.45706300365486113,
+     -1.3732053922335947
+    ],
+    "dist_y_to_y_star": 4.55528533778773
+   },
+   {
+    "i": 14,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.7142664518756656,
+     0.28133170858898676,
+     -1.2226751738384678,
+     1.9376892044940393
+    ],
+    "x_target": [
+     0.0,
+     0.6934552173981487,
+     0.7199804317523648,
+     1.0
+    ],
+    "bhat_target": [
+     -0.0023907956640055092,
+     -1.0,
+     0.572816302237517,
+     0.4295744934264959
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 69,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 6.474101044739729e-14,
+     "max_dx_inner": 1.4432899320127035e-15
+    },
+    "best_cost": 5.869720294162683e-26,
+    "best_y": [
+     -0.7142664518756602,
+     0.2813317085890321,
+     -1.2226751738384374,
+     1.9376892044940874
+    ],
+    "dist_y_to_y_star": 7.303084271483395e-14
+   },
+   {
+    "i": 15,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.9626755278060775,
+     0.6804109835750587,
+     1.5309279531445021,
+     1.424221848324327
+    ],
+    "x_target": [
+     0.0,
+     0.5412329343669351,
+     0.616441195258222,
+     1.0
+    ],
+    "bhat_target": [
+     -1.0,
+     -0.5667527279795417,
+     0.573488043407885,
+     0.9932646845716602
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 76,
+     "n_not_converged": 4,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 76,
+      "not_converged_in_region": 4,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 65,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.2397936052357243e-10,
+     "max_dx_inner": 4.136802012055796e-12
+    },
+    "best_cost": 2.242493683048081e-19,
+    "best_y": [
+     1.9626755248104049,
+     0.6804109861637353,
+     1.530927948141659,
+     1.4242218492197845
+    ],
+    "dist_y_to_y_star": 6.442482874884119e-09
+   },
+   {
+    "i": 16,
+    "generated": true,
+    "n_draws": 4,
+    "y_star": [
+     1.9847286736544758,
+     0.5946051677071938,
+     -1.9462787971520168,
+     1.475053839319402
+    ],
+    "x_target": [
+     0.0,
+     0.36167813694215006,
+     0.44223628648886953,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9936174405265887,
+     -0.46742831638800486,
+     0.46104575691459687,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 66,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 3.113947856558468e-08,
+     "max_dx_inner": 9.218695806723076e-10
+    },
+    "best_cost": 1.9809016546213737e-14,
+    "best_y": [
+     1.9847279812710017,
+     0.594605946483642,
+     -1.9462773348349045,
+     1.4750540444665954
+    ],
+    "dist_y_to_y_star": 1.8073030568284303e-06
+   },
+   {
+    "i": 17,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.9431884463803542,
+     0.7506542406601491,
+     -3.9073863284200145,
+     -1.9384268860837262
+    ],
+    "x_target": [
+     0.0,
+     0.3818064068617967,
+     0.8688507900926788,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9992633572483667,
+     1.0,
+     -0.034907700672383316,
+     0.03417105792074778
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 24,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.020605904817785e-13,
+     "max_dx_inner": 8.615330671091215e-14
+    },
+    "best_cost": 2.0343759093840885e-24,
+    "best_y": [
+     -0.9431884463803759,
+     0.7506542406580299,
+     -3.9073863284188057,
+     -1.9384268860836078
+    ],
+    "dist_y_to_y_star": 2.4426800407880493e-12
+   },
+   {
+    "i": 18,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     1.8934321854220224,
+     0.42360999024770263,
+     -1.8160698769763046,
+     1.8737164503444372
+    ],
+    "x_target": [
+     0.0,
+     0.34718665123985565,
+     0.4488173294426807,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9956490525111227,
+     -0.1586993678421874,
+     0.15434842035330923,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 62,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.3203346682438687e-10,
+     "max_dx_inner": 6.552147713279055e-12
+    },
+    "best_cost": 2.45923373292992e-19,
+    "best_y": [
+     1.8934321848008582,
+     0.42360999172367275,
+     -1.8160698757602631,
+     1.87371645108429
+    ],
+    "dist_y_to_y_star": 2.1425386686539517e-09
+   },
+   {
+    "i": 19,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.6270374671206134,
+     0.44323864038221245,
+     2.4080453368496926,
+     -1.3214631925431504
+    ],
+    "x_target": [
+     0.0,
+     0.6149789368278363,
+     0.7488247557908534,
+     1.0
+    ],
+    "bhat_target": [
+     -0.00662549457338879,
+     -1.0,
+     0.9961115916735683,
+     0.010513902899821428
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 79,
+     "n_not_converged": 1,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 79,
+      "not_converged_in_region": 1,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 71,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 5.512951206654293e-14,
+     "max_dx_inner": 8.104628079763643e-15
+    },
+    "best_cost": 4.094426539909487e-26,
+    "best_y": [
+     1.6270374671205496,
+     0.4432386403824101,
+     2.4080453368495074,
+     -1.3214631925432037
+    ],
+    "dist_y_to_y_star": 2.8331969831655934e-13
+   },
+   {
+    "i": 20,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -1.0763065276658184,
+     0.6934288071613274,
+     2.4324792652906657,
+     -0.5916871364156844
+    ],
+    "x_target": [
+     0.0,
+     0.16308906550075103,
+     0.4612072064831919,
+     1.0
+    ],
+    "bhat_target": [
+     -0.8421696142380444,
+     0.852439252336344,
+     -1.0,
+     0.9897303619016969
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 45,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 8.432141517882594e-13,
+     "max_dx_inner": 9.614531393253856e-14
+    },
+    "best_cost": 1.3203304437065637e-23,
+    "best_y": [
+     -1.0763065276629986,
+     0.6934288071291106,
+     2.432479265288241,
+     -0.5916871364157725
+    ],
+    "dist_y_to_y_star": 3.243083800054765e-11
+   },
+   {
+    "i": 21,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     1.9020914806727873,
+     0.9420482048072361,
+     -1.9726931233807283,
+     0.9325843937525744
+    ],
+    "x_target": [
+     0.0,
+     0.3786040975230104,
+     0.40731848898907097,
+     1.0
+    ],
+    "bhat_target": [
+     -0.2202766350917919,
+     -1.0,
+     0.9956720065726914,
+     0.22460462851911514
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 60,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 2.9017942813708755e-12,
+     "max_dx_inner": 1.0419443086107094e-13
+    },
+    "best_cost": 1.0126661483029963e-22,
+    "best_y": [
+     -1.902091480764424,
+     0.9420482048000287,
+     0.22080748458173563,
+     -0.9325843937385123
+    ],
+    "dist_y_to_y_star": 4.770965051962953
+   },
+   {
+    "i": 22,
+    "generated": true,
+    "n_draws": 3,
+    "y_star": [
+     1.5999843981223663,
+     0.6633944452354821,
+     -1.8209944231960318,
+     1.5557874041164337
+    ],
+    "x_target": [
+     0.0,
+     0.30429805061283965,
+     0.4168077655631968,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9677597780411575,
+     -0.3785534123417967,
+     0.3463131903829582,
+     1.0
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 78,
+     "n_not_converged": 2,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 78,
+      "not_converged_in_region": 2,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 62,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 9.30012798782808e-13,
+     "max_dx_inner": 9.742207041085749e-14
+    },
+    "best_cost": 1.394955187408136e-23,
+    "best_y": [
+     1.5999843981251156,
+     0.663394445232358,
+     -1.8209944232010136,
+     1.5557874041121926
+    ],
+    "dist_y_to_y_star": 7.753932566281033e-12
+   },
+   {
+    "i": 23,
+    "generated": true,
+    "n_draws": 5,
+    "y_star": [
+     -0.8540921397884218,
+     0.25464276388235213,
+     2.496715854206766,
+     0.2592247667076486
+    ],
+    "x_target": [
+     0.0,
+     0.1945008262610355,
+     0.48292612812483887,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9989299657654306,
+     1.0,
+     -0.20785577426601873,
+     0.20678574003145078
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 42,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 5.186416209591483e-13,
+     "max_dx_inner": 2.4980018054066022e-14
+    },
+    "best_cost": 3.2073134278329907e-24,
+    "best_y": [
+     -0.8540921397892575,
+     0.2546427639027891,
+     2.4967158542073906,
+     0.25922476670764394
+    ],
+    "dist_y_to_y_star": 2.0463605454780938e-11
+   },
+   {
+    "i": 24,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     -1.3701348296667928,
+     0.8616012392662553,
+     2.76524291549004,
+     1.5256723963363572
+    ],
+    "x_target": [
+     0.0,
+     0.10949746664871175,
+     0.4962075660785572,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9992802776337264,
+     1.0,
+     -0.007222026669756184,
+     0.006502304303471127
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 41,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 6.048980760731126e-14,
+     "max_dx_inner": 3.097522238704187e-14
+    },
+    "best_cost": 4.296488928187214e-25,
+    "best_y": [
+     -1.3701348296664464,
+     0.8616012392660901,
+     2.7652429154902087,
+     1.5256723963367111
+    ],
+    "dist_y_to_y_star": 5.486601324369704e-13
+   },
+   {
+    "i": 25,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.10033473659985814,
+     0.2444354433365581,
+     -3.4637912564565525,
+     -0.6927698569165002
+    ],
+    "x_target": [
+     0.0,
+     0.37438580687710504,
+     0.6662498387491372,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9981436853658938,
+     1.0,
+     -0.22918252760348493,
+     0.22732621296937486
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 41,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 4.51244149478584e-13,
+     "max_dx_inner": 1.609823385706477e-14
+    },
+    "best_cost": 2.545292409873944e-24,
+    "best_y": [
+     -0.10033473659986654,
+     0.24443544334774409,
+     -3.463791256457691,
+     -0.6927698569165587
+    ],
+    "dist_y_to_y_star": 1.1243955039927714e-11
+   },
+   {
+    "i": 26,
+    "generated": true,
+    "n_draws": 1,
+    "y_star": [
+     1.6439980867231037,
+     0.23869813832961337,
+     2.2825828059772704,
+     0.1200880350845317
+    ],
+    "x_target": [
+     0.0,
+     0.5984861270929919,
+     0.7438640651212316,
+     1.0
+    ],
+    "bhat_target": [
+     -0.19182849863220192,
+     -0.9999624114342948,
+     1.0,
+     0.19179091006649604
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 46,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.5290298798157758e-10,
+     "max_dx_inner": 4.3585135500734395e-12
+    },
+    "best_cost": 3.7007641797984206e-19,
+    "best_y": [
+     1.2971061591217972,
+     0.6851957775124163,
+     1.659787176062795,
+     0.11262039914826466
+    ],
+    "dist_y_to_y_star": 0.841204085497575
+   },
+   {
+    "i": 27,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -0.7840074221914772,
+     0.7690157280477462,
+     2.651544279572633,
+     -1.3548114851611883
+    ],
+    "x_target": [
+     0.0,
+     0.20972238389544992,
+     0.5035369516467589,
+     1.0
+    ],
+    "bhat_target": [
+     -0.10676216377434021,
+     0.11920283152356845,
+     -1.0,
+     0.9875593322507731
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 28,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 7.112937036834237e-13,
+     "max_dx_inner": 8.051892486093948e-14
+    },
+    "best_cost": 6.318319430048406e-24,
+    "best_y": [
+     -0.7840074221908891,
+     0.7690157280434333,
+     2.6515442795716395,
+     -1.3548114851606676
+    ],
+    "dist_y_to_y_star": 4.494978130763396e-12
+   },
+   {
+    "i": 28,
+    "generated": true,
+    "n_draws": 2,
+    "y_star": [
+     -1.9217969648853481,
+     0.015072473477789623,
+     1.307100782434989,
+     -0.41933724711027764
+    ],
+    "x_target": [
+     0.0,
+     0.0905773831818522,
+     0.17236162151048276,
+     1.0
+    ],
+    "bhat_target": [
+     -0.9999252813972807,
+     1.0,
+     -0.28746174269606045,
+     0.2873870240933856
+    ],
+    "search_summary": {
+     "n_starts": 80,
+     "n_no_admissible_start": 0,
+     "n_converged": 80,
+     "n_not_converged": 0,
+     "n_rejected": 0,
+     "outcomes": {
+      "converged": 80,
+      "not_converged_in_region": 0,
+      "rejected_start_shifted_out": 0,
+      "rejected": 0
+     },
+     "n_first_eval_penalty": 0,
+     "n_starts_with_penalty_eval": 71,
+     "no_admissible_fit": false
+    },
+    "recovered": true,
+    "criteria": {
+     "c1_sign": true,
+     "c2_magnitude": true,
+     "c3_roots": true,
+     "max_eps": 1.1032644074180296e-11,
+     "max_dx_inner": 7.216449660063518e-16
+    },
+    "best_cost": 1.0618200513453737e-21,
+    "best_y": [
+     -1.9217969648922322,
+     0.015072473813366228,
+     1.3071007824361986,
+     -0.4193372471122253
+    ],
+    "dist_y_to_y_star": 3.356550379747922e-10
+   }
+  ]
+ }
+}

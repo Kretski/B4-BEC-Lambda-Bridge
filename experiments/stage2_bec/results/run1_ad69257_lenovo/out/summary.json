@@ -1,0 +1,21 @@
+{
+ "n_targets": 29,
+ "PRIMARY_region_A": "match_region_A, no_admissible_fit_A, inconclusive_c4_A",
+ "CONTROL_region_B": "match_region_B, no_admissible_fit_B, inconclusive_c4_B (reported separately)",
+ "match_region_A": 0,
+ "match_region_B": 0,
+ "inconclusive_c4_A": 0,
+ "inconclusive_c4_B": 0,
+ "no_admissible_fit_A": 0,
+ "no_admissible_fit_B": 0,
+ "not_interpretable_A": 0,
+ "not_interpretable_B": 0,
+ "positive_control_passed": {
+  "A": true,
+  "B": true
+ },
+ "reading_of_no_match": "NO MATCH means the fixed, registered procedure found no match; with a passed positive control it is interpretable within the demonstrated sensitivity. It is not a proof that no match exists anywhere in the family (J4).",
+ "ill_conditioned_targets": [],
+ "match_A_among_ill_conditioned": 0,
+ "reading": "a match is necessary, not sufficient (v2); region B is the mandatory control"
+}

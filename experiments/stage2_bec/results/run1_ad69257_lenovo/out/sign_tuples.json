@@ -1,0 +1,62 @@
+[
+ {
+  "region": "A",
+  "n_in_region": 200000,
+  "n_draws": 750295,
+  "acceptance_rate": 0.266561819017853,
+  "reached_target": true,
+  "class_counts_all_draws": {
+   "1": 200000,
+   "2": 404120,
+   "3": 145950,
+   "4": 225
+  },
+  "sign_tuples": {
+   "-1,-1,0,1": 412,
+   "-1,-1,1,0": 9796,
+   "-1,-1,1,1": 138088,
+   "-1,0,0,1": 518,
+   "-1,0,1,0": 1621,
+   "-1,0,1,1": 376,
+   "0,-1,0,1": 1531,
+   "0,-1,1,0": 38036,
+   "0,-1,1,1": 9622
+  },
+  "control_count_A_lam_in_[-1e-9,0]_not_pd": 0,
+  "control_count_scope": "all class-A points of this sampling stream; per-point verdicts are also stored for every best search point; NOT computed for every residual evaluation inside the searches (R5)",
+  "status": "empirical: a tuple not seen is 'not observed in the sample', not 'impossible'"
+ },
+ {
+  "region": "B",
+  "n_in_region": 200000,
+  "n_draws": 370367,
+  "acceptance_rate": 0.5400049140447178,
+  "reached_target": true,
+  "class_counts_all_draws": {
+   "1": 98277,
+   "2": 200000,
+   "3": 71991,
+   "4": 99
+  },
+  "sign_tuples": {
+   "-1,-1,0,1": 13,
+   "-1,-1,1,0": 5770,
+   "-1,-1,1,1": 44625,
+   "-1,0,0,1": 7,
+   "-1,0,1,0": 543,
+   "-1,0,1,1": 25,
+   "-1,1,-1,0": 4642,
+   "-1,1,-1,1": 79693,
+   "-1,1,0,0": 18182,
+   "0,-1,0,1": 558,
+   "0,-1,1,0": 17421,
+   "0,-1,1,1": 5860,
+   "0,0,-1,1": 18084,
+   "0,1,-1,0": 6,
+   "0,1,-1,1": 4571
+  },
+  "control_count_A_lam_in_[-1e-9,0]_not_pd": null,
+  "control_count_scope": "all class-A points of this sampling stream; per-point verdicts are also stored for every best search point; NOT computed for every residual evaluation inside the searches (R5)",
+  "status": "empirical: a tuple not seen is 'not observed in the sample', not 'impossible'"
+ }
+]
