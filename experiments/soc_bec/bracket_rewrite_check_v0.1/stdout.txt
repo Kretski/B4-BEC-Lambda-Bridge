@@ -1,0 +1,10 @@
+[PASS] R1 printed A4 bracket == -(1 + 12Q - 5 tau^2)/(32 c^3 M^2)
+[PASS] R2 bracket recomputed from the simple wave == rewrite
+[PASS] R3 c3 = 0: bracket / Galilean bracket (same M, mu) == 1 + 12Q  ratio = 96*M**2*c4*mu + 1
+   SOC g=0.2 x=1.20 d=0      : rewrite -8.194788981e-01  registered -8.19478898e-01  rel 1.5e-10
+   SOC g=0.2 x=1.10 d=0      : rewrite -2.562684649e+00  registered -2.56268465e+00  rel 2.8e-10
+   SOC g=0.2 x=1.20 d=0.05   : rewrite -7.140433049e-01  registered -7.14043305e-01  rel 1.5e-10
+   Galilean M=1 mu=1         : rewrite -4.882812500e-03  registered -4.88281250e-03  rel 2.2e-16
+[PASS] R4 rewrite reproduces registered B1 formula values (rel 1e-8)
+
+ALL CHECKS: PASS

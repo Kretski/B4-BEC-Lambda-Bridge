@@ -1,0 +1,12 @@
+RUN CONTEXT - SOC detuning tolerance check (SOC_DETUNING_TOLERANCE_NOTE_v0.1, section 5)
+
+Authorisation: user, 2026-11-20 17:45 +02:00 (A1-A6, Part B, PC1-PC3, one run).
+Pre-registration: SOC_DETUNING_TOLERANCE_NOTE_v0.1.md sha256 49508fdbf9ee07d7d2cc9838361ee16a0a69627c528b770cdd8a663aa61f8367
+Repository head at run time: 0f9752c46eb873bec2130bf2a81247f35d3ee6c8 (not a clone run; local workspace, as for the v0.3 symbolic check)
+Machine: local cloud workspace (Linux 6.18). Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1, SymPy 1.14.0.
+Command: python3 -I soc_detuning_tolerance_check.py > stdout.txt 2> stderr.txt
+Script sha256: 3bb7eff709723c74b91243ad8a9321c65a1f8d76aae00f281f12545bbd218129
+Start 2026-11-20T17:48:56+02:00, end 2026-11-20T17:49:10+02:00, exit code 0. One attempt only.
+stdout sha256: 1ae64eddc1892d12adfc194ec7951938077e08e3f52a871c291cf10f24cd1555
+stderr: empty (e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+Result line: ALL CHECKS: PASS; pre-registered category at gamma=0.2, x=1.2: sensitive (delta_tol = 0.09378 E_R).

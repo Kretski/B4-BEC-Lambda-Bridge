@@ -1,0 +1,13 @@
+RUN CONTEXT - symbolic check of the hand rewrite in SOC_DETUNING_AND_PULSE_CROSSING_REPORT_v0.1 section II.4
+
+Request: user, 2026-11-21 14:03 +02:00 (check the rewrite symbolically before registration). Checks R1-R4 stated in the chat before the run.
+Report under check: SOC_DETUNING_AND_PULSE_CROSSING_REPORT_v0.1.md sha256 1f9fd1a9f5c789adb17f6763a7b45383caca88ac03fbaab1f2b09fc02309aaf1
+Reference output: pulse-crossing run stdout sha256 d00758a4d690cee088dfadd57004ec8d66219810c655b90ff7b0277a1fe1f485
+Repository head at run time: 0f9752c46eb873bec2130bf2a81247f35d3ee6c8 (local workspace, not a clean clone; same workspace as the two runs it refers to)
+Machine: local cloud workspace (Linux 6.18). Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1, SymPy 1.14.0.
+Command: python3 -I soc_bracket_rewrite_check.py > stdout.txt 2> stderr.txt
+Script sha256: c67f23cb5df718bb1f68a3be9cb4b2b46ed95295e9eed0ab13e5206a81a23cf6
+Start 2026-11-21T14:04:25+02:00, end 2026-11-21T14:04:27+02:00, exit code 0. One attempt only.
+stdout sha256: 3a9d4c4e38634973c0afeb20c60ae2c4f07d7bf20af0ae745f9ccc04879be004
+stderr: empty (e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+Result line: ALL CHECKS: PASS (R1-R4).

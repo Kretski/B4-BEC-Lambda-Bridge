@@ -1,0 +1,14 @@
+RUN CONTEXT - SOC pulse-crossing delay check (SOC_PULSE_CROSSING_DELAY_NOTE_v0.2, section 5)
+
+Authorisation: review of 2026-11-21 ("APPROVED, one run"), relayed by the user 13:38 +02:00.
+Pre-registration: SOC_PULSE_CROSSING_DELAY_NOTE_v0.2.md sha256 c2349f9d5f6fb2c2318141bd0b3c3a8f57b0bfada882f4ec558fff253195846f
+Review recommendations applied in the script: PC3 evaluated at both ends of the time interval (linear in t) for 4001 labels;
+comparisons use relative tolerance plus an absolute floor (close(): rel 1e-3 + abs 1e-9).
+Repository head at run time: 0f9752c46eb873bec2130bf2a81247f35d3ee6c8 (local workspace, as for the earlier symbolic checks)
+Machine: local cloud workspace (Linux 6.18). Python 3.13.18, NumPy 2.5.3, SciPy 1.18.1, SymPy 1.14.0.
+Command: python3 -I soc_pulse_crossing_check.py > stdout.txt 2> stderr.txt
+Script sha256: 0566b8b3fffa3e60ef1e3c169f6a0e4038f4e144f88e213d365d6e787a60093b
+Start 2026-11-21T13:41:28+02:00, end 2026-11-21T13:41:43+02:00, exit code 0. One attempt only.
+stdout sha256: d00758a4d690cee088dfadd57004ec8d66219810c655b90ff7b0277a1fe1f485
+stderr: empty (e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+Result line: ALL CHECKS: PASS; decision D1 (Galilean advance confirmed); D4 not triggered (g2 slope 2.95e-12).
